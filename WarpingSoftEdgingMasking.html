@@ -1,0 +1,690 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>UserManual/WarpingSoftEdgingMasking</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript" src="js/usermanual.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script><script src="js/jquery-ui.min.js"></script><script type="text/javascript">
+    function getParam(name, defaultValue) {
+        var url = window.location.search.substring(1);
+        var vars = url.split('&');
+        for (var i = 0; i < vars.length; ++i) {
+            var param = vars[i].split('=');
+            if (param[0] == name) {
+                return param[1];
+            }
+        }
+        return defaultValue;
+    }
+
+    jQuery(document).ready(function($) {
+        var link;
+        var itemIndex = getParam('itm', -1)
+        if (itemIndex != -1) {
+            var link = $('a[item-index="' + itemIndex + '"]:first');
+        } else {
+            var page = window.location.pathname;
+            var parts = page.split("/");
+            if (parts.length >= 2) {
+                page = parts[parts.length-2] + "/" + parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+            if ( link.length === 0 && parts.length >= 1 ) {
+                page = parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+        }
+
+        var tabIndex = 0;
+        if (link.length > 0) {
+            tabIndex = parseInt(link.attr("tab-index"), 10);
+            link.addClass('current');
+            link.parent().addClass('current');
+        }
+
+        $("#navigation").accordion({
+            heightStyle: "content",
+            collapsible: true,
+            active: tabIndex
+        });
+
+        $('#sidebar').scrollTop(link.offset().top - 20);
+    });
+    </script>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <!--sidebar begin--> <div id="sidebar"><h1>Navigation</h1><div id="navigation"><h3>Ventuz 6 Quick Guide</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="QuickGuideIntro.html?itm=0" tab-index="0" item-index="0" lst="1-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GettingStarted.html?itm=1" tab-index="0" item-index="1" lst="1-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzEditions.html?itm=2" tab-index="0" item-index="2" lst="1-1">Ventuz Editions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner.html?itm=3" tab-index="0" item-index="3" lst="1-1">Designer Overview</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SystemRequirements.html?itm=4" tab-index="0" item-index="4" lst="1-2">Ventuz System Requirements</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfiguration.html?itm=5" tab-index="0" item-index="5" lst="1-2">Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationAV.html?itm=6" tab-index="0" item-index="6" lst="1-2">Video/Audio Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationMC.html?itm=7" tab-index="0" item-index="7" lst="1-2">Machine Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GPIConfiguration.html?itm=8" tab-index="0" item-index="8" lst="1-2">GPI Configuration for Runtime or Director</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Performance.html?itm=9" tab-index="0" item-index="9" lst="1-2">Optimize Rendering Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SupportedFormats.html?itm=10" tab-index="0" item-index="10" lst="1-2">Supported Formats</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationVendors.html?itm=11" tab-index="0" item-index="11" lst="1-2">Supported Hardware</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AntiAliasing.html?itm=12" tab-index="0" item-index="12" lst="1-2">Multisampling / Anti-Aliasing</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InputSubsystem.html?itm=13" tab-index="0" item-index="13" lst="1-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="VentuzFileTypes.html?itm=14" tab-index="0" item-index="14" lst="1-2">Ventuz Proprietary Files</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="WhatsNew.html?itm=15" tab-index="0" item-index="15" lst="1-1">What&apos;s new</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="FAQ.html?itm=16" tab-index="0" item-index="16" lst="1-1">FAQ</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="CommonMistakes.html?itm=17" tab-index="0" item-index="17" lst="1-1">Common Mistakes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Deployment.html?itm=18" tab-index="0" item-index="18" lst="1-1">Deployment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MigrationGuide.html?itm=19" tab-index="0" item-index="19" lst="1-1">Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MigrationGuideV4V5.html?itm=20" tab-index="0" item-index="20" lst="1-1">Ventuz 5 Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="SummaryShortcuts.html?itm=21" tab-index="0" item-index="21" lst="1-1">Summary Shortcuts</a></li></ul></div><h3>Ventuz 6 Designer</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Index.html?itm=22" tab-index="1" item-index="22" lst="3-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GettingStarted_2.html?itm=23" tab-index="1" item-index="23" lst="3-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DesignerOptions.html?itm=24" tab-index="1" item-index="24" lst="3-1">Designer Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner_2.html?itm=25" tab-index="1" item-index="25" lst="3-1">Designer Overview</a></li></ul><div class="list-label list-level-1">Projects &amp; Scenes</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="ProjectsAndScenes.html?itm=26" tab-index="1" item-index="26" lst="4-1">Projects and Scenes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WindowProjectBrowser.html?itm=27" tab-index="1" item-index="27" lst="4-2">Project Browser</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectProperties.html?itm=28" tab-index="1" item-index="28" lst="4-2">Project Properties</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectMaintenance.html?itm=29" tab-index="1" item-index="29" lst="4-2">Project Maintenance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectAndSceneData.html?itm=30" tab-index="1" item-index="30" lst="4-2">Project and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneTree.html?itm=31" tab-index="1" item-index="31" lst="4-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneManagement.html?itm=32" tab-index="1" item-index="32" lst="4-2">Scene Management</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneStatistics.html?itm=33" tab-index="1" item-index="33" lst="4-2">Scene Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Deployment_2.html?itm=34" tab-index="1" item-index="34" lst="4-2">Deployment</a></li></ul></li></ul><div class="list-label list-level-1">Interface</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="UserInterface.html?itm=35" tab-index="1" item-index="35" lst="7-1">Designer Interface</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RendererWindow.html?itm=36" tab-index="1" item-index="36" lst="7-2">Renderer Window</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RealtimeRendering.html?itm=37" tab-index="1" item-index="37" lst="7-2">Realtime Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Performance_2.html?itm=38" tab-index="1" item-index="38" lst="7-2">Optimize Scene Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PerformanceStatistics.html?itm=39" tab-index="1" item-index="39" lst="7-2">Performance Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TransformationGizmo.html?itm=40" tab-index="1" item-index="40" lst="7-2">Transformation Gizmo</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RenderToDisk.html?itm=41" tab-index="1" item-index="41" lst="7-2">Render to Disk</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="CameraNavigation.html?itm=42" tab-index="1" item-index="42" lst="7-2">Camera Navigation</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="IsolateMode.html?itm=43" tab-index="1" item-index="43" lst="7-2">Isolated Objects</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TransformationGizmo_2.html?itm=44" tab-index="1" item-index="44" lst="7-2">Manipulate Objects with Gizmos</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LayerEditor.html?itm=45" tab-index="1" item-index="45" lst="7-2">Layer Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LayerCommonProperties.html?itm=46" tab-index="1" item-index="46" lst="7-2">Common Layer Properties</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP.html?itm=47" tab-index="1" item-index="47" lst="7-3">IPP Effects</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_ColorCorrections.html?itm=48" tab-index="1" item-index="48" lst="7-3">Color Correction FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_Distortion.html?itm=49" tab-index="1" item-index="49" lst="7-3">Distortion FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_Filters.html?itm=50" tab-index="1" item-index="50" lst="7-3">Filter FX</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsLayerEditor.html?itm=51" tab-index="1" item-index="51" lst="7-2">Layer Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="HierarchyEditor.html?itm=52" tab-index="1" item-index="52" lst="7-2">Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="NodesAndBindings.html?itm=53" tab-index="1" item-index="53" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainersAndInterfaces.html?itm=54" tab-index="1" item-index="54" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="FindAndReplace.html?itm=55" tab-index="1" item-index="55" lst="7-2">Find and Replace</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsHierarchyEditor.html?itm=56" tab-index="1" item-index="56" lst="7-2">Shortcuts Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContentEditor.html?itm=57" tab-index="1" item-index="57" lst="7-2">Content Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="NodesAndBindings_2.html?itm=58" tab-index="1" item-index="58" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainersAndInterfaces_2.html?itm=59" tab-index="1" item-index="59" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsContentEditor.html?itm=60" tab-index="1" item-index="60" lst="7-2">Content Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ToolboxAndRepository.html?itm=61" tab-index="1" item-index="61" lst="7-2">Toolbox</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PropertiesEditor.html?itm=62" tab-index="1" item-index="62" lst="7-2">Property Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectAndSceneData_2.html?itm=63" tab-index="1" item-index="63" lst="7-2">Project Data and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PropertyGroups.html?itm=64" tab-index="1" item-index="64" lst="7-2">Property Groups</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShaderEditor.html?itm=65" tab-index="1" item-index="65" lst="7-2">Shader Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextEditor.html?itm=66" tab-index="1" item-index="66" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneTree_2.html?itm=67" tab-index="1" item-index="67" lst="7-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MessageView.html?itm=68" tab-index="1" item-index="68" lst="7-2">Message View</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="StageEditor.html?itm=69" tab-index="1" item-index="69" lst="7-2">Stage Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainerOutline.html?itm=70" tab-index="1" item-index="70" lst="7-2">Container Outline</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WatchesEditor.html?itm=71" tab-index="1" item-index="71" lst="7-2">Watches Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationEditor.html?itm=72" tab-index="1" item-index="72" lst="7-2">Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationAndStateEngine.html?itm=73" tab-index="1" item-index="73" lst="7-2">Animation and State Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Templates.html?itm=74" tab-index="1" item-index="74" lst="7-2">Templates</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TemplateEngine.html?itm=75" tab-index="1" item-index="75" lst="7-2">Template Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsAnimationEditor.html?itm=76" tab-index="1" item-index="76" lst="7-2">Shortcuts Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextRendering.html?itm=77" tab-index="1" item-index="77" lst="7-2">Text Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextEditor_2.html?itm=78" tab-index="1" item-index="78" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="CharacterSets.html?itm=79" tab-index="1" item-index="79" lst="7-2">Character Sets</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GeometryImport.html?itm=80" tab-index="1" item-index="80" lst="7-2">Geometry Import</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InputSubsystem_2.html?itm=81" tab-index="1" item-index="81" lst="7-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MultiTouch.html?itm=82" tab-index="1" item-index="82" lst="7-2">Multitouch</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TUIO.html?itm=83" tab-index="1" item-index="83" lst="7-2">TUIO Protocol</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="OpenSoundControl.html?itm=84" tab-index="1" item-index="84" lst="7-2">Open Sound Control</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="HowTo/HowToVR.html?itm=85" tab-index="1" item-index="85" lst="7-2">How to work with Head Mounted Displays</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Cluster.html?itm=86" tab-index="1" item-index="86" lst="7-2">Cluster</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MultiDisplaySetupsAndShaping.html?itm=87" tab-index="1" item-index="87" lst="7-2">Multi Display Setups and Shaping</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WarpingSoftEdgingMasking.html?itm=88" tab-index="1" item-index="88" lst="7-2">Warping, Soft Edging and Masking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Nodes.html?itm=89" tab-index="1" item-index="89" lst="7-1">Available Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationNodes.html?itm=90" tab-index="1" item-index="90" lst="7-2">Animation Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MaterialNodes.html?itm=91" tab-index="1" item-index="91" lst="7-2">Material&amp;Color Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="DataNodes.html?itm=92" tab-index="1" item-index="92" lst="7-2">Data Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GeometryNodes.html?itm=93" tab-index="1" item-index="93" lst="7-2">Geometry Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InteractionNodes.html?itm=94" tab-index="1" item-index="94" lst="7-2">Interaction Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="IONodes.html?itm=95" tab-index="1" item-index="95" lst="7-2">IO Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Layers.html?itm=96" tab-index="1" item-index="96" lst="7-2">Layers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LightNodes.html?itm=97" tab-index="1" item-index="97" lst="7-2">Light Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LogicNodes.html?itm=98" tab-index="1" item-index="98" lst="7-2">Logic Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RenderNodes.html?itm=99" tab-index="1" item-index="99" lst="7-2">Render Option Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SlidesNodes.html?itm=100" tab-index="1" item-index="100" lst="7-2">Slides Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SoundNodes.html?itm=101" tab-index="1" item-index="101" lst="7-2">Sound Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextNodes.html?itm=102" tab-index="1" item-index="102" lst="7-2">Text Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextureNodes.html?itm=103" tab-index="1" item-index="103" lst="7-2">Texture Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="VrNodes.html?itm=104" tab-index="1" item-index="104" lst="7-2">VR Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WorldNodes.html?itm=105" tab-index="1" item-index="105" lst="7-2">World Nodes</a></li></ul></li></ul></div><h3>Ventuz 6 Node Reference</h3><div><div class="list-label list-level-1">ANIMATION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationMover.html?itm=106" tab-index="2" item-index="106" lst="24-1">Mover</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationMover_2.html?itm=107" tab-index="2" item-index="107" lst="24-1">Alternator</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationControls.html?itm=108" tab-index="2" item-index="108" lst="24-1">Simple Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationControls_2.html?itm=109" tab-index="2" item-index="109" lst="24-1">Timeline Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationAnimationRig.html?itm=110" tab-index="2" item-index="110" lst="24-1">Anmation Rig</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationKeyframeAnimation.html?itm=111" tab-index="2" item-index="111" lst="24-1">Keyframe Animation</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationKeyframeAnimation_2.html?itm=112" tab-index="2" item-index="112" lst="24-1">Animation Group</a></li></ul><div class="list-label list-level-1">COLOR/MATERIAL</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorAlpha.html?itm=113" tab-index="2" item-index="113" lst="25-1">Alpha</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorFog.html?itm=114" tab-index="2" item-index="114" lst="25-1">Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorFog_2.html?itm=115" tab-index="2" item-index="115" lst="25-1">Ground Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorSkyBox.html?itm=116" tab-index="2" item-index="116" lst="25-1">Sky Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters.html?itm=117" tab-index="2" item-index="117" lst="25-1">Color to RGBA</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_2.html?itm=118" tab-index="2" item-index="118" lst="25-1">HSLA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_3.html?itm=119" tab-index="2" item-index="119" lst="25-1">RGBA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_4.html?itm=120" tab-index="2" item-index="120" lst="25-1">Color Transformer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeShaderHLSLShader.html?itm=121" tab-index="2" item-index="121" lst="25-1">HLSL Shader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorColor.html?itm=122" tab-index="2" item-index="122" lst="25-1">Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorMaterial.html?itm=123" tab-index="2" item-index="123" lst="25-1">Material</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorColorPicker.html?itm=124" tab-index="2" item-index="124" lst="25-1">Color Picker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorSubstanceMaterial.html?itm=125" tab-index="2" item-index="125" lst="25-1">Substance Material</a></li></ul><div class="list-label list-level-1">DATA</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataDatabase.html?itm=126" tab-index="2" item-index="126" lst="26-1">Database</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataExcel.html?itm=127" tab-index="2" item-index="127" lst="26-1">Excel</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataJSON.html?itm=128" tab-index="2" item-index="128" lst="26-1">JSON</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataRSSFeed.html?itm=129" tab-index="2" item-index="129" lst="26-1">RSS Feed</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataResourceLinker.html?itm=130" tab-index="2" item-index="130" lst="26-1">Resource Linker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataTextFile.html?itm=131" tab-index="2" item-index="131" lst="26-1">Text File</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataXML.html?itm=132" tab-index="2" item-index="132" lst="26-1">XML</a></li></ul><div class="list-label list-level-1">GEOMETRY</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles.html?itm=133" tab-index="2" item-index="133" lst="27-1">Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_2.html?itm=134" tab-index="2" item-index="134" lst="27-1">Rounded Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_3.html?itm=135" tab-index="2" item-index="135" lst="27-1">Gradient Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_4.html?itm=136" tab-index="2" item-index="136" lst="27-1">Overlay Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCube.html?itm=137" tab-index="2" item-index="137" lst="27-1">Cube</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCircle.html?itm=138" tab-index="2" item-index="138" lst="27-1">Circle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometrySphere.html?itm=139" tab-index="2" item-index="139" lst="27-1">Sphere</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCylinder.html?itm=140" tab-index="2" item-index="140" lst="27-1">Cylinder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCone.html?itm=141" tab-index="2" item-index="141" lst="27-1">Cone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryTorus.html?itm=142" tab-index="2" item-index="142" lst="27-1">Torus</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryChart.html?itm=143" tab-index="2" item-index="143" lst="27-1">Chart</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRandomPoints.html?itm=144" tab-index="2" item-index="144" lst="27-1">Random Points</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryMeshLoader.html?itm=145" tab-index="2" item-index="145" lst="27-1">Mesh Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryImport.html?itm=146" tab-index="2" item-index="146" lst="27-1">Geometry Import (Live)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryVolume.html?itm=147" tab-index="2" item-index="147" lst="27-1">Volume</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryGetBoundingBox.html?itm=148" tab-index="2" item-index="148" lst="27-1">Get Bounding Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryArrow.html?itm=149" tab-index="2" item-index="149" lst="27-1">Arrow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryParticleSystem.html?itm=150" tab-index="2" item-index="150" lst="27-1">Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryPath.html?itm=151" tab-index="2" item-index="151" lst="27-1">Path Renderer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryGeometryRenderer.html?itm=152" tab-index="2" item-index="152" lst="27-1">Geometry Renderer</a></li></ul><div class="list-label list-level-1">INTERACTION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionInteractionRect.html?itm=153" tab-index="2" item-index="153" lst="28-1">Interaction Rect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchButton.html?itm=154" tab-index="2" item-index="154" lst="28-1">Touch Button</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchExcluder.html?itm=155" tab-index="2" item-index="155" lst="28-1">Touch Excluder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchMarker.html?itm=156" tab-index="2" item-index="156" lst="28-1">Touch Marker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchPaint.html?itm=157" tab-index="2" item-index="157" lst="28-1">Touch Paint</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchPattern.html?itm=158" tab-index="2" item-index="158" lst="28-1">Touch Pattern</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchProxy.html?itm=159" tab-index="2" item-index="159" lst="28-1">Touch Proxy</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchRipples.html?itm=160" tab-index="2" item-index="160" lst="28-1">Touch Ripples</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchTransformations.html?itm=161" tab-index="2" item-index="161" lst="28-1">Touch Transformations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchWebBrowser.html?itm=162" tab-index="2" item-index="162" lst="28-1">Web Browser</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchTeleport.html?itm=163" tab-index="2" item-index="163" lst="28-1">Touch Teleport</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchSimulator.html?itm=164" tab-index="2" item-index="164" lst="28-1">Touch Simulator</a></li></ul><div class="list-label list-level-1">INPUT/OUTPUT (I/O)</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOGPI.html?itm=165" tab-index="2" item-index="165" lst="29-1">GPI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOJoystick.html?itm=166" tab-index="2" item-index="166" lst="29-1">Joystick</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOKeyboard.html?itm=167" tab-index="2" item-index="167" lst="29-1">Keyboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOMIDI.html?itm=168" tab-index="2" item-index="168" lst="29-1">MIDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOMouse.html?itm=169" tab-index="2" item-index="169" lst="29-1">Mouse</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIONetwork.html?itm=170" tab-index="2" item-index="170" lst="29-1">Network</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOOSC.html?itm=171" tab-index="2" item-index="171" lst="29-1">Open Sound Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOSerial.html?itm=172" tab-index="2" item-index="172" lst="29-1">Serial</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOTimecode.html?itm=173" tab-index="2" item-index="173" lst="29-1">Timecode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIODMX.html?itm=174" tab-index="2" item-index="174" lst="29-1">DMX</a></li></ul><div class="list-label list-level-1">LAYER</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer3D.html?itm=175" tab-index="2" item-index="175" lst="30-1">3D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer3DReference.html?itm=176" tab-index="2" item-index="176" lst="30-1">3D Layer Reference</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer2D.html?itm=177" tab-index="2" item-index="177" lst="30-1">2D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayerPsdImport.html?itm=178" tab-index="2" item-index="178" lst="30-1">PSD Import Layer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayerOther.html?itm=179" tab-index="2" item-index="179" lst="30-1">Others</a></li></ul><div class="list-label list-level-1">LIGHT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLightSources.html?itm=180" tab-index="2" item-index="180" lst="31-1">Light Sources</a></li></ul><div class="list-label list-level-1">LOGIC</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicArrayProcessing.html?itm=181" tab-index="2" item-index="181" lst="32-1">Array Processing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicConvertToText.html?itm=182" tab-index="2" item-index="182" lst="32-1">Convert To Text</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicCluster.html?itm=183" tab-index="2" item-index="183" lst="32-1">Cluster Synchronization</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicCounter.html?itm=184" tab-index="2" item-index="184" lst="32-1">Counter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDateTime.html?itm=185" tab-index="2" item-index="185" lst="32-1">Date Time</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDirectory.html?itm=186" tab-index="2" item-index="186" lst="32-1">Directory</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDispatcher.html?itm=187" tab-index="2" item-index="187" lst="32-1">Dispatcher</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicEnumeration.html?itm=188" tab-index="2" item-index="188" lst="32-1">Enumeration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicExpressions.html?itm=189" tab-index="2" item-index="189" lst="32-1">Expressions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicInvert.html?itm=190" tab-index="2" item-index="190" lst="32-1">Invert</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicLog.html?itm=191" tab-index="2" item-index="191" lst="32-1">Log</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicLoopBreaker.html?itm=192" tab-index="2" item-index="192" lst="32-1">Loop Breaker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicMathEffects.html?itm=193" tab-index="2" item-index="193" lst="32-1">Math Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicMatrixOperations.html?itm=194" tab-index="2" item-index="194" lst="32-1">Matrix Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicSceneEvent.html?itm=195" tab-index="2" item-index="195" lst="32-1">Scene Event</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicScript.html?itm=196" tab-index="2" item-index="196" lst="32-1">Script</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicStringOperations.html?itm=197" tab-index="2" item-index="197" lst="32-1">String Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicSystemID.html?itm=198" tab-index="2" item-index="198" lst="32-1">System ID</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicTextSplitter.html?itm=199" tab-index="2" item-index="199" lst="32-1">Text Splitter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicTimer.html?itm=200" tab-index="2" item-index="200" lst="32-1">Timer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicToggle.html?itm=201" tab-index="2" item-index="201" lst="32-1">Toggle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicURL.html?itm=202" tab-index="2" item-index="202" lst="32-1">URL</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicValueSwitch.html?itm=203" tab-index="2" item-index="203" lst="32-1">Value Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicValueBuffer.html?itm=204" tab-index="2" item-index="204" lst="32-1">Value Buffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicVariables.html?itm=205" tab-index="2" item-index="205" lst="32-1">Variables</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicVisualIndexer.html?itm=206" tab-index="2" item-index="206" lst="32-1">Visual Indexer</a></li></ul><div class="list-label list-level-1">RENDER OPTIONS</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaBlending.html?itm=207" tab-index="2" item-index="207" lst="33-1">Alpha Blending</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaBlending_2.html?itm=208" tab-index="2" item-index="208" lst="33-1">Color Write</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaTesting.html?itm=209" tab-index="2" item-index="209" lst="33-1">Alpha Testing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsClipPlane.html?itm=210" tab-index="2" item-index="210" lst="33-1">Clip Plane</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsFilter.html?itm=211" tab-index="2" item-index="211" lst="33-1">Filter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsMask.html?itm=212" tab-index="2" item-index="212" lst="33-1">Mask</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsMirror.html?itm=213" tab-index="2" item-index="213" lst="33-1">Mirror</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsEffect.html?itm=214" tab-index="2" item-index="214" lst="33-1">Effect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsRenderCubeMap.html?itm=215" tab-index="2" item-index="215" lst="33-1">Render Cube Map</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsDrawMode.html?itm=216" tab-index="2" item-index="216" lst="33-1">Draw Modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsStencil.html?itm=217" tab-index="2" item-index="217" lst="33-1">Stencil</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsZTesting.html?itm=218" tab-index="2" item-index="218" lst="33-1">ZTesting</a></li></ul><div class="list-label list-level-1">SOUND</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundPlayback.html?itm=219" tab-index="2" item-index="219" lst="34-1">Audio Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundPlayback_2.html?itm=220" tab-index="2" item-index="220" lst="34-1">Sound</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAudioControl.html?itm=221" tab-index="2" item-index="221" lst="34-1">Volume Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundAnalyzeAudio.html?itm=222" tab-index="2" item-index="222" lst="34-1">Audio Analysis</a></li></ul><div class="list-label list-level-1">SLIDES</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager.html?itm=223" tab-index="2" item-index="223" lst="35-1">Slide Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_2.html?itm=224" tab-index="2" item-index="224" lst="35-1">Slide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_3.html?itm=225" tab-index="2" item-index="225" lst="35-1">Slide Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_4.html?itm=226" tab-index="2" item-index="226" lst="35-1">Pivot</a></li></ul><div class="list-label list-level-1">TEXT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextEffects.html?itm=227" tab-index="2" item-index="227" lst="36-1">Text Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextLayout.html?itm=228" tab-index="2" item-index="228" lst="36-1">Text Layouts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextRendering.html?itm=229" tab-index="2" item-index="229" lst="36-1">Text Rendering</a></li></ul><div class="list-label list-level-1">TEXTURE</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureBackground.html?itm=230" tab-index="2" item-index="230" lst="37-1">Background</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureHatch.html?itm=231" tab-index="2" item-index="231" lst="37-1">Hatch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureImage.html?itm=232" tab-index="2" item-index="232" lst="37-1">Image</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureTexture.html?itm=233" tab-index="2" item-index="233" lst="37-1">Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSVGLoader.html?itm=234" tab-index="2" item-index="234" lst="37-1">SVG Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureGradientTexture.html?itm=235" tab-index="2" item-index="235" lst="37-1">Gradient Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo.html?itm=236" tab-index="2" item-index="236" lst="37-1">Live Video</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_2.html?itm=237" tab-index="2" item-index="237" lst="37-1">Movie Stream</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_3.html?itm=238" tab-index="2" item-index="238" lst="37-1">Movie Frame</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_4.html?itm=239" tab-index="2" item-index="239" lst="37-1">Movie Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureImageLoaders.html?itm=240" tab-index="2" item-index="240" lst="37-1">Texture Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSnapshot.html?itm=241" tab-index="2" item-index="241" lst="37-1">Snapshot</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureRenderSnapshot.html?itm=242" tab-index="2" item-index="242" lst="37-1">Snapshot Framebuffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureTextureSaver.html?itm=243" tab-index="2" item-index="243" lst="37-1">Texture Saver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideoSourceSelector.html?itm=244" tab-index="2" item-index="244" lst="37-1">Video Source Selector</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVioInput.html?itm=245" tab-index="2" item-index="245" lst="37-1">VIO Input</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSpout.html?itm=246" tab-index="2" item-index="246" lst="37-1">Spout Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureNDI.html?itm=247" tab-index="2" item-index="247" lst="37-1">NDI Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSubstanceLoader.html?itm=248" tab-index="2" item-index="248" lst="37-1">Substance Loader</a></li></ul><div class="list-label list-level-1">VR/AR</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeVrTracked.html?itm=249" tab-index="2" item-index="249" lst="38-1">Tracked Devices</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeVrTracked_2.html?itm=250" tab-index="2" item-index="250" lst="38-1">Draw Tracked Devices</a></li></ul><div class="list-label list-level-1">WORLD</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis.html?itm=251" tab-index="2" item-index="251" lst="39-1">Axis</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_2.html?itm=252" tab-index="2" item-index="252" lst="39-1">Billboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_3.html?itm=253" tab-index="2" item-index="253" lst="39-1">GetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_4.html?itm=254" tab-index="2" item-index="254" lst="39-1">SetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldArrange.html?itm=255" tab-index="2" item-index="255" lst="39-1">Arrange</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTicker.html?itm=256" tab-index="2" item-index="256" lst="39-1">Ticker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTicker_2.html?itm=257" tab-index="2" item-index="257" lst="39-1">Layout</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldGroup.html?itm=258" tab-index="2" item-index="258" lst="39-1">Group</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldZSort.html?itm=259" tab-index="2" item-index="259" lst="39-1">World Z Sort</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSwitch.html?itm=260" tab-index="2" item-index="260" lst="39-1">YesNo</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSwitch_2.html?itm=261" tab-index="2" item-index="261" lst="39-1">Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSpread.html?itm=262" tab-index="2" item-index="262" lst="39-1">Spread</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldRenderPass.html?itm=263" tab-index="2" item-index="263" lst="39-1">Filter Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldRenderPass_2.html?itm=264" tab-index="2" item-index="264" lst="39-1">Set Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldContainer.html?itm=265" tab-index="2" item-index="265" lst="39-1">Hierarchy Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldScenePort.html?itm=266" tab-index="2" item-index="266" lst="39-1">Scene Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldContainer_2.html?itm=267" tab-index="2" item-index="267" lst="39-1">Content Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTemplatePort.html?itm=268" tab-index="2" item-index="268" lst="39-1">Template Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldScenePort_2.html?itm=269" tab-index="2" item-index="269" lst="39-1">Container Info</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldCamera.html?itm=270" tab-index="2" item-index="270" lst="39-1">Camera</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldPath.html?itm=271" tab-index="2" item-index="271" lst="39-1">Paths</a></li></ul></div><h3>Ventuz 6 Configuration Editor</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfiguration_2.html?itm=272" tab-index="3" item-index="272" lst="40-1">Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationMC_2.html?itm=273" tab-index="3" item-index="273" lst="40-1">Machine Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationAV_2.html?itm=274" tab-index="3" item-index="274" lst="40-1">Video/Audio Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationWeb.html?itm=275" tab-index="3" item-index="275" lst="40-1">Web Configuration Editor and License Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MultiDisplaySetupsAndShaping_2.html?itm=276" tab-index="3" item-index="276" lst="40-1">Render Setup Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="WarpingSoftEdgingMasking_2.html?itm=277" tab-index="3" item-index="277" lst="40-1">Warping and Soft-Edging Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationVendors_2.html?itm=278" tab-index="3" item-index="278" lst="40-1">Supported Hardware</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToClusterRendering.html?itm=279" tab-index="3" item-index="279" lst="40-1">How to Setup a Cluster Render</a></li></ul></div><h3>Ventuz 6 Director</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ApplicationSettings.html?itm=280" tab-index="4" item-index="280" lst="41-1">Application Settings</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Assets.html?itm=281" tab-index="4" item-index="281" lst="41-1">Assets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Channels.html?itm=282" tab-index="4" item-index="282" lst="41-1">Channels</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/CommandLineOptions.html?itm=283" tab-index="4" item-index="283" lst="41-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ContentReferences.html?itm=284" tab-index="4" item-index="284" lst="41-1">Content References</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/DesigningTemplates.html?itm=285" tab-index="4" item-index="285" lst="41-1">Designing Templates</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Environment.html?itm=286" tab-index="4" item-index="286" lst="41-1">Environment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Glossary.html?itm=287" tab-index="4" item-index="287" lst="41-1">Glossary</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Index.html?itm=288" tab-index="4" item-index="288" lst="41-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Introduction.html?itm=289" tab-index="4" item-index="289" lst="41-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Pages.html?itm=290" tab-index="4" item-index="290" lst="41-1">Pages</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Playlist.html?itm=291" tab-index="4" item-index="291" lst="41-1">Playlist</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/PlugIns.html?itm=292" tab-index="4" item-index="292" lst="41-1">Plug-Ins</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ProjectData.html?itm=293" tab-index="4" item-index="293" lst="41-1">Project Data</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/PropertyEditor.html?itm=294" tab-index="4" item-index="294" lst="41-1">Property Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Shortcuts.html?itm=295" tab-index="4" item-index="295" lst="41-1">Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GPIConfiguration_2.html?itm=296" tab-index="4" item-index="296" lst="41-1">GPI Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ShotBox.html?itm=297" tab-index="4" item-index="297" lst="41-1">Shot Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Show.html?itm=298" tab-index="4" item-index="298" lst="41-1">Show</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/TakingAction.html?itm=299" tab-index="4" item-index="299" lst="41-1">Taking Action</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Timeline.html?itm=300" tab-index="4" item-index="300" lst="41-1">Timeline</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Topology.html?itm=301" tab-index="4" item-index="301" lst="41-1">Topology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/UserInterface.html?itm=302" tab-index="4" item-index="302" lst="41-1">User Interface</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DirectorMode.html?itm=303" tab-index="4" item-index="303" lst="41-1">Director Mode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Macros.html?itm=304" tab-index="4" item-index="304" lst="41-1">Macros</a></li></ul></div><h3>How To</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToGetVentuzRunning.html?itm=305" tab-index="5" item-index="305" lst="42-1">How to Run Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner_3.html?itm=306" tab-index="5" item-index="306" lst="42-1">How to Work with Designer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToDragAndDropTricks.html?itm=307" tab-index="5" item-index="307" lst="42-1">Ventuz Designer Drag&amp;Drop workflow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToVR_2.html?itm=308" tab-index="5" item-index="308" lst="42-1">How to use Head Mounted Displays</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseShadows.html?itm=309" tab-index="5" item-index="309" lst="42-1">How to work with Shadows</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseEmoijs.html?itm=310" tab-index="5" item-index="310" lst="42-1">How to use Emoijs</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToBuildATemplate.html?itm=311" tab-index="5" item-index="311" lst="42-1">How to Build a Template</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseNDI.html?itm=312" tab-index="5" item-index="312" lst="42-1">How to use Newtek NDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToCreateAVisualsLoaderNode.html?itm=313" tab-index="5" item-index="313" lst="42-1">How to Create Visuals Loader Node</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToRemoteControlWithAniPhone.html?itm=314" tab-index="5" item-index="314" lst="42-1">How to Remote Control with a Phone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToClusterRendering_2.html?itm=315" tab-index="5" item-index="315" lst="42-1">How to Setup a Cluster Render</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToMixedFrameRates.html?itm=316" tab-index="5" item-index="316" lst="42-1">How to use a Mixed Frame Rate Cluster</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseTracking.html?itm=317" tab-index="5" item-index="317" lst="42-1">How to use Tracking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowTo3DLayerReference.html?itm=318" tab-index="5" item-index="318" lst="42-1">How to work with 3D Reference Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToCreateAFireworkParticleSystem.html?itm=319" tab-index="5" item-index="319" lst="42-1">How to create a Firework Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToDDS.html?itm=320" tab-index="5" item-index="320" lst="42-1">How to use DDS with new Block Compression modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseSpout.html?itm=321" tab-index="5" item-index="321" lst="42-1">How to setup Spout with Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseSubstanceIntegration.html?itm=322" tab-index="5" item-index="322" lst="42-1">How to use the Substance Integration</a></li></ul></div><h3>Keyboard Shortcuts</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="SummaryShortcuts_2.html?itm=323" tab-index="6" item-index="323" lst="43-1">Summary Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsLayerEditor_2.html?itm=324" tab-index="6" item-index="324" lst="43-1">Layer Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsHierarchyEditor_2.html?itm=325" tab-index="6" item-index="325" lst="43-1">Hierarchy Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsContentEditor_2.html?itm=326" tab-index="6" item-index="326" lst="43-1">Content Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsAnimationEditor_2.html?itm=327" tab-index="6" item-index="327" lst="43-1">Animation Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Shortcuts_2.html?itm=328" tab-index="6" item-index="328" lst="43-1">Director Shortcuts</a></li></ul></div><h3>Advanced and Development</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="CommandLineOptions.html?itm=329" tab-index="7" item-index="329" lst="44-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Remoting.html?itm=330" tab-index="7" item-index="330" lst="44-1">Remoting Overview</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Remoting4Protocol.html?itm=331" tab-index="7" item-index="331" lst="44-1">Remoting 4</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingWebsocket.html?itm=332" tab-index="7" item-index="332" lst="44-1">Remoting 4 via Websockets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingDeprecated.html?itm=333" tab-index="7" item-index="333" lst="44-1">Deprecated Remoting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzIpPorts.html?itm=334" tab-index="7" item-index="334" lst="44-1">Ventuz IP Ports</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzMachineService.html?itm=335" tab-index="7" item-index="335" lst="44-1">Ventuz Machine Service</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingMachineSignature.html?itm=336" tab-index="7" item-index="336" lst="44-1">Remoting Machine Signature</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="TUIO_2.html?itm=337" tab-index="7" item-index="337" lst="44-1">TUIO</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicScript_2.html?itm=338" tab-index="7" item-index="338" lst="44-1">.NET Scripting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeShaderHLSLShader_2.html?itm=339" tab-index="7" item-index="339" lst="44-1">HLSL Shader Programming</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentSDK.html?itm=340" tab-index="7" item-index="340" lst="44-1">Ventuz API and SDK</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentVIO.html?itm=341" tab-index="7" item-index="341" lst="44-1">Ventuz VIO API</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentVFF.html?itm=342" tab-index="7" item-index="342" lst="44-1">Ventuz File Format (VFF)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentStreamOut.html?itm=343" tab-index="7" item-index="343" lst="44-1">Ventuz Stream Out API</a></li></ul></div><h3>General Reference</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Terminology.html?itm=344" tab-index="8" item-index="344" lst="45-1">Terminology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Pages.html?itm=345" tab-index="8" item-index="345" lst="45-1">Manual Index</a></li></ul></div><h3>Miscellaneous</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Presets.html?itm=346" tab-index="9" item-index="346" lst="46-1">Presets</a></li></ul></div></div></div><!--sidebar end-->
+        <div id="user-manual-content" class="sidebar">
+            
+            <div class="control"><div class="control-prev"><a href="MultiDisplaySetupsAndShaping_2.html?itm=276">&laquo; Previous Article</a></div><div><a href="Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="MachineConfigurationVendors_2.html?itm=278">Next Article &raquo;</a></div></div>
+            <div id="user-manual-main">
+                <h1 id="WarpingandSoft-Edging" data-line="1" >Warping and Soft-Edging</h1>
+<p data-line="3" >
+<div class="wiki-toc"><h4>Table of Contents</h4><ol><li><a href="MachineConfiguration.html#VentuzConfiguration">Ventuz Configuration</a><ol><li><a href="MachineConfiguration.html#MSEL">Machine Selection</a></li><li><a href="MachineConfiguration.html#LIVEOPT">Live Options</a><ol><li><a href="MachineConfiguration.html#VentuzOptions">Ventuz Options</a></li></ol></li><li><a href="MachineConfiguration.html#RenderingOptions">Rendering Options</a></li><li><a href="MachineConfiguration.html#AVOptions">AV Options</a></li><li><a href="MachineConfiguration.html#VC">Ventuz Config</a></li><li><a href="MachineConfiguration.html#PRJ">Project Management</a></li></ol></li><li><a href="MachineConfigurationMC.html#MachineConfiguration">Machine Configuration</a><ol><li><a href="MachineConfigurationMC.html#Interaction">Interaction</a><ol><li><a href="MachineConfigurationMC.html#General">General</a></li><li><a href="MachineConfigurationMC.html#WindowsTouch">Windows Touch</a></li><li><a href="MachineConfigurationMC.html#TUIO">TUIO</a></li><li><a href="MachineConfigurationMC.html#ClusterNetworking">Cluster Networking</a></li><li><a href="MachineConfigurationMC.html#OutputScaling">Output Scaling</a></li></ol></li><li><a href="MachineConfigurationMC.html#Remoting">Remoting</a><ol><li><a href="MachineConfigurationMC.html#Remoting2.Net">Remoting 2 (.Net)</a></li><li><a href="MachineConfigurationMC.html#Remoting4">Remoting 4</a></li><li><a href="MachineConfigurationMC.html#Miranda">Miranda</a></li><li><a href="MachineConfigurationMC.html#CLIRemoting">CLI Remoting</a></li><li><a href="MachineConfigurationMC.html#OSCRemoting">OSC Remoting</a></li></ol></li><li><a href="MachineConfigurationMC.html#DMX">DMX</a><ol><li><a href="MachineConfigurationMC.html#GeneralDMXsettings">General DMX settings</a></li><li><a href="MachineConfigurationMC.html#Art-Net">Art-Net</a></li><li><a href="MachineConfigurationMC.html#sACN">sACN</a></li></ol></li><li><a href="MachineConfigurationMC.html#Extended">Extended</a><ol><li><a href="MachineConfigurationMC.html#CultureSettings">Culture Settings</a></li><li><a href="MachineConfigurationMC.html#WebBrowserSettingsAdBlockerAudioetc.">WebBrowser Settings(Ad Blocker, Audio etc.)</a></li><li><a href="MachineConfigurationMC.html#ProcessSettings">Process Settings</a></li><li><a href="MachineConfigurationMC.html#TrackingSystem">Tracking System</a></li><li><a href="MachineConfigurationMC.html#TimecodeSettings">Timecode Settings</a></li><li><a href="MachineConfigurationMC.html#ProgressVisualizationSettings">Progress Visualization Settings</a></li><li><a href="MachineConfigurationMC.html#LoggingSettings">Logging Settings</a></li><li><a href="MachineConfigurationMC.html#SystemMonitoringSettings">System Monitoring Settings</a></li></ol></li></ol></li><li><a href="MachineConfigurationAV.html#IntroductiontotheVideoEngine">Introduction to the Video Engine</a><ol><li><a href="MachineConfigurationAV.html#RenderPipes">Render Pipes</a><ol><li><a href="MachineConfigurationAV.html#StreamModes">Stream Modes</a></li><li><a href="MachineConfigurationAV.html#Preview">Preview</a></li></ol></li><li><a href="MachineConfigurationAV.html#VideoInputs">Video Inputs</a></li><li><a href="MachineConfigurationAV.html#Bit-depthandcontrollablequalityperformancebalance">Bit-depth and controllable quality/performance balance</a></li><li><a href="MachineConfigurationAV.html#SoftwareWatchdog">Software Watchdog</a></li><li><a href="MachineConfigurationAV.html#SoftwareKeying">Software Keying</a></li><li><a href="MachineConfigurationAV.html#MultipleSourcesfromMultipleVendors">Multiple Sources from Multiple Vendors</a><ol><li><a href="MachineConfigurationAV.html#SDI3G">SDI 3G</a></li><li><a href="MachineConfigurationAV.html#a4k">4k</a></li></ol></li><li><a href="MachineConfigurationAV.html#ChromaKeying">Chroma Keying</a></li><li><a href="MachineConfigurationAV.html#ComprehensiveAudioMixing">Comprehensive Audio Mixing</a></li><li><a href="MachineConfigurationAV.html#VideoSetupindependentfromVentuzScene">Video Setup independent from Ventuz Scene</a></li></ol></li><li><a href="MachineConfigurationAV.html#AVConfiguration">AV Configuration</a><ol><li><a href="MachineConfigurationAV.html#VideoOutputs">Video Outputs</a><ol><li><a href="MachineConfigurationAV.html#Enable10bitDirectX-Mode">Enable 10bit (DirectX-Mode)</a></li></ol></li><li><a href="MachineConfigurationAV.html#VideoInputs1">Video Inputs</a></li><li><a href="MachineConfigurationAV.html#VideoOptions">Video Options</a><ol><li><a href="MachineConfigurationAV.html#StandardOptions">Standard Options</a></li><li><a href="MachineConfigurationAV.html#AdvancedOptions">Advanced Options</a></li></ol></li><li><a href="MachineConfigurationAV.html#VideoDeviceInformationandOptions">Video Device Information and Options</a></li><li><a href="MachineConfigurationAV.html#GlobalOptions">Global Options</a></li><li><a href="MachineConfigurationAV.html#LiveStatus">Live Status</a></li><li><a href="MachineConfigurationAV.html#AudioDevices">Audio Devices</a></li><li><a href="MachineConfigurationAV.html#CrossPoints">Cross Points</a><ol><li><a href="MachineConfigurationAV.html#CrosspointsExample:AddingVentuztoSDI">Crosspoints Example: Adding Ventuz to SDI</a></li></ol></li><li><a href="MachineConfigurationAV.html#DeviceMapping">Device Mapping</a></li></ol></li><li><a href="MultiDisplaySetupsAndShaping.html#RenderSetupEditor">Render Setup Editor</a><ol><li><a href="MultiDisplaySetupsAndShaping.html#UserInterface">User Interface</a></li><li><a href="MultiDisplaySetupsAndShaping.html#AutomaticRenderSetupfromVMS">Automatic Render Setup from VMS</a></li><li><a href="MultiDisplaySetupsAndShaping.html#CoordinateSpace">Coordinate Space</a></li><li><a href="MultiDisplaySetupsAndShaping.html#Logicalvs.VisualResolution">Logical vs. Visual Resolution</a></li><li><a href="MultiDisplaySetupsAndShaping.html#ManipulatingaRenderSetup">Manipulating a Render Setup</a><ol><li><a href="MultiDisplaySetupsAndShaping.html#Selection">Selection</a></li><li><a href="MultiDisplaySetupsAndShaping.html#MoveElements">Move Elements</a></li><li><a href="MultiDisplaySetupsAndShaping.html#BezelandOverlap">Bezel and Overlap</a></li><li><a href="MultiDisplaySetupsAndShaping.html#SplitandCombine">Split and Combine</a><ol><li><a href="MultiDisplaySetupsAndShaping.html#CombineMachinesTransfertonewMachine">Combine Machines &amp; Transfer to new Machine</a></li></ol></li><li><a href="MultiDisplaySetupsAndShaping.html#MachineID">Machine ID</a></li></ol></li><li><a href="MultiDisplaySetupsAndShaping.html#DesignViewandProductionView">Design View and Production View</a></li><li><a href="MultiDisplaySetupsAndShaping.html#TouchArea">Touch Area</a><ol><li><a href="MultiDisplaySetupsAndShaping.html#ExamplesandScenarios">Examples and Scenarios</a></li></ol></li><li><a href="MultiDisplaySetupsAndShaping.html#KeyboardShortcuts">Keyboard Shortcuts</a></li></ol></li><li class="active"><a href="#WarpingandSoft-Edging">Warping and Soft-Edging</a><ol><li class="active"><a href="#TheVentuzShapingEngine">The Ventuz Shaping Engine</a><ol><li class="active"><a href="#PerformanceConsiderations">Performance Considerations</a></li><li class="active"><a href="#ShapingwiththeVentuzDesigner">Shaping with the Ventuz Designer</a></li></ol></li><li class="active"><a href="#TheUserInterface">The User Interface</a><ol><li class="active"><a href="#Navigation">Navigation</a></li><li class="active"><a href="#GlobalToolbar">Global Toolbar</a><ol><li class="active"><a href="#TestPatterns">Test Patterns</a></li></ol></li></ol></li><li class="active"><a href="#EditingtheGrid">Editing the Grid</a><ol><li class="active"><a href="#Selection">Selection</a><ol><li class="active"><a href="#MirrorModes">Mirror Modes</a></li></ol></li><li class="active"><a href="#Editing">Editing</a><ol><li class="active"><a href="#SmartMode">Smart Mode</a></li><li class="active"><a href="#UVEditor">UV Editor</a></li></ol></li><li class="active"><a href="#Summary">Summary</a><ol><li class="active"><a href="#Keyboard">Keyboard</a></li><li class="active"><a href="#TheSide-Toolbar">The Side-Toolbar</a></li><li class="active"><a href="#CursorShape">Cursor Shape</a></li></ol></li><li class="active"><a href="#ZoomingandPanning">Zooming and Panning</a></li><li class="active"><a href="#HandleModes">Handle Modes</a></li><li class="active"><a href="#InsertRowsandColumns">Insert Rows and Columns</a></li></ol></li><li class="active"><a href="#ManipulatingLayersandGroups">Manipulating Layers and Groups</a><ol><li class="active"><a href="#Subdivision">Subdivision</a></li><li class="active"><a href="#MultipleWarpGroups">Multiple Warp Groups</a></li></ol></li><li class="active"><a href="#Soft-Edges">Soft-Edges</a><ol><li class="active"><a href="#Thegammavalues">The gamma values</a></li><li class="active"><a href="#AutomaticMode">Automatic Mode</a></li><li class="active"><a href="#ManualMode">Manual Mode</a></li></ol></li><li class="active"><a href="#PerOutputSettings">Per Output Settings</a><ol><li class="active"><a href="#ColorCorrection">Color Correction</a></li><li class="active"><a href="#QualitySettings">Quality Settings</a></li><li class="active"><a href="#EnableDisableProjectorUserInterface">Enable / Disable Projector User Interface</a></li></ol></li><li class="active"><a href="#PerGroupSettings">Per Group Settings</a><ol><li class="active"><a href="#EnableWarpGroupAlphaBlending">Enable Warp Group / Alpha Blending</a></li><li class="active"><a href="#UVBoundaries">UV Boundaries</a></li><li class="active"><a href="#a3Dprojection">3D projection</a></li></ol></li></ol></li></ol></div>
+</p>
+<p data-line="6" >
+When the displays in a render setup are video projectors, the following problems need to be solved:
+</p>
+<ul class="" start="1"><li data-line="8" >Warping: If the screen is not 100% parallel to the projector, the screen is curved, or the projector has a notable lens distortion, the outputs must be warped to compensate for that.
+</li><li data-line="9" >Soft-edging: If two projectors are put next to each other to project on a larger screen, the projectors need to be set up with overlap to get rid of cracks between the projections. In such cases, both images must be "crossfaded" correctly so that the overlap is unnoticeable.
+</li></ul><p data-line="15" >
+Both of these taken together is what we call Shaping.
+</p>
+<p data-line="17" >
+High-end projectors often have hardware to do this, but sometimes this is insufficient or comes with an inefficient user interface, or it is just too expensive. 
+</p>
+<p data-line="19" >
+One should avoid warping if possible. Any correction that can be done optically or by positioning the projectors better is superior, since warping (regardless of with hardware or with Ventuz) will slightly blur the image. Also, when doing warping, one should either only warp in hardware or in Ventuz, otherwise the image gets slightly blurred twice.
+</p>
+<p data-line="21" >
+Creative use of warping leads to projection mapping. Features like multiple warp groups per output, UV editing and 3D projection are designed to allow projections on irregular surfaces.
+</p>
+<p data-line="23" >
+<strong>New Features as of Ventuz 4.05.00:</strong>
+</p>
+<p data-line="25" >
+When familiar with Ventuz 4 shaping it might be best starting to revisit our updated <a class="wiki" href="WarpingSoftEdgingMasking.html#TheVentuzShapingEngine">introduction</a>
+</p>
+<p data-line="27" >
+Then look at the new features linked here:
+</p>
+<ul class="" start="1"><li data-line="29" ><a class="wiki" href="WarpingSoftEdgingMasking.html#ManipulatingLayersandGroups">Multiple warp-groups</a> with <a class="wiki" href="WarpingSoftEdgingMasking.html#UVBoundaries">UV-Boundaries</a>
+</li><li data-line="30" ><a class="wiki" href="WarpingSoftEdgingMasking.html#a3Dprojection">Perspective correct keystoning</a> and 3d mapping for warp-groups
+</li><li data-line="31" ><a class="wiki" href="WarpingSoftEdgingMasking.html#UVEditor">UV-Editor</a>
+</li><li data-line="32" ><a class="wiki" href="WarpingSoftEdgingMasking.html#SmartMode">Smart-mode</a> to simplify editing groups of control-points.
+</li><li data-line="33" ><a class="wiki" href="WarpingSoftEdgingMasking.html#Editing">Rotating and scaling</a> of control-points
+</li><li data-line="34" ><a class="wiki" href="WarpingSoftEdgingMasking.html#MirrorModes">Mirror-modes</a> for editing control-points
+</li><li data-line="35" >Improved handling of keyboard focus.
+</li><li data-line="36" >and more (<a class="wiki" href="WarpingSoftEdgingMasking.html#EnableDisableProjectorUserInterface">1</a>) (<a class="wiki" href="WarpingSoftEdgingMasking.html#EnableWarpGroupAlphaBlending">2</a>) (<a class="wiki" href="WarpingSoftEdgingMasking.html#GlobalToolbar">3</a>) ...
+</li></ul><p data-line="38" >
+<div class="noteboxnote"><p>
+You can shape/warp the whole multi-machine Cluster if you select the according group in the <a class="wiki" href="MachineConfiguration.html">Ventuz Configuration Editor</a> and then open the RenderSetup editor!
+</p>
+</div>
+</p>
+<h2 id="TheVentuzShapingEngine" data-line="39" >The Ventuz Shaping Engine</h2>
+<p data-line="41" >
+This is an overview about the capabilities of the shaping engine. A detailed description of all the features and the user interface follows.
+</p>
+<p data-line="43" >
+After a <strong>Render Setup</strong> has been created that defines the placement of the outputs (projectors or displays in a video wall) and the overlap / bezel between them, the <strong>Shaping Editor</strong> can be used to set up warping and soft-edging. Both Render Setup and Shaping Editor are part of the <strong>Ventuz Configuration Editor</strong>
+</p>
+<p data-line="45" >
+The shaping engine is part of the Ventuz Runtime/Presenter. The Shaping Editor can activate warping and soft-edging, and then edit all parameters and grids in real-time. Usually one would use a small laptop to run the Shaping Editor and connect over network to the Ventuz Presenter or cluster of Presenters. Most common operations while editing can be done with keyboard only, and a user interface overlay can be switched on in the Presenter. This lets you shape while looking at the projection, not the laptop's display.
+</p>
+<p data-line="47" >
+Warping is done by defining a grid. By default, a 2x2, 3x3 and 5x5 grid are automatically created, called <strong>Layers</strong>. All layers together are called a <strong>Group</strong>. It is possible to add additional layers if more control is required, or to add new rows and columns to an existing layer.
+</p>
+<p data-line="49" >
+<img src="images/WarpingSoftEdgingMasking/warplayer.png" style="max-width:546px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="51" >
+The finest layer will be used to create a mesh that does the actual distortion. The coarser layers are used to modify the finer layers. It is possible to switch freely between the layers and do coarse corrections even after fine-tuning was done without losing work done on any other layers.
+</p>
+<p data-line="53" >
+When rendering a mesh, the texture is linearly interpolated, while the control grid uses Bézier splines to interpolate. So it is not good enough to just use the finest layer as base for warping, within Ventuz <strong>adaptive tesselation</strong> is applied until the error is below a certain threshold.
+</p>
+<p data-line="55" >
+<img src="images/WarpingSoftEdgingMasking/tesselate.png" style="max-width:546px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="57" >
+The whole warp-group can be rotated in 3d space to compensate <strong>keystoning</strong> or create <strong>projection mappings</strong>. This will create precise <strong>perspective distortion</strong>. Using the warping grids and Bézier splines, perspective distortion can only be approximated, possibly requiring very fine grids if the image is tilted a lot.
+</p>
+<p data-line="59" >
+<img src="images/WarpingSoftEdgingMasking/keystone3d.png" style="max-width:522px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="61" >
+For <strong>projection mappings</strong> one can define <strong>multiple warp groups</strong>. Each group has it's own 3d rotation, UV-boundaries and multiple warp layers. 
+</p>
+<p data-line="63" >
+<img src="images/WarpingSoftEdgingMasking/multiwarp.png" style="max-width:711px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="65" >
+For projection mapping, the <strong>UV coordinates</strong> can be edited the same way as the control points positions. This is only possible on the finest layer. In addition, the UV-boundaries can be changed on the coarsest level.
+</p>
+<p data-line="67" >
+<img src="images/WarpingSoftEdgingMasking/edituv.png" style="max-width:522px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="69" >
+<strong>Soft-Edging</strong> is done in the same way. In a simple 3 projector setup, the middle projector will have two groups, one for the left edge and one for the right edge. These groups have only one layer by default, and for simple setups it is rarely needed to edit the control points. But when projecting on irregular screens the ability to have multiple layers with a high number of control points comes in handy.
+</p>
+<p data-line="71" >
+<img src="images/WarpingSoftEdgingMasking/edgelayer.png" style="max-width:546px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="73" >
+For each edge individually, the <strong>ramp</strong> can be controlled by <strong>gamma values</strong> and a <strong>spline</strong> when more control is required. Both gamma and spline are available as a combined value and separate red, green and blue values. All gammas and splines are combined and can be used simultaneously. 
+</p>
+<p data-line="75" >
+The ramps are internally calculated with <strong>16 bit precision</strong>. Projectors of course don't support such quality, and in some conditions banding is visible in the ramps. <strong>Dithering</strong> can be enabled to re-gain some of the internal precision, which usually solves any notable banding.
+</p>
+<p data-line="89" >
+For each output, a simple <strong>Color Correction</strong> with lift and gain is available. Gain will make the image brighter or darker, without changing the black level. This is done by multiplying the RGB values with the gain. Lift will change the black level. This is done by adding to the RGB values before applying gain.
+</p>
+<p data-line="91" >
+A <strong>Test Pattern Generator</strong> can be used to generate various test patterns that can be useful while shaping. Additional images can be provided by the user. As the shaping is done with the presenter running, the actual Ventuz scene for the event can be loaded, or Ventuz can be used to construct additional test scenes.
+</p>
+<p data-line="93" >
+So to summarize:
+</p>
+<p data-line="95" >
+For each <strong>Warping</strong> and <strong>Soft-Edging</strong>, <strong>Groups</strong> can be defined to create meshes for warping and gradients for soft-edging. Each group can have multiple <strong>Layers</strong>, where the finest layer is used to create the mesh or texture and the other layers can be used to deform the finest layer.
+</p>
+<h3 id="PerformanceConsiderations" data-line="101" >Performance Considerations</h3>
+<p data-line="103" >
+Shaping is not for free, but should rarely be a problem.
+</p>
+<p data-line="105" >
+Totally disabling shaping is, of course, the fastest.
+</p>
+<p data-line="107" >
+The performance of warping depends on how fine the warping mesh is tesselated. This can be checked with the <strong>Show Wireframe</strong> option. On modern GPU's this will rarely be a problem.
+</p>
+<p data-line="113" >
+Soft-edging will impact the speed of Ventuz only a little, and that impact is independent of the number of edges. Only while changing the edges with the editor, recreating the edge-texture might be notable of course. 
+</p>
+<h3 id="ShapingwiththeVentuzDesigner" data-line="115" >Shaping with the Ventuz Designer</h3>
+<p data-line="117" >
+When running the <strong>Ventuz Designer</strong> instead of the <strong>Ventuz Presenter</strong>, shaping is only active when the <strong>Production Preview</strong> mode is enabled. This can be enabled by pressing <span class="usermanual-keyboard">CTRL</span> 1 in the Designer.
+</p>
+<h2 id="TheUserInterface" data-line="119" >The User Interface</h2>
+<p data-line="121" >
+Here a general overview of the user interface:
+</p>
+<p data-line="123" >
+<img src="images/WarpingSoftEdgingMasking/interface.png" style="max-width:850px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<ol class="" start="1"><li data-line="125" >Toolbar for global tools
+</li><li data-line="126" >Toolbar with control-point related tools (side-bar)
+</li><li data-line="127" >Output (projector or other display) navigation
+</li><li data-line="128" >Switch between output settings, warping and soft-edging
+</li><li data-line="129" >Group and layer navigation
+</li><li data-line="130" >Group and layer related properties
+</li><li data-line="131" >Toolbar with group and layer related tools
+</li><li data-line="132" >Grid Editor
+</li></ol><p data-line="134" >
+Many operations have keyboard shortcuts, so most of the work can be done without looking at the user interface on your computer monitor, but at the outputs directly. 
+</p>
+<h3 id="Navigation" data-line="136" >Navigation</h3>
+<p data-line="138" >
+The <strong>output navigation</strong> (3) displays a schematic view of the outputs. It will not try to faithfully represent the actual size and position of the displays but indicates the general layout, like a subway map will not represent the actual distance between stations. For instance, overlap is not shown here. 
+</p>
+<p data-line="140" >
+<img src="images/WarpingSoftEdgingMasking/navoutput.png" style="max-width:253px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="142" >
+To change the current output, either click or click and drag in this area or use cursor + alt keys to change the current output.
+</p>
+<p data-line="144" >
+The area marked with (4) can be used to switch between <strong>warping</strong> and <strong>soft-edging</strong>. The <strong>output</strong> section contains color correction and other per-output settings.
+</p>
+<p data-line="146" >
+The <strong>group and layer navigation</strong> allows to jump between groups and layers. Here are examples of two edging groups with one layer each, and a warping group with 3 layers.
+</p>
+<p data-line="148" >
+<img src="images/WarpingSoftEdgingMasking/navlayer1.png" style="max-width:249px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="151" >
+<img src="images/WarpingSoftEdgingMasking/navlayer2.png" style="max-width:249px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="153" >
+With the keyboard, pressing 'W' or 'E' will cycle through the warp or soft-edge groups. Page up and down walk through the layers of the current group. The home key goes to the coarsest layer and the end key goes to the finest layer. 
+</p>
+<p data-line="155" >
+If you have multiple groups, <span class="usermanual-keyboard">SHIFT</span> + Page Up / Down will select groups and <span class="usermanual-keyboard">ALT</span> + Page Up / Down will move the current group up or down.
+</p>
+<h3 id="GlobalToolbar" data-line="157" >Global Toolbar</h3>
+<p data-line="159" >
+<img src="images/WarpingSoftEdgingMasking/toolglobal.2.png" style="max-width:561px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="161" >
+These buttons control various global settings.
+</p>
+<p data-line="163" >
+These settings will affect the presenter / cluster even after the render setup has been left:
+</p>
+<table class="wiki" data-line="165" >
+<tr><th data-line="165" > Nr </th><th data-line="165" > Name </th><th data-line="165" > Description 
+</th></tr><tr><td data-line="166" > 1 </td><td data-line="166" > Enable warping </td><td data-line="166" > If this is disabled, the whole warping engine is disabled 
+</td></tr><tr><td data-line="167" > 2 </td><td data-line="167" > Enable soft-edging </td><td data-line="167" > Disable only soft-edging. Usually one would switch off the edging until warping is done. 
+</td></tr><tr><td data-line="168" > 3 </td><td data-line="168" > Enable color correction </td><td data-line="168" > Disable only color correction. Quickly disabling and re-enabling color correction can be used to check the effect of color correction 
+</td></tr></table>
+<p data-line="170" >
+These settings are only effective while using the shaping section of the render setup:
+</p>
+<table class="wiki" data-line="172" >
+<tr><th data-line="172" > Nr </th><th data-line="172" > Name </th><th data-line="172" > Description 
+</th></tr><tr><td data-line="173" > 4 </td><td data-line="173" > White background </td><td style="text-align: right" data-line="173" > Fill the unused pixels of an output with white instead of black. This shows how many pixels are wasted because of the warping.
+</td></tr><tr><td data-line="174" > 5 </td><td data-line="174" > Highlight overlap areas </td><td style="text-align: right" data-line="174" > Sometimes it is useful to highlight the areas where the outputs overlap because precise warping here is especially important.
+</td></tr><tr><td data-line="175" > 6 </td><td data-line="175" > Cut soft-edges </td><td style="text-align: right" data-line="175" > This will cut the soft-edges in a way that the output of the two sides directly touch but not overlap. This is useful to check how well the outputs match colors. This requires that the warping has been done already.
+</td></tr><tr><td data-line="176" > 7 </td><td data-line="176" > Darken rendering / test image </td><td style="text-align: right" data-line="176" > Sometimes the user interface overlay is hard to see over a bright rendering or test pattern. This button will darken the background to remedy this.
+</td></tr><tr><td data-line="177" > 8 </td><td data-line="177" > Solo Mode </td><td style="text-align: right" data-line="177" > Like in an audio mixer, this disables all other outputs. Useful when there is confusion which output contributes to what. Also, the test pattern will center to the solo output.
+</td></tr><tr><td data-line="178" > 9 </td><td data-line="178" > 3D-Projection in Editor </td><td style="text-align: right" data-line="178" > Enable / Disable the effect of the 3d projection in the shaping editor. It is a matter of taste what to prefer. 3D-Projection is always enabled on the outputs.
+</td></tr><tr><td data-line="179" > 14 </td><td data-line="179" > Show keyboard shortcuts </td><td data-line="179" > Most users prefer to do as much as possible with the keyboard alone. This option aids in memorizing the keys. 
+</td></tr><tr><td data-line="180" > 15 </td><td data-line="180" > Screen GUI options </td><td style="text-align: right" data-line="180" > Control extent and size of the user interface HUD provided on the outputs.
+</td></tr></table>
+<p data-line="182" >
+These test pattern related options are effective while in either part of render setup:
+</p>
+<table class="wiki" data-line="184" >
+<tr><th data-line="184" > Nr </th><th data-line="184" > Name </th><th data-line="184" > Description 
+</th></tr><tr><td data-line="185" > 10 </td><td data-line="185" > Enable test pattern </td><td style="text-align: right" data-line="185" > Enable test pattern. In the editor, the test pattern is always shown. The presenter can show either test pattern or the Ventuz scene.
+</td></tr><tr><td data-line="186" > 11 </td><td data-line="186" > Multiply output color </td><td style="text-align: right" data-line="186" > Each output is assigned a color. This will multiply the test pattern foreground color with the output color. If good colors are assigned to the outputs, this helps to identify outputs and figure out which of two overlapping outputs needs warping and which is correct.
+</td></tr><tr><td data-line="187" > 12 </td><td data-line="187" > Select test pattern </td><td style="text-align: right" data-line="187" > There are many useful test patterns programmed already. If they are insufficient, user images can be used as test patterns.
+</td></tr><tr><td data-line="188" > 13 </td><td data-line="188" > Test pattern options </td><td data-line="188" > Most test patterns have a range of options to configure the width and distance of lines or the colors. 
+</td></tr></table>
+<h4 id="TestPatterns" data-line="190" >Test Patterns</h4>
+<p data-line="192" >
+Most test patterns are self-explanatory, but some test patterns have options that need explaining.
+</p>
+<p data-line="194" >
+Most test patterns offer a foreground and a background color. Also each output can be assigned a color. By pressing the <strong>Multiply output color</strong> icon in the global toolbar, the foreground color will be multiplied with the output color. For this to work, it is best to choose a bright color as the foreground color.
+</p>
+<p data-line="196" >
+The various grids and lines can be animated with the <strong>Speed</strong> parameter. Using slow moving diagonal lines is good for finding subtle warping irregularities.
+</p>
+<p data-line="198" >
+By default grid and checker test patterns will not perfectly fit, the last row and column will be cut off. By pressing <strong>Fit corners</strong>, this will be corrected, at the price that the aspect ratio is not guaranteed to be 1:1.
+</p>
+<p data-line="200" >
+The <strong>image test pattern</strong> allows you to specify a directory that contains any pictures you prefer as test patterns. It is important that all presenters in a cluster and the computer that runs the shaping editor have the images on the exact same path. Using a network share is the simplest way to ensure this. If the image could not be loaded, a dummy image with color gradients is generated. The files in the directory are filtered for common image file types, like <strong>bmp</strong>, <strong>png</strong>, <strong>gif</strong>, <strong>tif</strong>, <strong>tga</strong> and <strong>jpg</strong>.
+</p>
+<p data-line="202" >
+By pressing '-' and shift '-'  can be used to toggle certain options in other test patterns:
+</p>
+<ul class="" start="1"><li data-line="204" >In the color and gray ramps, '-' toggles between gradient and bars.
+</li><li data-line="205" >In the color ramps, shift '-' toggles between rainbow and standard bars.
+</li><li data-line="206" >In grid and checkers, '-' toggles the fit corners option.
+</li><li data-line="207" >In image test pattern, '-' and shift '-' cycle through the images in a directory.
+</li></ul><h2 id="EditingtheGrid" data-line="213" >Editing the Grid</h2>
+<p data-line="218" >
+Warping and soft-edging both use grids of control points, creating a Bézier-surface. 
+</p>
+<p data-line="220" >
+<img src="images/WarpingSoftEdgingMasking/grideditor.png" style="max-width:546px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<h3 id="Selection" data-line="222" >Selection</h3>
+<p data-line="224" >
+The color of the control points has the following meaning:
+</p>
+<ul class="" start="1"><li data-line="226" >Gray: not selected
+</li><li data-line="227" >Orange: selected.
+</li><li data-line="228" >Red: current cursor position, also selected.
+</li><li data-line="229" >White: The mouse is hovering over the selected control point.
+</li></ul><p data-line="231" >
+To select points, left-click on them. Pressing shift while doing so will add to the selection. When clicking beside the points, a rectangle is drawn as the mouse moves, and the points in the rectangle are selected. Again, pressing shift while doing so will add to the selection.
+</p>
+<p data-line="233" >
+Pressing <span class="usermanual-keyboard">CTRL</span> A will select all points, <span class="usermanual-keyboard">CTRL</span> D deselects all points except the control point where the cursor is. The cursor can not be hidden and the control point at the cursor is always selected.
+</p>
+<p data-line="235" >
+In addition to the primary control points at the cross-sections of the grid, there are control handles for finer control over the mesh. These are only visible, and can only be clicked on when the associated primary control point is selected.
+</p>
+<p data-line="237" >
+When working with the keyboard, using the cursor keys will move the cursor, and the cursor is also selected. Pressing 'b' will enter box-selection mode, again use the cursor to change the box size. To move the cursor to a control handle, use cursor keys + <span class="usermanual-keyboard">CTRL</span>.
+</p>
+<h4 id="MirrorModes" data-line="239" >Mirror Modes</h4>
+<p data-line="241" >
+The <strong>mirror modes</strong> simplify symmetrical editing. Available are horizontal, vertical and point symmetry, as well as horizontal and vertical symmetry combined, available as buttons on the toolbar. Pressing O cycles through the mirror modes, <span class="usermanual-keyboard">SHIFT</span> + O switches mirroring off.
+</p>
+<h3 id="Editing" data-line="243" >Editing</h3>
+<p data-line="245" >
+The control points can be moved with the mouse just as they are selected, that is <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span> or <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span> + <span class="usermanual-keyboard">SHIFT</span>. Holding <span class="usermanual-keyboard">CTRL</span> while moving the mouse will limit the movement to either the x or y axis. This works by pressing <span class="usermanual-keyboard">CTRL</span> before or after clicking <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span>. To move the points with the keyboard, use the Cursor keys + <span class="usermanual-keyboard">SHIFT</span>.
+</p>
+<p data-line="247" >
+By default the editor is in translate mode, moving control points works as expected. With the toolbar or by pressing <span class="usermanual-keyboard">SHIFT</span> S or <span class="usermanual-keyboard">SHIFT</span> R, the editor can be switched into <strong>Scale</strong> or <strong>Rotate</strong> mode. With this, a group of vertices can be scaled or rotated.
+</p>
+<p data-line="249" >
+For a warping layer, there is a way to move a control point without warping the image. This allows to move a point to a feature of the projection screen, and warp from there. With the mouse, use <span class="usermanual-mouse usermanual-mouse-button rmb" title="right mouse button"></span> + <span class="usermanual-keyboard">CTRL</span>. With the keyboard, use Cursor + <span class="usermanual-keyboard">SHIFT</span> + <span class="usermanual-keyboard">CTRL</span>. Before doing this, consider using the <a class="wiki" href="WarpingSoftEdgingMasking.html#UVEditor">UV Editor</a>, in most cases, it is more precise and intuitive.
+</p>
+<h4 id="SmartMode" data-line="251" >Smart Mode</h4>
+<p data-line="253" >
+<strong>Smart Mode</strong> is good to edit a rectangular selection of vertices. It is done by first making a selection, and then pressing <span class="usermanual-keyboard">SHIFT</span> and <span class="usermanual-keyboard">ALT</span> while moving control points either with mouse or cursor keys.
+</p>
+<p data-line="255" >
+If corner or edge control points are moved, all selected control points will move along, in a proportional manner:
+</p>
+<p data-line="257" >
+Here we have selected all control points and move the lower-right corner:
+</p>
+<p data-line="259" >
+<img src="images/WarpingSoftEdgingMasking/Smart1.png" style="max-width:522px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="262" >
+<img src="images/WarpingSoftEdgingMasking/Smart2.png" style="max-width:522px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="265" >
+Now we select the right half of control points and move the edge towards the middle:
+</p>
+<p data-line="267" >
+<img src="images/WarpingSoftEdgingMasking/Smart3.png" style="max-width:522px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="270" >
+<img src="images/WarpingSoftEdgingMasking/Smart4.png" style="max-width:522px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="272" >
+Smart Mode is best explained with rectangular selections, but it will work with selections of any shape. The definition of what is an edge or a corner depends on the limits or bounding box of the selection. With a selection containing no corners, smart mode is of limited value.
+</p>
+<h4 id="UVEditor" data-line="274" >UV Editor</h4>
+<p data-line="276" >
+By default, the control points are mapped to evenly spaced locations of the content (or test image). So if you have a 5x5 grid and your test pattern is a 4x4 checkerboard, each control-point is directly bound to one of the intersections:
+</p>
+<p data-line="278" >
+<img src="images/WarpingSoftEdgingMasking/UVEdit1.png" style="max-width:522px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="280" >
+By pressing <span class="usermanual-keyboard">SHIFT</span> U or using the toolbar, the UV-Editor-Mode can be entered or left. Control points and cursor are painted with a hashed pattern so that it is easy to notice if this mode is on or not. UV editing is only available for the finest layer of a warp group. It will deactivate when switching to edge groups or any other layer than the finest.
+</p>
+<p data-line="282" >
+In UV mode, we see the unwarped content and can change what part of the content the control point is bound to:
+</p>
+<p data-line="284" >
+<img src="images/WarpingSoftEdgingMasking/UVEdit2.png" style="max-width:524px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="286" >
+Switching back to the normal mode, we see how the image is warped although the control points stay at their default position.
+</p>
+<p data-line="288" >
+<img src="images/WarpingSoftEdgingMasking/UVEdit3.png" style="max-width:522px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="290" >
+This can be combined with multiple warp groups and the <a class="wiki" href="WarpingSoftEdgingMasking.html#UVBoundaries">UV Boundaries</a> that can be set for each warp group to create complex projection mapping.
+</p>
+<p data-line="292" >
+All control point editing features are available in the UV-Editor. For instance, one could select all control points and use the rotate and scale mode or smart editing to position them quickly and cleanly.
+</p>
+<h3 id="Summary" data-line="294" >Summary</h3>
+<h4 id="Keyboard" data-line="296" >Keyboard</h4>
+<table class="wiki" data-line="298" >
+<tr><th data-line="298" > Mouse </th><th data-line="298" > Keyboard </th><th data-line="298" > Description 
+</th></tr><tr><td data-line="299" > </td><td data-line="299" > Cursor </td><td data-line="299" > select point 
+</td></tr><tr><td data-line="300" > </td><td data-line="300" > <span class="usermanual-keyboard">SHIFT</span> Cursor </td><td data-line="300" > move selected points 
+</td></tr><tr><td data-line="301" > <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span>&nbsp;<span class="usermanual-mouse">click</span> on point </td><td data-line="301" >  </td><td data-line="301" > select only this point, then move 
+</td></tr><tr><td data-line="302" > <span class="usermanual-keyboard">SHIFT</span> <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span>&nbsp;<span class="usermanual-mouse">click</span> on point </td><td data-line="302" > </td><td data-line="302" > add point to selection, then move 
+</td></tr><tr><td data-line="303" > <span class="usermanual-keyboard">CTRL</span> <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span>&nbsp;<span class="usermanual-mouse">click</span> </td><td data-line="303" > </td><td data-line="303" > move only horizontally or vertically 
+</td></tr><tr><td data-line="304" > <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span>&nbsp;<span class="usermanual-mouse">click</span> not on point </td><td data-line="304" > <span class="usermanual-keyboard">B</span>, then Cursor </td><td data-line="304" > box selection 
+</td></tr><tr><td data-line="305" > <span class="usermanual-keyboard">SHIFT</span> <span class="usermanual-keyboard">ALT</span> <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span>&nbsp;<span class="usermanual-mouse">click</span> </td><td data-line="305" >  <span class="usermanual-keyboard">SHIFT</span> <span class="usermanual-keyboard">ALT</span> Cursor </td><td data-line="305" > smart editing 
+</td></tr><tr><td data-line="306" > <span class="usermanual-keyboard">CTRL</span> <span class="usermanual-mouse usermanual-mouse-button rmb" title="right mouse button"></span>&nbsp;<span class="usermanual-mouse">click</span> </td><td data-line="306" > <span class="usermanual-keyboard">CTRL</span> Cursor </td><td data-line="306" > move without warping 
+</td></tr><tr><td data-line="307" > <spanimg class="usermanual-mouse usermanual-mouse-button mmb" title="middle mouse button"></span>&nbsp;<span class="usermanual-mouse">click</span> </td><td data-line="307" > </td><td data-line="307" > pan 
+</td></tr><tr><td data-line="308" > <spanimg class="usermanual-mouse usermanual-mouse-button mmb" title="middle mouse button"></span>&nbsp;<span class="usermanual-mouse">wheel</span> </td><td data-line="308" > </td><td data-line="308" > zoom 
+</td></tr></table>
+<h4 id="TheSide-Toolbar" data-line="310" >The Side-Toolbar</h4>
+<p data-line="312" >
+At the very left of the editor is a toolbar with buttons that help edit the grid.
+</p>
+<p data-line="314" >
+<img src="images/WarpingSoftEdgingMasking/toolsside.3.png" style="max-width:150px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<table class="wiki" data-line="316" >
+<tr><th data-line="316" > Nr. </th><th data-line="316" > Keyboard / Mouse </th><th data-line="316" > Descriptions 
+</th></tr><tr><td data-line="317" > 1 </td><td data-line="317" > </td><td data-line="317" > Insert row (right of cursor) 
+</td></tr><tr><td data-line="318" > 2 </td><td data-line="318" > </td><td data-line="318" > Insert columns (below cursor) 
+</td></tr><tr><td data-line="319" > 3-7 </td><td data-line="319" > <span class="usermanual-keyboard">A</span> <span class="usermanual-keyboard">U</span> <span class="usermanual-keyboard">K</span> <span class="usermanual-keyboard">L</span> <span class="usermanual-keyboard">S</span> </td><td data-line="319" > Handle Modes, see below 
+</td></tr><tr><td data-line="320" > 8 </td><td data-line="320" > <span class="usermanual-keyboard">X</span> </td><td data-line="320" > Reset selected points to default position 
+</td></tr><tr><td data-line="321" > 9 </td><td data-line="321" > <spanimg class="usermanual-mouse usermanual-mouse-button mmb" title="middle mouse button"></span>&nbsp;<span class="usermanual-mouse">wheel up</span> </td><td data-line="321" > Zoom in 
+</td></tr><tr><td data-line="322" > 10 </td><td data-line="322" > <span class="usermanual-keyboard">R</span> </td><td data-line="322" > Reset zoom and pan 
+</td></tr><tr><td data-line="323" > 11 </td><td data-line="323" > <spanimg class="usermanual-mouse usermanual-mouse-button mmb" title="middle mouse button"></span>&nbsp;<span class="usermanual-mouse">wheel down</span> </td><td data-line="323" > Zoom out 
+</td></tr><tr><td data-line="324" > 12 </td><td data-line="324" > <span class="usermanual-keyboard">CTRL</span>-<span class="usermanual-keyboard">Z</span> </td><td data-line="324" > Undo 
+</td></tr><tr><td data-line="325" > 13 </td><td data-line="325" > <span class="usermanual-keyboard">CTRL</span>-<span class="usermanual-keyboard">SHIFT</span>-<span class="usermanual-keyboard">Z</span> or <span class="usermanual-keyboard">CTRL</span>-<span class="usermanual-keyboard">Y</span> </td><td data-line="325" > Redo 
+</td></tr><tr><td data-line="326" > 14 </td><td data-line="326" > cycle with O, <span class="usermanual-keyboard">SHIFT</span> O </td><td data-line="326" > Mirror Mode off 
+</td></tr><tr><td data-line="327" > 15 </td><td data-line="327" > cycle with O </td><td data-line="327" > Mirror Mode Horizontal 
+</td></tr><tr><td data-line="328" > 16 </td><td data-line="328" > cycle with O </td><td data-line="328" > Mirror Mode Vertical 
+</td></tr><tr><td data-line="329" > 17 </td><td data-line="329" > cycle with O </td><td data-line="329" > Mirror Mode Horizontal + Vertical 
+</td></tr><tr><td data-line="330" > 18 </td><td data-line="330" > cycle with O </td><td data-line="330" > Mirror Mode Point-Symmetry 
+</td></tr><tr><td data-line="331" > 19 </td><td data-line="331" >  </td><td data-line="331" > Normal Control Point Movement (Translation) 
+</td></tr><tr><td data-line="332" > 20 </td><td data-line="332" > Toggle with <span class="usermanual-keyboard">SHIFT</span> S </td><td data-line="332" > Scale 
+</td></tr><tr><td data-line="333" > 21 </td><td data-line="333" > Toggle with <span class="usermanual-keyboard">SHIFT</span> R </td><td data-line="333" > Rotation 
+</td></tr><tr><td data-line="334" > 22 </td><td data-line="334" > Toggle with <span class="usermanual-keyboard">SHIFT</span> U </td><td data-line="334" > UV Edit Mode 
+</td></tr><tr><td data-line="335" > -  </td><td data-line="335" > <span class="usermanual-keyboard">ESCAPE</span> </td><td data-line="335" > Reset mirror, scale, rotate and multiselect 
+</td></tr></table>
+<h4 id="CursorShape" data-line="338" >Cursor Shape</h4>
+<p data-line="340" >
+The shape of the cursor helps identifying the mode you are in:
+</p>
+<table class="wiki" data-line="342" >
+<tr><th style="text-align: center" data-line="342" >    </th><th data-line="342" > Normal </th><th data-line="342" > Box Selection </th><th data-line="342" > UV Editor </th><th data-line="342" > UV Box Selection 
+</th></tr><tr><th data-line="343" > Translate (default)                    </th><td data-line="343" > <img src="images/WarpingSoftEdgingMasking/Cursor_000.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> </td><td data-line="343" > <img src="images/WarpingSoftEdgingMasking/Cursor_010.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> </td><td data-line="343" > <img src="images/WarpingSoftEdgingMasking/Cursor_100.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> </td><td data-line="343" > <img src="images/WarpingSoftEdgingMasking/Cursor_110.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> 
+</td></tr><tr><th data-line="344" > Scale <span class="usermanual-keyboard">SHIFT</span> S  </th><td data-line="344" > <img src="images/WarpingSoftEdgingMasking/Cursor_001.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> </td><td data-line="344" > <img src="images/WarpingSoftEdgingMasking/Cursor_011.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> </td><td data-line="344" > <img src="images/WarpingSoftEdgingMasking/Cursor_101.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> </td><td data-line="344" > <img src="images/WarpingSoftEdgingMasking/Cursor_111.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> 
+</td></tr><tr><th data-line="345" > Rotate <span class="usermanual-keyboard">SHIFT</span> R </th><td data-line="345" > <img src="images/WarpingSoftEdgingMasking/Cursor_002.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> </td><td data-line="345" > <img src="images/WarpingSoftEdgingMasking/Cursor_012.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> </td><td data-line="345" > <img src="images/WarpingSoftEdgingMasking/Cursor_102.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> </td><td data-line="345" > <img src="images/WarpingSoftEdgingMasking/Cursor_112.png" style="max-width:192px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" /> 
+</td></tr></table>
+<p data-line="347" >
+In UV-Mode, the cursors are hashed. The normal translate cursor is only shown on the projection, not in the warping tool.
+</p>
+<h3 id="ZoomingandPanning" data-line="349" >Zooming and Panning</h3>
+<p data-line="351" >
+The grid editor can be zoomed with the mouse wheel and panned by dragging around with the middle mouse button. There are also zoom buttons on the left toolbar. Press the R key to reset to default zoom &amp; pan.
+</p>
+<h3 id="HandleModes" data-line="353" >Handle Modes</h3>
+<p data-line="355" >
+The color of the handles indicates how the handles behave and which constraints they enforce.
+</p>
+<table class="wiki" data-line="357" >
+<tr><th data-line="357" > Name </th><th data-line="357" > Color </th><th data-line="357" > Shortcut </th><th data-line="357" > Description 
+</th></tr><tr><td data-line="358" > Linked </td><td data-line="358" > Green </td><td data-line="358" > A </td><td data-line="358" > Both sides have same direction and stretching 
+</td></tr><tr><td data-line="359" > Straight </td><td data-line="359" > Yellow </td><td data-line="359" > U </td><td data-line="359" > Both sides have same direction, but can be stretched differently 
+</td></tr><tr><td data-line="360" > Unlinked </td><td data-line="360" > Red </td><td data-line="360" > K </td><td data-line="360" > Both sides are completely independent, allowing for <strong>k</strong>inks and different stretching 
+</td></tr><tr><td data-line="361" > Linear </td><td data-line="361" > Pink </td><td data-line="361" > L </td><td data-line="361" > Handles are automatically calculated for <strong>l</strong>inear interpolation 
+</td></tr><tr><td data-line="362" > Default </td><td data-line="362" > Brown </td><td data-line="362" > S </td><td data-line="362" > Handles are automatically calculated for maximum <strong>s</strong>moothness 
+</td></tr></table>
+<p data-line="364" >
+With most modes, the change of a handle is local and affects only the area of the surrounding 3x3 control points. In <strong>default</strong> mode, the change affects a 5x5 surrounding. This mode is useful for the 2x2 and 3x3 layers where this does not matter.
+</p>
+<p data-line="366" >
+To change the mode, select a handle and press one of the handle mode buttons. Alternatively, use the keyboard shortcuts in the table above. In both cases, when selecting a primary control point, both horizontal and vertical handle mode are set.
+</p>
+<p data-line="368" >
+In <strong>default</strong> mode, the handles are calculated automatically. When trying to move a handle in <strong>default</strong> mode, it automatically switches to <strong>linked</strong> mode to allow editing.
+</p>
+<h3 id="InsertRowsandColumns" data-line="370" >Insert Rows and Columns</h3>
+<p data-line="372" >
+To insert a row or column in the finest layer, Select a primary control point and press the insert row or insert column button. The new row or column will be inserted to the below or to the right of the selected point. Therefore, the option is disabled if selected point is in the rightmost column or the bottommost row.
+</p>
+<p data-line="374" >
+Please note that the handle modes are changed by this action: when inserting a single row into a 5x5 grid, the distances between the rows is different and the linked handle mode can not be used anymore, it is automatically changed to straight where that is required.
+</p>
+<p data-line="376" >
+The subdivide-feature explained below does not suffer from this as it inserts rows and columns everywhere, uniformly.
+</p>
+<h2 id="ManipulatingLayersandGroups" data-line="378" >Manipulating Layers and Groups</h2>
+<p data-line="380" >
+More buttons are at the lower-right part of the user interface:
+</p>
+<p data-line="382" >
+<img src="images/WarpingSoftEdgingMasking/toolgroup.2.png" style="max-width:212px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<ol class="" start="1"><li data-line="384" >Adds a new group.
+</li><li data-line="385" >Adds a new layer. If the new layer is finer than the finest layer, it will become the new finest layer. Some editing done to the finest layer may be lost. It is best to subdivide the current finest layer once substantial editing has been done.
+</li><li data-line="386" >Allows renaming the layer.
+</li><li data-line="390" >Removes the selected group.
+</li><li data-line="391" >Removes the selected layer. If the layer is not the finest layer, no editing is lost by this, as the finest layer holds all the information for creating the mesh.
+</li><li data-line="392" >Move current group up (<span class="usermanual-keyboard">ALT</span> Page Up)
+</li><li data-line="393" >Move current group down (<span class="usermanual-keyboard">ALT</span> Page Down)
+</li><li data-line="394" >Reverts the whole group to default.
+</li><li data-line="395" >Creates all soft edges, or reverts them to default when they already exist. Press this when the overlap has been changed in the render setup.
+</li></ol><p data-line="397" >
+The finest allowed layer is 33x33 points. 
+</p>
+<h3 id="Subdivision" data-line="399" >Subdivision</h3>
+<p data-line="401" >
+By pressing the '+' icon in the layer navigation, the finest layer can be subdivided in X, Y or both. This will insert a row and/or columns between every existing pair of rows/columns: a 5x5 point grid turns into a 9x9 point grid. 
+</p>
+<p data-line="403" >
+As 33x33 is the finest allowed layer, any layer with more than 17 points either horizontally or vertically can not be subdivided anymore.
+</p>
+<p data-line="405" >
+Subdivision is the most precise way to add more control points, as all other methods are worse at capturing detail in the new, finer layer.
+</p>
+<p data-line="407" >
+<img src="images/WarpingSoftEdgingMasking/navlayer2.png" style="max-width:249px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="409" >
+One could consider a 5x5 point grid is a 4x4 square grid, and every square gets sliced in half horizontally and vertically, resulting in an 8x8 square grid, or a 9x9 point grid.
+</p>
+<h3 id="MultipleWarpGroups" data-line="411" >Multiple Warp Groups</h3>
+<p data-line="413" >
+One can have multiple warp groups per output. They are independent of each other, but share the same color correction and are drawn in the bottom to top order. If the warp groups overlap, use the toolbar or the  <span class="usermanual-keyboard">ALT</span> key and Page Up / Down to change the order. Pressing E will cycle through the groups.
+</p>
+<h2 id="Soft-Edges" data-line="415" >Soft-Edges</h2>
+<p data-line="421" >
+There are two modes for creating soft-edges. Automatic mode and manual mode. Automatic mode will be sufficient for projections on semi-planar surfaces. When doing 3d projection mapping, the soft edges might become very irregular, and manual mode might be required.
+</p>
+<p data-line="423" >
+Automatic mode is enabled by default and can be disabled in the Edges section.
+</p>
+<h3 id="Thegammavalues" data-line="425" >The gamma values</h3>
+<p data-line="427" >
+The ramps for soft-edging execute the following functions in this order:
+</p>
+<ol class="" start="1"><li data-line="429" >Apply the white spline
+</li><li data-line="430" >Apply the separate red/green/blue splines
+</li><li data-line="431" >Apply the gamma value
+</li><li data-line="432" >Apply the separate red/green/blue gamma values
+</li></ol><p data-line="434" >
+This allows you to roughly adjust the gamma, and then use the spline editor to fiddle with the ramp until it is satisfactory.
+</p>
+<p data-line="436" >
+Each ramp (or group) has its own set of gammas and splines.
+</p>
+<p data-line="438" >
+This is the same for automatic and manual mode, even though the user interface differs.
+</p>
+<p data-line="440" >
+Spline control points are inserted by clicking on the spline itself. They can be moved by clicking on them and dragging them. Moving a control point next to another control point removes it.
+</p>
+<p data-line="442" >
+<img src="images/WarpingSoftEdgingMasking/rampspline.png" style="max-width:510px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="444" >
+The buttons below switch between the splines for white, red, green and blue, and revert the spline to default.
+</p>
+<h3 id="AutomaticMode" data-line="446" >Automatic Mode</h3>
+<p data-line="448" >
+In automatic mode, the shape of the edges can not be changed. If the warping is correct, this should not be required.
+</p>
+<p data-line="450" >
+The output navigation will show the edges. By clicking on an edge, an editor window will open up and allow to edit gamma sliders and splines of both adjacent edges. 
+</p>
+<p data-line="452" >
+<img src="images/WarpingSoftEdgingMasking/autoedge.2.png" style="max-width:850px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<h3 id="ManualMode" data-line="454" >Manual Mode</h3>
+<p data-line="456" >
+Here the geometry of the edges can be edited just like a warping layer. It is possible to add more control points to the grid. Remember that the edges are also warped, which can be a bit confusing when editing edge-layers on the projection screen.
+</p>
+<p data-line="458" >
+In manual mode, only one edge can be edited at a time.
+</p>
+<p data-line="460" >
+<img src="images/WarpingSoftEdgingMasking/manualedge.png" style="max-width:850px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="462" >
+Each point has an associated value, which is either 1 (white, image) or 0 (black). If more complex forms than simple edges are required, this value can be edited with a slider among the properties or by pressing the I and shift-I keys, setting the value to 0 or 1.
+</p>
+<p data-line="464" >
+The spline editor for the ramps is started by pressing on the small splines next to the gamma sliders. This opens a bigger window.
+</p>
+<h2 id="PerOutputSettings" data-line="466" >Per Output Settings</h2>
+<p data-line="468" >
+The output category has the following properties:
+</p>
+<p data-line="470" >
+<img src="images/WarpingSoftEdgingMasking/output.png" style="max-width:253px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<h3 id="ColorCorrection" data-line="472" >Color Correction</h3>
+<table class="wiki" data-line="474" >
+<tr><th data-line="474" > Name </th><th data-line="474" > Description 
+</th></tr><tr><td data-line="475" > Gain </td><td data-line="475" > For color correction, a value that is used to multiply the rendering pixels 
+</td></tr><tr><td data-line="476" > Lift </td><td data-line="476" > For color correction, a value that is added to the rendering pixels, before contrast is applied 
+</td></tr></table>
+<p data-line="478" >
+To change all 3 (red, green and blue) sliders at the same time, press the Alt key while dragging with the mouse. This will change the color values while trying to preserve the ratios between the colors, so brown will always stay brown and not become more and more pale-white as values increase.
+</p>
+<h3 id="QualitySettings" data-line="480" >Quality Settings</h3>
+<p data-line="482" >
+The Quality section mainly controls how fine the warping mesh is to be tessellated. The defaults are set for quite high quality, when using more precise values you should check for wasteful over-tesselation with the <strong>Show Wireframe</strong> option.
+</p>
+<table class="wiki" data-line="484" >
+<tr><th data-line="484" > Name </th><th data-line="484" > Description 
+</th></tr><tr><td data-line="485" > Max Level </td><td data-line="485" > Maximum subdivision when creating the mesh from the finest layer 
+</td></tr><tr><td data-line="486" > Position Error </td><td data-line="486" > Acceptable difference for the vertex positions between perfect Beziér interpolation and the actual mesh, in pixels 
+</td></tr><tr><td data-line="487" > Mapping Error </td><td data-line="487" > Acceptable difference for the UV mapping between perfect Beziér interpolation and the actual mesh, in pixels 
+</td></tr><tr><td data-line="488" > Ramp Error </td><td data-line="488" > Acceptable difference for ramp colors between perfect Beziér interpolation and the actual mesh, in color values ranging from 0 to 255 
+</td></tr><tr><td data-line="489" > Dither Mode </td><td data-line="489" > Enable dithering to improve ramp quality. Temporal dithering will change the dither pattern every frame, that usually gives better results but may result in undesirable artifacts. 
+</td></tr><tr><td data-line="490" > Show Wireframe </td><td data-line="490" > Shows the wireframe of the warping mesh. Useful for checking if the level of subdivision is reasonable or insane. 
+</td></tr></table>
+<h3 id="EnableDisableProjectorUserInterface" data-line="492" >Enable / Disable Projector User Interface</h3>
+<p data-line="494" >
+When working with large or complex render setups, one might want to continue warping at one portion of the installation while another portion already operates.
+</p>
+<p data-line="496" >
+The <strong>Projector Gui Enable</strong> button allows excluding some of the outputs from being affected by the shaping editor. Warping, Shaping and Masking are done as edited, but test patterns and the user interface is never drawn. The affected outputs are crossed out in the navigation.
+</p>
+<h2 id="PerGroupSettings" data-line="498" >Per Group Settings</h2>
+<p data-line="500" >
+<img src="images/WarpingSoftEdgingMasking/groupoptions.png" style="max-width:250px;margin-right:auto; display:block; margin-left:auto;width:80%" class="usermanual-image" title="" alt="" />
+</p>
+<h3 id="EnableWarpGroupAlphaBlending" data-line="502" >Enable Warp Group / Alpha Blending</h3>
+<p data-line="504" >
+These options are especially useful when working with multiple warp groups on the same output.
+</p>
+<p data-line="506" >
+<strong>Enable Warp Group</strong> is on by default. This allows to temporarily disable a warp group. 
+</p>
+<p data-line="508" >
+<strong>Enable Alpha</strong> This allows to use alpha blending when warp groups overlap. Since the alpha channel often contains garbage, this is disabled by default
+</p>
+<h3 id="UVBoundaries" data-line="510" >UV Boundaries</h3>
+<p data-line="512" >
+This allows making a warp group use only a portion of the content. Numerical input is possible for entering precise values.
+</p>
+<p data-line="514" >
+This is useful when using multiple warp groups.
+</p>
+<p data-line="516" >
+The same effect can be achieved with the <a class="wiki" href="WarpingSoftEdgingMasking.html#UVEditor">UV Editor</a>. This is more convenient for moving the whole UV selection, while the UV Editor allows irregular warpings. Both methods can be combined.
+</p>
+<h3 id="a3Dprojection" data-line="518" >3D projection</h3>
+<p data-line="520" >
+With these values set to default, the warping mesh is rendered straight on the screen, with no distortion. 
+</p>
+<p data-line="522" >
+3D projection allows a virtual camera to move around the warping mesh to get perspective correct projection. 
+</p>
+<p data-line="524" >
+All fields allow for precise numerical input.
+</p>
+<p data-line="526" >
+<strong>Rotation</strong> will orbit the camera around the warp mesh.
+</p>
+<p data-line="528" >
+<strong>Zoom</strong> will change the field of view.
+</p>
+<p data-line="530" >
+<strong>Distance</strong> works like a vertigo slider: at the same time the distance is changed, the zoom is changed the other way around to preserve the size of the warp mesh. This will either exaggerate or minimize the effect of the perspective distortion.
+</p>
+<p data-line="532" >
+<strong>Shift</strong> this will move the warp mesh around, while the camera stands still. <strong>Pan</strong> this will move the final image around, with no change in perspective. 
+</p>
+<p data-line="534" >
+<strong>Shift</strong> will move the warp mesh
+</p>
+<p data-line="536" >
+Press <span class="usermanual-keyboard">ALT</span> R to reset the 3D-Projection.
+</p>
+<p data-line="539" >
+<div class="usermanual-see-also">
+  See also:<ul class="usermanual-see-also">
+<li><a class="wiki" href="MultiDisplaySetupsAndShaping.html">Render Setup Editor</a></li>
+<li><a class="wiki" href="Cluster.html">Cluster General</a></li>
+<li><a class="wiki" href="HowTo/HowToClusterRendering.html">Cluster Setup HowTo</a></li>
+</ul></div>
+</p>
+
+            </div>
+            <div class="control"><div class="control-prev"><a href="MultiDisplaySetupsAndShaping_2.html?itm=276">&laquo; Previous Article</a></div><div><a href="Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="MachineConfigurationVendors_2.html?itm=278">Next Article &raquo;</a></div></div>
+            <div id="footer">
+    Copyright 2020 Ventuz Technology
+</div>
+        </div>
+    </body>
+</html>

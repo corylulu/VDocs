@@ -1,0 +1,1888 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>UserManual/NodeLayer2D</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript" src="js/usermanual.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script><script src="js/jquery-ui.min.js"></script><script type="text/javascript">
+    function getParam(name, defaultValue) {
+        var url = window.location.search.substring(1);
+        var vars = url.split('&');
+        for (var i = 0; i < vars.length; ++i) {
+            var param = vars[i].split('=');
+            if (param[0] == name) {
+                return param[1];
+            }
+        }
+        return defaultValue;
+    }
+
+    jQuery(document).ready(function($) {
+        var link;
+        var itemIndex = getParam('itm', -1)
+        if (itemIndex != -1) {
+            var link = $('a[item-index="' + itemIndex + '"]:first');
+        } else {
+            var page = window.location.pathname;
+            var parts = page.split("/");
+            if (parts.length >= 2) {
+                page = parts[parts.length-2] + "/" + parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+            if ( link.length === 0 && parts.length >= 1 ) {
+                page = parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+        }
+
+        var tabIndex = 0;
+        if (link.length > 0) {
+            tabIndex = parseInt(link.attr("tab-index"), 10);
+            link.addClass('current');
+            link.parent().addClass('current');
+        }
+
+        $("#navigation").accordion({
+            heightStyle: "content",
+            collapsible: true,
+            active: tabIndex
+        });
+
+        $('#sidebar').scrollTop(link.offset().top - 20);
+    });
+    </script>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <!--sidebar begin--> <div id="sidebar"><h1>Navigation</h1><div id="navigation"><h3>Ventuz 6 Quick Guide</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="QuickGuideIntro.html?itm=0" tab-index="0" item-index="0" lst="1-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GettingStarted.html?itm=1" tab-index="0" item-index="1" lst="1-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzEditions.html?itm=2" tab-index="0" item-index="2" lst="1-1">Ventuz Editions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner.html?itm=3" tab-index="0" item-index="3" lst="1-1">Designer Overview</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SystemRequirements.html?itm=4" tab-index="0" item-index="4" lst="1-2">Ventuz System Requirements</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfiguration.html?itm=5" tab-index="0" item-index="5" lst="1-2">Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationAV.html?itm=6" tab-index="0" item-index="6" lst="1-2">Video/Audio Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationMC.html?itm=7" tab-index="0" item-index="7" lst="1-2">Machine Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GPIConfiguration.html?itm=8" tab-index="0" item-index="8" lst="1-2">GPI Configuration for Runtime or Director</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Performance.html?itm=9" tab-index="0" item-index="9" lst="1-2">Optimize Rendering Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SupportedFormats.html?itm=10" tab-index="0" item-index="10" lst="1-2">Supported Formats</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationVendors.html?itm=11" tab-index="0" item-index="11" lst="1-2">Supported Hardware</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AntiAliasing.html?itm=12" tab-index="0" item-index="12" lst="1-2">Multisampling / Anti-Aliasing</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InputSubsystem.html?itm=13" tab-index="0" item-index="13" lst="1-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="VentuzFileTypes.html?itm=14" tab-index="0" item-index="14" lst="1-2">Ventuz Proprietary Files</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="WhatsNew.html?itm=15" tab-index="0" item-index="15" lst="1-1">What&apos;s new</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="FAQ.html?itm=16" tab-index="0" item-index="16" lst="1-1">FAQ</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="CommonMistakes.html?itm=17" tab-index="0" item-index="17" lst="1-1">Common Mistakes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Deployment.html?itm=18" tab-index="0" item-index="18" lst="1-1">Deployment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MigrationGuide.html?itm=19" tab-index="0" item-index="19" lst="1-1">Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MigrationGuideV4V5.html?itm=20" tab-index="0" item-index="20" lst="1-1">Ventuz 5 Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="SummaryShortcuts.html?itm=21" tab-index="0" item-index="21" lst="1-1">Summary Shortcuts</a></li></ul></div><h3>Ventuz 6 Designer</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Index.html?itm=22" tab-index="1" item-index="22" lst="3-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GettingStarted_2.html?itm=23" tab-index="1" item-index="23" lst="3-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DesignerOptions.html?itm=24" tab-index="1" item-index="24" lst="3-1">Designer Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner_2.html?itm=25" tab-index="1" item-index="25" lst="3-1">Designer Overview</a></li></ul><div class="list-label list-level-1">Projects &amp; Scenes</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="ProjectsAndScenes.html?itm=26" tab-index="1" item-index="26" lst="4-1">Projects and Scenes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WindowProjectBrowser.html?itm=27" tab-index="1" item-index="27" lst="4-2">Project Browser</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectProperties.html?itm=28" tab-index="1" item-index="28" lst="4-2">Project Properties</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectMaintenance.html?itm=29" tab-index="1" item-index="29" lst="4-2">Project Maintenance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectAndSceneData.html?itm=30" tab-index="1" item-index="30" lst="4-2">Project and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneTree.html?itm=31" tab-index="1" item-index="31" lst="4-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneManagement.html?itm=32" tab-index="1" item-index="32" lst="4-2">Scene Management</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneStatistics.html?itm=33" tab-index="1" item-index="33" lst="4-2">Scene Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Deployment_2.html?itm=34" tab-index="1" item-index="34" lst="4-2">Deployment</a></li></ul></li></ul><div class="list-label list-level-1">Interface</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="UserInterface.html?itm=35" tab-index="1" item-index="35" lst="7-1">Designer Interface</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RendererWindow.html?itm=36" tab-index="1" item-index="36" lst="7-2">Renderer Window</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RealtimeRendering.html?itm=37" tab-index="1" item-index="37" lst="7-2">Realtime Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Performance_2.html?itm=38" tab-index="1" item-index="38" lst="7-2">Optimize Scene Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PerformanceStatistics.html?itm=39" tab-index="1" item-index="39" lst="7-2">Performance Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TransformationGizmo.html?itm=40" tab-index="1" item-index="40" lst="7-2">Transformation Gizmo</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RenderToDisk.html?itm=41" tab-index="1" item-index="41" lst="7-2">Render to Disk</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="CameraNavigation.html?itm=42" tab-index="1" item-index="42" lst="7-2">Camera Navigation</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="IsolateMode.html?itm=43" tab-index="1" item-index="43" lst="7-2">Isolated Objects</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TransformationGizmo_2.html?itm=44" tab-index="1" item-index="44" lst="7-2">Manipulate Objects with Gizmos</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LayerEditor.html?itm=45" tab-index="1" item-index="45" lst="7-2">Layer Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LayerCommonProperties.html?itm=46" tab-index="1" item-index="46" lst="7-2">Common Layer Properties</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP.html?itm=47" tab-index="1" item-index="47" lst="7-3">IPP Effects</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_ColorCorrections.html?itm=48" tab-index="1" item-index="48" lst="7-3">Color Correction FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_Distortion.html?itm=49" tab-index="1" item-index="49" lst="7-3">Distortion FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_Filters.html?itm=50" tab-index="1" item-index="50" lst="7-3">Filter FX</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsLayerEditor.html?itm=51" tab-index="1" item-index="51" lst="7-2">Layer Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="HierarchyEditor.html?itm=52" tab-index="1" item-index="52" lst="7-2">Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="NodesAndBindings.html?itm=53" tab-index="1" item-index="53" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainersAndInterfaces.html?itm=54" tab-index="1" item-index="54" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="FindAndReplace.html?itm=55" tab-index="1" item-index="55" lst="7-2">Find and Replace</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsHierarchyEditor.html?itm=56" tab-index="1" item-index="56" lst="7-2">Shortcuts Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContentEditor.html?itm=57" tab-index="1" item-index="57" lst="7-2">Content Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="NodesAndBindings_2.html?itm=58" tab-index="1" item-index="58" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainersAndInterfaces_2.html?itm=59" tab-index="1" item-index="59" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsContentEditor.html?itm=60" tab-index="1" item-index="60" lst="7-2">Content Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ToolboxAndRepository.html?itm=61" tab-index="1" item-index="61" lst="7-2">Toolbox</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PropertiesEditor.html?itm=62" tab-index="1" item-index="62" lst="7-2">Property Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectAndSceneData_2.html?itm=63" tab-index="1" item-index="63" lst="7-2">Project Data and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PropertyGroups.html?itm=64" tab-index="1" item-index="64" lst="7-2">Property Groups</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShaderEditor.html?itm=65" tab-index="1" item-index="65" lst="7-2">Shader Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextEditor.html?itm=66" tab-index="1" item-index="66" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneTree_2.html?itm=67" tab-index="1" item-index="67" lst="7-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MessageView.html?itm=68" tab-index="1" item-index="68" lst="7-2">Message View</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="StageEditor.html?itm=69" tab-index="1" item-index="69" lst="7-2">Stage Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainerOutline.html?itm=70" tab-index="1" item-index="70" lst="7-2">Container Outline</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WatchesEditor.html?itm=71" tab-index="1" item-index="71" lst="7-2">Watches Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationEditor.html?itm=72" tab-index="1" item-index="72" lst="7-2">Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationAndStateEngine.html?itm=73" tab-index="1" item-index="73" lst="7-2">Animation and State Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Templates.html?itm=74" tab-index="1" item-index="74" lst="7-2">Templates</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TemplateEngine.html?itm=75" tab-index="1" item-index="75" lst="7-2">Template Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsAnimationEditor.html?itm=76" tab-index="1" item-index="76" lst="7-2">Shortcuts Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextRendering.html?itm=77" tab-index="1" item-index="77" lst="7-2">Text Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextEditor_2.html?itm=78" tab-index="1" item-index="78" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="CharacterSets.html?itm=79" tab-index="1" item-index="79" lst="7-2">Character Sets</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GeometryImport.html?itm=80" tab-index="1" item-index="80" lst="7-2">Geometry Import</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InputSubsystem_2.html?itm=81" tab-index="1" item-index="81" lst="7-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MultiTouch.html?itm=82" tab-index="1" item-index="82" lst="7-2">Multitouch</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TUIO.html?itm=83" tab-index="1" item-index="83" lst="7-2">TUIO Protocol</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="OpenSoundControl.html?itm=84" tab-index="1" item-index="84" lst="7-2">Open Sound Control</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="HowTo/HowToVR.html?itm=85" tab-index="1" item-index="85" lst="7-2">How to work with Head Mounted Displays</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Cluster.html?itm=86" tab-index="1" item-index="86" lst="7-2">Cluster</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MultiDisplaySetupsAndShaping.html?itm=87" tab-index="1" item-index="87" lst="7-2">Multi Display Setups and Shaping</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WarpingSoftEdgingMasking.html?itm=88" tab-index="1" item-index="88" lst="7-2">Warping, Soft Edging and Masking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Nodes.html?itm=89" tab-index="1" item-index="89" lst="7-1">Available Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationNodes.html?itm=90" tab-index="1" item-index="90" lst="7-2">Animation Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MaterialNodes.html?itm=91" tab-index="1" item-index="91" lst="7-2">Material&amp;Color Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="DataNodes.html?itm=92" tab-index="1" item-index="92" lst="7-2">Data Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GeometryNodes.html?itm=93" tab-index="1" item-index="93" lst="7-2">Geometry Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InteractionNodes.html?itm=94" tab-index="1" item-index="94" lst="7-2">Interaction Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="IONodes.html?itm=95" tab-index="1" item-index="95" lst="7-2">IO Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Layers.html?itm=96" tab-index="1" item-index="96" lst="7-2">Layers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LightNodes.html?itm=97" tab-index="1" item-index="97" lst="7-2">Light Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LogicNodes.html?itm=98" tab-index="1" item-index="98" lst="7-2">Logic Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RenderNodes.html?itm=99" tab-index="1" item-index="99" lst="7-2">Render Option Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SlidesNodes.html?itm=100" tab-index="1" item-index="100" lst="7-2">Slides Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SoundNodes.html?itm=101" tab-index="1" item-index="101" lst="7-2">Sound Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextNodes.html?itm=102" tab-index="1" item-index="102" lst="7-2">Text Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextureNodes.html?itm=103" tab-index="1" item-index="103" lst="7-2">Texture Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="VrNodes.html?itm=104" tab-index="1" item-index="104" lst="7-2">VR Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WorldNodes.html?itm=105" tab-index="1" item-index="105" lst="7-2">World Nodes</a></li></ul></li></ul></div><h3>Ventuz 6 Node Reference</h3><div><div class="list-label list-level-1">ANIMATION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationMover.html?itm=106" tab-index="2" item-index="106" lst="24-1">Mover</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationMover_2.html?itm=107" tab-index="2" item-index="107" lst="24-1">Alternator</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationControls.html?itm=108" tab-index="2" item-index="108" lst="24-1">Simple Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationControls_2.html?itm=109" tab-index="2" item-index="109" lst="24-1">Timeline Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationAnimationRig.html?itm=110" tab-index="2" item-index="110" lst="24-1">Anmation Rig</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationKeyframeAnimation.html?itm=111" tab-index="2" item-index="111" lst="24-1">Keyframe Animation</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationKeyframeAnimation_2.html?itm=112" tab-index="2" item-index="112" lst="24-1">Animation Group</a></li></ul><div class="list-label list-level-1">COLOR/MATERIAL</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorAlpha.html?itm=113" tab-index="2" item-index="113" lst="25-1">Alpha</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorFog.html?itm=114" tab-index="2" item-index="114" lst="25-1">Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorFog_2.html?itm=115" tab-index="2" item-index="115" lst="25-1">Ground Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorSkyBox.html?itm=116" tab-index="2" item-index="116" lst="25-1">Sky Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters.html?itm=117" tab-index="2" item-index="117" lst="25-1">Color to RGBA</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_2.html?itm=118" tab-index="2" item-index="118" lst="25-1">HSLA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_3.html?itm=119" tab-index="2" item-index="119" lst="25-1">RGBA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_4.html?itm=120" tab-index="2" item-index="120" lst="25-1">Color Transformer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeShaderHLSLShader.html?itm=121" tab-index="2" item-index="121" lst="25-1">HLSL Shader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorColor.html?itm=122" tab-index="2" item-index="122" lst="25-1">Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorMaterial.html?itm=123" tab-index="2" item-index="123" lst="25-1">Material</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorColorPicker.html?itm=124" tab-index="2" item-index="124" lst="25-1">Color Picker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorSubstanceMaterial.html?itm=125" tab-index="2" item-index="125" lst="25-1">Substance Material</a></li></ul><div class="list-label list-level-1">DATA</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataDatabase.html?itm=126" tab-index="2" item-index="126" lst="26-1">Database</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataExcel.html?itm=127" tab-index="2" item-index="127" lst="26-1">Excel</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataJSON.html?itm=128" tab-index="2" item-index="128" lst="26-1">JSON</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataRSSFeed.html?itm=129" tab-index="2" item-index="129" lst="26-1">RSS Feed</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataResourceLinker.html?itm=130" tab-index="2" item-index="130" lst="26-1">Resource Linker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataTextFile.html?itm=131" tab-index="2" item-index="131" lst="26-1">Text File</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataXML.html?itm=132" tab-index="2" item-index="132" lst="26-1">XML</a></li></ul><div class="list-label list-level-1">GEOMETRY</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles.html?itm=133" tab-index="2" item-index="133" lst="27-1">Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_2.html?itm=134" tab-index="2" item-index="134" lst="27-1">Rounded Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_3.html?itm=135" tab-index="2" item-index="135" lst="27-1">Gradient Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_4.html?itm=136" tab-index="2" item-index="136" lst="27-1">Overlay Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCube.html?itm=137" tab-index="2" item-index="137" lst="27-1">Cube</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCircle.html?itm=138" tab-index="2" item-index="138" lst="27-1">Circle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometrySphere.html?itm=139" tab-index="2" item-index="139" lst="27-1">Sphere</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCylinder.html?itm=140" tab-index="2" item-index="140" lst="27-1">Cylinder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCone.html?itm=141" tab-index="2" item-index="141" lst="27-1">Cone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryTorus.html?itm=142" tab-index="2" item-index="142" lst="27-1">Torus</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryChart.html?itm=143" tab-index="2" item-index="143" lst="27-1">Chart</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRandomPoints.html?itm=144" tab-index="2" item-index="144" lst="27-1">Random Points</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryMeshLoader.html?itm=145" tab-index="2" item-index="145" lst="27-1">Mesh Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryImport.html?itm=146" tab-index="2" item-index="146" lst="27-1">Geometry Import (Live)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryVolume.html?itm=147" tab-index="2" item-index="147" lst="27-1">Volume</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryGetBoundingBox.html?itm=148" tab-index="2" item-index="148" lst="27-1">Get Bounding Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryArrow.html?itm=149" tab-index="2" item-index="149" lst="27-1">Arrow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryParticleSystem.html?itm=150" tab-index="2" item-index="150" lst="27-1">Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryPath.html?itm=151" tab-index="2" item-index="151" lst="27-1">Path Renderer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryGeometryRenderer.html?itm=152" tab-index="2" item-index="152" lst="27-1">Geometry Renderer</a></li></ul><div class="list-label list-level-1">INTERACTION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionInteractionRect.html?itm=153" tab-index="2" item-index="153" lst="28-1">Interaction Rect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchButton.html?itm=154" tab-index="2" item-index="154" lst="28-1">Touch Button</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchExcluder.html?itm=155" tab-index="2" item-index="155" lst="28-1">Touch Excluder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchMarker.html?itm=156" tab-index="2" item-index="156" lst="28-1">Touch Marker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchPaint.html?itm=157" tab-index="2" item-index="157" lst="28-1">Touch Paint</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchPattern.html?itm=158" tab-index="2" item-index="158" lst="28-1">Touch Pattern</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchProxy.html?itm=159" tab-index="2" item-index="159" lst="28-1">Touch Proxy</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchRipples.html?itm=160" tab-index="2" item-index="160" lst="28-1">Touch Ripples</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchTransformations.html?itm=161" tab-index="2" item-index="161" lst="28-1">Touch Transformations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchWebBrowser.html?itm=162" tab-index="2" item-index="162" lst="28-1">Web Browser</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchTeleport.html?itm=163" tab-index="2" item-index="163" lst="28-1">Touch Teleport</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchSimulator.html?itm=164" tab-index="2" item-index="164" lst="28-1">Touch Simulator</a></li></ul><div class="list-label list-level-1">INPUT/OUTPUT (I/O)</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOGPI.html?itm=165" tab-index="2" item-index="165" lst="29-1">GPI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOJoystick.html?itm=166" tab-index="2" item-index="166" lst="29-1">Joystick</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOKeyboard.html?itm=167" tab-index="2" item-index="167" lst="29-1">Keyboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOMIDI.html?itm=168" tab-index="2" item-index="168" lst="29-1">MIDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOMouse.html?itm=169" tab-index="2" item-index="169" lst="29-1">Mouse</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIONetwork.html?itm=170" tab-index="2" item-index="170" lst="29-1">Network</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOOSC.html?itm=171" tab-index="2" item-index="171" lst="29-1">Open Sound Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOSerial.html?itm=172" tab-index="2" item-index="172" lst="29-1">Serial</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOTimecode.html?itm=173" tab-index="2" item-index="173" lst="29-1">Timecode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIODMX.html?itm=174" tab-index="2" item-index="174" lst="29-1">DMX</a></li></ul><div class="list-label list-level-1">LAYER</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer3D.html?itm=175" tab-index="2" item-index="175" lst="30-1">3D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer3DReference.html?itm=176" tab-index="2" item-index="176" lst="30-1">3D Layer Reference</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer2D.html?itm=177" tab-index="2" item-index="177" lst="30-1">2D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayerPsdImport.html?itm=178" tab-index="2" item-index="178" lst="30-1">PSD Import Layer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayerOther.html?itm=179" tab-index="2" item-index="179" lst="30-1">Others</a></li></ul><div class="list-label list-level-1">LIGHT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLightSources.html?itm=180" tab-index="2" item-index="180" lst="31-1">Light Sources</a></li></ul><div class="list-label list-level-1">LOGIC</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicArrayProcessing.html?itm=181" tab-index="2" item-index="181" lst="32-1">Array Processing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicConvertToText.html?itm=182" tab-index="2" item-index="182" lst="32-1">Convert To Text</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicCluster.html?itm=183" tab-index="2" item-index="183" lst="32-1">Cluster Synchronization</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicCounter.html?itm=184" tab-index="2" item-index="184" lst="32-1">Counter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDateTime.html?itm=185" tab-index="2" item-index="185" lst="32-1">Date Time</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDirectory.html?itm=186" tab-index="2" item-index="186" lst="32-1">Directory</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDispatcher.html?itm=187" tab-index="2" item-index="187" lst="32-1">Dispatcher</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicEnumeration.html?itm=188" tab-index="2" item-index="188" lst="32-1">Enumeration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicExpressions.html?itm=189" tab-index="2" item-index="189" lst="32-1">Expressions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicInvert.html?itm=190" tab-index="2" item-index="190" lst="32-1">Invert</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicLog.html?itm=191" tab-index="2" item-index="191" lst="32-1">Log</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicLoopBreaker.html?itm=192" tab-index="2" item-index="192" lst="32-1">Loop Breaker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicMathEffects.html?itm=193" tab-index="2" item-index="193" lst="32-1">Math Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicMatrixOperations.html?itm=194" tab-index="2" item-index="194" lst="32-1">Matrix Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicSceneEvent.html?itm=195" tab-index="2" item-index="195" lst="32-1">Scene Event</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicScript.html?itm=196" tab-index="2" item-index="196" lst="32-1">Script</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicStringOperations.html?itm=197" tab-index="2" item-index="197" lst="32-1">String Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicSystemID.html?itm=198" tab-index="2" item-index="198" lst="32-1">System ID</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicTextSplitter.html?itm=199" tab-index="2" item-index="199" lst="32-1">Text Splitter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicTimer.html?itm=200" tab-index="2" item-index="200" lst="32-1">Timer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicToggle.html?itm=201" tab-index="2" item-index="201" lst="32-1">Toggle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicURL.html?itm=202" tab-index="2" item-index="202" lst="32-1">URL</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicValueSwitch.html?itm=203" tab-index="2" item-index="203" lst="32-1">Value Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicValueBuffer.html?itm=204" tab-index="2" item-index="204" lst="32-1">Value Buffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicVariables.html?itm=205" tab-index="2" item-index="205" lst="32-1">Variables</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicVisualIndexer.html?itm=206" tab-index="2" item-index="206" lst="32-1">Visual Indexer</a></li></ul><div class="list-label list-level-1">RENDER OPTIONS</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaBlending.html?itm=207" tab-index="2" item-index="207" lst="33-1">Alpha Blending</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaBlending_2.html?itm=208" tab-index="2" item-index="208" lst="33-1">Color Write</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaTesting.html?itm=209" tab-index="2" item-index="209" lst="33-1">Alpha Testing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsClipPlane.html?itm=210" tab-index="2" item-index="210" lst="33-1">Clip Plane</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsFilter.html?itm=211" tab-index="2" item-index="211" lst="33-1">Filter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsMask.html?itm=212" tab-index="2" item-index="212" lst="33-1">Mask</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsMirror.html?itm=213" tab-index="2" item-index="213" lst="33-1">Mirror</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsEffect.html?itm=214" tab-index="2" item-index="214" lst="33-1">Effect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsRenderCubeMap.html?itm=215" tab-index="2" item-index="215" lst="33-1">Render Cube Map</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsDrawMode.html?itm=216" tab-index="2" item-index="216" lst="33-1">Draw Modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsStencil.html?itm=217" tab-index="2" item-index="217" lst="33-1">Stencil</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsZTesting.html?itm=218" tab-index="2" item-index="218" lst="33-1">ZTesting</a></li></ul><div class="list-label list-level-1">SOUND</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundPlayback.html?itm=219" tab-index="2" item-index="219" lst="34-1">Audio Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundPlayback_2.html?itm=220" tab-index="2" item-index="220" lst="34-1">Sound</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAudioControl.html?itm=221" tab-index="2" item-index="221" lst="34-1">Volume Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundAnalyzeAudio.html?itm=222" tab-index="2" item-index="222" lst="34-1">Audio Analysis</a></li></ul><div class="list-label list-level-1">SLIDES</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager.html?itm=223" tab-index="2" item-index="223" lst="35-1">Slide Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_2.html?itm=224" tab-index="2" item-index="224" lst="35-1">Slide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_3.html?itm=225" tab-index="2" item-index="225" lst="35-1">Slide Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_4.html?itm=226" tab-index="2" item-index="226" lst="35-1">Pivot</a></li></ul><div class="list-label list-level-1">TEXT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextEffects.html?itm=227" tab-index="2" item-index="227" lst="36-1">Text Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextLayout.html?itm=228" tab-index="2" item-index="228" lst="36-1">Text Layouts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextRendering.html?itm=229" tab-index="2" item-index="229" lst="36-1">Text Rendering</a></li></ul><div class="list-label list-level-1">TEXTURE</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureBackground.html?itm=230" tab-index="2" item-index="230" lst="37-1">Background</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureHatch.html?itm=231" tab-index="2" item-index="231" lst="37-1">Hatch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureImage.html?itm=232" tab-index="2" item-index="232" lst="37-1">Image</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureTexture.html?itm=233" tab-index="2" item-index="233" lst="37-1">Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSVGLoader.html?itm=234" tab-index="2" item-index="234" lst="37-1">SVG Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureGradientTexture.html?itm=235" tab-index="2" item-index="235" lst="37-1">Gradient Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo.html?itm=236" tab-index="2" item-index="236" lst="37-1">Live Video</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_2.html?itm=237" tab-index="2" item-index="237" lst="37-1">Movie Stream</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_3.html?itm=238" tab-index="2" item-index="238" lst="37-1">Movie Frame</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_4.html?itm=239" tab-index="2" item-index="239" lst="37-1">Movie Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureImageLoaders.html?itm=240" tab-index="2" item-index="240" lst="37-1">Texture Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSnapshot.html?itm=241" tab-index="2" item-index="241" lst="37-1">Snapshot</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureRenderSnapshot.html?itm=242" tab-index="2" item-index="242" lst="37-1">Snapshot Framebuffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureTextureSaver.html?itm=243" tab-index="2" item-index="243" lst="37-1">Texture Saver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideoSourceSelector.html?itm=244" tab-index="2" item-index="244" lst="37-1">Video Source Selector</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVioInput.html?itm=245" tab-index="2" item-index="245" lst="37-1">VIO Input</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSpout.html?itm=246" tab-index="2" item-index="246" lst="37-1">Spout Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureNDI.html?itm=247" tab-index="2" item-index="247" lst="37-1">NDI Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSubstanceLoader.html?itm=248" tab-index="2" item-index="248" lst="37-1">Substance Loader</a></li></ul><div class="list-label list-level-1">VR/AR</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeVrTracked.html?itm=249" tab-index="2" item-index="249" lst="38-1">Tracked Devices</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeVrTracked_2.html?itm=250" tab-index="2" item-index="250" lst="38-1">Draw Tracked Devices</a></li></ul><div class="list-label list-level-1">WORLD</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis.html?itm=251" tab-index="2" item-index="251" lst="39-1">Axis</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_2.html?itm=252" tab-index="2" item-index="252" lst="39-1">Billboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_3.html?itm=253" tab-index="2" item-index="253" lst="39-1">GetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_4.html?itm=254" tab-index="2" item-index="254" lst="39-1">SetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldArrange.html?itm=255" tab-index="2" item-index="255" lst="39-1">Arrange</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTicker.html?itm=256" tab-index="2" item-index="256" lst="39-1">Ticker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTicker_2.html?itm=257" tab-index="2" item-index="257" lst="39-1">Layout</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldGroup.html?itm=258" tab-index="2" item-index="258" lst="39-1">Group</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldZSort.html?itm=259" tab-index="2" item-index="259" lst="39-1">World Z Sort</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSwitch.html?itm=260" tab-index="2" item-index="260" lst="39-1">YesNo</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSwitch_2.html?itm=261" tab-index="2" item-index="261" lst="39-1">Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSpread.html?itm=262" tab-index="2" item-index="262" lst="39-1">Spread</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldRenderPass.html?itm=263" tab-index="2" item-index="263" lst="39-1">Filter Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldRenderPass_2.html?itm=264" tab-index="2" item-index="264" lst="39-1">Set Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldContainer.html?itm=265" tab-index="2" item-index="265" lst="39-1">Hierarchy Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldScenePort.html?itm=266" tab-index="2" item-index="266" lst="39-1">Scene Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldContainer_2.html?itm=267" tab-index="2" item-index="267" lst="39-1">Content Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTemplatePort.html?itm=268" tab-index="2" item-index="268" lst="39-1">Template Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldScenePort_2.html?itm=269" tab-index="2" item-index="269" lst="39-1">Container Info</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldCamera.html?itm=270" tab-index="2" item-index="270" lst="39-1">Camera</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldPath.html?itm=271" tab-index="2" item-index="271" lst="39-1">Paths</a></li></ul></div><h3>Ventuz 6 Configuration Editor</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfiguration_2.html?itm=272" tab-index="3" item-index="272" lst="40-1">Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationMC_2.html?itm=273" tab-index="3" item-index="273" lst="40-1">Machine Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationAV_2.html?itm=274" tab-index="3" item-index="274" lst="40-1">Video/Audio Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationWeb.html?itm=275" tab-index="3" item-index="275" lst="40-1">Web Configuration Editor and License Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MultiDisplaySetupsAndShaping_2.html?itm=276" tab-index="3" item-index="276" lst="40-1">Render Setup Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="WarpingSoftEdgingMasking_2.html?itm=277" tab-index="3" item-index="277" lst="40-1">Warping and Soft-Edging Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationVendors_2.html?itm=278" tab-index="3" item-index="278" lst="40-1">Supported Hardware</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToClusterRendering.html?itm=279" tab-index="3" item-index="279" lst="40-1">How to Setup a Cluster Render</a></li></ul></div><h3>Ventuz 6 Director</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ApplicationSettings.html?itm=280" tab-index="4" item-index="280" lst="41-1">Application Settings</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Assets.html?itm=281" tab-index="4" item-index="281" lst="41-1">Assets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Channels.html?itm=282" tab-index="4" item-index="282" lst="41-1">Channels</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/CommandLineOptions.html?itm=283" tab-index="4" item-index="283" lst="41-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ContentReferences.html?itm=284" tab-index="4" item-index="284" lst="41-1">Content References</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/DesigningTemplates.html?itm=285" tab-index="4" item-index="285" lst="41-1">Designing Templates</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Environment.html?itm=286" tab-index="4" item-index="286" lst="41-1">Environment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Glossary.html?itm=287" tab-index="4" item-index="287" lst="41-1">Glossary</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Index.html?itm=288" tab-index="4" item-index="288" lst="41-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Introduction.html?itm=289" tab-index="4" item-index="289" lst="41-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Pages.html?itm=290" tab-index="4" item-index="290" lst="41-1">Pages</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Playlist.html?itm=291" tab-index="4" item-index="291" lst="41-1">Playlist</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/PlugIns.html?itm=292" tab-index="4" item-index="292" lst="41-1">Plug-Ins</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ProjectData.html?itm=293" tab-index="4" item-index="293" lst="41-1">Project Data</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/PropertyEditor.html?itm=294" tab-index="4" item-index="294" lst="41-1">Property Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Shortcuts.html?itm=295" tab-index="4" item-index="295" lst="41-1">Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GPIConfiguration_2.html?itm=296" tab-index="4" item-index="296" lst="41-1">GPI Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ShotBox.html?itm=297" tab-index="4" item-index="297" lst="41-1">Shot Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Show.html?itm=298" tab-index="4" item-index="298" lst="41-1">Show</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/TakingAction.html?itm=299" tab-index="4" item-index="299" lst="41-1">Taking Action</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Timeline.html?itm=300" tab-index="4" item-index="300" lst="41-1">Timeline</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Topology.html?itm=301" tab-index="4" item-index="301" lst="41-1">Topology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/UserInterface.html?itm=302" tab-index="4" item-index="302" lst="41-1">User Interface</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DirectorMode.html?itm=303" tab-index="4" item-index="303" lst="41-1">Director Mode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Macros.html?itm=304" tab-index="4" item-index="304" lst="41-1">Macros</a></li></ul></div><h3>How To</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToGetVentuzRunning.html?itm=305" tab-index="5" item-index="305" lst="42-1">How to Run Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner_3.html?itm=306" tab-index="5" item-index="306" lst="42-1">How to Work with Designer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToDragAndDropTricks.html?itm=307" tab-index="5" item-index="307" lst="42-1">Ventuz Designer Drag&amp;Drop workflow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToVR_2.html?itm=308" tab-index="5" item-index="308" lst="42-1">How to use Head Mounted Displays</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseShadows.html?itm=309" tab-index="5" item-index="309" lst="42-1">How to work with Shadows</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseEmoijs.html?itm=310" tab-index="5" item-index="310" lst="42-1">How to use Emoijs</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToBuildATemplate.html?itm=311" tab-index="5" item-index="311" lst="42-1">How to Build a Template</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseNDI.html?itm=312" tab-index="5" item-index="312" lst="42-1">How to use Newtek NDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToCreateAVisualsLoaderNode.html?itm=313" tab-index="5" item-index="313" lst="42-1">How to Create Visuals Loader Node</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToRemoteControlWithAniPhone.html?itm=314" tab-index="5" item-index="314" lst="42-1">How to Remote Control with a Phone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToClusterRendering_2.html?itm=315" tab-index="5" item-index="315" lst="42-1">How to Setup a Cluster Render</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToMixedFrameRates.html?itm=316" tab-index="5" item-index="316" lst="42-1">How to use a Mixed Frame Rate Cluster</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseTracking.html?itm=317" tab-index="5" item-index="317" lst="42-1">How to use Tracking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowTo3DLayerReference.html?itm=318" tab-index="5" item-index="318" lst="42-1">How to work with 3D Reference Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToCreateAFireworkParticleSystem.html?itm=319" tab-index="5" item-index="319" lst="42-1">How to create a Firework Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToDDS.html?itm=320" tab-index="5" item-index="320" lst="42-1">How to use DDS with new Block Compression modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseSpout.html?itm=321" tab-index="5" item-index="321" lst="42-1">How to setup Spout with Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseSubstanceIntegration.html?itm=322" tab-index="5" item-index="322" lst="42-1">How to use the Substance Integration</a></li></ul></div><h3>Keyboard Shortcuts</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="SummaryShortcuts_2.html?itm=323" tab-index="6" item-index="323" lst="43-1">Summary Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsLayerEditor_2.html?itm=324" tab-index="6" item-index="324" lst="43-1">Layer Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsHierarchyEditor_2.html?itm=325" tab-index="6" item-index="325" lst="43-1">Hierarchy Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsContentEditor_2.html?itm=326" tab-index="6" item-index="326" lst="43-1">Content Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsAnimationEditor_2.html?itm=327" tab-index="6" item-index="327" lst="43-1">Animation Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Shortcuts_2.html?itm=328" tab-index="6" item-index="328" lst="43-1">Director Shortcuts</a></li></ul></div><h3>Advanced and Development</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="CommandLineOptions.html?itm=329" tab-index="7" item-index="329" lst="44-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Remoting.html?itm=330" tab-index="7" item-index="330" lst="44-1">Remoting Overview</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Remoting4Protocol.html?itm=331" tab-index="7" item-index="331" lst="44-1">Remoting 4</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingWebsocket.html?itm=332" tab-index="7" item-index="332" lst="44-1">Remoting 4 via Websockets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingDeprecated.html?itm=333" tab-index="7" item-index="333" lst="44-1">Deprecated Remoting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzIpPorts.html?itm=334" tab-index="7" item-index="334" lst="44-1">Ventuz IP Ports</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzMachineService.html?itm=335" tab-index="7" item-index="335" lst="44-1">Ventuz Machine Service</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingMachineSignature.html?itm=336" tab-index="7" item-index="336" lst="44-1">Remoting Machine Signature</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="TUIO_2.html?itm=337" tab-index="7" item-index="337" lst="44-1">TUIO</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicScript_2.html?itm=338" tab-index="7" item-index="338" lst="44-1">.NET Scripting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeShaderHLSLShader_2.html?itm=339" tab-index="7" item-index="339" lst="44-1">HLSL Shader Programming</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentSDK.html?itm=340" tab-index="7" item-index="340" lst="44-1">Ventuz API and SDK</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentVIO.html?itm=341" tab-index="7" item-index="341" lst="44-1">Ventuz VIO API</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentVFF.html?itm=342" tab-index="7" item-index="342" lst="44-1">Ventuz File Format (VFF)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentStreamOut.html?itm=343" tab-index="7" item-index="343" lst="44-1">Ventuz Stream Out API</a></li></ul></div><h3>General Reference</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Terminology.html?itm=344" tab-index="8" item-index="344" lst="45-1">Terminology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Pages.html?itm=345" tab-index="8" item-index="345" lst="45-1">Manual Index</a></li></ul></div><h3>Miscellaneous</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Presets.html?itm=346" tab-index="9" item-index="346" lst="46-1">Presets</a></li></ul></div></div></div><!--sidebar end-->
+        <div id="user-manual-content" class="sidebar">
+            
+            <div class="control"><div class="control-prev"><a href="NodeLayer3DReference.html?itm=176">&laquo; Previous Article</a></div><div><a href="Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="NodeLayerPsdImport.html?itm=178">Next Article &raquo;</a></div></div>
+            <div id="user-manual-main">
+                <h1 id="a2DLayers" data-line="1" >2D Layers</h1>
+<p data-line="3" >
+<div class="wiki-toc"><h4>Table of Contents</h4><ol><li><a href="#Generalinformationabout2DLayers">General information about 2D Layers</a></li><li><a href="#ColorLayer">Color Layer</a></li><li><a href="#GradientLayer">Gradient Layer</a></li><li><a href="#ImageLayer">Image Layer</a></li><li><a href="#SVG">SVG - Scalable Vector Graphics</a><ol><li><a href="#SVGUsage">Usage</a></li><li><a href="#SVGLimitations">Limitations</a></li></ol></li><li><a href="#MovieClipLayer">Movie Clip Layer</a></li><li><a href="#MovieFrameLayer">Movie Frame Layer</a></li><li><a href="#MovieStreamLayer">Movie Stream Layer</a></li><li><a href="#LiveVideoLayer">Live Video Layer</a></li><li><a href="#GradientTextureLayer">Gradient Texture Layer</a></li><li><a href="#TextureLoaderLayer">Texture Loader Layer</a></li><li><a href="#TexturePropertyLayer">Texture Property Layer</a></li><li><a href="#SpoutReceiverLayer">Spout Receiver Layer</a></li><li><a href="#NDIReceiverLayer">NDI Receiver Layer</a></li><li><a href="#CommonLayerProperties">Common Layer Properties</a><ol><li><a href="#blending">Blending</a><ol><li><a href="#Mode">Mode</a></li><li><a href="#Opacity">Opacity</a></li><li><a href="#Blocked">Blocked</a></li><li><a href="#BlockedOnFullTransparency">BlockedOnFullTransparency</a></li><li><a href="#lmask">Layer Mask</a><ol><li><a href="#Mask">Mask</a></li><li><a href="#TextureLoader">Texture Loader</a></li><li><a href="#LoaderTextures">Loader</a></li><li><a href="#MaterialTextures">IPP</a></li><li><a href="#MaterialTextures1">Lighting and Shaders</a><ol><li><a href="#Lighting">Lighting</a></li><li><a href="#Shaders">Shaders</a></li></ol></li><li><a href="#TextureProperty">Texture Property</a></li><li><a href="#a1DGradient">1D Gradient</a></li><li><a href="#SvgLoader">SVG Loader and SVG Text</a></li><li><a href="#Other">Other</a></li><li><a href="#TextureArrayLoaders">Texture Array Loaders</a><ol><li><a href="#FlipbookLoader">Flipbook Loader</a></li><li><a href="#StripLoader">Strip Loader</a></li></ol></li><li><a href="#Flipbook">Flipbook</a><ol><li><a href="#mask">Mask Properties</a></li></ol></li><li><a href="#MaskVignette">Mask Vignette</a></li><li><a href="#MaskBorder">Mask Border</a></li></ol></li></ol></li></ol></li><li><a href="#Layout">Layout</a></li><li><a href="#Mapping">Mapping</a></li><li><a href="#Mapping1">Mapping</a></li><li><a href="#Effects">Effects</a><ol><li><a href="#Blending">Blending</a></li><li><a href="#Mask">Mask</a></li><li><a href="#MaskSelf">Mask Self</a></li><li><a href="#Effect">Effect</a><ol><li><a href="#EffectGroup">Effect Group</a></li><li><a href="#ColorCorrection">Color Correction</a></li><li><a href="#Filters">Filters</a></li><li><a href="#Distortion">Distortion</a></li></ol></li><li><a href="#Layer">Layer</a></li></ol></li></ol></li></ol></div>
+</p>
+<div class="ventuz-node-summary"><table class="wiki">
+<tr><td><img src="images/NodeLayer2D/LayerColor.png"  /></td><td><strong><a href="#ColorLayer">Color Layer</a></strong></td><td> Fills the Layer with a Solid Color 
+</td></tr><tr><td><img src="images/NodeLayer2D/LayerGradient.png"  /></td><td><strong><a href="#GradientLayer">Gradient Layer</a></strong></td><td> Creates a Gradient filled Layer - The gradient can be edited and reoriented 
+</td></tr><tr><td><img src="images/NodeLayer2D/LayerImage.png"  /></td><td><strong><a href="#ImageLayer">Image Layer</a></strong></td><td> Creates a simple Layer with an Image - for more properties choose the Texture Loader Layer 
+</td></tr><tr><td><img src="images/NodeLayer2D/SVG.png"  /></td><td><strong><a href="#SVG">SVG File Layer</a></strong></td><td> Creates a layer to load SVG drawings 
+</td></tr><tr><td><img src="images/NodeLayer2D/SVG.png"  /></td><td><strong><a href="#SVG">SVG Text Layer</a></strong></td><td> Creates a layer that is completely filled with a SVG drawing coming in as <a class="wiki" href="NodeDataXML.html">XML</a> text 
+</td></tr><tr><td><img src="images/NodeLayer2D/LayerMovieClip.png"  /></td><td><strong><a href="#MovieClipLayer">Movie Clip Layer</a></strong></td><td> Creates a layer to load in a Movie Clip 
+</td></tr><tr><td><img src="images/NodeLayer2D/LayerMovieFrame.png"  /></td><td><strong><a href="#MovieFrameLayer">Movie Frame Layer</a></strong></td><td> Creates a layer to load in a Movie Clip and specify a single Frame inside the Properties 
+</td></tr><tr><td><img src="images/NodeLayer2D/LayerMovieStream.png"  /></td><td><strong><a href="#MovieStreamLayer">Movie Stream Layer</a></strong></td><td> Creates a layer to load in a Streaming Video Clip like a RTSP 
+</td></tr><tr><td><img src="images/NodeLayer2D/LayerLiveVideo.png"  /></td><td><strong><a href="#LiveVideoLayer">Live Video Layer</a></strong></td><td> Creates a layer to show Live Video Streams - these Video Inputs have to be configured in the Ventuz Config Editor 
+</td></tr><tr><td><img src="images/NodeLayer2D/LayerGradTexture.png"  /></td><td><strong><a href="#GradientTextureLayer">Gradient Texture Layer</a></strong></td><td> Creates a Gradient Layer with a Gradient Texture node attached inside the Content Editor Area 
+</td></tr><tr><td><img src="images/NodeLayer2D/LayerTextureLoader.png"  /></td><td><strong><a href="#TextureLoaderLayer">Texture Loader Layer</a></strong></td><td> Creates a Texture Layer with a Texture Loader node attached inside the Content Editor Area 
+</td></tr><tr><td><img src="images/NodeLayer2D/LayerTexture.png"  /></td><td><strong><a href="#TexturePropertyLayer">Texture Property Layer</a></strong></td><td> Creates a Texture Property Layer only - you need to connect any source node inside the Content Editor Area 
+</td></tr><tr><td><img src="images/NodeLayer2D/SpoutReceiverIcon.png"  /></td><td><strong><a href="#SpoutReceiverLayer">Spout Receiver Layer</a></strong></td><td> Receives a <em>RGBA</em> texture via <a class="ext-link" href="http://spout.zeal.co"><span class="icon">​</span>SPOUT</a> 
+</td></tr></table>
+</div><h2 id="Generalinformationabout2DLayers" data-line="21" >General information about 2D Layers</h2>
+<p data-line="23" >
+The general idea to use 2D Layers, instead of applying images to a rectangle, for example, is first of all to <em>save Performance</em>. If you want to simply load and display Images you would preferably use a 2D Image Layer. Internally it will not generate MipMaps  and applies no multisampling for the Layer.
+</p>
+<p data-line="25" >
+When you select a Layer (just click the Layer), all your editing will be on the <strong>Layer Level</strong>. This will be indicated inside the <a class="wiki" href="HierarchyEditor.html">Hierarchy-</a> and <a class="wiki" href="ContentEditor.html">Content Editor</a>. You can spot a note inside the <a class="wiki" href="HierarchyEditor.html">Hierarchy Editor</a> and a note at the bottom of the <a class="wiki" href="ContentEditor.html">Content Editor</a>:
+</p>
+<p data-line="27" >
+<img src="images/NodeLayer2D/LayerLevel.PNG" width="60%" />
+</p>
+<p data-line="29" >
+Layer Level Editing makes it possible to <em>bind content nodes to layers</em>. That gives you the freedom to control the layer properties and exposed properties from inside the layer on a layer level. You can use any content node inside the <a class="wiki" href="ContentEditor.html">Content Editor</a>. That makes it possible to have <strong>Layer to Layer bindings</strong> or control different kind of layers by multiple selections and distribute values across them.
+</p>
+<p data-line="31" >
+When you select a layer, the <a class="wiki" href="PropertiesEditor.html">Properties Editor</a> will show the exposed <em>default properties</em>. You can gain access to more layer-specific properties by clicking the pencil on the left to the selected layer and then click the <em>Layer Root Node</em> inside the <a class="wiki" href="ContentEditor.html">Content Editor</a>. The Screenshot shows, for example, the 2d-Movie Layer with the <em>enabled Layer Editing Mode</em> and the <a class="wiki" href="NodeTextureVideo.html#MovieClip">Movie Clip Node</a> which connects to the <em>Movie Layer Root Node</em>. To have full access to all available Movie Clips related properties you would need to click the <a class="wiki" href="NodeTextureVideo.html#MovieClip">Movie Clip Node</a> in the <a class="wiki" href="ContentEditor.html">Content Editor</a>. The <a class="wiki" href="PropertiesEditor.html">Properties Editor</a> will then show ALL Properties available.
+</p>
+<p data-line="33" >
+You can also create Logics inside the 2D-Layer. You simply click the pencil in front of the 2D-Layer and can create any kind of logic inside the <a class="wiki" href="ContentEditor.html">Content Editor</a> Area then.
+</p>
+<p data-line="36" >
+<img src="images/NodeLayer2D/LayerContentEdit.PNG" width="60%" />
+</p>
+<p data-line="38" >
+All 2D-Layers share the same <a href="#CommonLayerProperties">Common Layer Properties</a> like <em>Blending</em>, <em>Layout</em> and so on, which will be explained at the bottom of this page.
+</p>
+<h2 id="ColorLayer" data-line="41" >Color Layer</h2>
+<p data-line="43" >
+The Color Layer will fill the whole layer with a constant color. It can be used for a simple background color.
+Keep in mind that this will also fill the Alpha completely! A very good technique is to use this Color Layer to colorize other layers by changing the <a href="#blending">blending</a>.
+</p>
+<p data-line="46" >
+By clicking the Color Layer thumbnail, the <a class="wiki" href="PropertiesEditor.html#ColorpickerPixelsnoop">Color Picker</a> floating window will pop-up and you can choose a constant color here which fills the whole Layer.
+For more infomation regarding the <a class="wiki" href="PropertiesEditor.html#ColorpickerPixelsnoop">Color Picker</a> functionality please refer to the <a class="wiki" href="PropertiesEditor.html#ColorpickerPixelsnoop">Color Picker</a> section of the User manual.
+</p>
+<p data-line="50" >
+By selecting the Color Layer you can change and adjust properties such as <em>Blending</em>, <em>Layout</em>, <em>Mapping</em> and add <em>Effects</em>.
+The Layer-Specific Properties you can change are the <strong>Orientation</strong> and the <strong>TextureColor</strong>.
+If you click the Layer Editing Mode (Pencil) and select the <strong>Solid Layer Root Node</strong> inside the content area you can change the <em>Texture Property Group</em> to for example a Texture Loader.
+You can access here the <strong>Layer Orientation</strong> as well and change the <strong>Orientation</strong> to <strong>Flip</strong>, <strong>Rotate</strong> and <strong>Mirror</strong>. 
+</p>
+<h2 id="GradientLayer" data-line="55" >Gradient Layer</h2>
+<p data-line="57" >
+With the <strong>Gradient Layer</strong> you can create a <em>fullsize gradient background</em>.
+Click the <em>Gradient Thumbnail</em> to bring up the <a class="wiki" href="PropertiesEditor.html#EditingGradients">Gradient Editor</a> window, which is used to create and edit the Gradient used in this Layer.
+For more information on the <a class="wiki" href="PropertiesEditor.html#EditingGradients">Gradient Editor</a> functionality please refer to the <a class="wiki" href="PropertiesEditor.html#EditingGradients">Gradient Editor</a> section of the User manual.
+An <strong>advanced usage</strong> of the <em>Gradient - Texture Property</em> is to bind it to a string like in the screenshot:
+</p>
+<p data-line="62" >
+<img src="images/NodeLayer2D/gradient_string.png" width="60%" />
+</p>
+<p data-line="64" >
+You can now alter the gradient by a string instead of using a <a class="wiki" href="PropertiesEditor.html#ColorpickerPixelsnoop">Color Picker</a> or using the <a class="wiki" href="PropertiesEditor.html#EditingGradients">Gradient Editor</a>. With this solution, you could change the gradient with the animation timeline. You should avoid too many changes in a short range: e.g. don't change the color every frame.
+</p>
+<h2 id="ImageLayer" data-line="68" >Image Layer</h2>
+<p data-line="70" >
+The <strong>Image Layer</strong> loads standard images and layouts them in <em>Full Size</em> per default. You would preferably use the Image Layer to bring images on screen because it does <strong>not</strong> generate MipMaps nor does it apply any kind of multisampling. While using the Image Layer you can adjust the Gamma and how to handle the Alpha Channel by changing the Property called <em>TextureHint</em>.
+</p>
+<blockquote>
+<p data-line="71" >
+<div class="usermanual-include"><div class="usermanual-includetag" tag="gammahintsAlpha"></div>
+</p>
+<p>
+The <em>TextureHint drop down menu</em> has the following options available for the <strong>Gamma</strong> part:
+</p>
+<p>
+The <strong>Not a Color</strong> for example is used mostly for <em>Roughness</em> and <em>Specularity</em> Material Stages since the Texture is used without any gamma conversion and these Textures are usually Grayscale. Textures loaded with this option will not be touched or converted internally into any other colorspace which is important when using the HDR-Render Mode.
+</p>
+<p>
+<strong>sRGB</strong> defines to use the Texture in the sRGB colorspace, which is the standard for Images, Videos and most Textures.
+</p>
+<p>
+<strong>Gamma2_2</strong> loads the Texture in Gamma 2.2 which is most times needed when using Cubemaps/Environment maps in HDR. <strong>Linear</strong> loads the Texture in Gamma 1.0.
+</p>
+<p>
+<strong>Normal Map</strong> uses a special internal routine to blend the colors between the different MipMap stages to result in normalised Normal Vectors. This makes it possible to have Crisp and correct MipMaps.
+</p>
+<p>
+<div class="usermanual-includetag" tag="gammahints"></div>
+At the bottom of the <strong>TextureHint</strong> drop down menu you find the options for the <strong>Alpha</strong>. The <em>default</em> is <strong>Premultiply by File</strong> which detects if a premultiplication is needed. <strong>Preserve</strong> will never premultiply and keep the alpha as-is. While <strong>Always</strong> will force a premultiplication.
+</p>
+<p>
+</div>
+</p>
+</blockquote>
+<p data-line="73" >
+Please keep in mind that the Image Layer does not support the Async Loading. If you need to load your images asynchronous, you would need to use the <a href="#TextureLoaderLayer">Texture Loader Layer</a> !
+</p>
+<h2 id="SVG" data-line="75" >SVG - Scalable Vector Graphics</h2>
+<p data-line="77" >
+The <strong>SVG Layer Nodes</strong> are able to create a Texture in the respective dimension based on an SVG <strong>File</strong> or <a class="wiki" href="NodeDataXML.html">XML</a> <strong>Text</strong>. 
+</p>
+<h3 id="SVGUsage" data-line="79" >Usage</h3>
+<p data-line="81" >
+<strong>Width</strong> and <strong>Height</strong> define to which dimensions the SVG File should be rasterized. If set to zero it will use the dimensions given in the SVG file.
+</p>
+<p data-line="83" >
+<div class="noteboxtip"><p>
+To avoid misunderstandings: the SVG is not handled as a Geometry or Vector object but rendered to a Texture and therefore is <strong>not resolution independent</strong>!
+</p>
+</div>
+</p>
+<p data-line="85" >
+Once loaded, the SVG Loader Node will fire the <strong>Loaded</strong> Event. If the file cannot be loaded by the SVG Loader it will fire the <strong>Failed</strong> Event.
+</p>
+<p data-line="87" >
+Beside the SVG File Loader that allows to load SVG files directly, you can use the SVG Text to create an SVG from <a class="wiki" href="NodeDataXML.html">XML</a> text.
+</p>
+<p data-line="89" >
+<div class="noteboxnote"><p>
+Note that an SVG File is an XML File with a specific structure and thus can be loaded and modified with an <a class="wiki" href="NodeDataXML.html">XML File Node</a> before using it in an <strong>SVG Text Node</strong>.
+</p>
+</div>
+</p>
+<p data-line="91" >
+The following listing shows an example SVG that will render as the Ventuz Logo.
+</p>
+<p data-line="93" >
+Example:
+</p>
+<pre class="wiki">&lt;svg viewBox=&#34;0 0 785.45331 240.56&#34; height=&#34;240.56&#34; width=&#34;785.45331&#34; id=&#34;ventuz_svg&#34; version=&#34;1.1&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+  &lt;g transform=&#34;matrix(1.3333333,0,0,-1.3333333,0,240.56)&#34; id=&#34;g10&#34;&gt;
+    &lt;g transform=&#34;scale(0.1)&#34; id=&#34;g12&#34;&gt;
+      &lt;g id=&#34;g14&#34;&gt;
+        &lt;g id=&#34;g16&#34;&gt;
+          &lt;path id=&#34;l&#34; style=&#34;fill:#f04c1d;fill-opacity:1;fill-rule:nonzero;stroke:none&#34; d=&#34;M 388.262,1804.2 H 0 V 0 H 388.262 V 139.98 H 140 V 1664.2 h 248.262 v 140&#34; /&gt;
+          &lt;path id=&#34;V&#34; style=&#34;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none&#34; d=&#34;M 839.199,370.398 398.27,1386.2 H 649.59 L 839.199,910.656 1027.32,1386.2 h 251.31 L 839.199,370.398&#34; /&gt;
+          &lt;path id=&#34;E&#34; style=&#34;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none&#34; d=&#34;m 1323.09,441.141 v 945.069 h 769.01 v -222.73 h -537.24 v -127.91 h 437.91 V 812.855 H 1554.86 V 663.84 H 2092.1 V 441.141 h -769.01&#34; /&gt;
+          &lt;path id=&#34;N&#34; style=&#34;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none&#34; d=&#34;M 2369.82,930.23 V 441.141 H 2139.58 V 1453.94 l 564.33,-556.815 v 489.085 h 230.26 V 373.391 L 2369.82,930.23&#34; /&gt;
+          &lt;path id=&#34;T&#34; style=&#34;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none&#34; d=&#34;m 3238.97,1163.48 h -255.84 v 222.72 h 743.42 V 1163.48 H 3470.72 V 441.141 h -231.75 v 722.339&#34; /&gt;
+          &lt;path id=&#34;U&#34; style=&#34;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none&#34; d=&#34;m 3775.54,832.418 v 553.792 h 230.24 V 867.016 c 0,-70.246 18.06,-124.676 54.16,-163.266 36.12,-38.66 82.26,-57.941 138.47,-57.941 56.16,0 102.32,19.281 138.44,57.941 36.12,38.59 54.19,93.02 54.19,163.266 v 519.194 h 231.72 V 832.418 c 0,-112.387 -39.1,-208.207 -117.35,-287.438 -81.29,-81.281 -183.6,-121.921 -307,-121.921 -123.41,0 -224.77,40.121 -304.01,120.39 -79.25,80.27 -118.86,176.582 -118.86,288.969&#34; /&gt;
+          &lt;path id=&#34;Z&#34; style=&#34;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none&#34; d=&#34;m 5069.76,1163.48 h -403.32 v 222.72 h 814.12 l -462,-722.36 h 427.43 V 441.141 h -832.24 l 456.01,722.339&#34; /&gt;
+          &lt;path id=&#34;r&#34; style=&#34;fill:#f04c1d;fill-opacity:1;fill-rule:nonzero;stroke:none&#34; d=&#34;m 5502.69,1804.2 h 388.25 V 0 h -388.25 v 139.98 h 248.25 V 1664.2 h -248.25 v 140&#34; /&gt;
+        &lt;/g&gt;
+      &lt;/g&gt;
+    &lt;/g&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;
+</pre><p data-line="115" >
+Output: <br />
+<img src="images/NodeLayer2D/ventuzlogo.png"  />
+</p>
+<h3 id="SVGLimitations" data-line="118" >Limitations</h3>
+<p data-line="120" >
+There are some limitations to the Ventuz SVG Nodes.
+</p>
+<p data-line="122" >
+<strong>SVG Text</strong> needs to be tested carefully since it has a lot of limitations and inaccuracies:
+</p>
+<ul class="" start="1"><li data-line="123" >the SVG Node uses GDI to render text
+</li><li data-line="124" >only fonts installed on the System can be used
+</li><li data-line="125" >alignment and pixel pitch do not work in an exact way
+</li></ul><p data-line="127" >
+<strong>Embedded Images</strong> work, but not all compositing features and blending modes are supported. Online references are not recommended.
+</p>
+<p data-line="129" >
+<strong>CSS</strong>s must be embedded in the SVG document to work and not all features are working.
+</p>
+<p data-line="131" >
+<div class="noteboxwarn"><p>
+<strong>Animations</strong>, <strong>Interactions</strong>, <strong>Filters</strong>, <strong>Effects</strong>, <strong>Clipping</strong> and <strong>Masking</strong> are not supported and do not work.
+</p>
+</div>
+</p>
+<h2 id="MovieClipLayer" data-line="132" >Movie Clip Layer</h2>
+<p data-line="134" >
+With the <strong>Movie Clip Layer</strong> you can easily load a movie and have it as full-screen. When using a <strong>Movie Clip Layer</strong> it will not be affected by the multisampling or antialiasing set in the Ventuz Config.
+When selecting the <strong>Movie Clip Layer</strong> the Layer Properties will show you some default properties like <strong>Audio</strong>, <strong>Volume</strong> the controls to <strong>Loop</strong>, <strong>Restart</strong>, <strong>Play</strong>, <strong>Pause</strong> to change the <strong>Orientation</strong> and to select the <strong>File</strong>. You can load a movie also by clicking the <em>Layer Thumbnail</em>, both will bring up the <em>Windows File Browser</em>.
+Additionally, you can choose to load a movie as a <em>reference</em>, this can be enabled by using the "Reference" checkbox in the File / Load dialog:
+</p>
+<p data-line="138" >
+<img src="images/NodeLayer2D/FileReference.png"  />
+</p>
+<p data-line="140" >
+Also under <em>Control</em> you can find the <strong>Control</strong> Property which can be bound to a <a class="wiki" href="NodeAnimationKeyframeAnimation.html">Keyframe Animation</a> node to control the playback in the time-line of the <a class="wiki" href="AnimationEditor.html">Animation Editor</a>.
+</p>
+<p data-line="142" >
+To access all properties of the <strong>Movie Clip Layer</strong> node, use the <em>Layer Edit Mode</em> and select the <a class="wiki" href="NodeTextureVideo.html#MovieClip">Movie Clip Node</a> inside the <a class="wiki" href="ContentEditor.html">Content Editor</a> Area.
+</p>
+<p data-line="144" >
+In the lower part of the <a class="wiki" href="PropertiesEditor.html">Properties Editor</a> you can find a <em>custom verb</em> which is called <strong>Configure</strong>. You can <strong>configure</strong> Movie Clip related options like the <strong>Buffers<em>.
+</em></strong></p>
+<h2 id="MovieFrameLayer" data-line="146" >Movie Frame Layer</h2>
+<p data-line="149" >
+The <strong>Movie Frame Layer</strong> is used to show a <em>specific frame</em> of a Movie. When you try to load a File by clicking the thumbnail of the <strong>Movie Frame Layer</strong> a drop-down menu asks you first if you want to load a <em>Movie</em> or a <em>File</em>. You can <strong>not only</strong> load a movie and display a specific frame, you are <strong>also</strong> able to load an <strong>Image sequence</strong> with the <strong>Movie Frame Layer</strong>. By using the <strong>Frame</strong> property you control which frame you want to display. You will find more properties if you enable the <em>Layer Edit Mode</em> and select the <a class="wiki" href="NodeTextureVideo.html#MovieClip">Movie Clip Node</a>. There you find also the <em>property</em> to enable <strong>Asynchronous Loading</strong>.
+If you want to make use of the <strong>Image Sequence</strong> your files should have an incremental numbering next to your filename, for example: "ventuz0001.png, ventuz0002.png ...".
+</p>
+<p data-line="152" >
+For more information about the <strong>Movie Frame</strong> please see the <a class="wiki" href="NodeTextureVideo.html#MovieFrame">Movie Frame Node</a> page.
+</p>
+<p data-line="154" >
+In the lower part of the <a class="wiki" href="PropertiesEditor.html">Properties Editor</a> you can find a <em>custom verb</em> which is called <strong>Configure</strong>. You can <strong>configure</strong> Movie Clip related options like the <strong>Buffers<em>.
+</em></strong></p>
+<h2 id="MovieStreamLayer" data-line="156" >Movie Stream Layer</h2>
+<p data-line="159" >
+The <strong>Movie Stream Layer</strong> can play back any kind of supported stream, for example, an HTTP or RTSP stream. You either need to select the Layer or expand the Layer Properties and use the <strong>URL</strong> property to enter your source for the stream. More properties can be adjusted if you use the <em>Layer Edit Mode</em> and select the <a class="wiki" href="NodeTextureVideo.html#MovieStream">Movie Stream Node</a> inside the <em>content editor</em>. Here you can enable the <strong>AutoPlay</strong>, switch the <strong>Gamma</strong> and <em>enable</em> <strong>Audio</strong>. <strong>Audio</strong> is disabled by <em>default</em>.
+</p>
+<p data-line="161" >
+In the lower part of the <a class="wiki" href="PropertiesEditor.html">Properties Editor</a> you can find a <em>custom verb</em> which is called <strong>Configure</strong>. You can <strong>configure</strong> Movie Clip related options like the <strong>Buffers<em>.
+</em></strong></p>
+<h2 id="LiveVideoLayer" data-line="164" >Live Video Layer</h2>
+<p data-line="166" >
+The <strong>Live Video Layer</strong> offers a simple and effective way to add any configured live video to be feed into Ventuz. To use the <strong>Live Video Layer</strong> with your Webcam or SDI-Board, you would need to setup the Video Input Source in the <a class="wiki" href="MachineConfigurationAV.html#AVConfiguration">Ventuz Configuration / AV Config</a>. With the <strong>Live Video Layer</strong> you are able to create very quick side by side Video Feeds simply by adjusting the Layout of the layer itself.
+To select a specific <strong>Ordinal</strong> you can either click the <em>Layer Icon</em> or use the <strong>Ordinal</strong> drop down menu in the Video Property. You can <strong>Enable</strong> and <strong>Disable</strong> the <em>Live Video</em> by clicking the buttons in the <strong>Video Control</strong> section.
+</p>
+<p data-line="169" >
+The <strong>Live Video Layer</strong> has also a Content Container node added to the Content editor.
+</p>
+<h2 id="GradientTextureLayer" data-line="171" >Gradient Texture Layer</h2>
+<p data-line="173" >
+The difference with the standard Gradient Layer is that the <strong>Gradient Texture Layer</strong> creates a <a class="wiki" href="NodeTextureGradientTexture.html">Gradient Texture</a> Node which can be accessed by entering the <em>Layer Edit Mode</em> and selecting the node in the <a class="wiki" href="ContentEditor.html">Content Editor</a>. You can edit the Gradient with the <a class="wiki" href="PropertiesEditor.html#EditingGradients">Color Gradient Editor</a>.
+</p>
+<p data-line="175" >
+By using a <a class="wiki" href="NodeLogicConvertToText.html">Convert To Text</a> Node you can also dynamically build your own gradient to which you can bind the <strong>Gradient</strong> Property. The markup for the Expression is as follows:
+<tt>RGBA;c{0}:({1}, {2}, {3});c{4}:({5}, {6}, {7});a{8}:({9});a{10}({11})</tt>
+This defines a Gradient with two keys for each, color and alpha. The range of all variables is from <tt>0</tt> to <tt>1</tt> The meaning of the different variables is shown in the following table:
+</p>
+<table class="wiki" data-line="178" >
+<tr><td data-line="178" > Variable </td><td data-line="178" > Meaning 
+</td></tr><tr><td data-line="179" > !{0}, !{4} </td><td data-line="179" > Position of the color keys 
+</td></tr><tr><td data-line="180" > !{1}, !{5} </td><td data-line="180" > Red-Value of the color keys 
+</td></tr><tr><td data-line="181" > !{2}, !{6} </td><td data-line="181" > Green-Value of the color keys 
+</td></tr><tr><td data-line="182" > !{3}, !{7} </td><td data-line="182" > Blue-Value of the color keys 
+</td></tr><tr><td data-line="183" > !{8}, !{10} </td><td data-line="183" > Position of the Alpha keys 
+</td></tr><tr><td data-line="184" > !{9}, !{11} </td><td data-line="184" > Value of the Alpha keys 
+</td></tr></table>
+<p data-line="187" >
+You change the <strong>Orientation</strong> of the <strong>Gradient Texture Layer</strong> by changing the <em>Layer Property</em> <strong>Orientation</strong>.
+</p>
+<h2 id="TextureLoaderLayer" data-line="190" >Texture Loader Layer</h2>
+<p data-line="192" >
+The difference with the Image Layer is that the <strong>Texture Loader Layer</strong> also adds a <a class="wiki" href="NodeTextureImageLoaders.html#TextureLoader1">Texture Loader</a> Node to the Content Area.
+To load an image into the Layer you would need to specify it in the <em>Texture</em> <strong>File</strong> Property. The <strong>TextureHint</strong> is a multi-option drop-down menu used for setting how image Gamma and Alpha channel information are loaded.
+</p>
+<blockquote>
+<p data-line="195" >
+<div class="usermanual-include"><div class="usermanual-includetag" tag="gammahintsAlpha"></div>
+</p>
+<p>
+The <em>TextureHint drop down menu</em> has the following options available for the <strong>Gamma</strong> part:
+</p>
+<p>
+The <strong>Not a Color</strong> for example is used mostly for <em>Roughness</em> and <em>Specularity</em> Material Stages since the Texture is used without any gamma conversion and these Textures are usually Grayscale. Textures loaded with this option will not be touched or converted internally into any other colorspace which is important when using the HDR-Render Mode.
+</p>
+<p>
+<strong>sRGB</strong> defines to use the Texture in the sRGB colorspace, which is the standard for Images, Videos and most Textures.
+</p>
+<p>
+<strong>Gamma2_2</strong> loads the Texture in Gamma 2.2 which is most times needed when using Cubemaps/Environment maps in HDR. <strong>Linear</strong> loads the Texture in Gamma 1.0.
+</p>
+<p>
+<strong>Normal Map</strong> uses a special internal routine to blend the colors between the different MipMap stages to result in normalised Normal Vectors. This makes it possible to have Crisp and correct MipMaps.
+</p>
+<p>
+<div class="usermanual-includetag" tag="gammahints"></div>
+At the bottom of the <strong>TextureHint</strong> drop down menu you find the options for the <strong>Alpha</strong>. The <em>default</em> is <strong>Premultiply by File</strong> which detects if a premultiplication is needed. <strong>Preserve</strong> will never premultiply and keep the alpha as-is. While <strong>Always</strong> will force a premultiplication.
+</p>
+<p>
+</div>
+</p>
+</blockquote>
+<p data-line="197" >
+As mentioned before, for more advanced functionality use the Layer Edit Mode and use the Content Container created in the <a class="wiki" href="ContentEditor.html">Content Editor</a>. Inside the Container, you will find a Texture Property and a <a class="wiki" href="NodeColorMaterial.html#Texture">Texture Node</a> connected, for more advanced functionality you can combine them with all Ventuz Content nodes.
+For more information regarding the <strong>Texture Loader</strong> and <strong>Texture Property</strong> nodes functionality please refer to the <a class="wiki" href="NodeColorMaterial.html#Texture">Texture Node</a> section of the User manual.
+</p>
+<h2 id="TexturePropertyLayer" data-line="200" >Texture Property Layer</h2>
+<p data-line="202" >
+As with the Texture Loader Layer above, the empty Texture Property Node can be connected to any Content Node in Ventuz <a class="wiki" href="ContentEditor.html">Content Editor</a>. This can be an <a class="wiki" href="LayerCommonProperties.html#Layout">Offscreen Render Target</a> or any other kind of loader like the <a class="wiki" href="NodeTextureImageLoaders.html#TextureLoader1">Texture Loader</a>, <a class="wiki" href="NodeTextureVideo.html#LiveVideo">Live Video</a> Node, <a class="wiki" href="NodeTextureVideo.html#MovieClip">Movie Clip</a> Node and so on and so forth.
+</p>
+<h2 id="SpoutReceiverLayer" data-line="204" >Spout Receiver Layer</h2>
+<p data-line="205" >
+The <strong>SPOUT Receiver Layer</strong> creates a <a class="wiki" href="NodeTextureSpout.html">Spout Receiver Node</a> which can be accessed by entering the <em>Layer Edit Mode</em> and selecting the node in the <a class="wiki" href="ContentEditor.html">Content Editor</a>.
+</p>
+<blockquote>
+<p data-line="207" >
+<div class="usermanual-include"><div class="usermanual-includetag" tag="SpoutReceiver"></div>
+The <strong>SPOUT Receiver</strong> Node receives an <em>RGBA</em> Texture that can be bound to e.g. a <a class="wiki" href="NodeColorMaterial.html">Material Node</a>.
+</p>
+<p>
+Every <em>SPOUT Sender</em> available is added to a List, with the <strong>Sender Name</strong> Property you can select the sender you want to receive the Texture from. In the outputs you get a list of all currently available senders. This list is updated once during initialization of the node. If needed you can update the list again using the <strong>Update Sender List</strong> Method.
+</p>
+<p>
+Contrary to <a class="wiki" href="DevelopmentVIO.html">VIO</a>, SPOUT by design is not synchronized, but with the help of the <strong>Hardsync</strong> property an attempt is made to achieve the best possible synchronicity.
+If <strong>Mipmaps</strong> are enabled, MipMaps will be generated for every frame to provide higher render quality especially if these textures are scaled or rotated. This feature is only available on graphics boards which support hardware mipmap generation! If <strong>Premultiply Alpha</strong> is turned on the engine will add another step to premultiply the color with the alpha - this is not needed if the received texture is already premultiplied.
+The <strong>Gamma</strong> Property defines how the gamma is handled:
+</p>
+<table class="wiki">
+<tr><td> <strong>Not a Color</strong>  </td><td>  Textures loaded with this option will not be touched or converted internally into any other colorspace 
+</td></tr><tr><td> <strong>sRGB</strong>  </td><td> defines to use the Texture in the sRGB colorspace, which is the standard for Images, Videos and most Textures. 
+</td></tr><tr><td>  <strong>Linear</strong> </td><td>  loads the Texture in Gamma 1.0. 
+</td></tr></table>
+<table class="wiki">
+<tr><th>Protocol Version</th><th>Pixel semantic
+</th></tr><tr><td> 2.006  </td><td> RGBA  
+</td></tr></table>
+<p>
+</div>
+</p>
+</blockquote>
+<p data-line="208" >
+ 
+</p>
+<h2 id="NDIReceiverLayer" data-line="209" >NDI Receiver Layer</h2>
+<p data-line="211" >
+The <strong>NDI Receiver Layer</strong> creates a <a class="wiki" href="NodeTextureNDI.html">NDI Receiver Node</a> which can be accessed by entering the <em>Layer Edit Mode</em> and selecting the node in the <a class="wiki" href="ContentEditor.html">Content Editor</a>.
+</p>
+<p data-line="213" >
+<div class="usermanual-include"><div class="usermanual-includetag" tag="ReceiverText"></div>
+</p>
+<p>
+The <strong>NDI Receiver</strong> provides the texture of a chosen NDI source together with several meta data. The <strong>Source</strong> property defines which NDI source to use - it can be provided either as a string or using the dropdown menu that is accessed by <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span>&nbsp;<span class="usermanual-mouse">clicking</span> the arrow on its right. 
+</p>
+<p>
+<strong>Low Bandwidth</strong> limits the input to 640x360 pixels which saves bandwitch between the source and Ventuz andis meant to be used e.g. for preview cases. <strong>Low Latency</strong> disables frame buffering that is used to stabilize the incoming framerate. If enabled it may cause stuttering on the input depending on the NDI source and the network environment, but the frames will be processed by Ventuz without any delay. 
+</p>
+<p>
+The <strong>Tally</strong> property is based on an NDI feature that enables a receiver to tell the source that it is currently used - named after the popular concept in broadcasting. Ventuz sends a signal to the source according to the configuration of the current <a class="wiki" href="MachineConfigurationAV.html#RenderPipes">Pipe</a> - so when this node is used in a Program pipe it will send an on-air signal (usually red) and on a Preview pipe it will send a previewing signal (usually green).
+</p>
+<p>
+Like in most other <a class="wiki" href="TextureNodes.html">Texture Nodes</a> the <strong>Mip Map</strong> property enables automatic Mipmap generation for better quality and performance when the texture is scaled down. <strong>High Color Depth</strong> enables usage of NDIs 16-bit color depth feature while doubling GPU memory and performance.
+</p>
+<p>
+The <strong>Volume</strong> property changes the overall volume of incoming audio. The <strong>NDI Receiver</strong> node is capable of playing back on multiple outputs <a class="wiki" href="MachineConfigurationAV.html#DeviceMapping">Ordinals</a>. 
+</p>
+<p>
+<div class="usermanual-include"><div class="usermanual-includetag" tag="AudioStream"></div>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible "><div class="usermanual-collapsible-title">Audio Stream</div><div class="usermanual-collapsible-content">
+</p>
+<p>
+Each of these Ordinals can be mapped to the physical stereo pairs of your machine in the <a class="wiki" href="MachineConfigurationAV.html">Audio Video Configuration</a>. You can define several mappings of a stream and channel to an output ordinal by adding any number of Property Groups with the <img src="images/NodeSoundPlayback/Add.png" style="max-width:16px" class="usermanual-image" title="" alt="" /> in the Property Group List inside the Property Editor. The <strong>Stream</strong> dropdown defines which stream of the File to use. For the <strong>Channels</strong> you can choose to use any single <em>Mono Channel</em>, two consecutive channels as <em>Stereo Channels</em> or to <em>Downmix</em> the whole stream into a single stereo signal. In the <strong>Flags</strong> property you can turn on several options: <em>Flip L/R</em> swaps the left and right channels if it plays back two channels as stereo. <em>Invert left/right phase</em> invert the polarity of either channel. And <em>Mid/Side to Stereo</em> converts a mid or side channel to a stereo channel. <strong>Ordinal</strong> selects the Logical Device Ordinal used for this mapping. <strong>Gain</strong> changes the sound level of this input and the <strong>Balance</strong> adjusts the playback volume between the left and right audio channel.
+</p>
+<p>
+</div></div><!-- UserManualCollapsible END -->
+</div>
+</p>
+<p>
+The <strong>Texture</strong> output provides a reference to the received texture and can be bound to any Texture input - e.g. on the <a class="wiki" href="NodeColorMaterial.html">Material Node</a>.
+</p>
+<p>
+On the output side the node provides several information about the NDI stream. <strong>Connection Meta Data</strong> outputs any information given by the source application about the connection. <strong>Frame Meta Data</strong> provides meta data for each received frame. <strong>On Preview</strong> and <strong>On Program</strong> show whether the stream is used on any of these - using the <strong>Tally</strong> concept of NDI. <strong>Web Control URL</strong> provides a URL to a Web based Control Panel if the source application provides any information on that.
+</p>
+<p>
+<strong>Texture Width</strong> and <strong>Height</strong> provide the stream's dimensions. The <strong>State</strong> properties <strong>Connected</strong> and <strong>Active</strong> return whether the receiver is currently connected to a source and whether it is actively decoding frames.
+</p>
+<p>
+Note that if all input properties (except the <strong>Tally</strong> and <strong>Audio</strong> properties) are the same on two or more <strong>NDI Receiver</strong> nodes they use the same internal receiver to save time for the initial connection. You can use that to open the connection to the NDI source with one node that is not rendering anything and then you can use another <strong>NDI receiver</strong> node whose texture output is used once the <strong>Active</strong> property returns <em>true</em>.
+</p>
+<p>
+</div> 
+</p>
+<p data-line="215" >
+<div class="usermanual-include"><p>
+<div class="usermanual-includetag" tag="LayerCommonPropertiesPart3d1"></div>
+</p>
+<h2 id="CommonLayerProperties">Common Layer Properties</h2>
+<p>
+All layers in Ventuz feature certain properties to control how layers are sized, composited, used masks, applied effects and so on, regardless if they are 2D, 3D or other types of layers. You can find an in-depth description of all these options on this page, for references about the different types of layers in Ventuz and their specific properties, check <a class="wiki" href="NodeLayer2D.html">2D Layers</a>, <a class="wiki" href="NodeLayer3D.html">3D Layers</a> and <a class="wiki" href="NodeLayerOther.html">Other layers</a>.
+</p>
+<h3 id="blending">Blending</h3>
+<p>
+Blending operations, including modes, opacity and masking, can be switched ON or OFF for each individual layer by left-clicking close to the Blending caption. If the check mark appears, the blending operation, including opacity, mode and mask, is calculated for the current layer. If the check mark does not appear in front of the Blending options, the blending operations are not calculated.
+</p>
+<p>
+As with all Layer Properties, in order to expand the Blending Options, click on the little arrow. A dropdown list of the supported blending modes will appear:
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible "><div class="usermanual-collapsible-title">Blending</div><div class="usermanual-collapsible-content">
+</p>
+<p>
+<div class="usermanual-include"><div class="usermanual-includetag" tag="Blending"></div>
+</p>
+<p>
+With the Blending Modes you control how the pixel values of the current layer are combined with those of the layers rendered before, i.e. the layers which are above the current layer.
+</p>
+<h4 id="Mode">Mode</h4>
+<blockquote>
+<p>
+<strong>Normal</strong>: The default Blending mode. When selected, only Layer Opacity settings are taken into account to composite the layer.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Darken</strong>: Compares the color information in both the current and the layer below and selects the darker pixels. Pixels lighter than the blend color are replaced, and pixels darker than the blend color do not change.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Multiply</strong>: Checks the color information and multiplies its values in both the upper foreground and the background layer. The resulting color is always a darker color. Multiplying any color with black produces black. Multiplying any color with white leaves the color unchanged. When you’re blending with a color other than black or white, successive blends produce progressively darker colors. The effect is similar to drawing on the image with multiple marking pens. 
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Color Burn</strong>: Looks at the color information in each channel and darkens the base color to reflect the blend color by increasing the contrast between the two. Blending with white produces no change.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Linear Burn</strong>: Looks at the color information in each channel and darkens the base color to reflect the blend color by decreasing the brightness. Blending with white produces no change.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Darker Color</strong>: Compares the total of all channel values for the blend and base color and displays the lower value color. Darker Color does not produce a third color, which can result from the Darken blend because it chooses the lowest channel values from both the base and the blend color to create the resulting color.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Lighten</strong>: Looks at the color information in each channel and selects the base or blend color —whichever is lighter— as the resulting color. Pixels darker than the blend color are replaced, and pixels lighter than the blend color do not change. 
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Screen</strong>: Looks at each channel’s color information and multiplies the inverse of the blend and base colors. The resulting color is always a lighter color. Screening with black leaves the color unchanged. Screening with white produces white. The effect is similar to projecting multiple photographic slides on top of each other. 
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Color Dodge</strong>: Looks at the color information in each channel and brightens the base color to reflect the blend color by decreasing contrast between the two. Blending with black produces no change.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Linear Dodge (Add)</strong>: Looks at the color information in each channel and brightens the base color to reflect the blend color by decreasing contrast between the two. Blending with black produces no change.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Lighter Color</strong>: Compares the total of all channel values for the blend and base color and displays the higher value color. Lighter Color does not produce a third color, which can result from the Lighten blend because it chooses the highest channel values from both the base and blend color to create the resulting color. 
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Overlay</strong>: Multiplies or screens the colors, depending on the base color. Patterns or color overlays the existing pixels while preserving the highlights and shadows of the base color. The base color is not replaced but mixed with the blending color to reflect the lightness or darkness of the original color. 
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Soft Light</strong>: Darkens or lightens the colors, depending on the blending color. The effect is similar to shining a diffused spotlight on the image. If the blend color (light source) is lighter than 50% gray, the image is lightened as if it were dodged. If the blend color is darker than 50% gray, the image is darkened as if it were burned in. Blending with pure black or white produces a distinctly darker or lighter area, but does not result in pure black or white.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Hard Light</strong>: Multiplies or screens the colors, depending on the blending color. The effect is similar to shining a harsh spotlight on the image. If the blend color (light source) is lighter than 50% gray, the image is lightened, as if it were screened. This is useful for adding highlights to an image. If the blend color is darker than 50% gray, the image is darkened, as if it were multiplied. This is useful for adding shadows to an image. Blending with pure black or white results in pure black or white.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Vivid Light</strong>: Burns or dodges the colors by increasing or decreasing the contrast, depending on the blend color. If the blend color (light source) is lighter than 50% gray, the image is lightened by decreasing the contrast. If the blend color is darker than 50% gray, the image is darkened by increasing the contrast. 
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Pin Light</strong>: Replaces the colors, depending on the blend color. If the blend color (light source) is lighter than 50% gray, pixels darker than the blend color are replaced, and pixels lighter than the blend color do not change. If the blend color is darker than 50% gray, pixels lighter than the blend color are replaced, and pixels darker than the blend color do not change. This is useful for adding special effects to an image.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Hard Mix</strong>: Adds the red, green and blue channel values of the blend color to the RGB values of the base color. If the resulting sum for a channel is 255 or greater, it receives a value of 255; if less than 255, a value of 0. Therefore, all blended pixels have red, green, and blue channel values of either 0 or 255. This changes all pixels to primary additive colors (red, green, or blue), white, or black.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Difference</strong>: Looks at the color information in each channel and subtracts either the blend color from the base color or the base color from the blend color, depending on which has the greater brightness value. Blending with white inverts the base color values; blending with black produces no change.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Exclusion</strong>: Creates an effect similar to but lower in contrast than the Difference mode. Blending with white inverts the base color values. Blending with black produces no change.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Subtract</strong>: Looks at the color information in each channel and subtracts the blend color from the base color. In 8- and 16-bit images, any resulting negative values are clipped to zero.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Divide</strong>: Looks at the color information in each channel and divides the blend color from the base color.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Hue</strong>: Keeps the Hue of the layer, and blends the luminance and saturation of the underlying layers (you basically get the image from the lower layer with the colors of the top layer).
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Saturation</strong>: Keeps the saturation of the layer, and blends the luminosity and hue from the underlying layers—where colors from the active layer are saturated, they will appear using the luminosity and hue from the underlying layers.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Color</strong>:          Keeps the color of the layer, and blends the hue and saturation (the color) of the active layer with the luminance of the lower layers.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Luminosity</strong>: Keeps the luminance of the layer, and blends it with hue and saturation of the layers below.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Linear Light</strong>: Uses a combination of the Linear Dodge blend mode on the lighter pixels, and the Linear Burn blend mode on the darker pixels.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Pass Through</strong>: Is the <em>default Blend Mode for Layer Groups</em>. It allows any adjustments to layers inside the group to affect layers below it. Ventuz takes all the layers inside the Group and performs the blending operations in the usual order - if you change this mode you are basically changing the order in which the layers are processed - all layers inside the group are blended first and the resulting composite is blended with the layers below with the selected blending mode for the group. 
+</p>
+</blockquote>
+<p>
+<div class="noteboxnote"><p>
+Blend mode <strong>Pass Trough</strong> applies only to <strong>Layer Groups</strong>!
+</p>
+</div>
+</p>
+<blockquote>
+<p>
+<strong>Texture is not pre-multiplied</strong>: This setting forces an internal pre-multiplication of textures in certain image formats, mainly DDS when it is difficult to automatically decide if the file is pre-multiplied or not.
+</p>
+</blockquote>
+<h4 id="Opacity">Opacity</h4>
+<p>
+Control the overall Opacity of the Layer. This value is already exposed to the <em>Layer Level</em>.
+</p>
+<h4 id="Blocked">Blocked</h4>
+<p>
+This checkbox controls if the Layer Blending mode operation is performed or not, the main difference with switching OFF Blending operations is that the property can be bound in the Content Editor, and therefore can be used to optimize performance in complex scenes.
+</p>
+<h4 id="BlockedOnFullTransparency">BlockedOnFullTransparency</h4>
+<p>
+This checkbox is used to optimize layer performance when animating Layer Opacity, if opacity is set to 0%, and is, therefore, invisible, Ventuz will minimize any calculations pertaining to this layer to improve performance. 
+If you <strong>Uncheck BlockedOnFullTransparency</strong> to still have touch interactions possible. For instance, you could have a Transparent 2D Layer which shrunk in size and can still send touch information.
+</p>
+<p>
+</div>
+</p>
+<p>
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<h4 id="lmask">Layer Mask</h4>
+<p>
+Layer Masks allow isolating certain parts of the layer to be used for the final composite. In general, Masks use the color or alpha information to decide which image pixels will be transparent, translucent or opaque. 
+</p>
+<ul class="" start="1"><li>Pixels which are 100% white in the selected channel will result in opaque areas of the layer. 
+</li><li>On the contrary, pixels which are 100% black in the selected mask channel will be considered as transparent and therefore these areas of the current layer won't be shown in the final composite.
+</li><li>All the gray tones between black and white in the selected mask channel will result in different levels of translucency in the areas affected.
+</li></ul><p>
+Ventuz features three type of masks by default: Mask, Vignette and Border.
+You can add as many <em>MaskStages</em> as you want.
+</p>
+<p>
+<img src="images/LayerCommonProperties/LayerMask.png"  />
+</p>
+<p>
+You add a <strong>LayerMask</strong> if you click <span class="usermanual-mouse">Click</span>&nbsp;<span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span> on the [<strong>+</strong>] <strong>Mask</strong> like shown on the Screenshot, and select <strong>Mask</strong> or any type of <strong>Mask Vignette / Mask Border</strong> from the dropdown menu.
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible "><div class="usermanual-collapsible-content">
+</p>
+<p>
+<div class="usermanual-include"><div class="usermanual-includetag" tag="Mask"></div>
+</p>
+<h5 id="Mask">Mask</h5>
+<p>
+Mask Property uses a texture source as the mask. When adding a mask, a new thumbnail will show the Mask appearance. Click on the Mask or click the triangle in the front to bring up the properties for the selected Layer Mask.
+</p>
+<p>
+<img src="images/PropertyGroupMask/LayersMaskLoader.jpg" style="max-width:564px;width:400;margin-right:auto; display:block; margin-left:auto" class="usermanual-image" title="" alt="" />
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible "><div class="usermanual-collapsible-title">Texture Source</div><div class="usermanual-collapsible-content">
+</p>
+<p>
+<div class="usermanual-include"><div class="usermanual-includetag" tag="TextureSource"></div>
+</p>
+<p>
+Each one of the Texture Source property groups provide a texture to the containing node that is used in one way or another. This page gives an overview of the different types of property groups.
+</p>
+<p>
+<div class="usermanual-includetag" tag="TextureLoader"></div>
+</p>
+<h5 id="TextureLoader">Texture Loader</h5>
+<p>
+The <strong>Texture Loader</strong> directly loads a texture of any <a class="wiki" href="SupportedFormats.html#ImagesAndTextures">supported</a> type from file and provides it as a texture to the containing node. The <strong>File</strong> property changes the loaded image. The <strong>Hint</strong> property will change how the loaded file is handled internally while the texture is generated. See <a class="wiki" href="NodeTextureImageLoaders.html#TextureLoader">Texture Loader Node</a> for more information on the Gamma and Alpha Hints used when loading a texture. 
+</p>
+<p>
+The Presets of this Node are specific internal Texture Files that are always available in the Ventuz Runtime. 
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible collapsed"><div class="usermanual-collapsible-title">Texture Loader Presets</div><div class="usermanual-collapsible-content">
+</p>
+<p>
+<div class="usermanual-include"><div class="usermanual-includetag" tag="DefaultLoader"></div>
+</p>
+<h5 id="LoaderTextures">Loader</h5>
+<p>
+These images can be used for several different general purposes like generic textures or placeholders and testing.
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/ShapeCircle.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Shape Circle
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/ShapeCircle.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/ShapeTriangle.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Shape Triangle
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/ShapeTriangle.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/ShapePentagon.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Shape Pentagon
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/ShapePentagon.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/ShapeCross.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Shape Cross
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/ShapeCross.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/SpikeStar.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Spike Star
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/SpikeStar.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/checker.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Checker
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/checker.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/checker_b.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Checker Blue
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/checker_b.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/dots.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Checker Dots
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/dots.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/lines.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Lines
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/lines.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/noise.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Noise
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/noise.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/alphaglow_full.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Alpha Glow Full
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/alphaglow_full.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/alphaglow_halffull.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Alpha Glow Half-Full
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/alphaglow_halfull.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/alphaglow_normal.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Alpha Glow
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/alphaglow_normal.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/alphaglow_halfsharp.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Alpha Glow Half-Sharp
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/alphaglow_halfsharp.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/alphaglow_sharp.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Alpha Glow Sharp
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/alphaglow_sharp.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/dimple.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Dimple
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/dimple.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/pimple.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Pimple
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/pimple.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/liquid.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Liquid
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/liquid.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/woodchip.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Woodchip
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/woodchip.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+</div>
+<div class="usermanual-include"><div class="usermanual-includetag" tag="DefaultIPP"></div>
+</p>
+<h5 id="MaterialTextures">IPP</h5>
+<p>
+These images are intended to be used by Ventuz' Image Post Processing Effects, e.g. the <a class="wiki" href="NodeLayer3D.html#ImageBasedLensflare">Lensflare</a> effect.
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/lenscolor.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Lensflare Ghost Colors
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/lenscolor.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/lensstar.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Lensflare Star
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/lensstar.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/lensdirt.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Lensflare Dirt
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/lensdirt.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+</div>
+<div class="usermanual-include"><div class="usermanual-includetag" tag="LightingAndShaders"></div>
+</p>
+<h5 id="MaterialTextures1">Lighting and Shaders</h5>
+<p>
+These images are best used by texture based <a class="wiki" href="NodeColorMaterial.html#LightingModels">Lighting Models</a> and specific shaders, like e.g. the Incidence Lighting Model or the <a class="wiki" href="NodeTextureHatch.html">Hatch Texture</a> Node.
+</p>
+<h6 id="Lighting">Lighting</h6>
+<p>
+<div class="usermanual-includetag" tag="DefaultLighting"></div>
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence1DLambert2.png" width="64px" height="20px" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence 1D Lambert
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence1DLambert2.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence1DRainbow.png" width="64px" height="20px" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence 1D Rainbow
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence1DRainbow.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence1DSpecular.png" width="64px" height="20px" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence 1D Specular
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence1DSpecular.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence2DSmooth.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence 2D Smooth
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence2DSmooth.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence2DSteps.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence 2D Steps
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence2DSteps.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/IncidenceDiff.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence Diffuse
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/IncidenceDiff.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/IncidenceDiffAniso.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence Diffuse Anisotropy
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/IncidenceDiffAniso.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/IncidenceSpec.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence Specular
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/IncidenceSpec.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence1DLambertBlueBack.png" width="64" height="20" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence Blue Back
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence1DLambertBlueBack.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/CelSteps.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Celshading Steps
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/CelSteps.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+<div class="usermanual-includetag" tag="DefaultLighting"></div>
+</p>
+<h6 id="Shaders">Shaders</h6>
+<p>
+<div class="usermanual-includetag" tag="DefaultShaders"></div>
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/HatchLines.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Hatch Lines
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/HatchLines.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/HatchCurves.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Hatch Curves
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/HatchCurves.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/HatchLetters.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Hatch Letters
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/HatchLetters.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+<div class="usermanual-includetag" tag="DefaultShaders"></div>
+</div>
+</p>
+<p>
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<p>
+<div class="usermanual-includetag" tag="TextureLoader"></div>
+<div class="usermanual-includetag" tag="TextureProperty"></div>
+</p>
+<h5 id="TextureProperty">Texture Property</h5>
+<p>
+The <strong>Texture Property</strong> Property Group provides only an Input for any Texture coming from the scenes logic, e.g. a <a class="wiki" href="NodeTextureImageLoaders.html">Texture Loader Node</a>. This is necessary for some source types like movies but may also be useful whenever you need to apply some logic to loaded textures before applying them to objects. The Presets generate the according Content Node together with the Property Group and bind its Input Property to that new node.
+</p>
+<p>
+<div class="usermanual-includetag" tag="TextureProperty"></div>
+<div class="usermanual-includetag" tag="1DGradient"></div>
+</p>
+<h5 id="a1DGradient">1D Gradient</h5>
+<p>
+The <strong>1D Gradient</strong> generates a linear gradient. It can be edited using the <strong>Gradient</strong> Input - <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span>&nbsp;<span class="usermanual-mouse">clicking</span> on the down arrow on the left of the property will open up the <a class="wiki" href="PropertiesEditor.html#EditingColorValues">Gradient Editor</a>. The <strong>Vertical</strong> flag changes the alignment of the generated 1D gradient.
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible collapsed"><div class="usermanual-collapsible-title">Gradient Presets</div><div class="usermanual-collapsible-content">
+
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<p>
+<div class="usermanual-includetag" tag="1DGradient"></div>
+<div class="usermanual-includetag" tag="SvgLoader"></div>
+</p>
+<h5 id="SvgLoader">SVG Loader and SVG Text</h5>
+<p>
+The <strong>SVG Loader</strong> and <strong>SVG Text</strong> Property Groups rasterize an SVG file and provide the rasterized graphic. See the <a class="wiki" href="NodeTextureSVGLoader.html">SVG Loader</a> Node for more information.
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible collapsed"><div class="usermanual-collapsible-title">SVG Loader Presets</div><div class="usermanual-collapsible-content">
+<div class="usermanual-include"><div class="usermanual-includetag" tag="Svg"></div>
+</p>
+<h5 id="Other">Other</h5>
+<p>
+The images in this category are defaults for other kinds of texture usages, like the rasterization of <a class="wiki" href="NodeTextureSVGLoader.html">SVG Files</a>.
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/ventuz.svg" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Ventuz Logo SVG
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/ventuz.svg</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+</div>
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<p>
+<div class="usermanual-includetag" tag="SvgLoader"></div>
+</p>
+<h5 id="TextureArrayLoaders">Texture Array Loaders</h5>
+<p>
+The Texture Array Loaders are able to generate a List of Textures instead of only a single texture. This can be used by a Material with a <a class="wiki" href="NodeColorMaterial.html#FlipbookControl">Flipbook Control</a> to display one of the loaded textures after another. Or you can use it with a <a class="wiki" href="NodeGeometryParticleSystem.html">Particle System</a> to display a different texture for each particle using the <em>Animation</em> attribute of a particle.
+</p>
+<p>
+<div class="usermanual-includetag" tag="FlipbookLoaders"></div>
+</p>
+<h6 id="FlipbookLoader">Flipbook Loader</h6>
+<p>
+The <strong>Flipbook Loader</strong> is able to generate an Array of Textures from the given source file. This can either be a <strong>Movie</strong> file or an <strong>Image</strong> Sequence. For best results and performance, consider the following:
+</p>
+<ul class="" start="1"><li>The Movie file is loaded into the GPU memory completely instead of streaming only the needed portions like the <a class="wiki" href="NodeTextureVideo.html">Movie Clip</a> Node. So always use small movie files. Also remember that compression does not change the size on the GPU since it will be decoded before.
+</li><li>The Movie file should not use lossy compression to make sure each frame looks fine and can be used on its own. E.g. the <a class="ext-link" href="https://en.wikipedia.org/wiki/QuickTime_Animation"><span class="icon">​</span>Apple Animation Codec for Quicktime</a> files could be used for that.
+</li><li>An Image sequence can be loaded by selecting one of the images of the sequence. They have to have the same names with an index at the end of the name. For example <tt>PictureXXX.png</tt> with <tt>XXX</tt> being the index of that image.
+</li><li>The Images in the given sequence need to be of the same dimensions. Otherwise the GPU cannot create a Texture Array of the given source files.
+</li></ul><h6 id="StripLoader">Strip Loader</h6>
+<p>
+Similar to the <a href="#FlipbookLoader">Flipbook Loader</a> the <strong>Strip Loader</strong> will create an Array of Textures. This texture loader divides a single Image into evenly sized textures. You can define the number of textures with the <strong>CountX</strong> and <strong>Y</strong> properties and remove single slots at the end with the <strong>Reduce</strong> property. The frames are read line by line, so the first frame is at the top-left slot and the second frame is at the slot right to that.
+</p>
+<p>
+<div class="noteboxnote"><p>
+It is used similarly to the <a class="wiki" href="NodeColorMaterial.html#StripMapper">2D Strip Mapper</a> of the Material Node. The difference is that the <strong>Strip Loader</strong> can be used by the <a class="wiki" href="NodeGeometryParticleSystem.html">Particle System</a> to use different portions of an Image for each particle.
+</p>
+</div>
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible collapsed"><div class="usermanual-collapsible-title">Gradient Presets</div><div class="usermanual-collapsible-content">
+<div class="usermanual-include"><div class="usermanual-includetag" tag="Flipbook"></div>
+</p>
+<h5 id="Flipbook">Flipbook</h5>
+<p>
+The images in this category can be used by the <a class="wiki" href="NodeColorMaterial.html#FlipbookControl">Flipbook Loaders</a>.
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/flipbook_clock.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Flipbook Clock
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://Movies/fbclock60.mov</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+</div>
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<p>
+<div class="usermanual-includetag" tag="FlipbookLoaders"></div>
+</p>
+<p>
+</div>
+</p>
+<p>
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<h7 id="mask">Mask Properties</h7>
+<p>
+For any of the above loaders, you can adjust the <strong>Amount</strong> which controls the <em>Mask Opacity</em>, the <strong>Sampler</strong> where you can select the filtering to be <em>Trilinear</em> and 
+Adress the <strong>Border behavior</strong>. Click the Sampler and the Dropdown Menu offers you following Options for the <em>Border Behavior</em>:
+</p>
+<blockquote>
+<p>
+<strong>Black:</strong> The pixels outside the area covered by the mask are turned black, meaning that there is no tiling.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>White:</strong> The pixels outside the area covered by the mask are turned white, meaning that the area outside the original mask image is totally opaque.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Clamp:</strong> The pixels outside the area covered by the mask will repeat endlessly the same values as the pixels in the original image borders.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Wrap:</strong> The pixels outside the area covered by the mask are repeated or tiled as they were in the original mask image.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Mirror:</strong> The pixels outside the area covered by the mask are repeated or tiled as they were in the original mask image, but inverted like a mirror effect.
+</p>
+</blockquote>
+<p>
+With the <strong>Channel</strong> Drop Down Menu you can select which channel should be taken for masking. The <strong>Luma (L)</strong> is the <em>default</em> and uses the external image Luminance as a mask, it converts the image internally into a Grayscale Image. You can select an explicit channel like <strong>R</strong>,<strong>G</strong>,<strong>B</strong> or take the <strong>Alpha</strong> as the <em>Making source</em>. With the <strong>Invert</strong> the source image or selected channel gets inverted.
+</p>
+<p>
+You can <strong>Offset X/Y</strong>, <strong>Scale X/Y</strong> and change the <strong>Rotation</strong> of the mask. New pixel values are interpolated using the options selected in the <em>Sampler dropdown</em> menu.
+</p>
+<p>
+The <strong>Lift</strong>, <strong>Gain</strong> and <strong>Offset</strong> can be used to do a color grading for the Mask. The values are conformed with the Standards used in the cinematography. <strong>Lift</strong> can lift up the lower colors, while it clamps also the lower color area. E.g. if you lift a dark image, lower colors gets cut off, instead of starting at 0-255, it will start with 30-255. <strong>Gain</strong> boosts the colors in the whole range, while bright pixels may also clip at 255. <strong>Offset</strong> moves the colors in respect to each other color values. It behaves like a shifting.
+</p>
+<p>
+<strong>Random</strong> will position the Image <em>randomly</em> on screen and the amount of this randomness can be controlled with the <strong>Random X/Y</strong>. The Image will be positioned to a different position for every Tick, therefore you can not control the <em>speed</em>.
+</p>
+<h6 id="MaskVignette">Mask Vignette</h6>
+<p>
+<img src="images/PropertyGroupMask/LayersMaskVignette.jpg" style="max-width:564px;width:400;margin-right:auto; display:block; margin-left:auto" class="usermanual-image" title="" alt="" />
+</p>
+<p>
+<strong>Mask Vignette</strong> can be used to darken the corners of the Layer. You can control the <strong>Radius</strong> and <strong>Fuzz</strong> to change the appearance of the vignette. <strong>Fuzz</strong> will change the blending between the dark vignette and the visible area.
+You can reposition with the <strong>Center X/Y</strong> values and also use <strong>Straight X/Y</strong> to change the shape of the vignette. The <em>Straight</em> can be used to shape the <em>circle like vignette</em> to a <em>rounded rectangular</em> shape.
+With the <strong>AspectStretch</strong> and <strong>Aspect</strong> value you squeeze or stretch the vignette.
+</p>
+<p>
+<strong>Horizontal Vignette</strong> and <strong>Vertical Vignette</strong> offer the same controls as the <strong>Standard Mask</strong>. They are more like presets and have just the <em>properties</em> adjusted, so that either a <em>Horizontal-</em> or <em>Vertical Vignette</em> appears. The adjusted Values, in this case, are <em>Radius, Fuzz</em> and depending on <em>Straight X</em> or <em>Straight Y</em>.
+</p>
+<h6 id="MaskBorder">Mask Border</h6>
+<p>
+<strong>Mask Border</strong> creates a rectangular border vignette which can be controlled and adjusted the same way as the <strong>Standard Vignette</strong>. The main difference is the <strong>Border X/Y</strong> controls. These control the border width. You will notice that you control the <em>rounding</em> of the border with the <strong>Radius</strong> value.
+</p>
+<p>
+<strong>Round 2%</strong> and <strong>Square 2%</strong> are again just like presets, which have the <strong>Border X/Y</strong> set at 2% and either <strong>Radius</strong> and <strong>Fuzz</strong> set at a value or not.
+</p>
+<p>
+</div>
+</p>
+<p>
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<h3 id="Layout">Layout</h3>
+<p>
+<div class="usermanual-includetag" tag="LayerLayout"></div>
+</p>
+<p>
+The Layout parameters adjust the layer size, aspect and position. The layout can work in different ways, also called modes, each features its own properties. 
+</p>
+<p>
+<strong>Full Size</strong> keeps the Layer size always to the project settings.
+Switch to the <strong>Percentage</strong> if you want to adjust the <em>Layer Size</em> and <em>Position</em> in percent. For example: This mode is the fastest way to bring a Layer on-screen and off-screen, since you just need to bind the <strong>X/Y</strong> values, and animate them.
+</p>
+<p>
+<strong>Pixels</strong> will switch the layer to be pixel accurate. Per default, it will use the <em>Project Settings</em>. If you started your Project in FullHD it will reflect 1920x1080. The <strong>X/Y</strong> changes the on-screen position in Pixels, keep in mind that the position is dependent on the <em>Relation Alignment</em>. As soon as you change the <strong>Width/Height</strong> the layer will have the set size. In the <strong>Relation</strong> dropdown you can define in which relation the pixel will be. The <strong>Relation - Layer</strong> will use the pixelspace defined in the layer itself <em>OR</em> if the layer is inside a <em>Layer Group</em> and the <em>Layer Group</em> has a different pixelspace it will be in relation to that <em>Layer Group</em> settings. <strong>Relation - Project</strong> will use the defined <em>Format</em> of the <em>Project Settings</em>. <strong>Relation - Device</strong> will use the connected device resolution. E.g. your screen is set to 1920x1080 and you resize the <em>Renderer View</em> the layer will still render as if it will be displayed in FullHD. Resizing the <em>Renderer View</em> will not affect the displayed size of your content in this case. With the <strong>Relation - Alignment</strong> settings you change the alignment of your layer which also affects the positioning values.
+</p>
+<p>
+<strong>Aspect</strong> can be used to redefine the aspect of the Layer independently of the <em>Format</em> which you set in the <em>Project Properties</em>. 
+</p>
+<p>
+<strong>Offscreen Render Target</strong> renders the whole layer to an internal texture which you can access in the <em>Layer - Output Properties</em>. With the <strong>Size</strong> dropdown menu you can choose if you want to render the layer internally in <em>Full- Half-</em> or <em>Quater-</em> size. For example a 1920x1080px Layer will be 960x540px if you select <em>Half size</em> here. You can also adjust the internal size manually (<strong>Manual</strong>). Ventuz has some <em>Presets</em>, e.g. 256x256, 512x512, 1024x1024px ..., and so on. As soon as you select <em>any</em> manual size, you can change these values with the <strong>Width/Height</strong> to suit your needs. Per default the <strong>RenderMode</strong> is set to <strong>Always</strong> which renders the <em>Offscreen Render Target</em> in every frame, you can switch to <strong>Render Once</strong>, so that the <em>Offscreen Render Target</em> is rendered only one time. You can trigger the <em>RenderNow</em> to have the <em>Offscreen Render Target</em> rendered again. The <strong>TouchEnabled</strong> property specifies if this Layer should be taken into account by the <a class="wiki" href="InputSubsystem.html">Touch Input Processing</a>. The only Option left is the <strong>MipMaps</strong>. If enabled the Layer will automatically create MipMaps from its texture. It consumes some performance but will enhance the quality of the Layer if scaled down.
+</p>
+<p>
+<div class="usermanual-includetag" tag="LayerLayout"></div>
+</p>
+<p>
+<div class="usermanual-includetag" tag="LayerCommonPropertiesPart3d1"></div>
+</p>
+<h3 id="Mapping">Mapping</h3>
+<p>
+<div class="noteboxnote"><p>
+The Mapping parameters only appear on 2D layers.
+</p>
+</div>
+</p>
+<h3 id="Mapping1">Mapping</h3>
+<p>
+<div class="usermanual-includetag" tag="LayerMapping"></div>
+</p>
+<p>
+The Mapping parameters are used to edit how the texture is mapped onto the Layer. Ventuz supports various Mapping modes, each one featuring its own parameters to control the texture position, size tiling, etc.. 
+</p>
+<p>
+<strong>Stretch</strong> will stretch the Texture Aspect ratio to match the layer surface Aspect ratio, hence deforming the textures original proportions.
+With the <strong>Underscan</strong> you scale up the texture, but keeping the texture stretched to fully cover the layer and its proportions.
+</p>
+<p>
+<strong>Fit</strong> you scales the Texture to match the maximum bounds while keeping the aspect ratio of the original and creating a letterbox or column where there is no image.
+<strong>Align</strong> adds control for the texture alignment. 
+</p>
+<p>
+<strong>Crop</strong> will scale the texture to match the minimum bounds, while keeping the original aspect ratio, cutting off any part of the image that is out of bounds.
+</p>
+<p>
+<strong>Extended</strong> allows for external logic to determine the mapping, allowing for dynamic adjustment as required during runtime. It can perform as <strong>Stretch</strong>, <strong>Fit</strong> or <strong>Crop</strong>. You change the <em>Extended Mode</em> with the <strong>SizeMode</strong> dropdown menu. 
+  
+<strong>Tiles</strong> mapping type controls how textures are repeated when they are smaller than the layer. The tiles can be fully adjusted with <strong>CenterX/Y</strong>, <strong>Scale All</strong> and <strong>Rotate</strong>. The <strong>Shear X/Y</strong> values. You can stretch the texture in both directions of the same axis at once, hence making it look like it's been sheared. When <strong>Mirror</strong> is selected the texture will be mirrored in all axis or sides instead of repeated. 
+</p>
+<p>
+<strong>Polar</strong> will cause the horizontal direction to be mapped to a circular direction. For example, a straight line across the middle becomes a circle. It is very useful when creating and working with certain graphical effects.
+</p>
+<p>
+Smaller <strong>Amount</strong> values will divide the other Polar Distortion parameters, meaning that smaller values will interpolate between the original image and the Polar Distortion effect– this is great for animating the Polar Distortion effect as a whole. With the <strong>Inverse</strong> you toggle to control which coordinate system conversion is applied. If the default Off value is selected the effect will convert from standard Cartesian X,Y to Polar coordinate system, like the "Rect to Polar" setting in other software packages on the market. The <strong>Center X/Y</strong> values move the center of the Polar Distortion effect calculation. The units are expressed as Percentage of total Image resolution. You can <strong>Scale X/Y</strong> axis individually and/or <strong>Scale All</strong> as a whole. The <strong>Segments</strong> control a number of segments iterations created. With the <strong>Radial Scale</strong> you control the result according to the Polar coordinate system with higher values stretching pixel positions in polar directions from the Center location, while smaller values will shrink towards the center location. The <strong>Swirl</strong> is to deform the Polar Distortion as a spiral, in other words, the higher the values, the more complex the spiral created by the Polar Distortion. <strong>Scroll X/Y</strong> move the Polar Distortion segments radially in the polar X and Y axis individually. The <strong>Perspective</strong> setting forces the Polar Distortion effect to try to mimic a fake perspective - it is useful to simulate Tunnel-like effects. If you enabled the <strong>Perspective</strong> you can use <strong>Perspective Adjust</strong> and it works like if you would adjust the <em>FOV</em> of the perspective. The <strong>Aspect Stretch</strong> can be used to apply stretching to the Image. If turned on the <strong>Aspect</strong> is used to control the Aspect ratio or proportions of the distortion.
+</p>
+<p>
+<strong>Kaleidoscope</strong> mimics the illusion of an optical toy for producing symmetrical patterns by multiple reflections in inclined mirrors inside a tube. This technique is primarily used for creating graphical background effects and animations.
+</p>
+<p>
+You can relocate the <strong>Center X/Y</strong> for the Kaleidoscope, <strong>Scale X/Y</strong> and <strong>Scale All</strong>. With the <strong>Segments</strong> you change the number of instances of the original image created internally and duplicated along the polar coordinates. The <strong>Radial Scale</strong> changes the scale of the segments in the radial direction, meaning the number of segment levels to create the final kaleidoscope effect. With <strong>Bulge</strong> you apply a bulge like deformation at the center of the Kaleidoscope, meaning that kaleidoscope will be distorted radially from the center, a new level will be generated according to the values. With negative values, it will keep expanding the center deformation and positive values will compress to the deformation center. You can <strong>Rotate</strong> which works like if you would rotate the <em>Kaleidoscope Tube</em>. <strong>Rotate in Segments</strong> will rotate the Kaleidoscope individually, in other words, each segment will be rotated around its own rotation center. The <strong>Swirl</strong> is to deform the Kaleidoscope as a spiral, the higher the values, the more complex the spiral created by the Kaleidoscope will be - negative values work the same, just turning the spiral in the opposite direction. <strong>Scroll X/Y</strong> will move the Kaleidoscope segments radially in the polar X and Y axis individually. Toggle <strong>Perspective</strong> to activate the Perspective calculation. When turned on the <strong>Perspective Adjust</strong> can be used to control the Perspective calculation. The <strong>Aspect Stretch</strong> can be used to apply stretching to the Image. If turned on the <strong>Aspect</strong> is used to control the Aspect ratio or proportions of the Kaleidoscope.
+</p>
+<p>
+<div class="usermanual-includetag" tag="LayerMapping"></div>
+</p>
+<p>
+<div class="usermanual-includetag" tag="LayerCommonPropertiesPart3d2"></div>
+</p>
+<h3 id="Effects">Effects</h3>
+<p>
+For every layer, you can apply different kinds of effects. You can <em>Group</em> effects by creating <strong>Effect Groups</strong> and assigning individual <strong>Blendings</strong> and <strong>Masks</strong>.
+</p>
+<p>
+<strong>Margin</strong> will be mostly required if you apply the <em>dropshadow</em> or <em>blur</em> effect. The <strong>Margin</strong>, which is expressed in percentage relative to the <em>original layer size</em>, adds a border around a nonfull-size layer. That is especially required for effects that affect a greater area than the layer itself.
+</p>
+<h4 id="Blending">Blending</h4>
+<p>
+Uses the same available modes like for the layer blend modes. Please see <a href="#blending">Blending</a> modes for layers.
+</p>
+<h4 id="Mask">Mask</h4>
+<p>
+Uses the same available masks like for the layer masks - the exception is the additional <strong>mask self-property</strong>.
+Please see the <a href="#lmask">Layer Masks</a> for an overall detailed explanation.
+</p>
+<p>
+<div class="usermanual-include"><div class="usermanual-includetag" tag="MaskPropertyEffect"></div>
+</p>
+<h4 id="MaskSelf">Mask Self</h4>
+<p>
+<strong>Mask Self</strong> masks the applied effect using the Layer Color information. It renders the effect and applies the Layer itself on top of it. This can be greatly seen with the <em>Crashzoom effect</em> and enabled <strong>Mask Self</strong>:
+</p>
+<p>
+<img src="images/PropertyGroupMask/MaskSelf_Example.PNG" style="max-width:365px;margin-right:auto; display:block; margin-left:auto" class="usermanual-image" title="" alt="" />
+</p>
+<p>
+If you enable the <strong>Show Effect</strong>, you will see only the effect and the applied <strong>Mask Self</strong> is ignored then.
+</p>
+<p>
+</div>
+</p>
+<h4 id="Effect">Effect</h4>
+<p>
+<span class="usermanual-mouse">Click</span>&nbsp;<span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span> the [<strong>+</strong>] Effect and add any of the effects listed below. Keep in mind that you can <strong>Group Effects</strong>! You can change the order of the effect or effect group the same way like you would do with the mask layers - simply click the arrow next to the fx stage or the cross to delete it.
+</p>
+<p>
+<img src="images/LayerCommonProperties/fx_order.png"  />
+</p>
+<p>
+For effect stages you can <em>clone</em> or <em>clone with bindings</em>.To do so <em>Hold Right Click</em> <span class="usermanual-mouse">Hold</span>&nbsp;<span class="usermanual-mouse usermanual-mouse-button rmb" title="right mouse button"></span> on an effect stage for a second and a menu with these options will show up.
+</p>
+<p>
+<img src="images/LayerCommonProperties/fx_stage.png"  />
+</p>
+<p>
+You can <em>collapse</em> or <em>unfold</em> effect properties by simply <em>Right Click</em> <span class="usermanual-mouse">click</span>&nbsp;<span class="usermanual-mouse usermanual-mouse-button rmb" title="right mouse button"></span> an effect stage.
+</p>
+<h5 id="EffectGroup">Effect Group</h5>
+<p>
+Creates a group of effects that will be applied together at once. It works exactly the same as the Effects Stack, so the same Effects can be added, moved, deleted and enabled inside of the Group in the same way you operate with the Effects Stack.
+</p>
+<h5 id="ColorCorrection">Color Correction</h5>
+<p>
+These effects are used to correct the color values of the layer. The available Color Correction IPP Effects are <strong>Grayscale</strong> (simple Grayscale effect), <strong>Color Grading</strong> (a standard color correction effect working with the RGB primaries), <strong>Color Correction</strong> (similar to Color Grading, but using the HSL/HSV Color model) and <strong>Gain</strong> (quick Gain color correction effect).<br />
+</p>
+<p>
+Please refer to the <a class="wiki" href="LayersIPP_ColorCorrections.html">IPP Color Correction Effects</a> section of the User Manual for additional information.
+</p>
+<h5 id="Filters">Filters</h5>
+<p>
+These effects filter the pixel values of each layer, changing their position, adding new elements, or even changing the opacity.
+</p>
+<p>
+The available Filter IPP Effects are:
+</p>
+<blockquote>
+<p>
+<strong>Mosaic</strong>: Creates a set of tiles colored according to the original color values.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Blur</strong>: Averages each pixel color values with the surrounding pixel values.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Glare </strong>: Creates a smooth halo around the brightest areas of the layer. 
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Crash Zoom</strong>: Is often called "God Rays".
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>RGB Noise</strong>: Adds a video noise-like effect.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Feedback </strong>: Creates a trail effect by blending with previous frames. 
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Posterize RGB</strong>: Rounds up/down pixel color values.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Posterize HSV</strong>: Posterize effect based on the HSV color mode.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Edge Detection</strong>: Detects the outline of shapes in the Layer.
+</p>
+</blockquote>
+<p>
+ 
+</p>
+<blockquote>
+<p>
+<strong>Color Difference Keyer</strong>: Used to <em>Key out</em> the green from "green-screen material" - similar to a Chroma Keyer but uses different math. 
+</p>
+</blockquote>
+<p>
+Please refer to the <a class="wiki" href="LayersIPP_Filters.html">IPP Filter Effects</a> section of the User Manual for additional information. 
+</p>
+<h5 id="Distortion">Distortion</h5>
+<p>
+These IPP Effects work mostly by changing the relative position of pixels in the layer.
+</p>
+<p>
+The available Filter IPP Effects are:
+</p>
+<blockquote>
+<p>
+<strong>Drop Shadow</strong>: 2D shadow effect based on Layer Alpha.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Lens Distortion</strong>: Replicates artifacts created by lens spatial aberrations.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Distortion</strong>: A standard distortion effect, combining most of the options available in the rest of IPP distortion effects.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>RGB Distortion</strong>: Offsets and scales Layer RGB channels individually.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>2D Displacement</strong>: Displaces the Layer pixels according to the Luminance information of an external file. 
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Noise Distortion</strong>: Uses a randomly animated texture to create a fake Noise Displacement effect.
+</p>
+</blockquote>
+<blockquote>
+<p>
+<strong>Polar Distortion</strong>: Transposes the x and Y pixel coordinates in the original image to a Polar Coordinate system.
+</p>
+</blockquote>
+<p>
+ 
+</p>
+<blockquote>
+<p>
+<strong>Kaleidoscope Distortion</strong>: Kaleidoscope pattern effect.
+</p>
+</blockquote>
+<p>
+Please refer to the <a class="wiki" href="LayersIPP_Distortion.html">IPP Distortion Effects</a> section of the User Manual for an overall detailed description. 
+</p>
+<h4 id="Layer">Layer</h4>
+<p>
+These Properties may vary for the different Layer-types. The most common Property is the <strong>Orientation</strong> Property which makes it possible to <strong>Rotate</strong> the Layer in any direction or <strong>Mirror</strong> and <strong>Flip</strong> it. There are several Layer-specific properties depending on the Layer Type. The <strong>Image Layer</strong> has Properties like the <strong>TextureFile</strong> and <strong>TextureHint</strong> which controls the <em>Gamma</em> and <em>Alpha</em> loading, while for example the <strong>Constant Color Layer</strong> has a <strong>TextureColor</strong> Property. As mentioned before, each Layer Type may vary in the Layer Properties.
+</p>
+<p>
+<div class="usermanual-includetag" tag="LayerCommonPropertiesPart3d2"></div>
+</p></div>
+</p>
+<p data-line="220" >
+<div class="usermanual-see-also">
+  See also:<ul class="usermanual-see-also">
+<li><a class="wiki" href="PropertiesEditor.html#ColorpickerPixelsnoop">Color Picker</a></li>
+<li><a class="wiki" href="PropertiesEditor.html#EditingGradients">Gradient Editor</a></li>
+<li><a class="wiki" href="NodeColorMaterial.html#Texture">Texture Node</a></li>
+<li><a class="ext-link" href="http://spout.zeal.co"><span class="icon">​</span>SPOUT</a></li>
+</ul></div>
+</p>
+
+            </div>
+            <div class="control"><div class="control-prev"><a href="NodeLayer3DReference.html?itm=176">&laquo; Previous Article</a></div><div><a href="Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="NodeLayerPsdImport.html?itm=178">Next Article &raquo;</a></div></div>
+            <div id="footer">
+    Copyright 2020 Ventuz Technology
+</div>
+        </div>
+    </body>
+</html>

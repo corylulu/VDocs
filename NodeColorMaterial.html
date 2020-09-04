@@ -1,0 +1,1847 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>UserManual/NodeColorMaterial</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript" src="js/usermanual.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script><script src="js/jquery-ui.min.js"></script><script type="text/javascript">
+    function getParam(name, defaultValue) {
+        var url = window.location.search.substring(1);
+        var vars = url.split('&');
+        for (var i = 0; i < vars.length; ++i) {
+            var param = vars[i].split('=');
+            if (param[0] == name) {
+                return param[1];
+            }
+        }
+        return defaultValue;
+    }
+
+    jQuery(document).ready(function($) {
+        var link;
+        var itemIndex = getParam('itm', -1)
+        if (itemIndex != -1) {
+            var link = $('a[item-index="' + itemIndex + '"]:first');
+        } else {
+            var page = window.location.pathname;
+            var parts = page.split("/");
+            if (parts.length >= 2) {
+                page = parts[parts.length-2] + "/" + parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+            if ( link.length === 0 && parts.length >= 1 ) {
+                page = parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+        }
+
+        var tabIndex = 0;
+        if (link.length > 0) {
+            tabIndex = parseInt(link.attr("tab-index"), 10);
+            link.addClass('current');
+            link.parent().addClass('current');
+        }
+
+        $("#navigation").accordion({
+            heightStyle: "content",
+            collapsible: true,
+            active: tabIndex
+        });
+
+        $('#sidebar').scrollTop(link.offset().top - 20);
+    });
+    </script>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <!--sidebar begin--> <div id="sidebar"><h1>Navigation</h1><div id="navigation"><h3>Ventuz 6 Quick Guide</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="QuickGuideIntro.html?itm=0" tab-index="0" item-index="0" lst="1-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GettingStarted.html?itm=1" tab-index="0" item-index="1" lst="1-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzEditions.html?itm=2" tab-index="0" item-index="2" lst="1-1">Ventuz Editions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner.html?itm=3" tab-index="0" item-index="3" lst="1-1">Designer Overview</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SystemRequirements.html?itm=4" tab-index="0" item-index="4" lst="1-2">Ventuz System Requirements</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfiguration.html?itm=5" tab-index="0" item-index="5" lst="1-2">Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationAV.html?itm=6" tab-index="0" item-index="6" lst="1-2">Video/Audio Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationMC.html?itm=7" tab-index="0" item-index="7" lst="1-2">Machine Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GPIConfiguration.html?itm=8" tab-index="0" item-index="8" lst="1-2">GPI Configuration for Runtime or Director</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Performance.html?itm=9" tab-index="0" item-index="9" lst="1-2">Optimize Rendering Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SupportedFormats.html?itm=10" tab-index="0" item-index="10" lst="1-2">Supported Formats</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationVendors.html?itm=11" tab-index="0" item-index="11" lst="1-2">Supported Hardware</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AntiAliasing.html?itm=12" tab-index="0" item-index="12" lst="1-2">Multisampling / Anti-Aliasing</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InputSubsystem.html?itm=13" tab-index="0" item-index="13" lst="1-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="VentuzFileTypes.html?itm=14" tab-index="0" item-index="14" lst="1-2">Ventuz Proprietary Files</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="WhatsNew.html?itm=15" tab-index="0" item-index="15" lst="1-1">What&apos;s new</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="FAQ.html?itm=16" tab-index="0" item-index="16" lst="1-1">FAQ</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="CommonMistakes.html?itm=17" tab-index="0" item-index="17" lst="1-1">Common Mistakes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Deployment.html?itm=18" tab-index="0" item-index="18" lst="1-1">Deployment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MigrationGuide.html?itm=19" tab-index="0" item-index="19" lst="1-1">Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MigrationGuideV4V5.html?itm=20" tab-index="0" item-index="20" lst="1-1">Ventuz 5 Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="SummaryShortcuts.html?itm=21" tab-index="0" item-index="21" lst="1-1">Summary Shortcuts</a></li></ul></div><h3>Ventuz 6 Designer</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Index.html?itm=22" tab-index="1" item-index="22" lst="3-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GettingStarted_2.html?itm=23" tab-index="1" item-index="23" lst="3-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DesignerOptions.html?itm=24" tab-index="1" item-index="24" lst="3-1">Designer Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner_2.html?itm=25" tab-index="1" item-index="25" lst="3-1">Designer Overview</a></li></ul><div class="list-label list-level-1">Projects &amp; Scenes</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="ProjectsAndScenes.html?itm=26" tab-index="1" item-index="26" lst="4-1">Projects and Scenes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WindowProjectBrowser.html?itm=27" tab-index="1" item-index="27" lst="4-2">Project Browser</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectProperties.html?itm=28" tab-index="1" item-index="28" lst="4-2">Project Properties</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectMaintenance.html?itm=29" tab-index="1" item-index="29" lst="4-2">Project Maintenance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectAndSceneData.html?itm=30" tab-index="1" item-index="30" lst="4-2">Project and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneTree.html?itm=31" tab-index="1" item-index="31" lst="4-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneManagement.html?itm=32" tab-index="1" item-index="32" lst="4-2">Scene Management</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneStatistics.html?itm=33" tab-index="1" item-index="33" lst="4-2">Scene Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Deployment_2.html?itm=34" tab-index="1" item-index="34" lst="4-2">Deployment</a></li></ul></li></ul><div class="list-label list-level-1">Interface</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="UserInterface.html?itm=35" tab-index="1" item-index="35" lst="7-1">Designer Interface</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RendererWindow.html?itm=36" tab-index="1" item-index="36" lst="7-2">Renderer Window</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RealtimeRendering.html?itm=37" tab-index="1" item-index="37" lst="7-2">Realtime Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Performance_2.html?itm=38" tab-index="1" item-index="38" lst="7-2">Optimize Scene Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PerformanceStatistics.html?itm=39" tab-index="1" item-index="39" lst="7-2">Performance Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TransformationGizmo.html?itm=40" tab-index="1" item-index="40" lst="7-2">Transformation Gizmo</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RenderToDisk.html?itm=41" tab-index="1" item-index="41" lst="7-2">Render to Disk</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="CameraNavigation.html?itm=42" tab-index="1" item-index="42" lst="7-2">Camera Navigation</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="IsolateMode.html?itm=43" tab-index="1" item-index="43" lst="7-2">Isolated Objects</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TransformationGizmo_2.html?itm=44" tab-index="1" item-index="44" lst="7-2">Manipulate Objects with Gizmos</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LayerEditor.html?itm=45" tab-index="1" item-index="45" lst="7-2">Layer Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LayerCommonProperties.html?itm=46" tab-index="1" item-index="46" lst="7-2">Common Layer Properties</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP.html?itm=47" tab-index="1" item-index="47" lst="7-3">IPP Effects</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_ColorCorrections.html?itm=48" tab-index="1" item-index="48" lst="7-3">Color Correction FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_Distortion.html?itm=49" tab-index="1" item-index="49" lst="7-3">Distortion FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_Filters.html?itm=50" tab-index="1" item-index="50" lst="7-3">Filter FX</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsLayerEditor.html?itm=51" tab-index="1" item-index="51" lst="7-2">Layer Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="HierarchyEditor.html?itm=52" tab-index="1" item-index="52" lst="7-2">Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="NodesAndBindings.html?itm=53" tab-index="1" item-index="53" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainersAndInterfaces.html?itm=54" tab-index="1" item-index="54" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="FindAndReplace.html?itm=55" tab-index="1" item-index="55" lst="7-2">Find and Replace</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsHierarchyEditor.html?itm=56" tab-index="1" item-index="56" lst="7-2">Shortcuts Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContentEditor.html?itm=57" tab-index="1" item-index="57" lst="7-2">Content Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="NodesAndBindings_2.html?itm=58" tab-index="1" item-index="58" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainersAndInterfaces_2.html?itm=59" tab-index="1" item-index="59" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsContentEditor.html?itm=60" tab-index="1" item-index="60" lst="7-2">Content Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ToolboxAndRepository.html?itm=61" tab-index="1" item-index="61" lst="7-2">Toolbox</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PropertiesEditor.html?itm=62" tab-index="1" item-index="62" lst="7-2">Property Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectAndSceneData_2.html?itm=63" tab-index="1" item-index="63" lst="7-2">Project Data and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PropertyGroups.html?itm=64" tab-index="1" item-index="64" lst="7-2">Property Groups</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShaderEditor.html?itm=65" tab-index="1" item-index="65" lst="7-2">Shader Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextEditor.html?itm=66" tab-index="1" item-index="66" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneTree_2.html?itm=67" tab-index="1" item-index="67" lst="7-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MessageView.html?itm=68" tab-index="1" item-index="68" lst="7-2">Message View</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="StageEditor.html?itm=69" tab-index="1" item-index="69" lst="7-2">Stage Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainerOutline.html?itm=70" tab-index="1" item-index="70" lst="7-2">Container Outline</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WatchesEditor.html?itm=71" tab-index="1" item-index="71" lst="7-2">Watches Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationEditor.html?itm=72" tab-index="1" item-index="72" lst="7-2">Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationAndStateEngine.html?itm=73" tab-index="1" item-index="73" lst="7-2">Animation and State Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Templates.html?itm=74" tab-index="1" item-index="74" lst="7-2">Templates</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TemplateEngine.html?itm=75" tab-index="1" item-index="75" lst="7-2">Template Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsAnimationEditor.html?itm=76" tab-index="1" item-index="76" lst="7-2">Shortcuts Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextRendering.html?itm=77" tab-index="1" item-index="77" lst="7-2">Text Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextEditor_2.html?itm=78" tab-index="1" item-index="78" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="CharacterSets.html?itm=79" tab-index="1" item-index="79" lst="7-2">Character Sets</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GeometryImport.html?itm=80" tab-index="1" item-index="80" lst="7-2">Geometry Import</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InputSubsystem_2.html?itm=81" tab-index="1" item-index="81" lst="7-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MultiTouch.html?itm=82" tab-index="1" item-index="82" lst="7-2">Multitouch</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TUIO.html?itm=83" tab-index="1" item-index="83" lst="7-2">TUIO Protocol</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="OpenSoundControl.html?itm=84" tab-index="1" item-index="84" lst="7-2">Open Sound Control</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="HowTo/HowToVR.html?itm=85" tab-index="1" item-index="85" lst="7-2">How to work with Head Mounted Displays</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Cluster.html?itm=86" tab-index="1" item-index="86" lst="7-2">Cluster</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MultiDisplaySetupsAndShaping.html?itm=87" tab-index="1" item-index="87" lst="7-2">Multi Display Setups and Shaping</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WarpingSoftEdgingMasking.html?itm=88" tab-index="1" item-index="88" lst="7-2">Warping, Soft Edging and Masking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Nodes.html?itm=89" tab-index="1" item-index="89" lst="7-1">Available Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationNodes.html?itm=90" tab-index="1" item-index="90" lst="7-2">Animation Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MaterialNodes.html?itm=91" tab-index="1" item-index="91" lst="7-2">Material&amp;Color Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="DataNodes.html?itm=92" tab-index="1" item-index="92" lst="7-2">Data Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GeometryNodes.html?itm=93" tab-index="1" item-index="93" lst="7-2">Geometry Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InteractionNodes.html?itm=94" tab-index="1" item-index="94" lst="7-2">Interaction Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="IONodes.html?itm=95" tab-index="1" item-index="95" lst="7-2">IO Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Layers.html?itm=96" tab-index="1" item-index="96" lst="7-2">Layers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LightNodes.html?itm=97" tab-index="1" item-index="97" lst="7-2">Light Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LogicNodes.html?itm=98" tab-index="1" item-index="98" lst="7-2">Logic Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RenderNodes.html?itm=99" tab-index="1" item-index="99" lst="7-2">Render Option Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SlidesNodes.html?itm=100" tab-index="1" item-index="100" lst="7-2">Slides Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SoundNodes.html?itm=101" tab-index="1" item-index="101" lst="7-2">Sound Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextNodes.html?itm=102" tab-index="1" item-index="102" lst="7-2">Text Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextureNodes.html?itm=103" tab-index="1" item-index="103" lst="7-2">Texture Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="VrNodes.html?itm=104" tab-index="1" item-index="104" lst="7-2">VR Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WorldNodes.html?itm=105" tab-index="1" item-index="105" lst="7-2">World Nodes</a></li></ul></li></ul></div><h3>Ventuz 6 Node Reference</h3><div><div class="list-label list-level-1">ANIMATION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationMover.html?itm=106" tab-index="2" item-index="106" lst="24-1">Mover</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationMover_2.html?itm=107" tab-index="2" item-index="107" lst="24-1">Alternator</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationControls.html?itm=108" tab-index="2" item-index="108" lst="24-1">Simple Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationControls_2.html?itm=109" tab-index="2" item-index="109" lst="24-1">Timeline Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationAnimationRig.html?itm=110" tab-index="2" item-index="110" lst="24-1">Anmation Rig</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationKeyframeAnimation.html?itm=111" tab-index="2" item-index="111" lst="24-1">Keyframe Animation</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationKeyframeAnimation_2.html?itm=112" tab-index="2" item-index="112" lst="24-1">Animation Group</a></li></ul><div class="list-label list-level-1">COLOR/MATERIAL</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorAlpha.html?itm=113" tab-index="2" item-index="113" lst="25-1">Alpha</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorFog.html?itm=114" tab-index="2" item-index="114" lst="25-1">Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorFog_2.html?itm=115" tab-index="2" item-index="115" lst="25-1">Ground Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorSkyBox.html?itm=116" tab-index="2" item-index="116" lst="25-1">Sky Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters.html?itm=117" tab-index="2" item-index="117" lst="25-1">Color to RGBA</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_2.html?itm=118" tab-index="2" item-index="118" lst="25-1">HSLA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_3.html?itm=119" tab-index="2" item-index="119" lst="25-1">RGBA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_4.html?itm=120" tab-index="2" item-index="120" lst="25-1">Color Transformer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeShaderHLSLShader.html?itm=121" tab-index="2" item-index="121" lst="25-1">HLSL Shader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorColor.html?itm=122" tab-index="2" item-index="122" lst="25-1">Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorMaterial.html?itm=123" tab-index="2" item-index="123" lst="25-1">Material</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorColorPicker.html?itm=124" tab-index="2" item-index="124" lst="25-1">Color Picker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorSubstanceMaterial.html?itm=125" tab-index="2" item-index="125" lst="25-1">Substance Material</a></li></ul><div class="list-label list-level-1">DATA</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataDatabase.html?itm=126" tab-index="2" item-index="126" lst="26-1">Database</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataExcel.html?itm=127" tab-index="2" item-index="127" lst="26-1">Excel</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataJSON.html?itm=128" tab-index="2" item-index="128" lst="26-1">JSON</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataRSSFeed.html?itm=129" tab-index="2" item-index="129" lst="26-1">RSS Feed</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataResourceLinker.html?itm=130" tab-index="2" item-index="130" lst="26-1">Resource Linker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataTextFile.html?itm=131" tab-index="2" item-index="131" lst="26-1">Text File</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataXML.html?itm=132" tab-index="2" item-index="132" lst="26-1">XML</a></li></ul><div class="list-label list-level-1">GEOMETRY</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles.html?itm=133" tab-index="2" item-index="133" lst="27-1">Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_2.html?itm=134" tab-index="2" item-index="134" lst="27-1">Rounded Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_3.html?itm=135" tab-index="2" item-index="135" lst="27-1">Gradient Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_4.html?itm=136" tab-index="2" item-index="136" lst="27-1">Overlay Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCube.html?itm=137" tab-index="2" item-index="137" lst="27-1">Cube</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCircle.html?itm=138" tab-index="2" item-index="138" lst="27-1">Circle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometrySphere.html?itm=139" tab-index="2" item-index="139" lst="27-1">Sphere</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCylinder.html?itm=140" tab-index="2" item-index="140" lst="27-1">Cylinder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCone.html?itm=141" tab-index="2" item-index="141" lst="27-1">Cone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryTorus.html?itm=142" tab-index="2" item-index="142" lst="27-1">Torus</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryChart.html?itm=143" tab-index="2" item-index="143" lst="27-1">Chart</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRandomPoints.html?itm=144" tab-index="2" item-index="144" lst="27-1">Random Points</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryMeshLoader.html?itm=145" tab-index="2" item-index="145" lst="27-1">Mesh Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryImport.html?itm=146" tab-index="2" item-index="146" lst="27-1">Geometry Import (Live)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryVolume.html?itm=147" tab-index="2" item-index="147" lst="27-1">Volume</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryGetBoundingBox.html?itm=148" tab-index="2" item-index="148" lst="27-1">Get Bounding Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryArrow.html?itm=149" tab-index="2" item-index="149" lst="27-1">Arrow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryParticleSystem.html?itm=150" tab-index="2" item-index="150" lst="27-1">Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryPath.html?itm=151" tab-index="2" item-index="151" lst="27-1">Path Renderer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryGeometryRenderer.html?itm=152" tab-index="2" item-index="152" lst="27-1">Geometry Renderer</a></li></ul><div class="list-label list-level-1">INTERACTION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionInteractionRect.html?itm=153" tab-index="2" item-index="153" lst="28-1">Interaction Rect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchButton.html?itm=154" tab-index="2" item-index="154" lst="28-1">Touch Button</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchExcluder.html?itm=155" tab-index="2" item-index="155" lst="28-1">Touch Excluder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchMarker.html?itm=156" tab-index="2" item-index="156" lst="28-1">Touch Marker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchPaint.html?itm=157" tab-index="2" item-index="157" lst="28-1">Touch Paint</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchPattern.html?itm=158" tab-index="2" item-index="158" lst="28-1">Touch Pattern</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchProxy.html?itm=159" tab-index="2" item-index="159" lst="28-1">Touch Proxy</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchRipples.html?itm=160" tab-index="2" item-index="160" lst="28-1">Touch Ripples</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchTransformations.html?itm=161" tab-index="2" item-index="161" lst="28-1">Touch Transformations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchWebBrowser.html?itm=162" tab-index="2" item-index="162" lst="28-1">Web Browser</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchTeleport.html?itm=163" tab-index="2" item-index="163" lst="28-1">Touch Teleport</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchSimulator.html?itm=164" tab-index="2" item-index="164" lst="28-1">Touch Simulator</a></li></ul><div class="list-label list-level-1">INPUT/OUTPUT (I/O)</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOGPI.html?itm=165" tab-index="2" item-index="165" lst="29-1">GPI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOJoystick.html?itm=166" tab-index="2" item-index="166" lst="29-1">Joystick</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOKeyboard.html?itm=167" tab-index="2" item-index="167" lst="29-1">Keyboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOMIDI.html?itm=168" tab-index="2" item-index="168" lst="29-1">MIDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOMouse.html?itm=169" tab-index="2" item-index="169" lst="29-1">Mouse</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIONetwork.html?itm=170" tab-index="2" item-index="170" lst="29-1">Network</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOOSC.html?itm=171" tab-index="2" item-index="171" lst="29-1">Open Sound Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOSerial.html?itm=172" tab-index="2" item-index="172" lst="29-1">Serial</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOTimecode.html?itm=173" tab-index="2" item-index="173" lst="29-1">Timecode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIODMX.html?itm=174" tab-index="2" item-index="174" lst="29-1">DMX</a></li></ul><div class="list-label list-level-1">LAYER</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer3D.html?itm=175" tab-index="2" item-index="175" lst="30-1">3D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer3DReference.html?itm=176" tab-index="2" item-index="176" lst="30-1">3D Layer Reference</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer2D.html?itm=177" tab-index="2" item-index="177" lst="30-1">2D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayerPsdImport.html?itm=178" tab-index="2" item-index="178" lst="30-1">PSD Import Layer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayerOther.html?itm=179" tab-index="2" item-index="179" lst="30-1">Others</a></li></ul><div class="list-label list-level-1">LIGHT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLightSources.html?itm=180" tab-index="2" item-index="180" lst="31-1">Light Sources</a></li></ul><div class="list-label list-level-1">LOGIC</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicArrayProcessing.html?itm=181" tab-index="2" item-index="181" lst="32-1">Array Processing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicConvertToText.html?itm=182" tab-index="2" item-index="182" lst="32-1">Convert To Text</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicCluster.html?itm=183" tab-index="2" item-index="183" lst="32-1">Cluster Synchronization</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicCounter.html?itm=184" tab-index="2" item-index="184" lst="32-1">Counter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDateTime.html?itm=185" tab-index="2" item-index="185" lst="32-1">Date Time</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDirectory.html?itm=186" tab-index="2" item-index="186" lst="32-1">Directory</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDispatcher.html?itm=187" tab-index="2" item-index="187" lst="32-1">Dispatcher</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicEnumeration.html?itm=188" tab-index="2" item-index="188" lst="32-1">Enumeration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicExpressions.html?itm=189" tab-index="2" item-index="189" lst="32-1">Expressions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicInvert.html?itm=190" tab-index="2" item-index="190" lst="32-1">Invert</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicLog.html?itm=191" tab-index="2" item-index="191" lst="32-1">Log</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicLoopBreaker.html?itm=192" tab-index="2" item-index="192" lst="32-1">Loop Breaker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicMathEffects.html?itm=193" tab-index="2" item-index="193" lst="32-1">Math Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicMatrixOperations.html?itm=194" tab-index="2" item-index="194" lst="32-1">Matrix Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicSceneEvent.html?itm=195" tab-index="2" item-index="195" lst="32-1">Scene Event</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicScript.html?itm=196" tab-index="2" item-index="196" lst="32-1">Script</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicStringOperations.html?itm=197" tab-index="2" item-index="197" lst="32-1">String Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicSystemID.html?itm=198" tab-index="2" item-index="198" lst="32-1">System ID</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicTextSplitter.html?itm=199" tab-index="2" item-index="199" lst="32-1">Text Splitter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicTimer.html?itm=200" tab-index="2" item-index="200" lst="32-1">Timer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicToggle.html?itm=201" tab-index="2" item-index="201" lst="32-1">Toggle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicURL.html?itm=202" tab-index="2" item-index="202" lst="32-1">URL</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicValueSwitch.html?itm=203" tab-index="2" item-index="203" lst="32-1">Value Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicValueBuffer.html?itm=204" tab-index="2" item-index="204" lst="32-1">Value Buffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicVariables.html?itm=205" tab-index="2" item-index="205" lst="32-1">Variables</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicVisualIndexer.html?itm=206" tab-index="2" item-index="206" lst="32-1">Visual Indexer</a></li></ul><div class="list-label list-level-1">RENDER OPTIONS</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaBlending.html?itm=207" tab-index="2" item-index="207" lst="33-1">Alpha Blending</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaBlending_2.html?itm=208" tab-index="2" item-index="208" lst="33-1">Color Write</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaTesting.html?itm=209" tab-index="2" item-index="209" lst="33-1">Alpha Testing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsClipPlane.html?itm=210" tab-index="2" item-index="210" lst="33-1">Clip Plane</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsFilter.html?itm=211" tab-index="2" item-index="211" lst="33-1">Filter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsMask.html?itm=212" tab-index="2" item-index="212" lst="33-1">Mask</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsMirror.html?itm=213" tab-index="2" item-index="213" lst="33-1">Mirror</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsEffect.html?itm=214" tab-index="2" item-index="214" lst="33-1">Effect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsRenderCubeMap.html?itm=215" tab-index="2" item-index="215" lst="33-1">Render Cube Map</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsDrawMode.html?itm=216" tab-index="2" item-index="216" lst="33-1">Draw Modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsStencil.html?itm=217" tab-index="2" item-index="217" lst="33-1">Stencil</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsZTesting.html?itm=218" tab-index="2" item-index="218" lst="33-1">ZTesting</a></li></ul><div class="list-label list-level-1">SOUND</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundPlayback.html?itm=219" tab-index="2" item-index="219" lst="34-1">Audio Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundPlayback_2.html?itm=220" tab-index="2" item-index="220" lst="34-1">Sound</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAudioControl.html?itm=221" tab-index="2" item-index="221" lst="34-1">Volume Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundAnalyzeAudio.html?itm=222" tab-index="2" item-index="222" lst="34-1">Audio Analysis</a></li></ul><div class="list-label list-level-1">SLIDES</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager.html?itm=223" tab-index="2" item-index="223" lst="35-1">Slide Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_2.html?itm=224" tab-index="2" item-index="224" lst="35-1">Slide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_3.html?itm=225" tab-index="2" item-index="225" lst="35-1">Slide Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_4.html?itm=226" tab-index="2" item-index="226" lst="35-1">Pivot</a></li></ul><div class="list-label list-level-1">TEXT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextEffects.html?itm=227" tab-index="2" item-index="227" lst="36-1">Text Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextLayout.html?itm=228" tab-index="2" item-index="228" lst="36-1">Text Layouts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextRendering.html?itm=229" tab-index="2" item-index="229" lst="36-1">Text Rendering</a></li></ul><div class="list-label list-level-1">TEXTURE</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureBackground.html?itm=230" tab-index="2" item-index="230" lst="37-1">Background</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureHatch.html?itm=231" tab-index="2" item-index="231" lst="37-1">Hatch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureImage.html?itm=232" tab-index="2" item-index="232" lst="37-1">Image</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureTexture.html?itm=233" tab-index="2" item-index="233" lst="37-1">Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSVGLoader.html?itm=234" tab-index="2" item-index="234" lst="37-1">SVG Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureGradientTexture.html?itm=235" tab-index="2" item-index="235" lst="37-1">Gradient Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo.html?itm=236" tab-index="2" item-index="236" lst="37-1">Live Video</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_2.html?itm=237" tab-index="2" item-index="237" lst="37-1">Movie Stream</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_3.html?itm=238" tab-index="2" item-index="238" lst="37-1">Movie Frame</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_4.html?itm=239" tab-index="2" item-index="239" lst="37-1">Movie Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureImageLoaders.html?itm=240" tab-index="2" item-index="240" lst="37-1">Texture Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSnapshot.html?itm=241" tab-index="2" item-index="241" lst="37-1">Snapshot</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureRenderSnapshot.html?itm=242" tab-index="2" item-index="242" lst="37-1">Snapshot Framebuffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureTextureSaver.html?itm=243" tab-index="2" item-index="243" lst="37-1">Texture Saver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideoSourceSelector.html?itm=244" tab-index="2" item-index="244" lst="37-1">Video Source Selector</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVioInput.html?itm=245" tab-index="2" item-index="245" lst="37-1">VIO Input</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSpout.html?itm=246" tab-index="2" item-index="246" lst="37-1">Spout Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureNDI.html?itm=247" tab-index="2" item-index="247" lst="37-1">NDI Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSubstanceLoader.html?itm=248" tab-index="2" item-index="248" lst="37-1">Substance Loader</a></li></ul><div class="list-label list-level-1">VR/AR</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeVrTracked.html?itm=249" tab-index="2" item-index="249" lst="38-1">Tracked Devices</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeVrTracked_2.html?itm=250" tab-index="2" item-index="250" lst="38-1">Draw Tracked Devices</a></li></ul><div class="list-label list-level-1">WORLD</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis.html?itm=251" tab-index="2" item-index="251" lst="39-1">Axis</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_2.html?itm=252" tab-index="2" item-index="252" lst="39-1">Billboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_3.html?itm=253" tab-index="2" item-index="253" lst="39-1">GetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_4.html?itm=254" tab-index="2" item-index="254" lst="39-1">SetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldArrange.html?itm=255" tab-index="2" item-index="255" lst="39-1">Arrange</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTicker.html?itm=256" tab-index="2" item-index="256" lst="39-1">Ticker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTicker_2.html?itm=257" tab-index="2" item-index="257" lst="39-1">Layout</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldGroup.html?itm=258" tab-index="2" item-index="258" lst="39-1">Group</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldZSort.html?itm=259" tab-index="2" item-index="259" lst="39-1">World Z Sort</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSwitch.html?itm=260" tab-index="2" item-index="260" lst="39-1">YesNo</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSwitch_2.html?itm=261" tab-index="2" item-index="261" lst="39-1">Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSpread.html?itm=262" tab-index="2" item-index="262" lst="39-1">Spread</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldRenderPass.html?itm=263" tab-index="2" item-index="263" lst="39-1">Filter Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldRenderPass_2.html?itm=264" tab-index="2" item-index="264" lst="39-1">Set Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldContainer.html?itm=265" tab-index="2" item-index="265" lst="39-1">Hierarchy Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldScenePort.html?itm=266" tab-index="2" item-index="266" lst="39-1">Scene Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldContainer_2.html?itm=267" tab-index="2" item-index="267" lst="39-1">Content Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTemplatePort.html?itm=268" tab-index="2" item-index="268" lst="39-1">Template Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldScenePort_2.html?itm=269" tab-index="2" item-index="269" lst="39-1">Container Info</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldCamera.html?itm=270" tab-index="2" item-index="270" lst="39-1">Camera</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldPath.html?itm=271" tab-index="2" item-index="271" lst="39-1">Paths</a></li></ul></div><h3>Ventuz 6 Configuration Editor</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfiguration_2.html?itm=272" tab-index="3" item-index="272" lst="40-1">Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationMC_2.html?itm=273" tab-index="3" item-index="273" lst="40-1">Machine Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationAV_2.html?itm=274" tab-index="3" item-index="274" lst="40-1">Video/Audio Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationWeb.html?itm=275" tab-index="3" item-index="275" lst="40-1">Web Configuration Editor and License Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MultiDisplaySetupsAndShaping_2.html?itm=276" tab-index="3" item-index="276" lst="40-1">Render Setup Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="WarpingSoftEdgingMasking_2.html?itm=277" tab-index="3" item-index="277" lst="40-1">Warping and Soft-Edging Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationVendors_2.html?itm=278" tab-index="3" item-index="278" lst="40-1">Supported Hardware</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToClusterRendering.html?itm=279" tab-index="3" item-index="279" lst="40-1">How to Setup a Cluster Render</a></li></ul></div><h3>Ventuz 6 Director</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ApplicationSettings.html?itm=280" tab-index="4" item-index="280" lst="41-1">Application Settings</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Assets.html?itm=281" tab-index="4" item-index="281" lst="41-1">Assets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Channels.html?itm=282" tab-index="4" item-index="282" lst="41-1">Channels</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/CommandLineOptions.html?itm=283" tab-index="4" item-index="283" lst="41-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ContentReferences.html?itm=284" tab-index="4" item-index="284" lst="41-1">Content References</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/DesigningTemplates.html?itm=285" tab-index="4" item-index="285" lst="41-1">Designing Templates</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Environment.html?itm=286" tab-index="4" item-index="286" lst="41-1">Environment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Glossary.html?itm=287" tab-index="4" item-index="287" lst="41-1">Glossary</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Index.html?itm=288" tab-index="4" item-index="288" lst="41-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Introduction.html?itm=289" tab-index="4" item-index="289" lst="41-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Pages.html?itm=290" tab-index="4" item-index="290" lst="41-1">Pages</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Playlist.html?itm=291" tab-index="4" item-index="291" lst="41-1">Playlist</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/PlugIns.html?itm=292" tab-index="4" item-index="292" lst="41-1">Plug-Ins</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ProjectData.html?itm=293" tab-index="4" item-index="293" lst="41-1">Project Data</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/PropertyEditor.html?itm=294" tab-index="4" item-index="294" lst="41-1">Property Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Shortcuts.html?itm=295" tab-index="4" item-index="295" lst="41-1">Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GPIConfiguration_2.html?itm=296" tab-index="4" item-index="296" lst="41-1">GPI Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ShotBox.html?itm=297" tab-index="4" item-index="297" lst="41-1">Shot Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Show.html?itm=298" tab-index="4" item-index="298" lst="41-1">Show</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/TakingAction.html?itm=299" tab-index="4" item-index="299" lst="41-1">Taking Action</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Timeline.html?itm=300" tab-index="4" item-index="300" lst="41-1">Timeline</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Topology.html?itm=301" tab-index="4" item-index="301" lst="41-1">Topology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/UserInterface.html?itm=302" tab-index="4" item-index="302" lst="41-1">User Interface</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DirectorMode.html?itm=303" tab-index="4" item-index="303" lst="41-1">Director Mode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Macros.html?itm=304" tab-index="4" item-index="304" lst="41-1">Macros</a></li></ul></div><h3>How To</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToGetVentuzRunning.html?itm=305" tab-index="5" item-index="305" lst="42-1">How to Run Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner_3.html?itm=306" tab-index="5" item-index="306" lst="42-1">How to Work with Designer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToDragAndDropTricks.html?itm=307" tab-index="5" item-index="307" lst="42-1">Ventuz Designer Drag&amp;Drop workflow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToVR_2.html?itm=308" tab-index="5" item-index="308" lst="42-1">How to use Head Mounted Displays</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseShadows.html?itm=309" tab-index="5" item-index="309" lst="42-1">How to work with Shadows</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseEmoijs.html?itm=310" tab-index="5" item-index="310" lst="42-1">How to use Emoijs</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToBuildATemplate.html?itm=311" tab-index="5" item-index="311" lst="42-1">How to Build a Template</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseNDI.html?itm=312" tab-index="5" item-index="312" lst="42-1">How to use Newtek NDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToCreateAVisualsLoaderNode.html?itm=313" tab-index="5" item-index="313" lst="42-1">How to Create Visuals Loader Node</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToRemoteControlWithAniPhone.html?itm=314" tab-index="5" item-index="314" lst="42-1">How to Remote Control with a Phone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToClusterRendering_2.html?itm=315" tab-index="5" item-index="315" lst="42-1">How to Setup a Cluster Render</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToMixedFrameRates.html?itm=316" tab-index="5" item-index="316" lst="42-1">How to use a Mixed Frame Rate Cluster</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseTracking.html?itm=317" tab-index="5" item-index="317" lst="42-1">How to use Tracking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowTo3DLayerReference.html?itm=318" tab-index="5" item-index="318" lst="42-1">How to work with 3D Reference Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToCreateAFireworkParticleSystem.html?itm=319" tab-index="5" item-index="319" lst="42-1">How to create a Firework Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToDDS.html?itm=320" tab-index="5" item-index="320" lst="42-1">How to use DDS with new Block Compression modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseSpout.html?itm=321" tab-index="5" item-index="321" lst="42-1">How to setup Spout with Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseSubstanceIntegration.html?itm=322" tab-index="5" item-index="322" lst="42-1">How to use the Substance Integration</a></li></ul></div><h3>Keyboard Shortcuts</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="SummaryShortcuts_2.html?itm=323" tab-index="6" item-index="323" lst="43-1">Summary Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsLayerEditor_2.html?itm=324" tab-index="6" item-index="324" lst="43-1">Layer Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsHierarchyEditor_2.html?itm=325" tab-index="6" item-index="325" lst="43-1">Hierarchy Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsContentEditor_2.html?itm=326" tab-index="6" item-index="326" lst="43-1">Content Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsAnimationEditor_2.html?itm=327" tab-index="6" item-index="327" lst="43-1">Animation Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Shortcuts_2.html?itm=328" tab-index="6" item-index="328" lst="43-1">Director Shortcuts</a></li></ul></div><h3>Advanced and Development</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="CommandLineOptions.html?itm=329" tab-index="7" item-index="329" lst="44-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Remoting.html?itm=330" tab-index="7" item-index="330" lst="44-1">Remoting Overview</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Remoting4Protocol.html?itm=331" tab-index="7" item-index="331" lst="44-1">Remoting 4</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingWebsocket.html?itm=332" tab-index="7" item-index="332" lst="44-1">Remoting 4 via Websockets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingDeprecated.html?itm=333" tab-index="7" item-index="333" lst="44-1">Deprecated Remoting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzIpPorts.html?itm=334" tab-index="7" item-index="334" lst="44-1">Ventuz IP Ports</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzMachineService.html?itm=335" tab-index="7" item-index="335" lst="44-1">Ventuz Machine Service</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingMachineSignature.html?itm=336" tab-index="7" item-index="336" lst="44-1">Remoting Machine Signature</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="TUIO_2.html?itm=337" tab-index="7" item-index="337" lst="44-1">TUIO</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicScript_2.html?itm=338" tab-index="7" item-index="338" lst="44-1">.NET Scripting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeShaderHLSLShader_2.html?itm=339" tab-index="7" item-index="339" lst="44-1">HLSL Shader Programming</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentSDK.html?itm=340" tab-index="7" item-index="340" lst="44-1">Ventuz API and SDK</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentVIO.html?itm=341" tab-index="7" item-index="341" lst="44-1">Ventuz VIO API</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentVFF.html?itm=342" tab-index="7" item-index="342" lst="44-1">Ventuz File Format (VFF)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentStreamOut.html?itm=343" tab-index="7" item-index="343" lst="44-1">Ventuz Stream Out API</a></li></ul></div><h3>General Reference</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Terminology.html?itm=344" tab-index="8" item-index="344" lst="45-1">Terminology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Pages.html?itm=345" tab-index="8" item-index="345" lst="45-1">Manual Index</a></li></ul></div><h3>Miscellaneous</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Presets.html?itm=346" tab-index="9" item-index="346" lst="46-1">Presets</a></li></ul></div></div></div><!--sidebar end-->
+        <div id="user-manual-content" class="sidebar">
+            
+            <div class="control"><div class="control-prev"><a href="NodeColorColor.html?itm=122">&laquo; Previous Article</a></div><div><a href="Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="NodeColorColorPicker.html?itm=124">Next Article &raquo;</a></div></div>
+            <div id="user-manual-main">
+                <h1 id="Material" data-line="1" >Material</h1>
+<p data-line="5" >
+<div class="wiki-toc"><h4>Table of Contents</h4><ol><li><a href="#General">General</a><ol><li><a href="#IconandDecoration">Icon and Decoration</a></li></ol></li><li><a href="#Extraction">Extraction</a><ol><li><a href="#MaterialDefinition">Material Definition</a></li><li><a href="#MaterialOptions">Material Options</a></li></ol></li><li><a href="#LightingModels">Lighting Models</a><ol><li><a href="#Inherit">Inherit</a></li><li><a href="#Base">Base Color</a></li><li><a href="#NoLight">No Light</a></li><li><a href="#Gouraud">Gouraud</a></li><li><a href="#phong">Phong</a></li><li><a href="#IncidenceLighting">Incidence Lighting</a></li></ol></li><li><a href="#AlphaOptions">Alpha Options</a></li><li><a href="#MaterialStages">Material Stages</a><ol><li><a href="#MaterialStageProperties">Material Stage Properties</a><ol><li><a href="#TextureSource">Texture Source</a><ol><li><a href="#TextureLoader">Texture Loader</a></li><li><a href="#LoaderTextures">Loader</a></li><li><a href="#MaterialTextures">IPP</a></li><li><a href="#MaterialTextures1">Lighting and Shaders</a><ol><li><a href="#Lighting">Lighting</a></li><li><a href="#Shaders">Shaders</a></li></ol></li><li><a href="#TextureProperty">Texture Property</a></li><li><a href="#a1DGradient">1D Gradient</a></li><li><a href="#SvgLoader">SVG Loader and SVG Text</a></li><li><a href="#Other">Other</a></li><li><a href="#TextureArrayLoaders">Texture Array Loaders</a><ol><li><a href="#FlipbookLoader">Flipbook Loader</a></li><li><a href="#StripLoader">Strip Loader</a></li></ol></li><li><a href="#Flipbook">Flipbook</a></li></ol></li><li><a href="#Sampler">Sampler</a><ol><li><a href="#Simple">Simple</a></li><li><a href="#Advanced">Advanced</a></li></ol></li><li><a href="#Mapping">Mapping</a><ol><li><a href="#Simple1">Simple</a></li><li><a href="#a2DMapping">2D Mapping</a></li><li><a href="#a3DMapping">3D Mapping</a></li><li><a href="#Triplanar">Triplanar</a></li><li><a href="#Projection">Projection</a></li><li><a href="#StripMapper">2D Strip Mapper</a></li></ol></li><li><a href="#DestinationChannels">Destination Channels</a></li></ol></li><li><a href="#Texture">Texture</a></li><li><a href="#NormalMap">Normal Map</a></li><li><a href="#UVDistort">UV Distort</a></li><li><a href="#DisplacementMap">Displacement Map</a></li><li><a href="#TextureSet">Texture Set</a><ol><li><a href="#tset">Texture Set naming conventions</a></li></ol></li><li><a href="#TextureComponents">Texture Components</a></li><li><a href="#Color">Color</a></li><li><a href="#ImageBasedLightingIrradiance">Image Based Lighting Irradiance</a></li><li><a href="#ImageBasedLightingSpecular">Image Based Lighting Specular</a></li><li><a href="#RimLighting">Rim Lighting</a></li><li><a href="#CelShading">Cel Shading</a></li><li><a href="#HatchShading">Hatch Shading</a></li><li><a href="#VertexNoise">Vertex Noise</a></li><li><a href="#PerlinVertexNoise">Perlin Vertex Noise</a></li><li><a href="#FlipbookControl">Flipbook Control</a><ol><li><a href="#FlipbookLoader">Flipbook Loader</a></li><li><a href="#StripLoader">Strip Loader</a></li></ol></li><li><a href="#Flipbook">Flipbook</a><ol><li><a href="#Player">Player</a></li><li><a href="#FrameIndexer">Frame Indexer</a></li><li><a href="#PercentagePosition">Percentage Position</a></li><li><a href="#SamplingBetweenFrames">Sampling Between Frames</a></li></ol></li></ol></li><li><a href="#Shadow">Shadow Options</a></li><li><a href="#HelpfulReferences">Helpful References</a><ol><li><a href="#IBL_CubeTextures">IBL Cubemap Textures</a></li><li><a href="#MaterialDetailDiagram">Material combination Diagram</a></li></ol></li></ol></div>
+</p>
+<div class="ventuz-node-summary"><table class="wiki">
+<tr><td><img src="images/NodeColorMaterial/Alpha.png"  /></td><td><strong>Alpha</strong></td><td> Changes the <a href="#AlphaOptions">Alpha Options</a>. 
+</td></tr><tr><td><img src="images/NodeColorMaterial/Color.png"  /></td><td><strong>Solid Color</strong></td><td> Changes the <a href="#LightingModels">Lighting Model</a> to <em>No Light</em> and applies a color. 
+</td></tr><tr><td><img src="images/NodeColorMaterial/ColorShaded.png"  /></td><td><strong>Color</strong></td><td> Inherits the <a href="#LightingModels">Lighting Model</a> and applies a color. 
+</td></tr><tr><td><img src="images/NodeColorMaterial/Material.png"  /></td><td><strong>Material</strong></td><td> This is used to start creating a material for a surface consisting mainly of the <a href="#LightinModels">Lighting Model</a> and <a href="#MaterialStages">Material Stages</a>. 
+</td></tr><tr><td><img src="images/NodeColorMaterial/Texture.png"  /></td><td><strong>Texture</strong></td><td> Adds a <a href="#Texture">Texture</a> Material Stage to all children 3D objects. 
+</td></tr><tr><td><img src="images/NodeColorMaterial/Flipbook.png"  /></td><td><strong>Flipbook</strong></td><td> Loads and applies a <a href="#FlipbookControl">sequence</a> of images to an object. 
+</td></tr></table>
+</div><p data-line="16" >
+The <strong>Alpha, Solid Color, Color, Material and Texture Nodes</strong> generally change the shading of the geometries. They are <em>Aliases</em> of the <strong>Material Node</strong> that is also able to change the rendering behavior of objects. These options are documented on the respective pages (for references see the <a href="#General">table below</a>).
+</p>
+<p data-line="18" >
+<div class="usermanual-includetag" tag="MaterialGeneral"></div>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible "><div class="usermanual-collapsible-title">Material User Interface</div><div class="usermanual-collapsible-content">
+</p>
+<h2 id="General" data-line="21" >General</h2>
+<p data-line="23" >
+The <strong>Material</strong> Node controls the appearance of the surface of each rendered Object placed as a child in the Hierarchy. It consists of several options that can be added to its list of properties to overwrite the according options. The options are available under Material Node's Tabs that are represented by the button bar on top of the Material Definition in the Property Editor.
+</p>
+<p data-line="25" >
+<img src="images/NodeColorMaterial/MaterialOptionTabs.png" style="max-width:284px;margin-right:auto; display:block; margin-left:auto" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="27" >
+Generally these tabs exist:
+</p>
+<table class="wiki" data-line="31" >
+<tr><th rowspan="3"><p>
+<img src="images/NodeColorMaterial/Standard.png" style="max-width:16px" class="usermanual-image" title="" alt="" />
+</p>
+</th><th rowspan="3"><p>
+Standard
+</p>
+</th><td><p>
+<a class="wiki" href="NodeColorMaterial.html#AlphaOptions">Alpha Options</a>
+</p>
+</td><td><p>
+affects the overall transparency
+</p>
+</td></tr><tr>
+<td><p>
+<a class="wiki" href="NodeColorMaterial.html#LightingModels">Lighting Model</a>
+</p>
+</td><td><p>
+changes how light affects the color of a surface
+</p>
+</td></tr><tr>
+<td><p>
+<a class="wiki" href="NodeColorMaterial.html#MaterialStages">Material Stages</a>
+</p>
+</td><td><p>
+adds textures and material stages that change the shading
+</p>
+</td></tr><tr>
+<th><p>
+<img src="images/NodeColorMaterial/ShadowOptions.png" style="max-width:16px" class="usermanual-image" title="" alt="" />
+</p>
+</th><th><p>
+Shadow Options
+</p>
+</th><td><p>
+<a class="wiki" href="NodeColorMaterial.html#ShadowOptions">Shadow Options</a>
+</p>
+</td><td><p>
+changes the shadow related behavior
+</p>
+</td></tr><tr>
+<th><p>
+<img src="images/NodeColorMaterial/DrawingStyle.png" style="max-width:16px" class="usermanual-image" title="" alt="" />
+</p>
+</th><th><p>
+Drawing Style
+</p>
+</th><td><p>
+<a class="wiki" href="NodeRenderoptionsDrawMode.html">Draw Mode</a>
+</p>
+</td><td><p>
+applies a draw mode for geometries (lines, solid, sprites etc.)
+</p>
+</td></tr><tr>
+<th rowspan="2"><p>
+<img src="images/NodeColorMaterial/Blending.png" style="max-width:16px" class="usermanual-image" title="" alt="" />
+</p>
+</th><th rowspan="2"><p>
+Blending
+</p>
+</th><td><p>
+<a class="wiki" href="NodeRenderoptionsAlphaBlending.html">Color Write</a>
+</p>
+</td><td><p>
+changes the write mode to specified color channels
+</p>
+</td></tr><tr>
+<td><p>
+<a class="wiki" href="NodeRenderoptionsAlphaBlending.html">Alpha Blending</a>
+</p>
+</td><td><p>
+adjusts the blending of geometries onto the background
+</p>
+</td></tr><tr>
+<th rowspan="2"><p>
+<img src="images/NodeColorMaterial/Testing.png" style="max-width:16px" class="usermanual-image" title="" alt="" />
+</p>
+</th><th rowspan="2"><p>
+Testing
+</p>
+</th><td><p>
+<a class="wiki" href="NodeRenderoptionsAlphaTesting.html">Alpha Testing</a>
+</p>
+</td><td><p>
+applies a custom test against the object's alpha
+</p>
+</td></tr><tr>
+<td><p>
+<a class="wiki" href="NodeRenderoptionsZTesting.html">ZBuffer</a>
+</p>
+</td><td><p>
+defines a custom occlusion test for the geometry
+</p>
+</td></tr></table>
+<p data-line="122" >
+To show the options of a tab simply <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span>&nbsp;<span class="usermanual-mouse">click</span> on the according button. You can insert options by clicking on the <a class="wiki" href="PropertyGroups.html">Property Group's</a> entry and choosing the wanted options from the dropdown.
+</p>
+<p data-line="124" >
+All options that you do not adjust in a <strong>Material</strong> node are inherited by the <em>Default Material</em> or the <em>Material node in front</em>.
+</p>
+<h3 id="IconandDecoration" data-line="126" >Icon and Decoration</h3>
+<p data-line="127" >
+In general the Icon rendering can be changed by switching between <em>Sphere, Quad and Torus</em> at the bottom of the <a class="wiki" href="PropertiesEditor.html">Properties Editor</a> or via <span class="usermanual-mouse usermanual-mouse-button rmb" title="right mouse button"></span>.
+</p>
+<p data-line="129" >
+<img src="images/NodeColorMaterial/CustomVerbs.png" style="max-width:248px;margin-right:auto; display:block; margin-left:auto" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="132" >
+<div class="usermanual-includetag" tag="MaterialIcon"></div>
+Based on the <a class="wiki" href="PropertyGroups.html">Property Groups</a> that are used inside a <a class="wiki" href="NodeColorMaterial.html">Material</a> Node the Icon may change.
+</p>
+<table class="wiki" data-line="137" >
+<tr><th><p>
+<img src="images/NodeColorMaterial/MAT01.PNG" style="max-width:46px" class="usermanual-image" title="" alt="" />
+</p>
+</th><th><p>
+Rendered Preview
+</p>
+</th><td><p>
+if only <a class="wiki" href="PropertyGroups.html">Property Group's</a> in the <em>Standard or Shadow Options</em> tab are used.
+</p>
+</td></tr><tr>
+<th><p>
+<img src="images/NodeColorMaterial/MAT02.PNG" style="max-width:46px" class="usermanual-image" title="" alt="" />
+</p>
+</th><th><p>
+Rendered Preview with light blue decoration
+</p>
+</th><td><p>
+if <a class="wiki" href="PropertyGroups.html">Property Group's</a> in the <em>Standard or Shadow Options</em> tab are used together with any other Option like a certain <a class="wiki" href="NodeRenderoptionsDrawMode.html">Draw Mode</a> or a certain <a class="wiki" href="NodeRenderoptionsAlphaBlending.html">Blending</a>
+</p>
+</td></tr><tr>
+<th><p>
+<img src="images/NodeColorMaterial/MAT03.PNG" style="max-width:45px" class="usermanual-image" title="" alt="" />
+</p>
+</th><th><p>
+Dedicated Option Icon
+</p>
+</th><td><p>
+every Material Option has it's own dedicated Icon, that is shown whenever no other <a class="wiki" href="PropertyGroups.html">Property Group</a> in any other tab is used.
+</p>
+</td></tr></table>
+<p data-line="166" >
+<div class="usermanual-includetag" tag="MaterialIcon"></div>
+</p>
+<h2 id="Extraction" data-line="167" >Extraction</h2>
+<h3 id="MaterialDefinition" data-line="169" >Material Definition</h3>
+<p data-line="171" >
+A <strong>Material</strong> node is a <a class="wiki" href="HierarchyEditor.html">Hierarchy Node</a> by nature. But it can serve as a <strong>Material Provider</strong> as well. This is useful whenever you want to use the same material in different locations of your hierarchy or once you have <strong>Hierarchy Nodes</strong> that need more materials than one applied to it (e.g. the <a class="wiki" href="NodeGeometryParticleSystem.html">Particle System Node</a>). The below image shows both a <strong>Material Node</strong> and an extracted <strong>Material Node Provider</strong> together with a receiving <strong>Material Node</strong>.
+</p>
+<p data-line="173" >
+<img src="images/NodeColorMaterial/MaterialExtraction.png" style="max-width:472px;margin-right:auto; display:block; margin-left:auto" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="175" >
+You can either place the <strong>Material</strong> node in the <a class="wiki" href="ContentEditor.html">Content Editor</a> to create an unbound <strong>Material Provider</strong> node. Or you can use the extract button <img src="images/NodeColorMaterial/Extract.png" style="max-width:16px" class="usermanual-image" title="" alt="" /> on any node that hosts a <strong>Material Definition</strong> to extract it to a provider that can be re-used on other nodes.
+</p>
+<p data-line="177" >
+<img src="images/NodeColorMaterial/extractbuttonlocation.png" style="max-width:236px;margin-right:auto; display:block; margin-left:auto" class="usermanual-image" title="" alt="" />
+</p>
+<h3 id="MaterialOptions" data-line="179" >Material Options</h3>
+<p data-line="181" >
+Since a Material consists of several options sometimes you want to extract some of them to a seperate Hierarchy Node. This way you can apply single Material Options to other parts of the Hierarchy Tree when already added to the Material. Just use the extract buttons <img src="images/NodeColorMaterial/Extract.png" style="max-width:16px" class="usermanual-image" title="" alt="" /> next to the Material Options.
+</p>
+<p data-line="183" >
+</div></div><!-- UserManualCollapsible END -->
+<div class="usermanual-includetag" tag="MaterialGeneral"></div>
+</p>
+<h2 id="LightingModels" data-line="186" >Lighting Models</h2>
+<p data-line="188" >
+The lighting model defines the rules about how material and light interacts. In the shader, each light source calculates its contribution to diffuse, ambient and specular light depending on distance and the angles between surface, eye and light.
+</p>
+<p data-line="190" >
+Ventuz features various Lighting models that can be applied to any material node. Lighting models work in the same way as layers or material stages. They can be switched ON/OFF or a specific Lighting Model can be selected. (See image below) 
+</p>
+<p data-line="192" >
+<img src="images/NodeColorMaterial/LightingModel.jpg" width="300" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<h3 id="Inherit" data-line="194" >Inherit</h3>
+<p data-line="196" >
+This inherits the Lighting Model used in the scene or the Material Node in front. This is the default of the Lighting Model.
+</p>
+<h3 id="Base" data-line="198" >Base Color</h3>
+<p data-line="200" >
+The Base Color Mode inherits the Lighting Model used in the scene or the Material Node in front but is able to overwrite its <strong>Base Color</strong> property and <strong>Opacity</strong>. This can e.g. be used to quickly change the color of a 3D Object very quickly.
+</p>
+<p data-line="202" >
+The <strong>Base Color</strong> sets the color used when a pure white light hits the surface. You can define a custom color by typing in values or use the color picker. It is also possible to type in a Color Name directly. A complete list with supported color names can be found <a class="ext-link" href="https://msdn.microsoft.com/en-us/library/system.windows.media.colors(v=vs.110).aspx"><span class="icon">​</span>here</a>.
+</p>
+<p data-line="204" >
+With <strong>Opacity</strong> you can control the translucency. This will create a <em>transparent</em> object but keeps the specularity. For example, you would adjust this value to create a glass bottle material. You can <em>not</em> specify a different specular color here, this would be inherited by the specular color defined in the <a class="wiki" href="NodeLightSources.html#Lightsources">Lightsources Properties</a>.
+</p>
+<h3 id="NoLight" data-line="206" >No Light</h3>
+<p data-line="208" >
+This is the simplest lighting model. It ignores all light sources and uses only the base color as a solid color.
+Again you just have the <strong>Base Color</strong> and <strong>Opacity</strong> properties. See <a href="#Base">Base Color</a>.
+</p>
+<p data-line="211" >
+The <strong>No Light</strong> lighting model is like a self-illuminated material.
+</p>
+<h3 id="Gouraud" data-line="213" >Gouraud</h3>
+<p data-line="214" >
+Gouraud Lighting model does a simple light calculation that does not create a specular highlight, this results in a smooth lighting. 
+</p>
+<p data-line="216" >
+The <strong>Base Color</strong> is used for the colorization of the material's diffusion, and Opacity again changes its transparency, see <a href="#Base">Base Color</a>.
+</p>
+<p data-line="218" >
+Gouraud adds <strong>Emissive</strong> and <strong>Ambient</strong> color to the material properties.
+</p>
+<p data-line="220" >
+The <strong>Ambient</strong> allows editing the color used for the ambient areas. The ambient color is used to shade the parts of the mesh that face away from the light. Ambient is multiplied with a base color, so the ambient can never be brighter than the diffuse part. NOTE: You must have an Ambient Color defined in the <a class="wiki" href="NodeLightSources.html#Lightsources">Lightsources' Properties</a> since it is also multiplied with that.
+</p>
+<p data-line="222" >
+The <strong>Emissive</strong> color will be added to the resulting material's color without any influence from a light source.
+</p>
+<p data-line="224" >
+With the <strong>Options</strong> drop-down menu you can enable <strong>FlatShading</strong> which renders each polygon as a flat surface, with no interpolation of the normals to generate smooth surfaces. <strong>TwoSided</strong> enables <em>two sided lighting</em>. It lights each (unculled) polygon a second time with the opposite vector of its normal. You will need this whenever you use the backface of a polygon and want it lighted properly. The most common case where you would need this is while you create transparent objects. With the <a class="wiki" href="NodeRenderoptionsDrawMode.html">Render Solid Node</a> set the <strong>culling</strong> to <strong>None</strong> (to see the back facing polygons) and have them lit by a light source. On the right of the image below you can see that the inner side of the polygons of the transparent sphere are bright when the outer side is facing towards the light. On the left they are bright when they themselves are facing towards the light which leads to a more correct result (but also a higher performance consumption).
+</p>
+<p data-line="226" >
+<img src="images/NodeColorMaterial/twosided_compare.png" style="max-width:794px;margin-right:auto; display:block; margin-left:auto" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="229" >
+For more information on Gouraud Shading see <a class="ext-link" href="https://en.wikipedia.org/wiki/Gouraud_shading"><span class="icon">​</span>Wikipedia: Gouraud Shading</a>.
+</p>
+<h3 id="phong" data-line="231" >Phong</h3>
+<p data-line="233" >
+The Phong lighting model adds a specular reflection, where specular color and specular power can be edited and controlled separately.
+</p>
+<p data-line="235" >
+<strong>Specularity</strong> changes the color of the specular spot on your material and is depending on how far to the light the corresponding polygon is facing to the light and this <a class="wiki" href="NodeLightSources.html">Light Source's</a> <strong>Specular Channel</strong>.
+</p>
+<p data-line="237" >
+<strong>Sharpness</strong> controls the areas that are highlighted by the specular and the transition to darker areas.
+</p>
+<p data-line="239" >
+When using the <strong>Image Based Lighting</strong> or the <a class="wiki" href="NodeColorSkyBox.html">SkyBox</a>, the <strong>Roughness</strong> value will control how rough (1) or shiny (0) the reflection is. Roughness and Sharpness express similar properties in a different way. Roughness will only work with Image Based Lighting while sharpness will only work with the Phong-highlight. If you add a Material Stage roughness, the value will by default be added to the texture supplied by the Material Stage. You would have to set that value to (0) then.
+</p>
+<p data-line="241" >
+For more information on Phong Shading see <a class="ext-link" href="https://en.wikipedia.org/wiki/Phong_shading"><span class="icon">​</span>wiki Phong Shading</a>.
+</p>
+<h3 id="IncidenceLighting" data-line="243" >Incidence Lighting</h3>
+<p data-line="245" >
+The <strong>Incidence Lighting</strong> Model is the most flexible and powerful one. In it, the color and specular are driven by gradient textured, rather than single colors. The gradient range depends on the angle of the light to the surface of the object. The <strong>Incidence Lighting Model</strong> can accept one or two 1D gradients or textures or one 2D texture. We recommend that you try the available presets or have a look at the provided <em>interactive example scene</em> to get a feeling for the effects that can be created.
+</p>
+<p data-line="248" >
+For <strong>Incidence Light</strong> a list of presets are available for quick picking. The available options are <strong>BlueBack, Rainbow, Anisotropic and Colourful</strong>. Each is using the same values except the used textures to create the incidence effect.
+</p>
+<p data-line="250" >
+The <strong>Incidence Lighting</strong> Model uses the same set of properties like the <strong>Phong<em>. Please see the <a href="#phong">Phong Shading</a> for a list of properties available.
+</em></strong></p>
+<p data-line="252" >
+In addition, <em>Incidence Lighting</em> opens two Loaders that enable the loading of textures used to drive the Color and Specular areas of the lighting.
+The <strong>LOADER 1</strong> controls the Color of the BaseColor. When you use only a single 2D texture, it will derive both Color and Specular from the same texture, so it will use the first horizontal line values for the color gradient. Therefore, we recommend using 1D textures instead, since they allow individual and more accurate controls for both Color and Specular.
+The <strong>LOADER 2</strong> controls the Specular. When you use only a single 2D texture, it will derive both Color and Specular from the same texture, so it will use the first vertical line values for the specular gradient. Therefore, we recommend using 1D textures instead, since they allow individual and more accurate controls for both Color and Specular.
+The <strong>LOADER 2</strong> has 2 more properties to control. <strong>FlipSpecular</strong> is a switch to flip the values of the texture that is used to control the Specularity.
+With the <strong>FullRange</strong> switch, you extend the range of values to be mapped from 0 to 180 degrees, allowing for light to be present in the shadowed side.
+</p>
+<p data-line="258" >
+Ventuz provides a set of default textures for the <strong>Incidence Lighting</strong>.
+</p>
+<h2 id="AlphaOptions" data-line="260" >Alpha Options</h2>
+<p data-line="262" >
+The Alpha controls the transparency of all subsequent objects in the <a class="wiki" href="HierarchyEditor.html">Scene Hierarchy</a>. To achieve the correct transparency effect, the correct drawing order must be heeded. Transparent objects must be rendered after the objects that lie behind them. For more information, see <a class="wiki" href="RealtimeRendering.html">Introduction to Realtime Rendering</a>.
+</p>
+<p data-line="264" >
+The <strong>AlphaValue</strong> controls the overall Alpha transparency expressed as percentage. This value can also be used to animate the material transparency as a whole. The <strong>AlphaFlags</strong> drop-down menu allows checking options that will affect the Alpha calculation. <strong>Relative to base alpha</strong> specifies how the resulting alpha value is calculated if more than one Alpha node affects an object. In the Relative mode (flag checked) the Alpha values are multiplied. In the Absolute mode (flag unchecked) the last Alpha node specifies the transparency and all earlier nodes have no effect anymore. <strong>Block on full transparency</strong> will cause the subsequent tree to be blocked and thus neither validated nor rendered if the AlphaValue is set to <strong>0%</strong>. This is a performance optimization but can have unintended consequences, e.g. blocked objects are no longer touchable. For example, you would need to <em>uncheck</em> <strong>Block on full Transparency</strong> in order to have invisible touch areas. <strong>Improve transparency</strong> prevents the interior of the object from becoming visible on concave meshes. See also <a class="wiki" href="NodeGeometryMeshLoader.html">Mesh Loader</a>. 
+</p>
+<p data-line="266" >
+The Alpha Value will affect every pixel of the affected objects, including all lighting, texturing etc. applied to them. In order to ignore, e.g. specularity for a glass-like effect, the <em>Opacity</em> property in the <em>Lighting Model</em> or an <em>Opacity Texture</em> can be used. 
+</p>
+<h2 id="MaterialStages" data-line="268" >Material Stages</h2>
+<p data-line="270" >
+The layered material approach in Ventuz enables the creation of very complex materials that combines many textures and effects into one single material node. All these texture layers or effects are called <strong>Material Stages</strong>, and each one features has its own properties and options.
+</p>
+<p data-line="272" >
+To understand how the Layering of these <strong>Material Stages</strong> in Ventuz works, have a look at the following screenshot. Please note, the <strong>Material Stages</strong> in Ventuz are <em>Order independent</em>. Therefore you can add any stage at any point and the engine will set its order internally.
+</p>
+<p data-line="274" >
+The following Screenshot shows how a complete set of material stages work, the material is used in an <a class="wiki" href="NodeLayer3D.html#HDR">HDR Environment</a>:
+</p>
+<p data-line="276" >
+<img src="images/NodeColorMaterial/materialstages_example.png" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="278" >
+By default, Ventuz materials present no Material Stage in the Material Stages list, so click on the <strong>+ Material Stage</strong> button to select one from the context menu. Material Stages can be changed, reordered or even deleted at any time - see figure below for the different interface areas and their functionality.
+</p>
+<p data-line="280" >
+<img src="images/NodeColorMaterial/MaterialStage.png" style="max-width:387px;width:450;margin-right:auto; display:block; margin-left:auto" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="282" >
+By <span class="usermanual-mouse usermanual-mouse-button rmb" title="right mouse button"></span>&nbsp;<span class="usermanual-mouse">long-clicking</span> you can bring up a context menu giving you control over the Material Stages. You can clone with or without Bindings and move the Material Stage up and down.
+</p>
+<p data-line="284" >
+Except for <strong>Vertex-</strong> and <strong>Perlin Vertex Noise</strong> (which are <em>Vertex Shaders</em>) ALL Material Stages are working with the same structure or principle. To get a better understanding on how a <strong>Material Stage</strong> works, have a look at the following diagram and the description below:
+</p>
+<p data-line="286" >
+<img src="images/NodeColorMaterial/mat_stage_principle.png" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="288" >
+The first step is always to load a texture. Any kind of Material Stage must contain a Texture, even a generated 1D Gradient is a Texture.
+After a Texture has been loaded it will be <em>Sampled and Mapped</em> onto a Polygon - Here you can decide HOW it should be projected onto the Polygon. E.g. you could set the Sampler to an <strong>Advanced Mode</strong> and define to <strong>Wrap</strong> the texture around the UVW. If you, for instance, decide to change the <strong>Position</strong> of this texture, it will <em>Wrap</em> around and repeat itself.
+In some <strong>Controls</strong> you can decide how <em>Intense</em> the Texture will be projected onto that polygon or the surface. For some Material Stages, you have different controls.
+At the end you have to <strong>Assign</strong> that Texture into a <em>Slot</em> - which is handled separately for the <strong>Color</strong> and the <strong>Alpha</strong> of the Texture. For example, you could assign the <strong>Color</strong> of a Texture to go into the <strong>BaseColor</strong> <em>Slot</em>, while the <strong>Alpha</strong> has to control the <strong>Roughness</strong>.
+</p>
+<p data-line="293" >
+<div class="noteboxwarn"><p>
+The maximum amount of Material Stages is limited to 8 per polygon. This is set by the Engine
+</p>
+</div>
+<div class="noteboxnote"><p>
+If you use a SkyBox the maximum amount of Material Stages is 6 since the SkyBox consumes 2 Material Stages: 1 Stage for the Irradiance Texture, 1 Stage for the Specular Environment
+</p>
+</div>
+</p>
+<h3 id="MaterialStageProperties" data-line="296" >Material Stage Properties</h3>
+<p data-line="298" >
+As you can imagine, every <strong>Material Stage</strong> contains of a <strong>Texture</strong>,<strong>Mapper</strong>,<strong>Sampler</strong>,<strong>Destination</strong> and <strong>Amount</strong> Property. The following explains their general purposes and properties.
+</p>
+<p data-line="300" >
+In each Material Stage type, the <strong>Amount</strong> Property sets the resulting amount or intensity of the material stage by interpolating between the results without and with the Material Stage.
+</p>
+<h4 id="TextureSource" data-line="302" >Texture Source</h4>
+<p data-line="304" >
+If the Stage needs a <strong>Source</strong>, this is where it can be set. There are many sources for a texture in Ventuz, from an image to live video, but they generally fall into the following categories.
+</p>
+<p data-line="306" >
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible "><div class="usermanual-collapsible-title">Texture Source</div><div class="usermanual-collapsible-content">
+</p>
+<p data-line="308" >
+<div class="usermanual-include"><div class="usermanual-includetag" tag="TextureSource"></div>
+</p>
+<p>
+Each one of the Texture Source property groups provide a texture to the containing node that is used in one way or another. This page gives an overview of the different types of property groups.
+</p>
+<p>
+<div class="usermanual-includetag" tag="TextureLoader"></div>
+</p>
+<h5 id="TextureLoader">Texture Loader</h5>
+<p>
+The <strong>Texture Loader</strong> directly loads a texture of any <a class="wiki" href="SupportedFormats.html#ImagesAndTextures">supported</a> type from file and provides it as a texture to the containing node. The <strong>File</strong> property changes the loaded image. The <strong>Hint</strong> property will change how the loaded file is handled internally while the texture is generated. See <a class="wiki" href="NodeTextureImageLoaders.html#TextureLoader">Texture Loader Node</a> for more information on the Gamma and Alpha Hints used when loading a texture. 
+</p>
+<p>
+The Presets of this Node are specific internal Texture Files that are always available in the Ventuz Runtime. 
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible collapsed"><div class="usermanual-collapsible-title">Texture Loader Presets</div><div class="usermanual-collapsible-content">
+</p>
+<p>
+<div class="usermanual-include"><div class="usermanual-includetag" tag="DefaultLoader"></div>
+</p>
+<h5 id="LoaderTextures">Loader</h5>
+<p>
+These images can be used for several different general purposes like generic textures or placeholders and testing.
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/ShapeCircle.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Shape Circle
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/ShapeCircle.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/ShapeTriangle.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Shape Triangle
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/ShapeTriangle.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/ShapePentagon.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Shape Pentagon
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/ShapePentagon.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/ShapeCross.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Shape Cross
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/ShapeCross.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/SpikeStar.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Spike Star
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/SpikeStar.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/checker.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Checker
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/checker.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/checker_b.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Checker Blue
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/checker_b.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/dots.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Checker Dots
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/dots.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/lines.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Lines
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/lines.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/noise.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Noise
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/noise.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/alphaglow_full.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Alpha Glow Full
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/alphaglow_full.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/alphaglow_halffull.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Alpha Glow Half-Full
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/alphaglow_halfull.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/alphaglow_normal.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Alpha Glow
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/alphaglow_normal.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/alphaglow_halfsharp.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Alpha Glow Half-Sharp
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/alphaglow_halfsharp.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/alphaglow_sharp.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Alpha Glow Sharp
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/alphaglow_sharp.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/dimple.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Dimple
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/dimple.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/pimple.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Pimple
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/pimple.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/liquid.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Liquid
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/liquid.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/woodchip.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Woodchip
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/woodchip.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+</div>
+<div class="usermanual-include"><div class="usermanual-includetag" tag="DefaultIPP"></div>
+</p>
+<h5 id="MaterialTextures">IPP</h5>
+<p>
+These images are intended to be used by Ventuz' Image Post Processing Effects, e.g. the <a class="wiki" href="NodeLayer3D.html#ImageBasedLensflare">Lensflare</a> effect.
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/lenscolor.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Lensflare Ghost Colors
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/lenscolor.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/lensstar.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Lensflare Star
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/lensstar.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/lensdirt.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Lensflare Dirt
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/lensdirt.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+</div>
+<div class="usermanual-include"><div class="usermanual-includetag" tag="LightingAndShaders"></div>
+</p>
+<h5 id="MaterialTextures1">Lighting and Shaders</h5>
+<p>
+These images are best used by texture based <a class="wiki" href="NodeColorMaterial.html#LightingModels">Lighting Models</a> and specific shaders, like e.g. the Incidence Lighting Model or the <a class="wiki" href="NodeTextureHatch.html">Hatch Texture</a> Node.
+</p>
+<h6 id="Lighting">Lighting</h6>
+<p>
+<div class="usermanual-includetag" tag="DefaultLighting"></div>
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence1DLambert2.png" width="64px" height="20px" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence 1D Lambert
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence1DLambert2.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence1DRainbow.png" width="64px" height="20px" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence 1D Rainbow
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence1DRainbow.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence1DSpecular.png" width="64px" height="20px" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence 1D Specular
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence1DSpecular.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence2DSmooth.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence 2D Smooth
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence2DSmooth.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence2DSteps.png" width="64" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence 2D Steps
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence2DSteps.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/IncidenceDiff.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence Diffuse
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/IncidenceDiff.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/IncidenceDiffAniso.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence Diffuse Anisotropy
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/IncidenceDiffAniso.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/IncidenceSpec.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence Specular
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/IncidenceSpec.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/Incidence1DLambertBlueBack.png" width="64" height="20" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Incidence Blue Back
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/Incidence1DLambertBlueBack.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/CelSteps.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Celshading Steps
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/CelSteps.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+<div class="usermanual-includetag" tag="DefaultLighting"></div>
+</p>
+<h6 id="Shaders">Shaders</h6>
+<p>
+<div class="usermanual-includetag" tag="DefaultShaders"></div>
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/HatchLines.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Hatch Lines
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/HatchLines.png</tt>
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/HatchCurves.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Hatch Curves
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/HatchCurves.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #f"><blockquote>
+<p>
+<img src="images/Presets/HatchLetters.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Hatch Letters
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/HatchLetters.png</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+<div class="usermanual-includetag" tag="DefaultShaders"></div>
+</div>
+</p>
+<p>
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<p>
+<div class="usermanual-includetag" tag="TextureLoader"></div>
+<div class="usermanual-includetag" tag="TextureProperty"></div>
+</p>
+<h5 id="TextureProperty">Texture Property</h5>
+<p>
+The <strong>Texture Property</strong> Property Group provides only an Input for any Texture coming from the scenes logic, e.g. a <a class="wiki" href="NodeTextureImageLoaders.html">Texture Loader Node</a>. This is necessary for some source types like movies but may also be useful whenever you need to apply some logic to loaded textures before applying them to objects. The Presets generate the according Content Node together with the Property Group and bind its Input Property to that new node.
+</p>
+<p>
+<div class="usermanual-includetag" tag="TextureProperty"></div>
+<div class="usermanual-includetag" tag="1DGradient"></div>
+</p>
+<h5 id="a1DGradient">1D Gradient</h5>
+<p>
+The <strong>1D Gradient</strong> generates a linear gradient. It can be edited using the <strong>Gradient</strong> Input - <span class="usermanual-mouse usermanual-mouse-button lmb" title="left mouse button"></span>&nbsp;<span class="usermanual-mouse">clicking</span> on the down arrow on the left of the property will open up the <a class="wiki" href="PropertiesEditor.html#EditingColorValues">Gradient Editor</a>. The <strong>Vertical</strong> flag changes the alignment of the generated 1D gradient.
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible collapsed"><div class="usermanual-collapsible-title">Gradient Presets</div><div class="usermanual-collapsible-content">
+
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<p>
+<div class="usermanual-includetag" tag="1DGradient"></div>
+<div class="usermanual-includetag" tag="SvgLoader"></div>
+</p>
+<h5 id="SvgLoader">SVG Loader and SVG Text</h5>
+<p>
+The <strong>SVG Loader</strong> and <strong>SVG Text</strong> Property Groups rasterize an SVG file and provide the rasterized graphic. See the <a class="wiki" href="NodeTextureSVGLoader.html">SVG Loader</a> Node for more information.
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible collapsed"><div class="usermanual-collapsible-title">SVG Loader Presets</div><div class="usermanual-collapsible-content">
+<div class="usermanual-include"><div class="usermanual-includetag" tag="Svg"></div>
+</p>
+<h5 id="Other">Other</h5>
+<p>
+The images in this category are defaults for other kinds of texture usages, like the rasterization of <a class="wiki" href="NodeTextureSVGLoader.html">SVG Files</a>.
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/ventuz.svg" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Ventuz Logo SVG
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://images/ventuz.svg</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+</div>
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<p>
+<div class="usermanual-includetag" tag="SvgLoader"></div>
+</p>
+<h5 id="TextureArrayLoaders">Texture Array Loaders</h5>
+<p>
+The Texture Array Loaders are able to generate a List of Textures instead of only a single texture. This can be used by a Material with a <a class="wiki" href="NodeColorMaterial.html#FlipbookControl">Flipbook Control</a> to display one of the loaded textures after another. Or you can use it with a <a class="wiki" href="NodeGeometryParticleSystem.html">Particle System</a> to display a different texture for each particle using the <em>Animation</em> attribute of a particle.
+</p>
+<p>
+<div class="usermanual-includetag" tag="FlipbookLoaders"></div>
+</p>
+<h6 id="FlipbookLoader">Flipbook Loader</h6>
+<p>
+The <strong>Flipbook Loader</strong> is able to generate an Array of Textures from the given source file. This can either be a <strong>Movie</strong> file or an <strong>Image</strong> Sequence. For best results and performance, consider the following:
+</p>
+<ul class="" start="1"><li>The Movie file is loaded into the GPU memory completely instead of streaming only the needed portions like the <a class="wiki" href="NodeTextureVideo.html">Movie Clip</a> Node. So always use small movie files. Also remember that compression does not change the size on the GPU since it will be decoded before.
+</li><li>The Movie file should not use lossy compression to make sure each frame looks fine and can be used on its own. E.g. the <a class="ext-link" href="https://en.wikipedia.org/wiki/QuickTime_Animation"><span class="icon">​</span>Apple Animation Codec for Quicktime</a> files could be used for that.
+</li><li>An Image sequence can be loaded by selecting one of the images of the sequence. They have to have the same names with an index at the end of the name. For example <tt>PictureXXX.png</tt> with <tt>XXX</tt> being the index of that image.
+</li><li>The Images in the given sequence need to be of the same dimensions. Otherwise the GPU cannot create a Texture Array of the given source files.
+</li></ul><h6 id="StripLoader">Strip Loader</h6>
+<p>
+Similar to the <a href="#FlipbookLoader">Flipbook Loader</a> the <strong>Strip Loader</strong> will create an Array of Textures. This texture loader divides a single Image into evenly sized textures. You can define the number of textures with the <strong>CountX</strong> and <strong>Y</strong> properties and remove single slots at the end with the <strong>Reduce</strong> property. The frames are read line by line, so the first frame is at the top-left slot and the second frame is at the slot right to that.
+</p>
+<p>
+<div class="noteboxnote"><p>
+It is used similarly to the <a class="wiki" href="NodeColorMaterial.html#StripMapper">2D Strip Mapper</a> of the Material Node. The difference is that the <strong>Strip Loader</strong> can be used by the <a class="wiki" href="NodeGeometryParticleSystem.html">Particle System</a> to use different portions of an Image for each particle.
+</p>
+</div>
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible collapsed"><div class="usermanual-collapsible-title">Gradient Presets</div><div class="usermanual-collapsible-content">
+<div class="usermanual-include"><div class="usermanual-includetag" tag="Flipbook"></div>
+</p>
+<h5 id="Flipbook">Flipbook</h5>
+<p>
+The images in this category can be used by the <a class="wiki" href="NodeColorMaterial.html#FlipbookControl">Flipbook Loaders</a>.
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/flipbook_clock.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Flipbook Clock
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://Movies/fbclock60.mov</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+</div>
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<p>
+<div class="usermanual-includetag" tag="FlipbookLoaders"></div>
+</p>
+<p>
+</div>
+</p>
+<p data-line="310" >
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<h4 id="Sampler" data-line="312" >Sampler</h4>
+<p data-line="314" >
+Most of the Material Stages also will need a <strong>Sampler</strong>. In this slot you can put one of the follwing Property Groups.
+</p>
+<h5 id="Simple" data-line="316" >Simple</h5>
+<p data-line="318" >
+The <strong>Simple Sampling</strong> will allows you to access the modes you will need in everyday work without having to get into the more complex parameters and in an advanced mode. The presets are <strong>Simple Wrap</strong> and <strong>Simple Clamp</strong>.
+</p>
+<p data-line="320" >
+The <strong>Type</strong> shows the filtering options currently selected for Filtering and Mapping (see below). By clicking the arrow a drop-down menu appears showing all the options available for both Filter and Mapping. 
+<strong>Filter:</strong> When 2D images are mapped onto 3D objects and moved in 3D space, they no longer will match pixel by pixel. Thus, the engine needs to define how the pixels are interpolated and calculated. The Filters available are:
+</p>
+<ul class="" start="1"><li data-line="323" ><strong>Point Filter:</strong> This is the most simple filtering technique used in Ventuz, with the best performance, but the quality can be not ideal. This technique will not interpolate between the available pixels on the texture. So whenever you sample between pixels, it will just use the information of the nearest pixel.
+</li><li data-line="324" ><strong>Bi-Linear Filter:</strong> Is a texture filtering method used to smooth textures when displayed larger or smaller than they actually are. Bilinear filtering is rather accurate until the scaling of the texture gets below half or above double the original size of the texture. In general, mipmapping is used to provide a scaled-down version of the texture for better performance; however, the transition between two differently-sized mipmaps on a texture using bilinear filtering can be very abrupt.
+</li><li data-line="325" ><strong>Tri-Linear Filter:</strong> Is an extension of the bilinear texture filtering method, which also performs linear interpolation between mipmaps, making the mipmap transition smooth throughout.
+</li><li data-line="326" ><strong>Anisotropic Filter:</strong>  This is the most computationally intensive and highest quality filter available in Ventuz. It eliminates aliasing effects but improves on other techniques by reducing blur and preserving detail at extreme viewing angles.
+</li><li data-line="327" ><strong>Point Filter, No MipMaps:</strong> This combines the basic Point Filtering of textures and does not use mipmaps for streamlining performance.
+</li></ul><p data-line="329" >
+                                   
+In the <strong>Mapping</strong> Property Group you define what happens when the image does not fill the bounds of the area it needs to fill. Is it repeated, or simply applied as a decal, for example. These options interact with the Mapping parameters set below, so, for instance, you must scale down or re-position your texture to see how it tiles.
+</p>
+<ul class="" start="1"><li data-line="332" ><strong>Black/White/Transparent Border:</strong> These three settings are pretty much self-explanatory, some presets 
+</li><li data-line="333" ><strong>Wrap:</strong> Repeats the texture in a tile-like fashion.
+</li><li data-line="334" ><strong>Clamp:</strong> Simply repeats the edge pixel values on each edge.
+</li><li data-line="335" ><strong>Wrap U, Clamp V:</strong> A mixture of the two above, tiles in U axis and clamps (no tiles) in V axis.
+</li><li data-line="336" ><strong>Clamp U, Wrap V:</strong> A mixture of the two above, clamps (no tiles) in U axis and tiles in V axis.
+</li><li data-line="337" ><strong>Mirror:</strong> Tiles the texture like wrap, but flips the image for each tile repeat.
+</li><li data-line="338" ><strong>MirrorOnce:</strong> Mirrors the texture to be tiled just once.
+</li></ul><h5 id="Advanced" data-line="340" >Advanced</h5>
+<p data-line="342" >
+You can also switch to the <strong>Advanced</strong> mode which lets you tweak individual elements with more control than the simple mode. It requires you to understand the mechanics behind real-time 3D rendering techniques. In general, these parameters allow you to tweak the mipmap generation and the filtering method options used to interpolate between them. These are the parameters available:
+</p>
+<ul class="" start="1"><li data-line="344" ><strong>Border Color:</strong> A standard color picker used to define the color value of a texture border if an appropriate U/V/W mode is selected.
+</li><li data-line="345" ><strong>Address U, V, W:</strong>Three drop-down lists used to pick up the tiling methods used for U, V and W axis. The methods are the same used in Simple Sampler above, so they are <strong>Wrap</strong>, <strong>Mirror</strong>, <strong>Clamp</strong>, <strong>Border</strong> and <strong>Mirror Once</strong>.
+</li><li data-line="346" ><strong>MaxFilter:</strong> A drop-down list used to pick up the Filter used f. The available options are similar to Simple Sampler above, they are <strong>None</strong>, <strong>Point</strong>, <strong>Linear</strong> and <strong>Anisotropic</strong>.
+</li><li data-line="347" ><strong>MinFilter:</strong> The available options are similar to Simple Sampler above, they are <strong>None</strong>, <strong>Point</strong>, <strong>Linear</strong> and <strong>Anisotropic</strong>.
+</li><li data-line="348" ><strong>MipFilter:</strong> The available options are similar to Simple Sampler above,  they are also <strong>None</strong>, <strong>Point</strong>, <strong>Linear</strong> and <strong>Anisotropic</strong>.
+</li><li data-line="349" ><strong>Mipmap LOD Bias:</strong> This option shifts between the MipMap levels. You can adjust the blending here.
+</li><li data-line="350" ><strong>MaxAnisotropy:</strong> Defines the maximum Anisotropy level to be used. 
+</li><li data-line="351" ><strong>MaxMipLevel:</strong> Defines the Maximum MipLevel to be used. If a Texture has 8 MipMap Level and you set this value to 4 it will blend to the maximum of level 4 and ignore the rest. The Texture will still be loaded with all MipMaps, therefore you do not save Memory.
+</li></ul><h4 id="Mapping" data-line="353" >Mapping</h4>
+<p data-line="355" >
+The <strong>Mapping</strong> property group changes which pixels of a texture are applied to which parts of the 3D Object it is used on. 
+</p>
+<p data-line="357" >
+In all Mapping modes, textures can be tweaked and properly placed by using the <strong>Alignment</strong>, <strong>Position</strong>, <strong>Scale</strong> and <strong>Rotation</strong> Parameters.
+</p>
+<p data-line="359" >
+The Mapping has several options to choose from:
+</p>
+<h5 id="Simple1" data-line="361" >Simple</h5>
+<blockquote>
+<p data-line="363" >
+Simple Mapping just features a list of mapping presets that can be selected to quickly check some of the mapping methods - see below for more in-depth info. The ones available are <strong>UV0</strong>, <strong>UV1</strong>, <strong>Screen Aligned</strong>, <strong>World Space Reflection</strong>, <strong>Camera Space Reflection</strong>, <strong>Spherical</strong> and <strong>Spherical Simple</strong>.
+</p>
+</blockquote>
+<p data-line="364" >
+ 
+</p>
+<h5 id="a2DMapping" data-line="365" >2D Mapping</h5>
+<p data-line="367" >
+The <strong>2D Mapping</strong>, maps the texture in a two-dimensional fashion, like a front projector. It is especially useful for flat surfaces. Please, have in mind that if the texture does not cover the object totally the texture will be repeated according to the options set in the <strong>Sampling</strong> Property Group.
+</p>
+<p data-line="369" >
+2D Mapping features some presets that can be selected to use different 2D mapping methods, the ones available are <strong>UV0</strong>, <strong>UV1</strong>, <strong>UV Distorted</strong> and <strong>Screen Aligned</strong>. While UV0 and UV1 use the defined UV Sets of the geometry, UV Distorted will use the result of a <a href="#UVDistort">UV Distort</a> Material Stage. Screen-Aligned will align the UV Coordinates to the Screen, regardless of the geometry's transformation. <br /> 
+</p>
+<h5 id="a3DMapping" data-line="371" >3D Mapping</h5>
+<p data-line="373" >
+<strong>3D mapping</strong>, maps the texture in a 3D space, so textures can be manipulated in all three axes. Please, bear in mind that if the texture does not cover the object totally the texture will be repeated according to the options set in the <strong>Type</strong> parameter above.
+</p>
+<p data-line="375" >
+<strong>3D Mapping</strong> features some presets that can be selected to use different 3D mapping methods, the ones available are <strong>Model Space Position</strong>, <strong>World Space Position</strong>, <strong>Camera Space Reflection</strong>, <strong>Spherical</strong> and <strong>Spherical Simple</strong>.
+</p>
+<h5 id="Triplanar" data-line="377" >Triplanar</h5>
+<p data-line="379" >
+<strong>TriPlanar</strong> renders the texture three times, each one projected from one of the three axes. Then it blends between these projections depending on each polygon orientation, this is good for topologies with steep sides, but the downfall is that it requires more computation and it can affect the performance. Keep in mind that if the texture does not cover the object totally the texture will be repeated according to the options set in the <strong>Type</strong> parameter above. The Blending at the corners can be adjusted by tweaking the <strong>Sharpness</strong> Value, this value is per default set to (2). The Higher the Value the sharper the blending will be, lower Values will result in a softer blending.
+</p>
+<p data-line="381" >
+<strong>TriPlanar</strong> features two different 3D mapping methods, the ones available are <strong>Model Space</strong> and <strong>World Space</strong>.
+</p>
+<h5 id="Projection" data-line="383" >Projection</h5>
+<p data-line="385" >
+The <strong>Projection</strong> mapping method uses a camera position as a projector that projects the texture onto the object. Define the <strong>Camera</strong> with the drop-down menu that selects the camera to be used as projector from a list of all the cameras available in the scene.
+</p>
+<h5 id="StripMapper" data-line="387" >2D Strip Mapper</h5>
+<p data-line="389" >
+The <strong>2D StripMapper</strong> is a specialized form of the 2D Mapping to handle tiled images and textures. The pattern can be adjusted with the available options.
+</p>
+<p data-line="391" >
+<strong>TilesX/Y</strong> set the number of tiles in the X or Y axis, the resulting pattern gets scaled to match the size of the original texture. Values are expressed as Integers. You can <strong>Reduce</strong> the number of parts of the texture not filled with any content. <strong>Scaling</strong> controls the basic tile scaling. With <strong>Index</strong> you select the tile in the pattern to be displayed.
+</p>
+<p data-line="393" >
+A special Mapping mode is the <strong>From Above</strong>. This mapping option copies the mapping method and settings used in the previous Material Stage. 
+</p>
+<h4 id="DestinationChannels" data-line="395" >Destination Channels</h4>
+<p data-line="397" >
+The <strong>Destinations</strong> of the Texture's Channels define where each value of the channels go. Depending on the Material Stage you can choose the destination for both, all Color Channels and the Alpha Channel:
+</p>
+<ul class="" start="1"><li data-line="398" ><strong>Target:</strong> this drop-down menu let you set the <em>target</em> of the RGB values.
+</li></ul><ul class="" start="1"><li data-line="399" ><strong>Operation:</strong> a drop-down menu to define the operator used to calculate the resulting pixel value.
+</li><li data-line="400" ><strong>Masking:</strong> here you can mask our elements of the texture. The available options are <em>off</em>, <em>Alpha</em> uses the Alphachannel, <em>Mask1/2</em> use the defined Mask1/2 (which are destination channels), <em> and Texture Alpha</em> uses the alpha from the texture. While the <em>Inverse</em> option inverts the Mask.
+</li></ul><p data-line="401" >
+           
+The different targets and operations work like defined in the <a href="#LightingModels">lighting model</a>. The <a href="#MaterialDetailDiagram">Material Combination Diagram</a> at the end of this document shows the work wise of the channels more detailed.
+</p>
+<h3 id="Texture" data-line="404" >Texture</h3>
+<p data-line="406" >
+<img src="images/NodeColorMaterial/MatStagTEXTURE.jpg" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="408" >
+A <strong>Texture Stage</strong> will probably be the material stage used most often in a material. It will do nothing more than take a texture from the <a href="#TextureSource">Texture Source</a> property, <a href="#Sampler">sample</a> and <a href="#Mapping">map</a> it and then <a href="#DestinationChannels">apply</a> the RGB and A Channels to chosen Material Channels.
+</p>
+<h3 id="NormalMap" data-line="410" >Normal Map</h3>
+<p data-line="412" >
+<img src="images/NodeColorMaterial/MatStagNORMAL.jpg" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="415" >
+Normal Maps allow using specialized textures to simulate high degrees of detail without needing lots of complex geometry. While they create very realistic detail when looked at straight on, in profile they do not work because they are not actually changing the geometry. Normal maps are images that represent spatial transformations as color values, therefore each color channel represents the transformation in a 3D axis.
+</p>
+<p data-line="417" >
+Normal maps have the same sampling and mapping options as ordinary textures. The <strong>Color</strong> target, operation and masking can not be set as the normal-map operation is set automatically. The <strong>Alpha</strong> target, operation and masking can be used by advanced users to utilize the alpha channel that is not needed for the normal map operation as an ordinary gray-scale texture (alpha, roughness, masking, etc.).
+</p>
+<p data-line="419" >
+<strong>Normal Map</strong> has only an <strong>Amount</strong> which controls the strenght of the <strong>Normal Map</strong>. The <strong>Amount</strong> can also be negative.
+</p>
+<p data-line="422" >
+<strong>Normal Map Generator</strong> is a simple way to author a normal map. Select the <strong>Normal Map Generator</strong> as texture loader and this will interpret the gray-scale value of an image as a height map and create a fitting normal map.
+</p>
+<p data-line="424" >
+The <strong>Amount</strong> controls the strength of the effect, the bigger the value, the deeper the relief will look. Also, the amount can be a negative value to invert the direction of the normal map. 
+With <strong>Filter</strong> you can select the filtering method used for the fake relief calculation. The available option are <strong>Soft</strong> (default, three pixel neighborhood) and <strong>Hard</strong> (two pixel neighborhood).
+</p>
+<p data-line="427" >
+The Normal Map Generator will place the gray-scale value in the alpha channel, which is convenient for mixing displacement and normal mapping. The original alpha channel of the input texture is ignored.
+</p>
+<h3 id="UVDistort" data-line="430" >UV Distort</h3>
+<p data-line="432" >
+<img src="images/NodeColorMaterial/UVDistort.png" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="434" >
+The <strong>UV Distort</strong> Material Stage can be used to change a UV Set. The changed set can then be used by other material stages by changing the used UV Set to the UV Distorted Set in their <a href="#Texture">Mapping</a> Options.
+</p>
+<p data-line="436" >
+<div class="noteboxnote"><p>
+Note that you will need to set the used UV Set of a Material Stage to <strong>UV Distorted</strong> in order to use the result of a UV Distort Stage. This way you can define which Stages should use the distorted set and which one should rather use the original one.
+</p>
+</div>
+</p>
+<p data-line="438" >
+More technically spoken, the distortion works as follows: The <em>Red</em> and <em>Green</em> Channels of the texture are used to adjust the <em>U</em> and <em>V</em> coordinates respectively by <em>addition</em>. Before adding the Color Channel to the UV Coordinate Component it will subtract <tt>0.5</tt> from it: <tt>U&#39; = R - 0.5 + U</tt> and <tt>V&#39; = G - 0.5 + V</tt>.
+As a result, a solid <tt>0.5</tt> Grey will not change the UV Set at all.
+</p>
+<p data-line="441" >
+<strong>Rotate</strong> changes the direction of the distortion. Note, that is different from changing the rotation of the mapping of the distorting texture.
+<strong>Alpha</strong> defines how to apply the otherwise unused Alpha Channel of the used Texture. The <strong>Amount</strong> scales the intensity of the distortion. Apply a negative value to invert the distortion.
+</p>
+<h3 id="DisplacementMap" data-line="444" >Displacement Map</h3>
+<p data-line="447" >
+<img src="images/NodeColorMaterial/MatStagDISPLACEMENT.jpg" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="450" >
+Sometimes also called a Height Map, unlike Normal maps, this map actually moves the vertex points and creates real geometry. Thus it is computationally quite a bit more intensive and furthermore, relies on having a high-resolution geometry under the map to support the detail.
+</p>
+<p data-line="452" >
+In general, it features the same parameters available for any texture, so please refer to texture Material Stage for more information, with two additional properties:
+</p>
+<p data-line="454" >
+<strong>Amount:</strong> controls the strength of the effect, the bigger the value, the more the vertices will be displaced. The <strong>Bias</strong> slider controls the offset of the geometry generated by the displacement - it is useful to compensate non-displaced areas of the geometry to get as close as possible to the original geometry. 
+</p>
+<h3 id="TextureSet" data-line="458" >Texture Set</h3>
+<p data-line="461" >
+<img src="images/NodeColorMaterial/MatStagTEXTSET.jpg" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="464" >
+Texture Sets allow loading a group of textures in one operation, without having to assign the correct texture for every Texture Stage. Merely select one of the textures and the rest will be loaded into their correct Texture Stages, according to the naming convention followed in the texture file names.
+</p>
+<p data-line="467" >
+It is a powerful workflow tool that has been designed and tested with texture sets generated by <strong>Substance Painter</strong>, there is a preset available to generate all textures using the appropriate settings and naming conventions used by Ventuz. Basically, you just need to follow the <em>Texture Naming Conventions</em> listed below to have a set of textures loaded at once.
+</p>
+<p data-line="470" >
+<strong>File</strong> is used to pick up any texture in the texture set. If the rest of the textures follow the right naming convention, they will be loaded and assigned to their correct texture targets automatically.
+With the <strong>Targets</strong> drop-down list you mark which textures are going to be loaded and therefore on which Texture Stages they will be applied. By default, all stages are marked. Simply uncheck the Stage you don't want to use and it will be unloaded from the memory. As you can see in the screenshot above, each target has a check mark before its name, to indicate that this texture will be loaded. No only the target name, but also the asterisk indicates that the texture is present in the selected texture set. The <strong>NormAmount</strong> controls the Amount of the Normal Map effect. Same goes for the <strong>DispAmount</strong>. This Value controls the Displacement Amount. <strong>DispBias</strong> offsets the whole displacement effect in the normals direction, higher values will move vertices outwards and lower values will move the displaced geometry inwards.
+</p>
+<p data-line="474" >
+These parameters are common to other texture Stages like basic textures.
+</p>
+<p data-line="476" >
+ 
+The <strong>Reload</strong> triggers a reload of all the Textures in the Texture Set.
+</p>
+<h4 id="tset" data-line="480" >Texture Set naming conventions</h4>
+<p data-line="484" >
+<strong>Standard Texture Sets</strong>
+</p>
+<p data-line="486" >
+Textures with an added postfix meeting the following conventions will be automatically loaded and mapped into the channels:
+</p>
+<table class="wiki" data-line="489" >
+<tr><th data-line="489" > Postfix </th><th data-line="489" > Material Stage 
+</th></tr><tr><td data-line="490" > _BaseColor.EXT </td><td data-line="490" > Base 
+</td></tr><tr><td data-line="491" > _Normal.EXT </td><td data-line="491" > Normal Map 
+</td></tr><tr><td data-line="492" > _Specular.EXT </td><td data-line="492" > Specular 
+</td></tr><tr><td data-line="493" > _Gloss.EXT </td><td data-line="493" > Glossiness 
+</td></tr><tr><td data-line="494" > _AmbientOcclusion.EXT </td><td data-line="494" > Base 
+</td></tr><tr><td data-line="495" > _Metal.EXT </td><td data-line="495" > Base 
+</td></tr><tr><td data-line="496" > _Roughness.EXT </td><td data-line="496" > Roughness 
+</td></tr><tr><td data-line="497" > _Emissive.EXT </td><td data-line="497" > Emissive 
+</td></tr></table>
+<p data-line="503" >
+<strong>Compact Texture Sets</strong>
+</p>
+<p data-line="506" >
+Work the same way like the "Standard texture sets".
+</p>
+<p data-line="508" >
+Additionally, you can make use of the Alpha Channel inside a Base Texture and add a "grayscale" image like an Ambient Occlusion. If you meet the following criteria, it will be loaded and mapped like shown below:
+</p>
+<table class="wiki" data-line="511" >
+<tr><th data-line="511" > Postfix </th><th data-line="511" > Material Stage 
+</th></tr><tr><td data-line="512" > _BaseAO.EXT </td><td data-line="512" > Base 
+</td></tr><tr><td data-line="513" > _SpecRough.EXT </td><td data-line="513" > Specular 
+</td></tr></table>
+<p data-line="515" >
+The "<strong>.EXT</strong>" can be any kind of supported image file format.
+</p>
+<p data-line="517" >
+E.g. : Your Textures should be named like "YourTextureName_<strong><em>BaseColor</em></strong>.jpg", and will then be interpreted as a <em>BaseColor</em> Texture.
+</p>
+<h3 id="TextureComponents" data-line="518" >Texture Components</h3>
+<p data-line="520" >
+With the <strong>TextureComp</strong> stage you can load a texture and split it into the R,G,B,A channels and assign every channel to an own target channel.
+This for example makes it possible to assign the Red Channel Information to control the Roughness, Green channel can be the Ambient Occlusion and Blue can control the glossiness.
+</p>
+<p data-line="523" >
+<img src="images/NodeColorMaterial/TextureComp.png" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="525" >
+The <strong>FuncR,G,B,A</strong> selects the <em>Target</em> of the color channel as well as the function. <strong>Amount</strong> controls the intensity for each channel individually.
+</p>
+<h3 id="Color" data-line="528" >Color</h3>
+<p data-line="530" >
+The <strong>Color</strong> Material Stage applies a constant <strong>Color</strong> and <strong>Alpha Value</strong> to the defined channels. The Alpha Values of the given <strong>Color Value</strong> and the <strong>Alpha Value</strong> are multiplied, so both affect the result on the material.
+</p>
+<h3 id="ImageBasedLightingIrradiance" data-line="532" >Image Based Lighting Irradiance</h3>
+<p data-line="535" >
+<img src="images/NodeColorMaterial/MatStagIBL_IRRAD.jpg" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="538" >
+This stage uses Image Based Lighting techniques, short IBL. IBL uses external images as light sources to illuminate the 3D scene, which results in a greater level of accuracy and realism. <br />
+Since the color information that is required to create the lighting effects, is huge, normally the IBL is associated with the use of High Dynamic Range images, or HDRIs, as lighting sources. HDRIs support higher color depths per channel, beyond 8/10 bits, meaning that the number of color variations they can write is enormous. Mostly, the HDRIs use 16f(float) or 32f(float) bits per color channel, which means that some extreme color correction operations can be performed on them without any visual loss, for instance, a mimicking exposure.
+</p>
+<p data-line="542" >
+<div class="noteboxnote"><p>
+Please make sure that you turn IBL into HDR in the rendering mode of the 3D Layer you are using, in order to take full advantage of the capabilities.
+</p>
+</div>
+</p>
+<p data-line="544" >
+For more information take a look at: 
+<a class="ext-link" href="https://en.wikipedia.org/wiki/Image-based_lighting"><span class="icon">​</span>https://en.wikipedia.org/wiki/Image-based_lighting</a>.
+</p>
+<p data-line="549" >
+The <strong>Irradiance / loader</strong> is used to load the external textures to be used as Lighting Source. It will automatically get a <em>Environment (Cubemap / LongLat) Loader</em> assigned. This <em>Loader</em> automatically detects the type of map loaded. <em>Unfold</em> the <em>Loader</em> to manually select the <strong>Texture Type</strong>. The <strong>Texture Type</strong> can be <strong>Auto</strong> for automatic detection, <strong>LatLong</strong> which looks like a very wide horizontal texture, <strong>HorizontalCrossCubemap</strong> or <strong>VerticalCrossCubemap</strong> which looks like all faces are aligned as a cross, but in different orientations, depending on horizontal or vertical alignment or a <strong>DdsCubemap</strong> which is a texturestrip including MipMaps. For reference please take a look at the comparison <a href="#IBL_CubeTextures">here</a> or at the end of this page.  Also keep an eye on the <strong>Hint</strong> which adjusts the <em>Gamma</em> for the texture.
+</p>
+<p data-line="551" >
+With the <strong>Mapping</strong> drop-down menu you select how the texture is positioned. <strong>Color</strong> allows selecting the settings for the color information coming from the external texture. Individual settings can be used to the Material Target, the Blending Operation, and the Texture Masking. The <strong>Alpha</strong> drop-down menu allows selecting the settings for the Alpha information coming from the external texture. You can adjust the <strong>Amount</strong> of the Image based Irradiance Lighting based on the external map. <strong>LodBias</strong> adjusts the MipMap level. Cautious, increasing sharpness can have a serious affect on your rendering performance. <strong>But</strong> for the <strong>Irradiance</strong> Texture you should select the best MipMap level (-16). In general, you would create and use a DDS Texture with only one MipMap level. To force the render engine to use the best MipMap level available you would adjust this value. The <strong>Irradiance</strong> Texture is usually only 128px², it neither consumes a lot of Ram nor should artifacts be visible when a general MipMaping occurs since this Texture is used for <em>Lighting</em>. <strong>LimitDynamicRange</strong> clamps the brighter values, effectively limiting the dynamic range of the final result - use it in combination with HDR rendering mode to see its effect properly. The <strong>Exposure</strong> controls the dynamic range of the images used as Lighting sources, it mimics the exposure settings used in photography. For Example, a difference of 1 EV is corresponding to a standard power-of-2 exposure step. The <em>EV</em> values will behave the same as with any other photo-editing software suite.
+</p>
+<h3 id="ImageBasedLightingSpecular" data-line="555" >Image Based Lighting Specular</h3>
+<p data-line="558" >
+<img src="images/NodeColorMaterial/MatStagIBL_SPECULAR.jpg" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="560" >
+<div class="noteboxnote"><p>
+Please make sure that you turn your rendering mode to HDR, so you can see the IBL results properly because they rely on HDRi images and processing.
+</p>
+</div>
+</p>
+<p data-line="564" >
+The <strong>Specular / loader</strong> is used to load the external textures to be used as reflective texture. It will automatically get an <em>Environment (Cubemap / LongLat) Loader</em> assigned. This <em>Loader</em> automatically detects the type of map loaded. <em>Unfold</em> the <em>Loader</em> to manually select the <strong>Texture Type</strong>. The <strong>Texture Type</strong> can be <strong>Auto</strong> for automatic detection, <strong>LatLong</strong> which looks like a very wide horizontal texture, <strong>HorizontalCrossCubemap</strong> or <strong>VerticalCrossCubemap</strong> which look like all faces are aligned as a cross, but in different orientations, depending on horizontal or vertical alignment or a <strong>DdsCubemap</strong> which is a texturestrip including MipMaps. For reference please have a look at the comparison <a href="#IBL_CubeTextures">here</a> or at the end of this page.  Also keep an eye on the <strong>Hint</strong> which adjusts the <em>Gamma</em> for the Texture.
+</p>
+<p data-line="566" >
+With the <strong>Mapping</strong> drop-down menu you select how the texture is positioned. <strong>Color</strong> allows selecting the settings for the color information coming from the external texture. Individual settings can be used to the Material Target, the Blending Operation and the Texture Masking. The <strong>Alpha</strong> drop-down menu allows selecting the settings for the Alpha information coming from the external texture. You can adjust the <strong>Amount</strong> of the Image based Lighting Specularity based on the external map. With the <strong>PreFilterMethod</strong> drop-down menu you select the filtering method used to interpolate between the mipmaps in the picture used for the IBL effect. Currently, we have implemented a workflow with <a class="ext-link" href="https://www.knaldtech.com/get-lys/"><span class="icon">​</span>Knaldtech Lys</a>, so the filters and their names are related to the conventions used in this software - the same goes for the next two parameters, that replicate the functionality found in Lys.
+</p>
+<p data-line="568" >
+Lys works by creating a set of mipmaps, where the smaller one has most of the roughness info, and the biggest one has most of the specular info, therefore some filtering method must be used when interpolating between these <strong>Roughness</strong> and <strong>Specularity</strong> mipmaps.
+</p>
+<p data-line="570" >
+For extended reference, see the Lys documentation: <a class="ext-link" href="https://www.knaldtech.com/docs/doku.php?id=specular_lys"><span class="icon">​</span>here</a>.
+</p>
+<p data-line="572" >
+The <strong>Log2UserScale:</strong> controls "a user configurable ramp that allows variable distribution of specular power values across MIP levels". You must set this Value to the same used in the MipMap calculation in LYS. The same applies to <strong>Log2MipOffset</strong> that controls the "offset from the bottom 1×1 cube map MIP level. The default value of 3 corresponds to assigning a specular power of 1 to level 8×8". By adjusting the <strong>DefaultMinRoughness</strong> you can Pick a <em>Roughness</em> value to start with. By using a higher value the Material will appear rougher since it uses a lower MipMap as a starting point. The <strong>LodBias</strong> adjusts the mipmap level of detail. Be careful with this, making this sharper can destroy rendering performance. <strong>LimitDynamicRange</strong> clamps the brighter values, effectively limiting the dynamic range of the final result - use it in combination with HDR rendering mode to see its effect properly. The <strong>Exposure</strong> controls the dynamic range of the images used as Lighting sources, it mimics the exposure settings used in photography. For Example, a difference of 1 EV is corresponding to a standard power-of-2 exposure step. The <em>EV</em> values will behave the same as with any other photo-editing software suite.
+</p>
+<h3 id="RimLighting" data-line="576" >Rim Lighting</h3>
+<p data-line="578" >
+<img src="images/NodeColorMaterial/MatStagRIM.jpg" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="580" >
+Rim Light is an effect often used in traditional photography to separate the foreground from the background. It is based in illuminating the object from behind or at steep angles, creating a light rim around the object profile. This Material stage mimics the effect and is often used to create illumination effects similar to Incidence Lighting, but with some subtle differences. It is also used for a variety of special shading and effects where the angle of the object surface is important.
+</p>
+<p data-line="582" >
+<strong>Texture</strong> loads textures to be used in the Rim Light effect. The options available are the same as in any other Texture, read the <strong>Texture Stage</strong> above for reference. <strong>Target</strong> selects the material target where the <strong>Rim Light</strong> effect will be applied. Options can be checked individually for Target, Operation and Masking. The default target is Emissive. You can target the <strong>SpecularLight</strong> and use the <strong>Multiply</strong> mode to create a <em>Fresnel-like</em> effect for reflections. The <strong>UvMode</strong> opens a drop-down menu that allows selecting the UV mapping used to apply the rim light on the geometry. Options can be chosen individually between <strong>Normal</strong> and <strong>Reflection</strong> and the projection can be from <strong>Camera</strong>, <strong>Direction</strong> or <strong>Position</strong>. The <strong>Color</strong> value could be typed in directly or defined by using the <a class="wiki" href="PropertiesEditor.html#ColorpickerPixelsnoop">color picker</a> to set the color used to rim areas. Depending on the preset chosen, different default colors are used. <strong>Power</strong> controls the rim light power, or areas covered by the rim lights, the higher the values, the fewer areas will be covered by the Rim Light. <strong>Gain</strong> controls the contrast of the transition of the Rim Light areas, the higher the values the smaller the contrast and the harsher the transition between darker and brighter areas. <strong>FullRange</strong> is used to switch the full range calculation of the rim light effect. You can also <strong>Invert</strong> the direction of the Rim Lighting effect.
+</p>
+<h3 id="CelShading" data-line="586" >Cel Shading</h3>
+<p data-line="588" >
+<img src="images/NodeColorMaterial/MatStagCEL.jpg" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="590" >
+Cell shading simulates a cartoon-like rendering, by using a hard gradient to give the posterized look. The gradient defines the color ramp, usually with hard transitions between the colors, so called <em>hard stops</em>. It can either be a texture or a 1D gradient which can be defined with the <a class="wiki" href="PropertiesEditor.html#EditingGradients">Gradient Editor</a>. You can use the <strong>Loader</strong> drop-down menu for loading textures to be used in the Cel Shading effect. The options available are the same as in any other Texture - see <strong>Texture Stage</strong> above for reference. We also provide you with an example <em>cel shading</em> texture. The <strong>Specular</strong> is used to add the specular highlight to the calculation. So the specularity will be <em>cel shaded</em>. If you turn this off the specular will be shaded like a standard material.
+</p>
+<h3 id="HatchShading" data-line="594" >Hatch Shading</h3>
+<p data-line="596" >
+<img src="images/NodeColorMaterial/MatStagHATCH.jpg" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="598" >
+Hatch Shading uses a texture lookup to simulate pencil or brush strokes (or other effects, depending on the texture). Because of how it is calculated, not all mapping and filtering methods make sense for this stage, so only a subset is offered.
+The true power of this method, however, comes out when used in combination with the <a class="wiki" href="NodeTextureHatch.html">Hatch</a> node itself.
+</p>
+<p data-line="602" >
+The <strong>Preset</strong> drop-down menu allows picking up how the Hatch texture in calculated. The options are <strong>Hatch Texture Node</strong>, <strong>Cross</strong>, <strong>Lines</strong>, <strong>Curves</strong> and <strong>Letters</strong> - <strong>Hatch Texture Node</strong> uses the texture created by the <a class="wiki" href="NodeTextureHatch.html">wiki:UserManual/NodeTextureHatch</a> Hatch] node, while the others switch between different preset textures. <strong>Mapping</strong> drop-down menu can be used to switch the mapping method or projection used. You can switch between <strong>UV0</strong>, <strong>UV1</strong>, <strong>Model Space Triplanar</strong>, <strong>World Space Triplanar</strong> and <strong>Camera Space Triplanar</strong>. <strong>ScaleU/V</strong> Scales the Hatch texture in each coordinate, while <strong>ScaleAll</strong> will control both together. <strong>MipmapBias</strong> can be used to select a different MipMap or <strong>Hatch Pattern</strong> inside a customised Hatch Texture.
+You can adjust the <strong>Triplanar Sharpness</strong> when using one of the tri-planar modes. <strong>Invert</strong> is used to select the areas that will be covered by the Hatch texture, meaning that the darker areas will have the hatch texture, while the brighter areas will remain untouched. You can colorize the Hatch with <strong>InkColor</strong> - and with that the black areas in the external texture. Also the <strong>PaperColor</strong> used to select the color applied to the hatch background can be adjusted - which are the white areas in the external texture. <strong>Specular</strong> is used to add the specular highlight to the calculation.
+</p>
+<h3 id="VertexNoise" data-line="606" >Vertex Noise</h3>
+<p data-line="609" >
+<img src="images/NodeColorMaterial/MaterialStagVERTEX_NOISE.jpg" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="612" >
+<strong>Vertext Noise</strong> is using an algorithm to generate a vertex displacement. This means <strong>Vertext Noise</strong> can easily be (and usually is) used as an animated effect. The difference between the <strong>Vertex- and Perlin Vertx Noise</strong> is simply the calculation algorithm used. <strong>Vertex Noise</strong> is a more regular rippling while <strong>Perlin Vertex Noise</strong> is a more irregular, randomized effect. Vertex noise uses a frequency in X, Y and Z combined with an amount to create rippling effect.
+</p>
+<p data-line="614" >
+<strong>ApproximateNormals</strong>  enables an approximate Normals calculation on the displaced surface, therefore shading and lighting in the resulting geometry is highly improved. Especially if you apply a <strong>Normal Map</strong> you will note the difference. <strong>Animate</strong> offsets the Noise function used to displace the vertices. As its name suggests, it´s a very good way of animating the displacement effect to create interesting effects. We suggest to use an endless number such as a <a class="wiki" href="NodeLogicTimer.html">Timer</a> node. <strong>Scale</strong> In a similar fashion to the Animate parameter above, this slider scales the whole noise function used to displace the vertices. <strong>Frequency X/Y/Z</strong> control the frequency for each axis - the amount of iterations of the noise generated displacement. <strong>FrequencyAll:</strong> controls the frequency of the vertex displacement algorithm for X, Y and Z axis together. <strong>Amount X/Y/Z</strong> controls the amplitude of the noise function used to perform vertex displacement in X, Y and Z axis. <strong>AmountAll</strong> acts as a second control layer for the Displacement amount set individually on each axis - these values are multiplies the ones in X, Y and Z axis, so it can be used to control all of them at once, to animate the effect for instance.
+</p>
+<p data-line="616" >
+  
+</p>
+<h3 id="PerlinVertexNoise" data-line="618" >Perlin Vertex Noise</h3>
+<p data-line="621" >
+<img src="images/NodeColorMaterial/MaterialStagPERLIN_NOISE.jpg" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<p data-line="624" >
+<strong>Perlin Vertex Noise</strong> is similar to <strong>Vertex Noise</strong> above, but uses a <em>Perlin algorithm</em> to calculate the displacement. This results in a randomized effect with falloff and bias. Octaves changes the grain of the effect (so more octaves mean more fine grain).
+</p>
+<p data-line="627" >
+<strong>ApproximateNormals</strong>  enables an approximate Normals calculation on the displaced surface, therefore shading and lighting in the resulting geometry are highly improved. Especially if you apply a <strong>Normal Map</strong> you will note the difference. <strong>Animate</strong> offsets the Noise function used to displace the vertices. Just like the name suggests, it´s a very good way of animating the displacement effect to create interesting effects. We suggest using an endless number such as a <a class="wiki" href="NodeLogicTimer.html">Timer</a> node. <strong>Amount</strong> controls the displacement amount. <strong>Bias</strong> controls the offset from the values generated by the algorithm. <strong>ScaleUV</strong> controls the scaling of the effect. <strong>Octaves</strong> controls the Octaves used in the Noise algorithm. <strong>Falloff</strong> acts as a second control layer for the Displacement amount. It fades the amount of the displacement between the octaves, so it generates smoother displacement curves.
+</p>
+<h3 id="FlipbookControl" data-line="629" >Flipbook Control</h3>
+<p data-line="631" >
+The <strong>Flipbook Control</strong> can be used to define which Texture of a given Texture Array should be used. There are different types of Controls for that.
+</p>
+<p data-line="633" >
+All Controls have a <strong>Flags</strong> property which shows certain options: You can change the behavior of the Flipbook Control once the end of the animation is reached. <em>Clamp</em> repeats its last frame, <em>Wrap</em> starts anew and <em>Mirror</em> plays the animation backwards before starting over. <em>Smooth</em> adds a pixel-wise interpolation between the frames to make them look more continuous.
+</p>
+<p data-line="635" >
+Additionally all types of <strong>Control</strong> Property Groups define how the <a class="wiki" href="NodeGeometryParticleSystem.html#ParticleAttributes">Particle System's Animation Attribute</a> adresses the indices of the animation. This is described in their sections below.
+</p>
+<p data-line="637" >
+A Texture Array can be loaded through a <strong>Flipbook Loader</strong> or a <strong>Strip Loader</strong>.
+</p>
+<p data-line="639" >
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible "><div class="usermanual-collapsible-title">Flipbook Loaders</div><div class="usermanual-collapsible-content">
+</p>
+<p data-line="641" >
+<div class="usermanual-include"><div class="usermanual-includetag" tag="FlipbookLoaders"></div>
+</p>
+<h4 id="FlipbookLoader">Flipbook Loader</h4>
+<p>
+The <strong>Flipbook Loader</strong> is able to generate an Array of Textures from the given source file. This can either be a <strong>Movie</strong> file or an <strong>Image</strong> Sequence. For best results and performance, consider the following:
+</p>
+<ul class="" start="1"><li>The Movie file is loaded into the GPU memory completely instead of streaming only the needed portions like the <a class="wiki" href="NodeTextureVideo.html">Movie Clip</a> Node. So always use small movie files. Also remember that compression does not change the size on the GPU since it will be decoded before.
+</li><li>The Movie file should not use lossy compression to make sure each frame looks fine and can be used on its own. E.g. the <a class="ext-link" href="https://en.wikipedia.org/wiki/QuickTime_Animation"><span class="icon">​</span>Apple Animation Codec for Quicktime</a> files could be used for that.
+</li><li>An Image sequence can be loaded by selecting one of the images of the sequence. They have to have the same names with an index at the end of the name. For example <tt>PictureXXX.png</tt> with <tt>XXX</tt> being the index of that image.
+</li><li>The Images in the given sequence need to be of the same dimensions. Otherwise the GPU cannot create a Texture Array of the given source files.
+</li></ul><h4 id="StripLoader">Strip Loader</h4>
+<p>
+Similar to the <a href="#FlipbookLoader">Flipbook Loader</a> the <strong>Strip Loader</strong> will create an Array of Textures. This texture loader divides a single Image into evenly sized textures. You can define the number of textures with the <strong>CountX</strong> and <strong>Y</strong> properties and remove single slots at the end with the <strong>Reduce</strong> property. The frames are read line by line, so the first frame is at the top-left slot and the second frame is at the slot right to that.
+</p>
+<p>
+<div class="noteboxnote"><p>
+It is used similarly to the <a class="wiki" href="NodeColorMaterial.html#StripMapper">2D Strip Mapper</a> of the Material Node. The difference is that the <strong>Strip Loader</strong> can be used by the <a class="wiki" href="NodeGeometryParticleSystem.html">Particle System</a> to use different portions of an Image for each particle.
+</p>
+</div>
+</p>
+<p>
+<!-- UserManualCollapsible START --><div class="usermanual-collapsible collapsed"><div class="usermanual-collapsible-title">Gradient Presets</div><div class="usermanual-collapsible-content">
+<div class="usermanual-include"><div class="usermanual-includetag" tag="Flipbook"></div>
+</p>
+<h3 id="Flipbook">Flipbook</h3>
+<p>
+The images in this category can be used by the <a class="wiki" href="NodeColorMaterial.html#FlipbookControl">Flipbook Loaders</a>.
+</p>
+<table class="wiki">
+<tr><td style="background: #f"><blockquote>
+<p>
+Image/Texture
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Description
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Internal resource name
+</p>
+</blockquote>
+</td></tr><tr>
+<td style="background: #ffdbbe"><blockquote>
+<p>
+<img src="images/Presets/flipbook_clock.png" width="64" />
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+Flipbook Clock
+</p>
+</blockquote>
+</td><td style="background: #f"><blockquote>
+<p>
+<tt>internal://Movies/fbclock60.mov</tt>
+</p>
+</blockquote>
+</td></tr><tr>
+</tr></table>
+<p>
+</div>
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<p>
+</div>
+</p>
+<p data-line="643" >
+</div></div><!-- UserManualCollapsible END -->
+</p>
+<h4 id="Player" data-line="645" >Player</h4>
+<p data-line="647" >
+The <strong>Player Control</strong> will render another image of the given Animation each frame. When at <tt>100%</tt> <strong>Speed</strong> it will use one image per frame. You can adjust the property to let it run faster or slower. Additionally you can add an <strong>Offset</strong> to the playback. The <a class="wiki" href="NodeGeometryParticleSystem.html#ParticleAttributes">Animation</a> attribute of the Particle System is interpreted in the range of <tt>0...1</tt>.
+</p>
+<h4 id="FrameIndexer" data-line="649" >Frame Indexer</h4>
+<p data-line="651" >
+The <strong>Frame Indexer</strong> simply shows the frame with the given <strong>Index</strong>. The <a class="wiki" href="NodeGeometryParticleSystem.html#ParticleAttributes">Animation</a> attribute of the Particle System is used as an index directly. Thus it has a range of <tt>0...MaxIndex</tt>. 
+</p>
+<h4 id="PercentagePosition" data-line="653" >Percentage Position</h4>
+<p data-line="655" >
+The <strong>Percentage Position</strong> control will show the frame at the given <strong>Position</strong> along the animation. <tt>0%</tt> is the start, <tt>100%</tt> is the end. The <a class="wiki" href="NodeGeometryParticleSystem.html#ParticleAttributes">Animation</a> attribute of the Particle System is interpreted in the range of <tt>0...1</tt>.
+</p>
+<h4 id="SamplingBetweenFrames" data-line="657" >Sampling Between Frames</h4>
+<p data-line="659" >
+Depending on the type of controller the addressing of the several frames works differently. This is especially apparent when enabling the <em>Smooth</em> flag. The workwises are illustrated in the image at the bottom of this section.
+</p>
+<ul class="" start="1"><li data-line="661" ><strong>Player</strong>: <tt>0%</tt> and <tt>100%</tt> or <tt>0</tt> and <tt>1</tt> respectively lie between the first and the lasst frame. I.e. to hit the first frame exactly you need an offset of half a frame (depending on the length of your texture array.
+</li><li data-line="662" ><strong>Percentage Position</strong>: <tt>0%</tt> and {{{100%}} are exactly the first frame. To sample between the first and the last frame you need to subtract an offset of half a frame (depending on the length of your texture array).
+</li><li data-line="663" ><strong>Frame Indexder</strong>: <tt>0</tt> is exactly the first frame. <tt>-0.5</tt> is exactly between the first and the last frame.
+</li></ul><p data-line="665" >
+<div class="noteboxnote"><p>
+If <em>smooth</em> is enabled the sampler will linearly interpolate between the frames. If disabled and you sample in the exact center between frames the frame is chosen randomly and unpredictably.
+</p>
+</div>
+</p>
+<p data-line="667" >
+<img src="images/NodeColorMaterial/FlipbookFrameSampling.png" style="max-width:1280px;width:50%;margin-right:auto; display:block; margin-left:auto" class="usermanual-image" title="" alt="" />
+</p>
+<h2 id="Shadow" data-line="669" >Shadow Options</h2>
+<p data-line="671" >
+Shadow options can be enabled for each material. You can select either <strong>Shadow Options</strong> or <strong>Shadow Options with global Fade</strong>. 
+</p>
+<p data-line="673" >
+The <strong>Receive</strong> shadow option enables the material to receive shadows, including from itself. This can be done as an optimization or to prevent ugly self-shadowing.
+</p>
+<p data-line="675" >
+Similarly, <strong>Cast</strong> enables the casting of shadows - this is a similar behavior to the <a class="wiki" href="NodeRenderoptionsFilter.html#ShadowFilter">Shadow Filter</a> but in contrast to them this option can be used on Hierarchy Nodes with several Materials - like the <a class="wiki" href="NodeGeometryParticleSystem.html">Particle System</a>. It is also useful to prevent transparent materials to cast shadows. 
+</p>
+<p data-line="677" >
+The <strong>SimpleCasterShader</strong> flag (enabled by default) enables a simple shader code. While the <strong>SimpleCasterShader</strong> is enabled, the object will be processed without taking the alpha and <a href="#VertexNoise">Vertex- and Perlin Noise</a> into account. For example: If you have a Sphere and apply a <a href="#VertexNoise">Vertex Noise</a> to the sphere, you will see a simple sphere without the vertex deformations. This is an important optimzation, because it prevents constant shader switching when rendering shadows. See the Pictures below:
+</p>
+<table style="text-align:center;margin:auto" class="wiki"><tr><th><p>
+<em><strong>SimpleCasterShadow</strong> ON <br />(default)</em>
+</p>
+</th><th><p>
+<em><strong>SimpleCasterShadow</strong> OFF</em>
+</p>
+</th></tr><tr><td><p>
+<img src="images/NodeColorMaterial/ShadowSimpleOn.png" width="50%" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</td><td><p>
+<img src="images/NodeColorMaterial/ShadowSimpleOff.png" width="50%" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</td></tr><tr><td><p>
+<img src="images/NodeColorMaterial/ShadowSimpleOnAlpha.png" width="50%" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</td><td><p>
+<img src="images/NodeColorMaterial/ShadowSimpleOffAlpha.png" width="50%" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</td></tr></table><p data-line="705" >
+If you selected the <strong>Shadow Options with global Fade</strong> there are <em>Fade Options</em> available. The <strong>FadeDiffuse</strong>, <strong>FadeSpecular</strong>, <strong>FadeAmbient</strong> control the intensity of these channels. If you lower the value for any of the channels, the shadow will be more dominant. This is very useful if you want to prevent reflections to shine through the shadows.
+</p>
+<p data-line="707" >
+<strong>ShadowToAlpha</strong> transfers the shadow to the alpha channel. While turning down the alpha value of the object, it fades out the whole object including the shadow. <strong>ShadowToAlpha</strong> allows to fade out the object but to keep the shadow. <strong>For best results</strong> use a <strong>Black</strong> object as shadow receiver. Turn the overall <a class="wiki" href="NodeColorMaterial.html#Alpha">Alpha</a> value down to zero, then use the ShadowToAlpha slider to bring in the shadow again up to the desired amount. Remember to uncheck the <a class="wiki" href="NodeColorMaterial.html#Alpha">Block on full transparency</a> flag in the Alpha section when the alpha value is at 0%!
+</p>
+<h2 id="HelpfulReferences" data-line="710" >Helpful References</h2>
+<h3 id="IBL_CubeTextures" data-line="712" >IBL Cubemap Textures</h3>
+<p data-line="714" >
+For Reference, we  have provided the different types of Cube Map Textures 
+</p>
+<p data-line="716" >
+<img src="images/NodeColorMaterial/IBL_CubeTextures.png" width="50%" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+<h3 id="MaterialDetailDiagram" data-line="720" >Material combination Diagram</h3>
+<p data-line="722" >
+We also provide you with a diagram how the material system in Ventuz works. The detailed block diagram shows how the various material properties are combined.
+</p>
+<p data-line="724" >
+<img src="images/NodeColorMaterial/www_draw_io_diagramV5.3.0.png" style="max-width:1691px;margin-right:auto; display:block; margin-left:auto" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="727" >
+<div class="usermanual-see-also">
+  See also:<ul class="usermanual-see-also">
+<li><a class="wiki" href="RealtimeRendering.html">Introduction to Realtime Rendering</a></li>
+<li><a class="wiki" href="NodeColorAlpha.html">Alpha node</a></li>
+<li><a class="wiki" href="NodeColorColor.html">Color node</a></li>
+<li><a class="wiki" href="NodeLightSources.html">Light nodes</a></li>
+<li><a class="wiki" href="NodeRenderoptionsFilter.html#ShadowFilter">Shadow Filter Node</a></li>
+<li><a class="wiki" href="NodeLightSources.html#Shadows">Shadows &amp; Lightsources</a></li>
+<li><a class="ext-link" href="http://en.wikipedia.org/wiki/Gouraud_shading"><span class="icon">​</span>http://en.wikipedia.org/wiki/Gouraud_shading</a></li>
+<li><a class="ext-link" href="https://en.wikipedia.org/wiki/Phong_shading"><span class="icon">​</span>https://en.wikipedia.org/wiki/Phong_shading</a></li>
+</ul></div>
+</p>
+
+            </div>
+            <div class="control"><div class="control-prev"><a href="NodeColorColor.html?itm=122">&laquo; Previous Article</a></div><div><a href="Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="NodeColorColorPicker.html?itm=124">Next Article &raquo;</a></div></div>
+            <div id="footer">
+    Copyright 2020 Ventuz Technology
+</div>
+        </div>
+    </body>
+</html>

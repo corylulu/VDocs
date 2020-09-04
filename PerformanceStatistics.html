@@ -1,0 +1,598 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>UserManual/PerformanceStatistics</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript" src="js/usermanual.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script><script src="js/jquery-ui.min.js"></script><script type="text/javascript">
+    function getParam(name, defaultValue) {
+        var url = window.location.search.substring(1);
+        var vars = url.split('&');
+        for (var i = 0; i < vars.length; ++i) {
+            var param = vars[i].split('=');
+            if (param[0] == name) {
+                return param[1];
+            }
+        }
+        return defaultValue;
+    }
+
+    jQuery(document).ready(function($) {
+        var link;
+        var itemIndex = getParam('itm', -1)
+        if (itemIndex != -1) {
+            var link = $('a[item-index="' + itemIndex + '"]:first');
+        } else {
+            var page = window.location.pathname;
+            var parts = page.split("/");
+            if (parts.length >= 2) {
+                page = parts[parts.length-2] + "/" + parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+            if ( link.length === 0 && parts.length >= 1 ) {
+                page = parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+        }
+
+        var tabIndex = 0;
+        if (link.length > 0) {
+            tabIndex = parseInt(link.attr("tab-index"), 10);
+            link.addClass('current');
+            link.parent().addClass('current');
+        }
+
+        $("#navigation").accordion({
+            heightStyle: "content",
+            collapsible: true,
+            active: tabIndex
+        });
+
+        $('#sidebar').scrollTop(link.offset().top - 20);
+    });
+    </script>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <!--sidebar begin--> <div id="sidebar"><h1>Navigation</h1><div id="navigation"><h3>Ventuz 6 Quick Guide</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="QuickGuideIntro.html?itm=0" tab-index="0" item-index="0" lst="1-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GettingStarted.html?itm=1" tab-index="0" item-index="1" lst="1-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzEditions.html?itm=2" tab-index="0" item-index="2" lst="1-1">Ventuz Editions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner.html?itm=3" tab-index="0" item-index="3" lst="1-1">Designer Overview</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SystemRequirements.html?itm=4" tab-index="0" item-index="4" lst="1-2">Ventuz System Requirements</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfiguration.html?itm=5" tab-index="0" item-index="5" lst="1-2">Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationAV.html?itm=6" tab-index="0" item-index="6" lst="1-2">Video/Audio Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationMC.html?itm=7" tab-index="0" item-index="7" lst="1-2">Machine Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GPIConfiguration.html?itm=8" tab-index="0" item-index="8" lst="1-2">GPI Configuration for Runtime or Director</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Performance.html?itm=9" tab-index="0" item-index="9" lst="1-2">Optimize Rendering Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SupportedFormats.html?itm=10" tab-index="0" item-index="10" lst="1-2">Supported Formats</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationVendors.html?itm=11" tab-index="0" item-index="11" lst="1-2">Supported Hardware</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AntiAliasing.html?itm=12" tab-index="0" item-index="12" lst="1-2">Multisampling / Anti-Aliasing</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InputSubsystem.html?itm=13" tab-index="0" item-index="13" lst="1-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="VentuzFileTypes.html?itm=14" tab-index="0" item-index="14" lst="1-2">Ventuz Proprietary Files</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="WhatsNew.html?itm=15" tab-index="0" item-index="15" lst="1-1">What&apos;s new</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="FAQ.html?itm=16" tab-index="0" item-index="16" lst="1-1">FAQ</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="CommonMistakes.html?itm=17" tab-index="0" item-index="17" lst="1-1">Common Mistakes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Deployment.html?itm=18" tab-index="0" item-index="18" lst="1-1">Deployment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MigrationGuide.html?itm=19" tab-index="0" item-index="19" lst="1-1">Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MigrationGuideV4V5.html?itm=20" tab-index="0" item-index="20" lst="1-1">Ventuz 5 Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="SummaryShortcuts.html?itm=21" tab-index="0" item-index="21" lst="1-1">Summary Shortcuts</a></li></ul></div><h3>Ventuz 6 Designer</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Index.html?itm=22" tab-index="1" item-index="22" lst="3-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GettingStarted_2.html?itm=23" tab-index="1" item-index="23" lst="3-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DesignerOptions.html?itm=24" tab-index="1" item-index="24" lst="3-1">Designer Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner_2.html?itm=25" tab-index="1" item-index="25" lst="3-1">Designer Overview</a></li></ul><div class="list-label list-level-1">Projects &amp; Scenes</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="ProjectsAndScenes.html?itm=26" tab-index="1" item-index="26" lst="4-1">Projects and Scenes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WindowProjectBrowser.html?itm=27" tab-index="1" item-index="27" lst="4-2">Project Browser</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectProperties.html?itm=28" tab-index="1" item-index="28" lst="4-2">Project Properties</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectMaintenance.html?itm=29" tab-index="1" item-index="29" lst="4-2">Project Maintenance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectAndSceneData.html?itm=30" tab-index="1" item-index="30" lst="4-2">Project and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneTree.html?itm=31" tab-index="1" item-index="31" lst="4-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneManagement.html?itm=32" tab-index="1" item-index="32" lst="4-2">Scene Management</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneStatistics.html?itm=33" tab-index="1" item-index="33" lst="4-2">Scene Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Deployment_2.html?itm=34" tab-index="1" item-index="34" lst="4-2">Deployment</a></li></ul></li></ul><div class="list-label list-level-1">Interface</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="UserInterface.html?itm=35" tab-index="1" item-index="35" lst="7-1">Designer Interface</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RendererWindow.html?itm=36" tab-index="1" item-index="36" lst="7-2">Renderer Window</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RealtimeRendering.html?itm=37" tab-index="1" item-index="37" lst="7-2">Realtime Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Performance_2.html?itm=38" tab-index="1" item-index="38" lst="7-2">Optimize Scene Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PerformanceStatistics.html?itm=39" tab-index="1" item-index="39" lst="7-2">Performance Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TransformationGizmo.html?itm=40" tab-index="1" item-index="40" lst="7-2">Transformation Gizmo</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RenderToDisk.html?itm=41" tab-index="1" item-index="41" lst="7-2">Render to Disk</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="CameraNavigation.html?itm=42" tab-index="1" item-index="42" lst="7-2">Camera Navigation</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="IsolateMode.html?itm=43" tab-index="1" item-index="43" lst="7-2">Isolated Objects</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TransformationGizmo_2.html?itm=44" tab-index="1" item-index="44" lst="7-2">Manipulate Objects with Gizmos</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LayerEditor.html?itm=45" tab-index="1" item-index="45" lst="7-2">Layer Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LayerCommonProperties.html?itm=46" tab-index="1" item-index="46" lst="7-2">Common Layer Properties</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP.html?itm=47" tab-index="1" item-index="47" lst="7-3">IPP Effects</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_ColorCorrections.html?itm=48" tab-index="1" item-index="48" lst="7-3">Color Correction FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_Distortion.html?itm=49" tab-index="1" item-index="49" lst="7-3">Distortion FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_Filters.html?itm=50" tab-index="1" item-index="50" lst="7-3">Filter FX</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsLayerEditor.html?itm=51" tab-index="1" item-index="51" lst="7-2">Layer Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="HierarchyEditor.html?itm=52" tab-index="1" item-index="52" lst="7-2">Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="NodesAndBindings.html?itm=53" tab-index="1" item-index="53" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainersAndInterfaces.html?itm=54" tab-index="1" item-index="54" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="FindAndReplace.html?itm=55" tab-index="1" item-index="55" lst="7-2">Find and Replace</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsHierarchyEditor.html?itm=56" tab-index="1" item-index="56" lst="7-2">Shortcuts Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContentEditor.html?itm=57" tab-index="1" item-index="57" lst="7-2">Content Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="NodesAndBindings_2.html?itm=58" tab-index="1" item-index="58" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainersAndInterfaces_2.html?itm=59" tab-index="1" item-index="59" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsContentEditor.html?itm=60" tab-index="1" item-index="60" lst="7-2">Content Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ToolboxAndRepository.html?itm=61" tab-index="1" item-index="61" lst="7-2">Toolbox</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PropertiesEditor.html?itm=62" tab-index="1" item-index="62" lst="7-2">Property Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectAndSceneData_2.html?itm=63" tab-index="1" item-index="63" lst="7-2">Project Data and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PropertyGroups.html?itm=64" tab-index="1" item-index="64" lst="7-2">Property Groups</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShaderEditor.html?itm=65" tab-index="1" item-index="65" lst="7-2">Shader Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextEditor.html?itm=66" tab-index="1" item-index="66" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneTree_2.html?itm=67" tab-index="1" item-index="67" lst="7-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MessageView.html?itm=68" tab-index="1" item-index="68" lst="7-2">Message View</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="StageEditor.html?itm=69" tab-index="1" item-index="69" lst="7-2">Stage Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainerOutline.html?itm=70" tab-index="1" item-index="70" lst="7-2">Container Outline</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WatchesEditor.html?itm=71" tab-index="1" item-index="71" lst="7-2">Watches Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationEditor.html?itm=72" tab-index="1" item-index="72" lst="7-2">Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationAndStateEngine.html?itm=73" tab-index="1" item-index="73" lst="7-2">Animation and State Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Templates.html?itm=74" tab-index="1" item-index="74" lst="7-2">Templates</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TemplateEngine.html?itm=75" tab-index="1" item-index="75" lst="7-2">Template Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsAnimationEditor.html?itm=76" tab-index="1" item-index="76" lst="7-2">Shortcuts Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextRendering.html?itm=77" tab-index="1" item-index="77" lst="7-2">Text Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextEditor_2.html?itm=78" tab-index="1" item-index="78" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="CharacterSets.html?itm=79" tab-index="1" item-index="79" lst="7-2">Character Sets</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GeometryImport.html?itm=80" tab-index="1" item-index="80" lst="7-2">Geometry Import</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InputSubsystem_2.html?itm=81" tab-index="1" item-index="81" lst="7-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MultiTouch.html?itm=82" tab-index="1" item-index="82" lst="7-2">Multitouch</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TUIO.html?itm=83" tab-index="1" item-index="83" lst="7-2">TUIO Protocol</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="OpenSoundControl.html?itm=84" tab-index="1" item-index="84" lst="7-2">Open Sound Control</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="HowTo/HowToVR.html?itm=85" tab-index="1" item-index="85" lst="7-2">How to work with Head Mounted Displays</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Cluster.html?itm=86" tab-index="1" item-index="86" lst="7-2">Cluster</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MultiDisplaySetupsAndShaping.html?itm=87" tab-index="1" item-index="87" lst="7-2">Multi Display Setups and Shaping</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WarpingSoftEdgingMasking.html?itm=88" tab-index="1" item-index="88" lst="7-2">Warping, Soft Edging and Masking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Nodes.html?itm=89" tab-index="1" item-index="89" lst="7-1">Available Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationNodes.html?itm=90" tab-index="1" item-index="90" lst="7-2">Animation Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MaterialNodes.html?itm=91" tab-index="1" item-index="91" lst="7-2">Material&amp;Color Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="DataNodes.html?itm=92" tab-index="1" item-index="92" lst="7-2">Data Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GeometryNodes.html?itm=93" tab-index="1" item-index="93" lst="7-2">Geometry Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InteractionNodes.html?itm=94" tab-index="1" item-index="94" lst="7-2">Interaction Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="IONodes.html?itm=95" tab-index="1" item-index="95" lst="7-2">IO Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Layers.html?itm=96" tab-index="1" item-index="96" lst="7-2">Layers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LightNodes.html?itm=97" tab-index="1" item-index="97" lst="7-2">Light Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LogicNodes.html?itm=98" tab-index="1" item-index="98" lst="7-2">Logic Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RenderNodes.html?itm=99" tab-index="1" item-index="99" lst="7-2">Render Option Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SlidesNodes.html?itm=100" tab-index="1" item-index="100" lst="7-2">Slides Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SoundNodes.html?itm=101" tab-index="1" item-index="101" lst="7-2">Sound Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextNodes.html?itm=102" tab-index="1" item-index="102" lst="7-2">Text Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextureNodes.html?itm=103" tab-index="1" item-index="103" lst="7-2">Texture Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="VrNodes.html?itm=104" tab-index="1" item-index="104" lst="7-2">VR Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WorldNodes.html?itm=105" tab-index="1" item-index="105" lst="7-2">World Nodes</a></li></ul></li></ul></div><h3>Ventuz 6 Node Reference</h3><div><div class="list-label list-level-1">ANIMATION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationMover.html?itm=106" tab-index="2" item-index="106" lst="24-1">Mover</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationMover_2.html?itm=107" tab-index="2" item-index="107" lst="24-1">Alternator</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationControls.html?itm=108" tab-index="2" item-index="108" lst="24-1">Simple Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationControls_2.html?itm=109" tab-index="2" item-index="109" lst="24-1">Timeline Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationAnimationRig.html?itm=110" tab-index="2" item-index="110" lst="24-1">Anmation Rig</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationKeyframeAnimation.html?itm=111" tab-index="2" item-index="111" lst="24-1">Keyframe Animation</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationKeyframeAnimation_2.html?itm=112" tab-index="2" item-index="112" lst="24-1">Animation Group</a></li></ul><div class="list-label list-level-1">COLOR/MATERIAL</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorAlpha.html?itm=113" tab-index="2" item-index="113" lst="25-1">Alpha</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorFog.html?itm=114" tab-index="2" item-index="114" lst="25-1">Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorFog_2.html?itm=115" tab-index="2" item-index="115" lst="25-1">Ground Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorSkyBox.html?itm=116" tab-index="2" item-index="116" lst="25-1">Sky Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters.html?itm=117" tab-index="2" item-index="117" lst="25-1">Color to RGBA</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_2.html?itm=118" tab-index="2" item-index="118" lst="25-1">HSLA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_3.html?itm=119" tab-index="2" item-index="119" lst="25-1">RGBA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_4.html?itm=120" tab-index="2" item-index="120" lst="25-1">Color Transformer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeShaderHLSLShader.html?itm=121" tab-index="2" item-index="121" lst="25-1">HLSL Shader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorColor.html?itm=122" tab-index="2" item-index="122" lst="25-1">Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorMaterial.html?itm=123" tab-index="2" item-index="123" lst="25-1">Material</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorColorPicker.html?itm=124" tab-index="2" item-index="124" lst="25-1">Color Picker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorSubstanceMaterial.html?itm=125" tab-index="2" item-index="125" lst="25-1">Substance Material</a></li></ul><div class="list-label list-level-1">DATA</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataDatabase.html?itm=126" tab-index="2" item-index="126" lst="26-1">Database</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataExcel.html?itm=127" tab-index="2" item-index="127" lst="26-1">Excel</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataJSON.html?itm=128" tab-index="2" item-index="128" lst="26-1">JSON</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataRSSFeed.html?itm=129" tab-index="2" item-index="129" lst="26-1">RSS Feed</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataResourceLinker.html?itm=130" tab-index="2" item-index="130" lst="26-1">Resource Linker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataTextFile.html?itm=131" tab-index="2" item-index="131" lst="26-1">Text File</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataXML.html?itm=132" tab-index="2" item-index="132" lst="26-1">XML</a></li></ul><div class="list-label list-level-1">GEOMETRY</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles.html?itm=133" tab-index="2" item-index="133" lst="27-1">Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_2.html?itm=134" tab-index="2" item-index="134" lst="27-1">Rounded Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_3.html?itm=135" tab-index="2" item-index="135" lst="27-1">Gradient Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_4.html?itm=136" tab-index="2" item-index="136" lst="27-1">Overlay Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCube.html?itm=137" tab-index="2" item-index="137" lst="27-1">Cube</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCircle.html?itm=138" tab-index="2" item-index="138" lst="27-1">Circle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometrySphere.html?itm=139" tab-index="2" item-index="139" lst="27-1">Sphere</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCylinder.html?itm=140" tab-index="2" item-index="140" lst="27-1">Cylinder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCone.html?itm=141" tab-index="2" item-index="141" lst="27-1">Cone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryTorus.html?itm=142" tab-index="2" item-index="142" lst="27-1">Torus</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryChart.html?itm=143" tab-index="2" item-index="143" lst="27-1">Chart</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRandomPoints.html?itm=144" tab-index="2" item-index="144" lst="27-1">Random Points</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryMeshLoader.html?itm=145" tab-index="2" item-index="145" lst="27-1">Mesh Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryImport.html?itm=146" tab-index="2" item-index="146" lst="27-1">Geometry Import (Live)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryVolume.html?itm=147" tab-index="2" item-index="147" lst="27-1">Volume</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryGetBoundingBox.html?itm=148" tab-index="2" item-index="148" lst="27-1">Get Bounding Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryArrow.html?itm=149" tab-index="2" item-index="149" lst="27-1">Arrow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryParticleSystem.html?itm=150" tab-index="2" item-index="150" lst="27-1">Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryPath.html?itm=151" tab-index="2" item-index="151" lst="27-1">Path Renderer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryGeometryRenderer.html?itm=152" tab-index="2" item-index="152" lst="27-1">Geometry Renderer</a></li></ul><div class="list-label list-level-1">INTERACTION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionInteractionRect.html?itm=153" tab-index="2" item-index="153" lst="28-1">Interaction Rect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchButton.html?itm=154" tab-index="2" item-index="154" lst="28-1">Touch Button</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchExcluder.html?itm=155" tab-index="2" item-index="155" lst="28-1">Touch Excluder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchMarker.html?itm=156" tab-index="2" item-index="156" lst="28-1">Touch Marker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchPaint.html?itm=157" tab-index="2" item-index="157" lst="28-1">Touch Paint</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchPattern.html?itm=158" tab-index="2" item-index="158" lst="28-1">Touch Pattern</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchProxy.html?itm=159" tab-index="2" item-index="159" lst="28-1">Touch Proxy</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchRipples.html?itm=160" tab-index="2" item-index="160" lst="28-1">Touch Ripples</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchTransformations.html?itm=161" tab-index="2" item-index="161" lst="28-1">Touch Transformations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchWebBrowser.html?itm=162" tab-index="2" item-index="162" lst="28-1">Web Browser</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchTeleport.html?itm=163" tab-index="2" item-index="163" lst="28-1">Touch Teleport</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchSimulator.html?itm=164" tab-index="2" item-index="164" lst="28-1">Touch Simulator</a></li></ul><div class="list-label list-level-1">INPUT/OUTPUT (I/O)</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOGPI.html?itm=165" tab-index="2" item-index="165" lst="29-1">GPI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOJoystick.html?itm=166" tab-index="2" item-index="166" lst="29-1">Joystick</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOKeyboard.html?itm=167" tab-index="2" item-index="167" lst="29-1">Keyboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOMIDI.html?itm=168" tab-index="2" item-index="168" lst="29-1">MIDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOMouse.html?itm=169" tab-index="2" item-index="169" lst="29-1">Mouse</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIONetwork.html?itm=170" tab-index="2" item-index="170" lst="29-1">Network</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOOSC.html?itm=171" tab-index="2" item-index="171" lst="29-1">Open Sound Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOSerial.html?itm=172" tab-index="2" item-index="172" lst="29-1">Serial</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOTimecode.html?itm=173" tab-index="2" item-index="173" lst="29-1">Timecode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIODMX.html?itm=174" tab-index="2" item-index="174" lst="29-1">DMX</a></li></ul><div class="list-label list-level-1">LAYER</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer3D.html?itm=175" tab-index="2" item-index="175" lst="30-1">3D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer3DReference.html?itm=176" tab-index="2" item-index="176" lst="30-1">3D Layer Reference</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer2D.html?itm=177" tab-index="2" item-index="177" lst="30-1">2D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayerPsdImport.html?itm=178" tab-index="2" item-index="178" lst="30-1">PSD Import Layer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayerOther.html?itm=179" tab-index="2" item-index="179" lst="30-1">Others</a></li></ul><div class="list-label list-level-1">LIGHT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLightSources.html?itm=180" tab-index="2" item-index="180" lst="31-1">Light Sources</a></li></ul><div class="list-label list-level-1">LOGIC</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicArrayProcessing.html?itm=181" tab-index="2" item-index="181" lst="32-1">Array Processing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicConvertToText.html?itm=182" tab-index="2" item-index="182" lst="32-1">Convert To Text</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicCluster.html?itm=183" tab-index="2" item-index="183" lst="32-1">Cluster Synchronization</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicCounter.html?itm=184" tab-index="2" item-index="184" lst="32-1">Counter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDateTime.html?itm=185" tab-index="2" item-index="185" lst="32-1">Date Time</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDirectory.html?itm=186" tab-index="2" item-index="186" lst="32-1">Directory</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDispatcher.html?itm=187" tab-index="2" item-index="187" lst="32-1">Dispatcher</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicEnumeration.html?itm=188" tab-index="2" item-index="188" lst="32-1">Enumeration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicExpressions.html?itm=189" tab-index="2" item-index="189" lst="32-1">Expressions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicInvert.html?itm=190" tab-index="2" item-index="190" lst="32-1">Invert</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicLog.html?itm=191" tab-index="2" item-index="191" lst="32-1">Log</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicLoopBreaker.html?itm=192" tab-index="2" item-index="192" lst="32-1">Loop Breaker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicMathEffects.html?itm=193" tab-index="2" item-index="193" lst="32-1">Math Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicMatrixOperations.html?itm=194" tab-index="2" item-index="194" lst="32-1">Matrix Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicSceneEvent.html?itm=195" tab-index="2" item-index="195" lst="32-1">Scene Event</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicScript.html?itm=196" tab-index="2" item-index="196" lst="32-1">Script</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicStringOperations.html?itm=197" tab-index="2" item-index="197" lst="32-1">String Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicSystemID.html?itm=198" tab-index="2" item-index="198" lst="32-1">System ID</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicTextSplitter.html?itm=199" tab-index="2" item-index="199" lst="32-1">Text Splitter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicTimer.html?itm=200" tab-index="2" item-index="200" lst="32-1">Timer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicToggle.html?itm=201" tab-index="2" item-index="201" lst="32-1">Toggle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicURL.html?itm=202" tab-index="2" item-index="202" lst="32-1">URL</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicValueSwitch.html?itm=203" tab-index="2" item-index="203" lst="32-1">Value Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicValueBuffer.html?itm=204" tab-index="2" item-index="204" lst="32-1">Value Buffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicVariables.html?itm=205" tab-index="2" item-index="205" lst="32-1">Variables</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicVisualIndexer.html?itm=206" tab-index="2" item-index="206" lst="32-1">Visual Indexer</a></li></ul><div class="list-label list-level-1">RENDER OPTIONS</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaBlending.html?itm=207" tab-index="2" item-index="207" lst="33-1">Alpha Blending</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaBlending_2.html?itm=208" tab-index="2" item-index="208" lst="33-1">Color Write</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaTesting.html?itm=209" tab-index="2" item-index="209" lst="33-1">Alpha Testing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsClipPlane.html?itm=210" tab-index="2" item-index="210" lst="33-1">Clip Plane</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsFilter.html?itm=211" tab-index="2" item-index="211" lst="33-1">Filter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsMask.html?itm=212" tab-index="2" item-index="212" lst="33-1">Mask</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsMirror.html?itm=213" tab-index="2" item-index="213" lst="33-1">Mirror</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsEffect.html?itm=214" tab-index="2" item-index="214" lst="33-1">Effect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsRenderCubeMap.html?itm=215" tab-index="2" item-index="215" lst="33-1">Render Cube Map</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsDrawMode.html?itm=216" tab-index="2" item-index="216" lst="33-1">Draw Modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsStencil.html?itm=217" tab-index="2" item-index="217" lst="33-1">Stencil</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsZTesting.html?itm=218" tab-index="2" item-index="218" lst="33-1">ZTesting</a></li></ul><div class="list-label list-level-1">SOUND</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundPlayback.html?itm=219" tab-index="2" item-index="219" lst="34-1">Audio Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundPlayback_2.html?itm=220" tab-index="2" item-index="220" lst="34-1">Sound</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAudioControl.html?itm=221" tab-index="2" item-index="221" lst="34-1">Volume Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundAnalyzeAudio.html?itm=222" tab-index="2" item-index="222" lst="34-1">Audio Analysis</a></li></ul><div class="list-label list-level-1">SLIDES</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager.html?itm=223" tab-index="2" item-index="223" lst="35-1">Slide Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_2.html?itm=224" tab-index="2" item-index="224" lst="35-1">Slide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_3.html?itm=225" tab-index="2" item-index="225" lst="35-1">Slide Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_4.html?itm=226" tab-index="2" item-index="226" lst="35-1">Pivot</a></li></ul><div class="list-label list-level-1">TEXT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextEffects.html?itm=227" tab-index="2" item-index="227" lst="36-1">Text Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextLayout.html?itm=228" tab-index="2" item-index="228" lst="36-1">Text Layouts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextRendering.html?itm=229" tab-index="2" item-index="229" lst="36-1">Text Rendering</a></li></ul><div class="list-label list-level-1">TEXTURE</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureBackground.html?itm=230" tab-index="2" item-index="230" lst="37-1">Background</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureHatch.html?itm=231" tab-index="2" item-index="231" lst="37-1">Hatch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureImage.html?itm=232" tab-index="2" item-index="232" lst="37-1">Image</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureTexture.html?itm=233" tab-index="2" item-index="233" lst="37-1">Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSVGLoader.html?itm=234" tab-index="2" item-index="234" lst="37-1">SVG Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureGradientTexture.html?itm=235" tab-index="2" item-index="235" lst="37-1">Gradient Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo.html?itm=236" tab-index="2" item-index="236" lst="37-1">Live Video</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_2.html?itm=237" tab-index="2" item-index="237" lst="37-1">Movie Stream</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_3.html?itm=238" tab-index="2" item-index="238" lst="37-1">Movie Frame</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_4.html?itm=239" tab-index="2" item-index="239" lst="37-1">Movie Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureImageLoaders.html?itm=240" tab-index="2" item-index="240" lst="37-1">Texture Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSnapshot.html?itm=241" tab-index="2" item-index="241" lst="37-1">Snapshot</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureRenderSnapshot.html?itm=242" tab-index="2" item-index="242" lst="37-1">Snapshot Framebuffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureTextureSaver.html?itm=243" tab-index="2" item-index="243" lst="37-1">Texture Saver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideoSourceSelector.html?itm=244" tab-index="2" item-index="244" lst="37-1">Video Source Selector</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVioInput.html?itm=245" tab-index="2" item-index="245" lst="37-1">VIO Input</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSpout.html?itm=246" tab-index="2" item-index="246" lst="37-1">Spout Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureNDI.html?itm=247" tab-index="2" item-index="247" lst="37-1">NDI Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSubstanceLoader.html?itm=248" tab-index="2" item-index="248" lst="37-1">Substance Loader</a></li></ul><div class="list-label list-level-1">VR/AR</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeVrTracked.html?itm=249" tab-index="2" item-index="249" lst="38-1">Tracked Devices</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeVrTracked_2.html?itm=250" tab-index="2" item-index="250" lst="38-1">Draw Tracked Devices</a></li></ul><div class="list-label list-level-1">WORLD</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis.html?itm=251" tab-index="2" item-index="251" lst="39-1">Axis</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_2.html?itm=252" tab-index="2" item-index="252" lst="39-1">Billboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_3.html?itm=253" tab-index="2" item-index="253" lst="39-1">GetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_4.html?itm=254" tab-index="2" item-index="254" lst="39-1">SetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldArrange.html?itm=255" tab-index="2" item-index="255" lst="39-1">Arrange</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTicker.html?itm=256" tab-index="2" item-index="256" lst="39-1">Ticker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTicker_2.html?itm=257" tab-index="2" item-index="257" lst="39-1">Layout</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldGroup.html?itm=258" tab-index="2" item-index="258" lst="39-1">Group</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldZSort.html?itm=259" tab-index="2" item-index="259" lst="39-1">World Z Sort</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSwitch.html?itm=260" tab-index="2" item-index="260" lst="39-1">YesNo</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSwitch_2.html?itm=261" tab-index="2" item-index="261" lst="39-1">Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSpread.html?itm=262" tab-index="2" item-index="262" lst="39-1">Spread</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldRenderPass.html?itm=263" tab-index="2" item-index="263" lst="39-1">Filter Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldRenderPass_2.html?itm=264" tab-index="2" item-index="264" lst="39-1">Set Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldContainer.html?itm=265" tab-index="2" item-index="265" lst="39-1">Hierarchy Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldScenePort.html?itm=266" tab-index="2" item-index="266" lst="39-1">Scene Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldContainer_2.html?itm=267" tab-index="2" item-index="267" lst="39-1">Content Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTemplatePort.html?itm=268" tab-index="2" item-index="268" lst="39-1">Template Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldScenePort_2.html?itm=269" tab-index="2" item-index="269" lst="39-1">Container Info</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldCamera.html?itm=270" tab-index="2" item-index="270" lst="39-1">Camera</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldPath.html?itm=271" tab-index="2" item-index="271" lst="39-1">Paths</a></li></ul></div><h3>Ventuz 6 Configuration Editor</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfiguration_2.html?itm=272" tab-index="3" item-index="272" lst="40-1">Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationMC_2.html?itm=273" tab-index="3" item-index="273" lst="40-1">Machine Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationAV_2.html?itm=274" tab-index="3" item-index="274" lst="40-1">Video/Audio Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationWeb.html?itm=275" tab-index="3" item-index="275" lst="40-1">Web Configuration Editor and License Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MultiDisplaySetupsAndShaping_2.html?itm=276" tab-index="3" item-index="276" lst="40-1">Render Setup Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="WarpingSoftEdgingMasking_2.html?itm=277" tab-index="3" item-index="277" lst="40-1">Warping and Soft-Edging Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationVendors_2.html?itm=278" tab-index="3" item-index="278" lst="40-1">Supported Hardware</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToClusterRendering.html?itm=279" tab-index="3" item-index="279" lst="40-1">How to Setup a Cluster Render</a></li></ul></div><h3>Ventuz 6 Director</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ApplicationSettings.html?itm=280" tab-index="4" item-index="280" lst="41-1">Application Settings</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Assets.html?itm=281" tab-index="4" item-index="281" lst="41-1">Assets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Channels.html?itm=282" tab-index="4" item-index="282" lst="41-1">Channels</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/CommandLineOptions.html?itm=283" tab-index="4" item-index="283" lst="41-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ContentReferences.html?itm=284" tab-index="4" item-index="284" lst="41-1">Content References</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/DesigningTemplates.html?itm=285" tab-index="4" item-index="285" lst="41-1">Designing Templates</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Environment.html?itm=286" tab-index="4" item-index="286" lst="41-1">Environment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Glossary.html?itm=287" tab-index="4" item-index="287" lst="41-1">Glossary</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Index.html?itm=288" tab-index="4" item-index="288" lst="41-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Introduction.html?itm=289" tab-index="4" item-index="289" lst="41-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Pages.html?itm=290" tab-index="4" item-index="290" lst="41-1">Pages</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Playlist.html?itm=291" tab-index="4" item-index="291" lst="41-1">Playlist</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/PlugIns.html?itm=292" tab-index="4" item-index="292" lst="41-1">Plug-Ins</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ProjectData.html?itm=293" tab-index="4" item-index="293" lst="41-1">Project Data</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/PropertyEditor.html?itm=294" tab-index="4" item-index="294" lst="41-1">Property Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Shortcuts.html?itm=295" tab-index="4" item-index="295" lst="41-1">Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GPIConfiguration_2.html?itm=296" tab-index="4" item-index="296" lst="41-1">GPI Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ShotBox.html?itm=297" tab-index="4" item-index="297" lst="41-1">Shot Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Show.html?itm=298" tab-index="4" item-index="298" lst="41-1">Show</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/TakingAction.html?itm=299" tab-index="4" item-index="299" lst="41-1">Taking Action</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Timeline.html?itm=300" tab-index="4" item-index="300" lst="41-1">Timeline</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Topology.html?itm=301" tab-index="4" item-index="301" lst="41-1">Topology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/UserInterface.html?itm=302" tab-index="4" item-index="302" lst="41-1">User Interface</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DirectorMode.html?itm=303" tab-index="4" item-index="303" lst="41-1">Director Mode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Macros.html?itm=304" tab-index="4" item-index="304" lst="41-1">Macros</a></li></ul></div><h3>How To</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToGetVentuzRunning.html?itm=305" tab-index="5" item-index="305" lst="42-1">How to Run Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner_3.html?itm=306" tab-index="5" item-index="306" lst="42-1">How to Work with Designer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToDragAndDropTricks.html?itm=307" tab-index="5" item-index="307" lst="42-1">Ventuz Designer Drag&amp;Drop workflow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToVR_2.html?itm=308" tab-index="5" item-index="308" lst="42-1">How to use Head Mounted Displays</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseShadows.html?itm=309" tab-index="5" item-index="309" lst="42-1">How to work with Shadows</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseEmoijs.html?itm=310" tab-index="5" item-index="310" lst="42-1">How to use Emoijs</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToBuildATemplate.html?itm=311" tab-index="5" item-index="311" lst="42-1">How to Build a Template</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseNDI.html?itm=312" tab-index="5" item-index="312" lst="42-1">How to use Newtek NDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToCreateAVisualsLoaderNode.html?itm=313" tab-index="5" item-index="313" lst="42-1">How to Create Visuals Loader Node</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToRemoteControlWithAniPhone.html?itm=314" tab-index="5" item-index="314" lst="42-1">How to Remote Control with a Phone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToClusterRendering_2.html?itm=315" tab-index="5" item-index="315" lst="42-1">How to Setup a Cluster Render</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToMixedFrameRates.html?itm=316" tab-index="5" item-index="316" lst="42-1">How to use a Mixed Frame Rate Cluster</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseTracking.html?itm=317" tab-index="5" item-index="317" lst="42-1">How to use Tracking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowTo3DLayerReference.html?itm=318" tab-index="5" item-index="318" lst="42-1">How to work with 3D Reference Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToCreateAFireworkParticleSystem.html?itm=319" tab-index="5" item-index="319" lst="42-1">How to create a Firework Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToDDS.html?itm=320" tab-index="5" item-index="320" lst="42-1">How to use DDS with new Block Compression modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseSpout.html?itm=321" tab-index="5" item-index="321" lst="42-1">How to setup Spout with Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseSubstanceIntegration.html?itm=322" tab-index="5" item-index="322" lst="42-1">How to use the Substance Integration</a></li></ul></div><h3>Keyboard Shortcuts</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="SummaryShortcuts_2.html?itm=323" tab-index="6" item-index="323" lst="43-1">Summary Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsLayerEditor_2.html?itm=324" tab-index="6" item-index="324" lst="43-1">Layer Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsHierarchyEditor_2.html?itm=325" tab-index="6" item-index="325" lst="43-1">Hierarchy Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsContentEditor_2.html?itm=326" tab-index="6" item-index="326" lst="43-1">Content Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsAnimationEditor_2.html?itm=327" tab-index="6" item-index="327" lst="43-1">Animation Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Shortcuts_2.html?itm=328" tab-index="6" item-index="328" lst="43-1">Director Shortcuts</a></li></ul></div><h3>Advanced and Development</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="CommandLineOptions.html?itm=329" tab-index="7" item-index="329" lst="44-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Remoting.html?itm=330" tab-index="7" item-index="330" lst="44-1">Remoting Overview</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Remoting4Protocol.html?itm=331" tab-index="7" item-index="331" lst="44-1">Remoting 4</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingWebsocket.html?itm=332" tab-index="7" item-index="332" lst="44-1">Remoting 4 via Websockets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingDeprecated.html?itm=333" tab-index="7" item-index="333" lst="44-1">Deprecated Remoting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzIpPorts.html?itm=334" tab-index="7" item-index="334" lst="44-1">Ventuz IP Ports</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzMachineService.html?itm=335" tab-index="7" item-index="335" lst="44-1">Ventuz Machine Service</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingMachineSignature.html?itm=336" tab-index="7" item-index="336" lst="44-1">Remoting Machine Signature</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="TUIO_2.html?itm=337" tab-index="7" item-index="337" lst="44-1">TUIO</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicScript_2.html?itm=338" tab-index="7" item-index="338" lst="44-1">.NET Scripting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeShaderHLSLShader_2.html?itm=339" tab-index="7" item-index="339" lst="44-1">HLSL Shader Programming</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentSDK.html?itm=340" tab-index="7" item-index="340" lst="44-1">Ventuz API and SDK</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentVIO.html?itm=341" tab-index="7" item-index="341" lst="44-1">Ventuz VIO API</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentVFF.html?itm=342" tab-index="7" item-index="342" lst="44-1">Ventuz File Format (VFF)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentStreamOut.html?itm=343" tab-index="7" item-index="343" lst="44-1">Ventuz Stream Out API</a></li></ul></div><h3>General Reference</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Terminology.html?itm=344" tab-index="8" item-index="344" lst="45-1">Terminology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Pages.html?itm=345" tab-index="8" item-index="345" lst="45-1">Manual Index</a></li></ul></div><h3>Miscellaneous</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Presets.html?itm=346" tab-index="9" item-index="346" lst="46-1">Presets</a></li></ul></div></div></div><!--sidebar end-->
+        <div id="user-manual-content" class="sidebar">
+            
+            <div class="control"><div class="control-prev"><a href="Performance_2.html?itm=38">&laquo; Previous Article</a></div><div><a href="Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="TransformationGizmo.html?itm=40">Next Article &raquo;</a></div></div>
+            <div id="user-manual-main">
+                <p data-line="2" >
+<div class="wiki-toc"><h4>Table of Contents</h4><ol><li><a href="#Displays">Displays</a><ol><li><a href="#Performance">Performance</a><ol><li><a href="#HistoryModeandPause">History Mode and Pause</a></li><li><a href="#InterpretingGPUMeasurement">Interpreting GPU Measurement</a></li><li><a href="#AccumulatedBarsVersusDetailedTimeline">Accumulated Bars Versus Detailed Timeline</a></li><li><a href="#PerformanceImpactofMeasurement">Performance Impact of Measurement</a></li></ol></li><li><a href="#SystemInformation">System Information</a><ol><li><a href="#NodeLimit">Node Limit</a></li></ol></li><li><a href="#GPUInformation">GPU Information</a></li><li><a href="#AVInputsOutputs">AV Inputs / Outputs</a></li><li><a href="#Movies">Movies</a></li><li><a href="#Tracking">Tracking</a></li><li><a href="#LayerProcessing">Layer Processing</a></li><li><a href="#Watches">Watches</a></li></ol></li><li><a href="#Logging">Logging</a><ol><li><a href="#MarkupinLogging">Markup in Logging</a></li><li><a href="#LoggingLimits">Logging Limits</a></li></ol></li><li><a href="#PerformanceMeasurementviaScript">Performance Measurement via Script</a><ol><li><a href="#Logging1">Logging</a></li><li><a href="#PerformanceTiming">Performance Timing</a></li><li><a href="#Example">Example</a></li><li><a href="#ScaleToPreview">Scale To Preview</a></li></ol></li><li><a href="#InterpretingthePerformanceTiming">Interpreting the Performance Timing</a><ol><li><a href="#TheRelationBetweenMainThreadandCPUPercentage">The Relation Between Main Thread and CPU Percentage</a></li><li><a href="#MonitoringMoviePlaybackPerformance">Monitoring Movie Playback Performance</a></li><li><a href="#WhyismyAudioDelaysobig">Why is my Audio Delay so big?</a></li></ol></li><li><a href="#ExplanationoftheVariousBars">Explanation of the Various Bars</a></li></ol></div>
+</p>
+<h1 id="PerformanceStatistics" data-line="4" >Performance Statistics</h1>
+<p data-line="6" >
+The performance statistics is a display rendered above the Ventuz output. It can be enabled from the designer or the live options to analyze performance problems in a scene.
+This has been enhanced as of Ventuz 4.04.00. 
+</p>
+<h2 id="Displays" data-line="9" >Displays</h2>
+<p data-line="11" >
+The performance statistics contain a lot of information. In many cases displaying it all can be a bit overwhelming and requires a lot of screen real-estate. So individual sections can be enabled and disabled and with the <strong>Frame Count</strong> the amount of visible frames can be adjusted:
+</p>
+<p data-line="14" >
+<img src="images/PerformanceStatistics/all.png" style="max-width:849px;width:40%" class="usermanual-image" title="" alt="" />
+<img src="images/PerformanceStatistics/PerfMonMenu.png" style="max-width:179px" class="usermanual-image" title="" alt="" /> <br />
+With all sections enabled, it can look like this:
+</p>
+<p data-line="18" >
+<img src="images/PerformanceStatistics/TotalMon2.png" style="max-width:1766px;width:90%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="20" >
+The display is updated every frame. By pressing the <strong>pause key</strong>, the update of all sections can be paused.
+</p>
+<p data-line="22" >
+Here is an explanation of these sections.
+</p>
+<h3 id="Performance" data-line="24" >Performance</h3>
+<p data-line="26" >
+<img src="images/PerformanceStatistics/TimingBars.png" style="max-width:778px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="28" >
+This gives a detailed breakdown of what happens on the main CPU thread and the GPU. If SDI boards or Webcams are in use, it will also display the timing of the Video IO thread. 
+</p>
+<p data-line="30" >
+The percentages are averaged over the last 64 frames. The colored bars show in more detail which part of Ventuz is performing worst. By hovering over the bars, a tool-tip explains what the bars stand for. The vertical white lines represent frames. The display is configured to show two frames, assuming you are most interested in performance when things are bad.
+</p>
+<p data-line="32" >
+Please note that the performance statistics are about frames, not fields. So when running at 1080i50, expect a <strong>frame</strong>rate of 25Hz, and the bars show information about rendering two fields. This is especially interesting for the video engine, as it does most of its work per frame and not per field.
+</p>
+<p data-line="34" >
+In general:
+</p>
+<ul class="" start="1"><li data-line="35" >White bars represent the designer user interface. Switch off the monitor buttons in the property and layer view to reduce this.
+</li><li data-line="36" >Green bars represent rendering (on CPU and GPU)
+</li><li data-line="37" >Red bars represent validation (on CPU)
+</li><li data-line="38" >Cyan bars represent resource generators (on CPU mostly)
+</li><li data-line="39" >Yellow/Orange bars represent layers / post-processing
+</li><li data-line="40" >Blue bars represent idle time (only displayed when "accumulated bars" is switched off, see below)
+</li><li data-line="41" >The video engine thread does not follow this color scheme.
+</li></ul><p data-line="43" >
+By default, bars for two frames are displayed. If the scene runs slower than two frames, the bars are truncated. To display more or less then two frames, the number of frames can be changed with the <strong>FrameCount</strong> setting in the performance pull-down menu.
+</p>
+<h4 id="HistoryModeandPause" data-line="44" >History Mode and Pause</h4>
+<p data-line="46" >
+To see spikes in performance better, enable the <strong>History Mode</strong> with the drop-down box. Pressing the <strong>pause key</strong> on keyboard will pause and continue the update of the bars. When the history mode is on and pause mode is on, use the page-up and page-down keys to scroll. Pressing the control key will scroll faster.
+</p>
+<p data-line="48" >
+<img src="images/PerformanceStatistics/HistoryBars.png" style="max-width:750px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="50" >
+The numbers before the lines are the last three digits of the cluster clock
+</p>
+<h4 id="InterpretingGPUMeasurement" data-line="52" >Interpreting GPU Measurement</h4>
+<p data-line="54" >
+When analyzing performance, the first thing to notice is whether it is the CPU or GPU that is limiting Ventuz performance. 
+</p>
+<p data-line="56" >
+Unfortunately, the GPU measurement is sometimes incorrect. Especially when the GPU isn't doing much, it might stall in the middle of the measurement, displaying a high GPU utilization while it is actually doing little. Enable the <strong>Stall GPU</strong> option: this will negatively effect frame-rate, but correctly tell whether CPU or GPU is the bottleneck. 
+</p>
+<h4 id="AccumulatedBarsVersusDetailedTimeline" data-line="58" >Accumulated Bars Versus Detailed Timeline</h4>
+<p data-line="60" >
+<img src="images/PerformanceStatistics/NonAccumulated.png" style="max-width:473px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="62" >
+By default, the display uses <strong>accumulated bars</strong>. When this is disabled, the bars show the exact timing as it happens on the CPU or GPU, and not just accumulated values. Also, one can see the various periods where the CPU is possibly waiting for the GPU (blue "idle" bars). In this mode, one can also see how the bars are stacked: <strong>ContentValidation</strong> and <strong>HierarchyValidation</strong> are stacked on top of <strong>Validation</strong>, which shows the total time including what is stacked on top.
+</p>
+<h4 id="PerformanceImpactofMeasurement" data-line="64" >Performance Impact of Measurement</h4>
+<p data-line="66" >
+Such detailed performance measurement is not for free, and especially the "Stall GPU" option slows things down. When the performance monitor is completely disabled, or the timing section is disabled, no data is recorded and therefore impact to performance is negligible. You can see the difference by switching the timing section ("Performance" in the menu) on and off while keeping the system information on.
+</p>
+<p data-line="68" >
+More information about how to interpret this below.
+</p>
+<h3 id="SystemInformation" data-line="70" >System Information</h3>
+<p data-line="72" >
+<img src="images/PerformanceStatistics/SystemInformation.png" style="max-width:655px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="74" >
+<strong>Clock</strong> is the internal cluster-synchronized clock of Ventuz. It counts video frames, or fields when in interlaced mode. This line also shows the Cluster clock converted into seconds, minutes, hours and days. Then follows the Cluster ID of this machine, and the Machine ID from which the clock is taken (in a cluster).
+</p>
+<p data-line="76" >
+The last few numbers count the frames that were skipped or duplicated because of cluster synchronization, and the reason for the last skipping or duplication.
+</p>
+<p data-line="78" >
+<strong>Framerate</strong> is the frame-rate and frame duration, accumulated over the last 64 frames (or fields). Again, in interlaced mode this is the rate of full frames with two fields. It shows the actual measured frame-rate and the expected frame-rate. This information is displayed again, converted into milliseconds. 
+</p>
+<p data-line="80" >
+<div class="noteboxnote"><p>
+When tweaking performance, think in milliseconds, not fps. You can easily do math in milliseconds, like 3ms + 7ms = 10ms. You can't do that with FPS. 333fps + 143 fps = 100 fps? That's correct, the same numbers as above, but it just doesn't make sense. Also, getting from 40 fps to 50 fps is 5ms, getting from 50 to 60 is 3.3 ms. Squeezing a millisecond is always the same, a difference in fps is essentially meaningless.
+</p>
+</div>
+</p>
+<p data-line="82" >
+<strong>Active Bindings (P+E)</strong> shows the number of validated bindings of each frame. The first number shows property bindings and the second one shows event bindings. 
+</p>
+<p data-line="84" >
+<strong>CPU Load</strong> Tells the total CPU load by the Ventuz process. The Performance Timing bars above only capture the main thread and the video thread. The most important other threads are:
+</p>
+<ul class="" start="1"><li data-line="86" >The DirectX driver usually spawns multiple threads that can not be monitored directly.
+</li><li data-line="87" >Movie playback creates at least one thread per Movie, and may be many more if the codec supports multi-threading (which it usually does).
+</li></ul><p data-line="89" >
+The <strong>Scenes</strong> count behind the CPU Load simply indicates how many scenes are currently loaded into memory.
+</p>
+<p data-line="91" >
+<strong>CPU Memory</strong> shows the percentage of physical memory Ventuz takes up, and how much memory is swapped on disk. The values come directly from the operating system, so they include memory that is allocated indirectly, for instance by DirectX.
+</p>
+<p data-line="93" >
+<strong>GPU Memory</strong> shows the percentage of GPU memory Ventuz uses. The values are counted manually by Ventuz whenever it creates or destroys a resource. Since the driver may have some overhead that is not knowable to Ventuz, the actual amount of GPU memory used may be larger.<br />
+For instance, the driver may need to round up the width of a texture to the next power of two, so a 640 pixel wide texture gets rounded to 1024, a substantial difference. Ventuz can not know this and reports the incorrect amount. The <strong>Clock</strong> shows the current core frequency as well as the base frequency.
+</p>
+<p data-line="96" >
+<div class="noteboxnote"><p>
+Note that the <strong>GPU Cloclk</strong> field shows the frequency of the core not that of the memory. It can go beyond 100% when overclocking the GPU.
+</p>
+</div>
+</p>
+<p data-line="98" >
+Further information on the GPU can be found as well: The manufacturer as well as the model name, its core number and its core group granularity is diplayed right below the memory usage bars.
+</p>
+<p data-line="102" >
+<strong>GPU</strong>: <strong>Indices</strong> is the number of Vertices drawn ignoring reuse. Each triangle contributes 3 indices, each line only 2. <strong>DrawCalls</strong> are the number of times something is drawn. With font rendering, multiple draw calls can be combined to a batch. The number of <strong>Batches</strong> is the most important indicator on how much time is spend in the graphics driver. Another trick used by font rendering to reduce the number of batches is <strong>Instancing</strong>.
+</p>
+<h4 id="NodeLimit" data-line="104" >Node Limit</h4>
+<p data-line="106" >
+In the <a class="wiki" href="VentuzEditions.html#CommunityEdition">Community Edition</a> of Ventuz you will find an additional <strong>Node Limit</strong> in this list. It indicates the currently rendered <a class="wiki" href="NodesAndBindings.html#PrimaryNodes">Primary Nodes</a> and their maximum allowed number.
+</p>
+<p data-line="108" >
+<img src="images/PerformanceStatistics/NodeLimit.png" style="max-width:685px" class="usermanual-image" title="" alt="" />
+</p>
+<h3 id="GPUInformation" data-line="110" >GPU Information</h3>
+<p data-line="112" >
+<img src="images/PerformanceStatistics/GPUInformation.png" style="max-width:980px" class="usermanual-image" title="" alt="" />
+ 
+<strong>Gfx-State</strong>: Each material is represented as a gfx-state when it is actually drawn. Each frame the states are <strong>set</strong> and possibly need an <strong>update</strong>. Updating is especially expensive if the shader-<strong>signature</strong> has changed and the exact shader variant has to be determined. this gets even more expensive if the shader is new and needs to be <strong>compiled</strong>. You should make sure your Signature values are near 0 and Compiles are always 0.
+</p>
+<p data-line="116" >
+<strong>Dynamic Geometry</strong>: Ventuz will do some <strong>FastUploads</strong> for interal purposes. When a geometry is animated by binding it, this will issue a <strong>SlowUpload</strong> when a value changes. How slow such an update is depends on how complex the vertex format is: Most vertex formats will undergo no conversion or a <strong>QuickVertexConvert</strong>. Sometimes a <strong>SlowVertexConvert</strong> has to be done, this should be avoided on animated geometries.
+</p>
+<p data-line="118" >
+<strong>Creation Calls</strong> are an exceptionally expensive part of the DirectX API and should only happen during scene loading. 
+</p>
+<p data-line="120" >
+<strong>Persistent Resources</strong> are resources that accumulate and are never deleted until Ventuz is quit. <strong>VertexFormats</strong> and <strong>VertexConverters</strong> are cheap internal resources that should stay below 25. <strong>Shaders</strong> is the number of different shaders that have been used since Ventuz started.
+</p>
+<p data-line="122" >
+<strong>GPU Memory</strong>: this shows how GPU memory is divided into <strong>geometry</strong> (vertex and index buffers), <strong>textures</strong> and <strong>Color/Depth Target</strong> (textures used as rendertarget or depth buffer).
+</p>
+<h3 id="AVInputsOutputs" data-line="124" >AV Inputs / Outputs</h3>
+<p data-line="126" >
+<img src="images/PerformanceStatistics/VideoMon.png" style="max-width:658px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="128" >
+This is a list of all Audio and Video Devices and their states.
+</p>
+<p data-line="130" >
+The states mean:
+</p>
+<ul class="" start="1"><li data-line="132" ><strong>Ready</strong>: input stream waiting for a signal
+</li><li data-line="133" ><strong>PreSync</strong>: first phase of syncing a stream
+</li><li data-line="134" ><strong>Syncing</strong>: stream has found a signal and is synchronizing to that signal
+</li><li data-line="135" ><strong>Disabled</strong>: stream is temporarily disabled, but uses up resources and can get running immediately.
+</li><li data-line="136" ><strong>Running</strong>: stream is running
+</li><li data-line="137" ><strong>Bypass</strong>: stream is in bypass mode because of hardware-watchdog
+</li><li data-line="138" ><strong>Error </strong>: stream is disabled and uses up no resources. Either because the stream failed somehow or the stream was disabled in the Live Video node, or the stream is not needed by the Ventuz scene.
+</li></ul><p data-line="140" >
+The bar shows how many buffers are allocated and if they are full. This is only shown when Ventuz manually manages buffers, like for SDI streams. For an output stream, the buffers should be as full as possible, and when Ventuz is too slow the buffers are drained, a drop is only visible when the queue gets empty. For input streams, the buffers should be as empty as possible, when Ventuz is too slow the queue fills up so that Ventuz can process the images later on. Input frames are only dropped if the queue overflows.
+</p>
+<p data-line="142" >
+Next is a list of audio cross-points. It shows the amount of delay that is associated with the cross-point. Delay is needed for windows audio devices or asynchronous inputs.
+</p>
+<h3 id="Movies" data-line="144" >Movies</h3>
+<p data-line="146" >
+<img src="images/PerformanceStatistics/MovieMon.png" style="max-width:847px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="148" >
+For each enabled movie related node, this shows information about the movie. This is especially important since most of the CPU load done by movies is not captured in the performance timing bars.
+</p>
+<p data-line="150" >
+For each movie, the state, position, lead, buffering and file-name is shown.
+</p>
+<p data-line="152" >
+The states are:
+</p>
+<ul class="" start="1"><li data-line="153" ><strong>error</strong>: the stream failed
+</li><li data-line="154" ><strong>busy</strong>: Internal operation
+</li><li data-line="155" ><strong>empty</strong>: No file was loaded
+</li><li data-line="156" ><strong>loadmeta</strong>: loading metadata
+</li><li data-line="157" ><strong>loadinfo</strong>: prepare playback
+</li><li data-line="158" ><strong>active</strong>: normal playback
+</li><li data-line="159" ><strong>pause</strong>: playback is paused
+</li><li data-line="160" ><strong>seek</strong>: seeking
+</li><li data-line="161" ><strong>waitstream</strong>: for <strong>Movie Stream</strong> nodes, waiting for a stream to receive
+</li></ul><p data-line="163" >
+When multiple scenes are load into Ventuz, all the inactive scenes have still their audio player initalized. This may waste lots of GPU and CPU memory for the frame-buffers. Movies from inactive scenes have gray text instead of white. Ventuz will automatically take care to put movie clips from inactive scenes into pause mode, so that at least no effort is wasted in decoding frames that are never displayed.
+</p>
+<p data-line="165" >
+The <strong>lead</strong> works like this: When the clip is not in async mode, and Ventuz runs in a cluster, it can happen that seeking to a position is not good enough because when the seek is complete, time has passed and the video is already too late. To avoid this problem, always pause the video, seek, wait a bit and then un-pause. If this is not done, Ventuz will notice the problem and automatically seek to a position slightly in the future, like when shooting skeet. A lead of 0 means no problem, 1 means that Ventuz considers leading but hasn't done it already, and higher numbers indicate increasing amounts of lead-time.
+</p>
+<p data-line="167" >
+The buffers show how many buffers Ventuz has allocated and how many frames in the future are available. If these buffers run dry, increase the number of buffers for that movie. At the end of each line you can see the exact Cluster Clock when each Movie <strong>Started</strong>. Like the <strong>lead</strong> this is mainly useful to check syncronization of movies in a cluster.
+</p>
+<p data-line="169" >
+In the Ventuz Designer, one can jump directly to a movie node by right-clicking on the name of a movie. A message is displayed to hint this:
+</p>
+<p data-line="171" >
+<img src="images/PerformanceStatistics/MovieHover.png" style="max-width:960px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="173" >
+Here the top movie is in an inactive scene (therefore it is displayed in gray, by right-clicking on it one can see where the node is hidden.
+</p>
+<h3 id="Tracking" data-line="175" >Tracking</h3>
+<p data-line="179" >
+When a <a class="wiki" href="HowTo/HowToUseTracking.html">camera tracking</a> system is used, debug information can be shown. Ventuz will display the view and projection matrix, plus the K1 and K2 values and lens center shift in x and y for the lens distortion, all received from the tracking system.
+</p>
+<p data-line="183" >
+<img src="images/PerformanceStatistics/Tracking.png" style="max-width:715px" class="usermanual-image" title="" alt="" />
+</p>
+<h3 id="LayerProcessing" data-line="186" >Layer Processing</h3>
+<p data-line="188" >
+The layer engine will magically convert your layering into an optimized set of shaders. Each shader call can blend up to 8 layers together, if conditions are right. 
+</p>
+<p data-line="190" >
+To check how well the engine does in combining effects into single shaders, you can look ad the layer processing. 
+</p>
+<p data-line="192" >
+Each line represents:
+</p>
+<ul class="" start="1"><li data-line="193" ><strong>render</strong>ing a scene
+</li><li data-line="194" >doing a <strong>multisample resolve</strong> after rendering a scene, if multisampling is enabled. This converts the multisampled rendertarget into a single-sampled texture that can be used by a shader.
+</li><li data-line="195" >making a <strong>texture</strong> available for layer-blending (this is for free)
+</li><li data-line="196" >doing a <strong>blit</strong>, using a shader.
+</li><li data-line="197" ><strong>nop</strong>, no operation, a leftover from merging two blits together.
+</li></ul><p data-line="199" >
+<img src="images/PerformanceStatistics/LayerProcessing.png" style="max-width:988px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="201" >
+The log will reference textures and rendertargets with <strong>!#00</strong>, where 00 is replaced by a number assigned to the texture / rendertarget. Blits reference their sources by referencing to other lines in the log, using the notation <strong>@000</strong>. In the example you can see how a scene is rendered to color buffer !#06 and depth buffer !#07, then the color buffer is resolved to !#08 and the whole thing is referenced as line @003 in the first blit.
+</p>
+<p data-line="203" >
+Some effect will create only a small shader snipped in one of the blits, like the grayscale and the color correct effect. Other effects, like the blur, will create multiple shaders, even changing depending on parameters. In the example above, the two downsample and the two blur blits are generated by a blur effect
+</p>
+<p data-line="205" >
+Layer Blending will create <strong>Blend.XXXX</strong> blits, with XXXX being the blend-mode. The last blit line shows how multiple blends and other effects are merged into a single blit, the two nops being leftovers from the merge process.
+</p>
+<p data-line="207" >
+As a rule of thumb: the less blits the better, and everything with blur in the name and the downsample box are especially expensive.
+</p>
+<h3 id="Watches" data-line="209" >Watches</h3>
+<p data-line="211" >
+The watches show all currently watched properties in the scene tree. For more information see the <a class="wiki" href="WatchesEditor.html#PerformanceStatistics">Watches Editor page</a>.
+</p>
+<h2 id="Logging" data-line="213" >Logging</h2>
+<p data-line="215" >
+The performance monitor allows high performance logging. This is divided in two sections: <strong>Frame logging</strong> is replaced every frame, and can be used for watching values as they changed. This will look like the other performance statistics. 
+</p>
+<p data-line="217" >
+The <strong>console</strong> will work like a normal log file where messages printed will scroll endlessly. 
+This is useful to capture events and state changes.
+</p>
+<p data-line="220" >
+<img src="images/PerformanceStatistics/LogNode.png" style="max-width:640px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="222" >
+Use the <strong><a class="wiki" href="NodeLogicLog.html">Log Node</a></strong> or scripts to do frame and console logging.
+</p>
+<h3 id="MarkupinLogging" data-line="223" >Markup in Logging</h3>
+<p data-line="225" >
+The strings <tt>[sb:10/100]</tt>, <tt>[mb:10/100]</tt>, <tt>[lb:10/100]</tt> will paint a small, medium or long bar which will be filled for 10 of 100 parts (10 %). This bar looks like the Memory bars in the System Information section. The numbers will be printed as written, and the bar-length will be calculated by the division. So 33/100 will yield approximately the same bar-length as 1/3, but display different numbers.
+</p>
+<p data-line="227" >
+<tt>[!</tt> will print text brighter until <tt>]</tt> is encountered, line in <tt>dim [! bright] dim</tt>.
+</p>
+<p data-line="229" >
+The text-color can be changed with <tt>[tc:rgb]</tt> and <tt>[tc:rrggbb]</tt>, where <strong>r</strong>, <strong>g</strong> and <strong>b</strong> must be replaced by web-style hex-colors. Again, the text in the brackets will be effected. Example: <tt>white [tc:ff0000 red] white</tt>.
+</p>
+<p data-line="231" >
+When logging, c# will convert <tt>\n</tt> to linefeed (ASCII 10) and <tt>\f</tt> to formfeed  (ASCII 12). Linefeeds will work normally, no <tt>\r</tt> carriage return (ASCII 13) is needed. Formfeeds will insert a half-sized linefeed. This is used between the sections of the performance statistics.
+</p>
+<p data-line="233" >
+The codes <tt>\\</tt>, <tt>\[</tt> and <tt>\]</tt> are parsed by the logging system and can be used for escaping. Other uses of the backslash will print the backslash normally. So in a c# script, one can write <tt>\\[</tt> to escape a <tt>[</tt>.
+</p>
+<h3 id="LoggingLimits" data-line="235" >Logging Limits</h3>
+<p data-line="237" >
+When using resolutions larger than HD, it becomes noticeable that the console logging area is limited to 238 x 96 characters. Frame logging is limited to 8095 characters total.
+</p>
+<h2 id="PerformanceMeasurementviaScript" data-line="239" >Performance Measurement via Script</h2>
+<h3 id="Logging1" data-line="241" >Logging</h3>
+<p data-line="243" >
+For <strong>frame-logging</strong> use <tt> Ventuz.Kernel.Tools.PerfMon.PrintFrame </tt>. This information will be overwritten every frame.
+</p>
+<p data-line="245" >
+For <strong>console-style logging<em> use <tt>Ventuz.Kernel.Tools.PerfMon.PrintConsole</tt>. 
+</em></strong></p>
+<p data-line="247" >
+All this logging is high-performance and when the performance monitor is disabled, the only cost of this is the formatting of the string.
+</p>
+<h3 id="PerformanceTiming" data-line="249" >Performance Timing</h3>
+<p data-line="251" >
+This explains how to add custom colored-bars to the performance timing.
+</p>
+<p data-line="253" >
+First, a token must be created as a static member:
+</p>
+<pre class="wiki">public static Ventuz.Kernel.Tools.PerfMon.Token Script1 = 
+    new Ventuz.Kernel.Tools.PerfMon.Token(&#34;Script1&#34;, 0xff8000);
+</pre><p data-line="260" >
+The token has a name and a color. The color is given as hex web-color in RRGGBB format.
+</p>
+<p data-line="262" >
+To measure something, use the token:
+</p>
+<pre class="wiki">using(Script1.MeasureCpu)
+{
+    System.Threading.Thread.Sleep(3);
+}
+</pre><h3 id="Example" data-line="271" >Example</h3>
+<p data-line="273" >
+Here is a complete example:
+</p>
+<pre class="wiki">using System;
+using Ventuz.Kernel;
+using Ventuz.Kernel.Tools;
+
+
+
+public class Script : ScriptBase, System.IDisposable
+{
+    private bool changed;
+    
+    public Script()
+    {
+    }
+    
+    public virtual void Dispose()
+    {
+    }
+
+    // Token for Performance Timing
+
+    public static PerfMon.Token Script1 = 
+        new PerfMon.Token(&#34;Script1&#34;, 0xff8000);
+	
+    public override void Validate()
+    {
+        changed = true;
+		
+        // Logging that will be overwritten every frame
+
+        PerfMon.PrintFrame(&#34;Hello World\n&#34;);
+
+        // Logging that will spam the console
+
+        PerfMon.PrintConsole(&#34;LogLogLog\n&#34;);
+
+        // wait a few milliseconds, and add a bar to timing
+
+        using(Script1.MeasureCpu)
+        {
+            System.Threading.Thread.Sleep(3);
+        }
+    }
+
+    public bool OnEnable(int arg)
+    {
+	Ventuz.Kernel.Tools.PerfMon.ConsoleLogEnabled = true;
+	Ventuz.Kernel.Tools.PerfMon.FrameLogEnabled = true;
+	return false;
+    }
+
+    public bool OnDisable(int arg)
+    {
+	Ventuz.Kernel.Tools.PerfMon.ConsoleLogEnabled = false;
+	Ventuz.Kernel.Tools.PerfMon.FrameLogEnabled = false;
+	return false;
+    }    
+
+    public override bool Generate()
+    {
+        if (changed)
+        {
+            changed = false;
+            return true;
+        }
+
+        return false;
+    }
+}
+</pre><p data-line="346" >
+To make this example work, add an integer input to the <strong>C# script</strong> node and connect it to the cluster-clock output of the <strong>SystemID</strong> node. This will update the script every frame, although the value of cluster-clock is ignored.
+</p>
+<h3 id="ScaleToPreview" data-line="348" >Scale To Preview</h3>
+<p data-line="350" >
+If working in Designer with <a class="wiki" href="StageEditor.html">RenderSetups</a> of high resolution in <em>Machine or Cluster Preview</em> modes, the Performance Statistics rendering might get very tiny. To scale it up to the preview window size, enable this option.
+</p>
+<h2 id="InterpretingthePerformanceTiming" data-line="352" >Interpreting the Performance Timing</h2>
+<h3 id="TheRelationBetweenMainThreadandCPUPercentage" data-line="354" >The Relation Between Main Thread and CPU Percentage</h3>
+<p data-line="356" >
+Assume a computer with a 4 core processor with hyper-threading. That makes 8 logical threads.
+</p>
+<p data-line="358" >
+If a Ventuz scene takes 60% on the <strong>Main Thread</strong>, and no other time-consuming tasks are done (movie replay, heavy load on the DirectX driver), the <strong>CPU</strong> percentage should show ca. 7%, as the CPU is able to run 8 threads at the same time, and one of these threads is at 60% load.
+</p>
+<p data-line="360" >
+Now, hyper-threading is not perfect. One can expect a 50% performance boost through hyper-threading at best, making it feel more like a 5-6 core than an 8 core machine. Still the CPU percentage display will consider all threads the same, as the actual performance boost is highly depending on the application.
+</p>
+<h3 id="MonitoringMoviePlaybackPerformance" data-line="362" >Monitoring Movie Playback Performance</h3>
+<p data-line="364" >
+The movie playback does not show on the <strong>Main Thread</strong>. But it shows in the following way:
+</p>
+<ul class="" start="1"><li data-line="366" >The <strong>CPU</strong> percentage includes all video decoding. 
+</li><li data-line="367" >The status of each movie player can be displayed. Check if there are more active movie players than expected, or if movie players are switched on and off unnecessarily.
+</li><li data-line="368" >Transfering the image from the CPU where it is decoded to the GPU and performing the color space conversion takes some time on the GPU, displayed as dark-green bar in the performance timing.
+</li></ul><p data-line="370" >
+When playing low frame-rate video (24 or 30 fps) on full frame-rate outputs (50 or 60 fps), the GPU processing is not performed every frame. Turning on the <strong>History</strong> option for the performance timing reveals this: The GPU processing is done only every second or third frame. Be aware that while the average GPU load may be below 100%, individual frames may spike beyond the 100% mark.
+</p>
+<h3 id="WhyismyAudioDelaysobig" data-line="372" >Why is my Audio Delay so big?</h3>
+<p data-line="374" >
+In the <strong>AV Inputs/Outputs</strong> section, the delay of the audio crosspoints is displayed. This delay is inserted automatically by Ventuz to have some buffer when audio devices do not deliver data completely synchronous. Lets consider an example where an audio crosspoint goes from SDI-In to SDI-Out for a refresh rate of 59.94 Hz (Interlaced). The delay will be quite larget. What's going on here?
+</p>
+<ul class="" start="1"><li data-line="376" >Most likely the input is set to "autodetect". So Ventuz must assume the longest possible frame to buffer.
+</li><li data-line="377" >If the framerates match perfectly, the buffer must hold exactly one frame. If they don't match, the buffer must hold the duration of both input plus output frame to handle worst case scenarios.
+</li><li data-line="378" >If the input has the same framerate as the output, is genlocked, and set to synchronous, the delay will be either 2 or 0 samples.
+</li><li data-line="379" >If the framerate is a 1000/1001 timing like 59.94 Hz (drop frame timing), a 2 samples buffer must be inserted because input and output might in a different phase when it comes to audio-frame lengths.
+</li><li data-line="380" >When using <strong>Blackmagic</strong> boards, an extra video-frame of audio-delay is inserted. this is because unlike all other supported vendors, the Blackmagic SDK handles audio and video with separate timing.
+</li></ul><p data-line="382" >
+So for shortest delays:
+</p>
+<ul class="" start="1"><li data-line="384" >don't use autodetect, specify video format manually
+</li><li data-line="385" >have input and output at the same frame-rate (but may be different resolution)
+</li><li data-line="386" >genlock input and output and set input to "synchronized"
+</li><li data-line="387" >If you have the choice, use a timing without drop-frames.
+</li></ul><h2 id="ExplanationoftheVariousBars" data-line="389" >Explanation of the Various Bars</h2>
+<p data-line="391" >
+<strong>Red</strong>(ish): Validation
+</p>
+<ul class="" start="1"><li data-line="393" >Validation : update bindings and nodes
+<ul class="" start="1"><li data-line="394" >ContentValidation : content nodes
+</li><li data-line="395" >HierarchyValidation : hierarchy nodes
+</li></ul></li><li data-line="396" >ResourceLoad : Sending resources (Texture, Geometry) from CPU to GPU.
+</li></ul><p data-line="398" >
+<strong>Green</strong>(ish): Rendering
+</p>
+<ul class="" start="1"><li data-line="400" >RenderSetupBegin : Overhead before rendering can start
+</li><li data-line="401" >RenderSetupEnd : Overhead after rendering has finished. This includes Warping.
+</li><li data-line="402" >Render : walk the hierarchy nodes and find out what needs to be rendered (<em>recording</em>)
+<ul class="" start="1"><li data-line="403" >Main : render the recording for the main rendering pass
+</li><li data-line="404" >Mirror : render the recording for simple mirrors (no rendertarget)
+</li><li data-line="405" >FxMirror : render the recording for effect mirrors (with rendertarget)
+</li><li data-line="406" >CubeReflection : render the recording 6 times to build a cubemap reflection
+</li><li data-line="407" >Shadowmap : render the recording for spot and directional shadows
+</li><li data-line="408" >PointShadowmap : render the recording 6 times to build a cube-shadow-map.
+</li><li data-line="409" >BoundBoxCalculation : bounding box calculation needed to determinate the size of directional shadowmaps.
+</li></ul></li></ul><p data-line="411" >
+Some shaders get special colors:
+</p>
+<ul class="" start="1"><li data-line="413" >Glow : <strong>Glow</strong> node
+</li><li data-line="414" >BlurTextureSimple : <strong>Blur Texture Simple</strong> node
+</li><li data-line="415" >HLSLShader: <strong>HLSL Shader</strong> node
+</li><li data-line="416" >TextRendering: <strong>Text</strong> nodes
+</li><li data-line="417" >MovieClip : CPU to GPU transfer and color space conversion during movie replay
+</li></ul><p data-line="419" >
+<strong>Blue</strong>(ish): Idle
+</p>
+<p data-line="421" >
+The Idle markers are only shown when <strong>Accumulated Bars</strong> is switched off.
+</p>
+<ul class="" start="1"><li data-line="423" >Present: wait for next frame.
+</li><li data-line="424" >PreventD3DQueuing: wait for GPU to prevent the GPU from queuing up multiple frames.
+</li><li data-line="425" >ResourceLock : wait for GPU to have access to some GPU resource (Texture, Geometry)
+</li><li data-line="426" >Blit : A CPU stall that can occur in RenderSetupEnd. This is just an artifact of the measurement method.
+</li><li data-line="427" >HardGpuStall : force synchronization of CPU &amp; GPU when <strong>GPU Stall</strong> option is enabled.
+</li><li data-line="428" >BeginVideo : waiting for video at the start of a frame
+</li><li data-line="429" >EndVideo : waiting for video at the end of a frame
+</li></ul><p data-line="431" >
+<strong>Yellow</strong>(ish): Postprocessing
+</p>
+<ul class="" start="1"><li data-line="432" >PreparePostProcess: Analyze effects &amp; layers and figure out how to combine various shaders
+</li><li data-line="433" >PostProcess: actually execute the postprocessing
+</li><li data-line="434" >Some postprocessing shaders take longer than others and are marked individually
+<ul class="" start="1"><li data-line="435" >Blur: Shaders in postprocessing that blur the image
+</li><li data-line="436" >Downsample: Shaders in postprocessing that downsample the image to trade of quality for speed for the blurring.
+</li><li data-line="437" >DoF: Shaders that implement depth of field.
+</li></ul></li></ul><p data-line="439" >
+<strong>Cyan</strong>(ish): Resource Generation
+</p>
+<ul class="" start="1"><li data-line="441" >ResourceGen : A resource gets update, and is none of the below:
+</li><li data-line="442" >TextureResourceGen : Texture resource update
+</li><li data-line="443" >TextResourceGen : Text resource update : this happens when text or layout changes
+</li><li data-line="444" >GeometryResourceGen : Geometry resource update
+</li><li data-line="445" >XMLResourceGen : XML/XPath/XSLT resource update
+</li><li data-line="446" >ShaderResourceGen : Shader resource update
+</li></ul><p data-line="448" >
+<strong>Video Process</strong>: 
+</p>
+<ul class="" start="1"><li data-line="450" >InputHandling : Processing for Inputs, excluding DMA and colorspace conversion
+</li><li data-line="451" >InputDma : DMA transfer for input streams
+</li><li data-line="452" >InputColorSpace : Color space conversion for input streams
+</li><li data-line="453" >OutputHandling : Processing for Outputs, excluding DMA and colorspace conversion
+</li><li data-line="454" >OutputDma : DMA transfer for output streams
+</li><li data-line="455" >OutputColorSpace : Color space conversion for output streams
+</li><li data-line="456" >EndFieldGpuStall : Synchronization between CPU and GPU at the end of a frame
+</li><li data-line="457" >WaitForFrame : Processing during waiting for frame (for all streams)
+</li><li data-line="458" >Wait : Idle time during waiting for frame (this time is used by other threads)
+</li><li data-line="459" >FinishFrame : Processing at the end of a frame (for all streams)
+</li></ul><p data-line="461" >
+<strong>Other</strong>
+</p>
+<ul class="" start="1"><li data-line="463" >Runtime (gray) : The Ventuz Runtime. All major processing should have it's own color, this catches smaller tasks that seemed unimportant to measure individually
+</li><li data-line="464" >no bar (transparent) : When in <strong>Accumulated Bars</strong> mode, the times do not add up to 100%. These gaps are time spend with other processes or in the user interface. Especially in the designer, a lot of time may be spend in the user interface when there is mouse-movement.
+</li><li data-line="465" >InputProcessing (gray) : processing of touch events.
+</li><li data-line="466" >PerfMon (gray) : performance monitor rendering.
+</li></ul><p data-line="469" >
+<div class="usermanual-see-also">
+  See also:<ul class="usermanual-see-also">
+<li><a class="wiki" href="RealtimeRendering.html">Introduction to Realtime Rendering</a></li>
+<li><a class="wiki" href="SceneStatistics.html">Scene Statistics</a></li>
+</ul></div>
+</p>
+
+            </div>
+            <div class="control"><div class="control-prev"><a href="Performance_2.html?itm=38">&laquo; Previous Article</a></div><div><a href="Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="TransformationGizmo.html?itm=40">Next Article &raquo;</a></div></div>
+            <div id="footer">
+    Copyright 2020 Ventuz Technology
+</div>
+        </div>
+    </body>
+</html>

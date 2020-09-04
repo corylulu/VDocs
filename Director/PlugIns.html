@@ -1,0 +1,924 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>UserManual/Director/PlugIns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript" src="../js/usermanual.js"></script>
+        <script src="../js/jquery-1.11.3.min.js"></script><script src="../js/jquery-ui.min.js"></script><script type="text/javascript">
+    function getParam(name, defaultValue) {
+        var url = window.location.search.substring(1);
+        var vars = url.split('&');
+        for (var i = 0; i < vars.length; ++i) {
+            var param = vars[i].split('=');
+            if (param[0] == name) {
+                return param[1];
+            }
+        }
+        return defaultValue;
+    }
+
+    jQuery(document).ready(function($) {
+        var link;
+        var itemIndex = getParam('itm', -1)
+        if (itemIndex != -1) {
+            var link = $('a[item-index="' + itemIndex + '"]:first');
+        } else {
+            var page = window.location.pathname;
+            var parts = page.split("/");
+            if (parts.length >= 2) {
+                page = parts[parts.length-2] + "/" + parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+            if ( link.length === 0 && parts.length >= 1 ) {
+                page = parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+        }
+
+        var tabIndex = 0;
+        if (link.length > 0) {
+            tabIndex = parseInt(link.attr("tab-index"), 10);
+            link.addClass('current');
+            link.parent().addClass('current');
+        }
+
+        $("#navigation").accordion({
+            heightStyle: "content",
+            collapsible: true,
+            active: tabIndex
+        });
+
+        $('#sidebar').scrollTop(link.offset().top - 20);
+    });
+    </script>
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <!--sidebar begin--> <div id="sidebar"><h1>Navigation</h1><div id="navigation"><h3>Ventuz 6 Quick Guide</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../QuickGuideIntro.html?itm=0" tab-index="0" item-index="0" lst="1-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../GettingStarted.html?itm=1" tab-index="0" item-index="1" lst="1-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../VentuzEditions.html?itm=2" tab-index="0" item-index="2" lst="1-1">Ventuz Editions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../OverallViewDesigner.html?itm=3" tab-index="0" item-index="3" lst="1-1">Designer Overview</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../SystemRequirements.html?itm=4" tab-index="0" item-index="4" lst="1-2">Ventuz System Requirements</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../MachineConfiguration.html?itm=5" tab-index="0" item-index="5" lst="1-2">Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../MachineConfigurationAV.html?itm=6" tab-index="0" item-index="6" lst="1-2">Video/Audio Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../MachineConfigurationMC.html?itm=7" tab-index="0" item-index="7" lst="1-2">Machine Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../GPIConfiguration.html?itm=8" tab-index="0" item-index="8" lst="1-2">GPI Configuration for Runtime or Director</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../Performance.html?itm=9" tab-index="0" item-index="9" lst="1-2">Optimize Rendering Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../SupportedFormats.html?itm=10" tab-index="0" item-index="10" lst="1-2">Supported Formats</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../MachineConfigurationVendors.html?itm=11" tab-index="0" item-index="11" lst="1-2">Supported Hardware</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../AntiAliasing.html?itm=12" tab-index="0" item-index="12" lst="1-2">Multisampling / Anti-Aliasing</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../InputSubsystem.html?itm=13" tab-index="0" item-index="13" lst="1-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../VentuzFileTypes.html?itm=14" tab-index="0" item-index="14" lst="1-2">Ventuz Proprietary Files</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../WhatsNew.html?itm=15" tab-index="0" item-index="15" lst="1-1">What&apos;s new</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../FAQ.html?itm=16" tab-index="0" item-index="16" lst="1-1">FAQ</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../CommonMistakes.html?itm=17" tab-index="0" item-index="17" lst="1-1">Common Mistakes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Deployment.html?itm=18" tab-index="0" item-index="18" lst="1-1">Deployment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../MigrationGuide.html?itm=19" tab-index="0" item-index="19" lst="1-1">Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../MigrationGuideV4V5.html?itm=20" tab-index="0" item-index="20" lst="1-1">Ventuz 5 Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../SummaryShortcuts.html?itm=21" tab-index="0" item-index="21" lst="1-1">Summary Shortcuts</a></li></ul></div><h3>Ventuz 6 Designer</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Index.html?itm=22" tab-index="1" item-index="22" lst="3-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../GettingStarted_2.html?itm=23" tab-index="1" item-index="23" lst="3-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../DesignerOptions.html?itm=24" tab-index="1" item-index="24" lst="3-1">Designer Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../OverallViewDesigner_2.html?itm=25" tab-index="1" item-index="25" lst="3-1">Designer Overview</a></li></ul><div class="list-label list-level-1">Projects &amp; Scenes</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../ProjectsAndScenes.html?itm=26" tab-index="1" item-index="26" lst="4-1">Projects and Scenes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../WindowProjectBrowser.html?itm=27" tab-index="1" item-index="27" lst="4-2">Project Browser</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ProjectProperties.html?itm=28" tab-index="1" item-index="28" lst="4-2">Project Properties</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ProjectMaintenance.html?itm=29" tab-index="1" item-index="29" lst="4-2">Project Maintenance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ProjectAndSceneData.html?itm=30" tab-index="1" item-index="30" lst="4-2">Project and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../SceneTree.html?itm=31" tab-index="1" item-index="31" lst="4-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../SceneManagement.html?itm=32" tab-index="1" item-index="32" lst="4-2">Scene Management</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../SceneStatistics.html?itm=33" tab-index="1" item-index="33" lst="4-2">Scene Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../Deployment_2.html?itm=34" tab-index="1" item-index="34" lst="4-2">Deployment</a></li></ul></li></ul><div class="list-label list-level-1">Interface</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../UserInterface.html?itm=35" tab-index="1" item-index="35" lst="7-1">Designer Interface</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../RendererWindow.html?itm=36" tab-index="1" item-index="36" lst="7-2">Renderer Window</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../RealtimeRendering.html?itm=37" tab-index="1" item-index="37" lst="7-2">Realtime Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../Performance_2.html?itm=38" tab-index="1" item-index="38" lst="7-2">Optimize Scene Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../PerformanceStatistics.html?itm=39" tab-index="1" item-index="39" lst="7-2">Performance Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../TransformationGizmo.html?itm=40" tab-index="1" item-index="40" lst="7-2">Transformation Gizmo</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../RenderToDisk.html?itm=41" tab-index="1" item-index="41" lst="7-2">Render to Disk</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../CameraNavigation.html?itm=42" tab-index="1" item-index="42" lst="7-2">Camera Navigation</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../IsolateMode.html?itm=43" tab-index="1" item-index="43" lst="7-2">Isolated Objects</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../TransformationGizmo_2.html?itm=44" tab-index="1" item-index="44" lst="7-2">Manipulate Objects with Gizmos</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../LayerEditor.html?itm=45" tab-index="1" item-index="45" lst="7-2">Layer Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../LayerCommonProperties.html?itm=46" tab-index="1" item-index="46" lst="7-2">Common Layer Properties</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="../LayersIPP.html?itm=47" tab-index="1" item-index="47" lst="7-3">IPP Effects</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="../LayersIPP_ColorCorrections.html?itm=48" tab-index="1" item-index="48" lst="7-3">Color Correction FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="../LayersIPP_Distortion.html?itm=49" tab-index="1" item-index="49" lst="7-3">Distortion FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="../LayersIPP_Filters.html?itm=50" tab-index="1" item-index="50" lst="7-3">Filter FX</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ShortcutsLayerEditor.html?itm=51" tab-index="1" item-index="51" lst="7-2">Layer Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../HierarchyEditor.html?itm=52" tab-index="1" item-index="52" lst="7-2">Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../NodesAndBindings.html?itm=53" tab-index="1" item-index="53" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ContainersAndInterfaces.html?itm=54" tab-index="1" item-index="54" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../FindAndReplace.html?itm=55" tab-index="1" item-index="55" lst="7-2">Find and Replace</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ShortcutsHierarchyEditor.html?itm=56" tab-index="1" item-index="56" lst="7-2">Shortcuts Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ContentEditor.html?itm=57" tab-index="1" item-index="57" lst="7-2">Content Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../NodesAndBindings_2.html?itm=58" tab-index="1" item-index="58" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ContainersAndInterfaces_2.html?itm=59" tab-index="1" item-index="59" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ShortcutsContentEditor.html?itm=60" tab-index="1" item-index="60" lst="7-2">Content Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ToolboxAndRepository.html?itm=61" tab-index="1" item-index="61" lst="7-2">Toolbox</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../PropertiesEditor.html?itm=62" tab-index="1" item-index="62" lst="7-2">Property Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ProjectAndSceneData_2.html?itm=63" tab-index="1" item-index="63" lst="7-2">Project Data and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../PropertyGroups.html?itm=64" tab-index="1" item-index="64" lst="7-2">Property Groups</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ShaderEditor.html?itm=65" tab-index="1" item-index="65" lst="7-2">Shader Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../TextEditor.html?itm=66" tab-index="1" item-index="66" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../SceneTree_2.html?itm=67" tab-index="1" item-index="67" lst="7-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../MessageView.html?itm=68" tab-index="1" item-index="68" lst="7-2">Message View</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../StageEditor.html?itm=69" tab-index="1" item-index="69" lst="7-2">Stage Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ContainerOutline.html?itm=70" tab-index="1" item-index="70" lst="7-2">Container Outline</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../WatchesEditor.html?itm=71" tab-index="1" item-index="71" lst="7-2">Watches Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../AnimationEditor.html?itm=72" tab-index="1" item-index="72" lst="7-2">Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../AnimationAndStateEngine.html?itm=73" tab-index="1" item-index="73" lst="7-2">Animation and State Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../Templates.html?itm=74" tab-index="1" item-index="74" lst="7-2">Templates</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../TemplateEngine.html?itm=75" tab-index="1" item-index="75" lst="7-2">Template Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../ShortcutsAnimationEditor.html?itm=76" tab-index="1" item-index="76" lst="7-2">Shortcuts Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../TextRendering.html?itm=77" tab-index="1" item-index="77" lst="7-2">Text Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../TextEditor_2.html?itm=78" tab-index="1" item-index="78" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../CharacterSets.html?itm=79" tab-index="1" item-index="79" lst="7-2">Character Sets</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../GeometryImport.html?itm=80" tab-index="1" item-index="80" lst="7-2">Geometry Import</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../InputSubsystem_2.html?itm=81" tab-index="1" item-index="81" lst="7-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../MultiTouch.html?itm=82" tab-index="1" item-index="82" lst="7-2">Multitouch</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../TUIO.html?itm=83" tab-index="1" item-index="83" lst="7-2">TUIO Protocol</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../OpenSoundControl.html?itm=84" tab-index="1" item-index="84" lst="7-2">Open Sound Control</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../HowTo/HowToVR.html?itm=85" tab-index="1" item-index="85" lst="7-2">How to work with Head Mounted Displays</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../Cluster.html?itm=86" tab-index="1" item-index="86" lst="7-2">Cluster</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../MultiDisplaySetupsAndShaping.html?itm=87" tab-index="1" item-index="87" lst="7-2">Multi Display Setups and Shaping</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../WarpingSoftEdgingMasking.html?itm=88" tab-index="1" item-index="88" lst="7-2">Warping, Soft Edging and Masking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Nodes.html?itm=89" tab-index="1" item-index="89" lst="7-1">Available Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../AnimationNodes.html?itm=90" tab-index="1" item-index="90" lst="7-2">Animation Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../MaterialNodes.html?itm=91" tab-index="1" item-index="91" lst="7-2">Material&amp;Color Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../DataNodes.html?itm=92" tab-index="1" item-index="92" lst="7-2">Data Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../GeometryNodes.html?itm=93" tab-index="1" item-index="93" lst="7-2">Geometry Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../InteractionNodes.html?itm=94" tab-index="1" item-index="94" lst="7-2">Interaction Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../IONodes.html?itm=95" tab-index="1" item-index="95" lst="7-2">IO Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../Layers.html?itm=96" tab-index="1" item-index="96" lst="7-2">Layers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../LightNodes.html?itm=97" tab-index="1" item-index="97" lst="7-2">Light Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../LogicNodes.html?itm=98" tab-index="1" item-index="98" lst="7-2">Logic Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../RenderNodes.html?itm=99" tab-index="1" item-index="99" lst="7-2">Render Option Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../SlidesNodes.html?itm=100" tab-index="1" item-index="100" lst="7-2">Slides Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../SoundNodes.html?itm=101" tab-index="1" item-index="101" lst="7-2">Sound Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../TextNodes.html?itm=102" tab-index="1" item-index="102" lst="7-2">Text Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../TextureNodes.html?itm=103" tab-index="1" item-index="103" lst="7-2">Texture Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../VrNodes.html?itm=104" tab-index="1" item-index="104" lst="7-2">VR Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="../WorldNodes.html?itm=105" tab-index="1" item-index="105" lst="7-2">World Nodes</a></li></ul></li></ul></div><h3>Ventuz 6 Node Reference</h3><div><div class="list-label list-level-1">ANIMATION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeAnimationMover.html?itm=106" tab-index="2" item-index="106" lst="24-1">Mover</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeAnimationMover_2.html?itm=107" tab-index="2" item-index="107" lst="24-1">Alternator</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeAnimationControls.html?itm=108" tab-index="2" item-index="108" lst="24-1">Simple Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeAnimationControls_2.html?itm=109" tab-index="2" item-index="109" lst="24-1">Timeline Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeAnimationAnimationRig.html?itm=110" tab-index="2" item-index="110" lst="24-1">Anmation Rig</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeAnimationKeyframeAnimation.html?itm=111" tab-index="2" item-index="111" lst="24-1">Keyframe Animation</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeAnimationKeyframeAnimation_2.html?itm=112" tab-index="2" item-index="112" lst="24-1">Animation Group</a></li></ul><div class="list-label list-level-1">COLOR/MATERIAL</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorAlpha.html?itm=113" tab-index="2" item-index="113" lst="25-1">Alpha</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorFog.html?itm=114" tab-index="2" item-index="114" lst="25-1">Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorFog_2.html?itm=115" tab-index="2" item-index="115" lst="25-1">Ground Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorSkyBox.html?itm=116" tab-index="2" item-index="116" lst="25-1">Sky Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorConverters.html?itm=117" tab-index="2" item-index="117" lst="25-1">Color to RGBA</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorConverters_2.html?itm=118" tab-index="2" item-index="118" lst="25-1">HSLA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorConverters_3.html?itm=119" tab-index="2" item-index="119" lst="25-1">RGBA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorConverters_4.html?itm=120" tab-index="2" item-index="120" lst="25-1">Color Transformer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeShaderHLSLShader.html?itm=121" tab-index="2" item-index="121" lst="25-1">HLSL Shader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorColor.html?itm=122" tab-index="2" item-index="122" lst="25-1">Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorMaterial.html?itm=123" tab-index="2" item-index="123" lst="25-1">Material</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorColorPicker.html?itm=124" tab-index="2" item-index="124" lst="25-1">Color Picker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeColorSubstanceMaterial.html?itm=125" tab-index="2" item-index="125" lst="25-1">Substance Material</a></li></ul><div class="list-label list-level-1">DATA</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeDataDatabase.html?itm=126" tab-index="2" item-index="126" lst="26-1">Database</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeDataExcel.html?itm=127" tab-index="2" item-index="127" lst="26-1">Excel</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeDataJSON.html?itm=128" tab-index="2" item-index="128" lst="26-1">JSON</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeDataRSSFeed.html?itm=129" tab-index="2" item-index="129" lst="26-1">RSS Feed</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeDataResourceLinker.html?itm=130" tab-index="2" item-index="130" lst="26-1">Resource Linker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeDataTextFile.html?itm=131" tab-index="2" item-index="131" lst="26-1">Text File</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeDataXML.html?itm=132" tab-index="2" item-index="132" lst="26-1">XML</a></li></ul><div class="list-label list-level-1">GEOMETRY</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryRectangles.html?itm=133" tab-index="2" item-index="133" lst="27-1">Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryRectangles_2.html?itm=134" tab-index="2" item-index="134" lst="27-1">Rounded Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryRectangles_3.html?itm=135" tab-index="2" item-index="135" lst="27-1">Gradient Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryRectangles_4.html?itm=136" tab-index="2" item-index="136" lst="27-1">Overlay Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryCube.html?itm=137" tab-index="2" item-index="137" lst="27-1">Cube</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryCircle.html?itm=138" tab-index="2" item-index="138" lst="27-1">Circle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometrySphere.html?itm=139" tab-index="2" item-index="139" lst="27-1">Sphere</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryCylinder.html?itm=140" tab-index="2" item-index="140" lst="27-1">Cylinder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryCone.html?itm=141" tab-index="2" item-index="141" lst="27-1">Cone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryTorus.html?itm=142" tab-index="2" item-index="142" lst="27-1">Torus</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryChart.html?itm=143" tab-index="2" item-index="143" lst="27-1">Chart</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryRandomPoints.html?itm=144" tab-index="2" item-index="144" lst="27-1">Random Points</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryMeshLoader.html?itm=145" tab-index="2" item-index="145" lst="27-1">Mesh Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryImport.html?itm=146" tab-index="2" item-index="146" lst="27-1">Geometry Import (Live)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryVolume.html?itm=147" tab-index="2" item-index="147" lst="27-1">Volume</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryGetBoundingBox.html?itm=148" tab-index="2" item-index="148" lst="27-1">Get Bounding Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryArrow.html?itm=149" tab-index="2" item-index="149" lst="27-1">Arrow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryParticleSystem.html?itm=150" tab-index="2" item-index="150" lst="27-1">Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryPath.html?itm=151" tab-index="2" item-index="151" lst="27-1">Path Renderer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeGeometryGeometryRenderer.html?itm=152" tab-index="2" item-index="152" lst="27-1">Geometry Renderer</a></li></ul><div class="list-label list-level-1">INTERACTION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionInteractionRect.html?itm=153" tab-index="2" item-index="153" lst="28-1">Interaction Rect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionTouchButton.html?itm=154" tab-index="2" item-index="154" lst="28-1">Touch Button</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionTouchExcluder.html?itm=155" tab-index="2" item-index="155" lst="28-1">Touch Excluder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionTouchMarker.html?itm=156" tab-index="2" item-index="156" lst="28-1">Touch Marker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionTouchPaint.html?itm=157" tab-index="2" item-index="157" lst="28-1">Touch Paint</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionTouchPattern.html?itm=158" tab-index="2" item-index="158" lst="28-1">Touch Pattern</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionTouchProxy.html?itm=159" tab-index="2" item-index="159" lst="28-1">Touch Proxy</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionTouchRipples.html?itm=160" tab-index="2" item-index="160" lst="28-1">Touch Ripples</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionTouchTransformations.html?itm=161" tab-index="2" item-index="161" lst="28-1">Touch Transformations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionTouchWebBrowser.html?itm=162" tab-index="2" item-index="162" lst="28-1">Web Browser</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionTouchTeleport.html?itm=163" tab-index="2" item-index="163" lst="28-1">Touch Teleport</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeInteractionTouchSimulator.html?itm=164" tab-index="2" item-index="164" lst="28-1">Touch Simulator</a></li></ul><div class="list-label list-level-1">INPUT/OUTPUT (I/O)</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeIOGPI.html?itm=165" tab-index="2" item-index="165" lst="29-1">GPI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeIOJoystick.html?itm=166" tab-index="2" item-index="166" lst="29-1">Joystick</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeIOKeyboard.html?itm=167" tab-index="2" item-index="167" lst="29-1">Keyboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeIOMIDI.html?itm=168" tab-index="2" item-index="168" lst="29-1">MIDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeIOMouse.html?itm=169" tab-index="2" item-index="169" lst="29-1">Mouse</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeIONetwork.html?itm=170" tab-index="2" item-index="170" lst="29-1">Network</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeIOOSC.html?itm=171" tab-index="2" item-index="171" lst="29-1">Open Sound Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeIOSerial.html?itm=172" tab-index="2" item-index="172" lst="29-1">Serial</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeIOTimecode.html?itm=173" tab-index="2" item-index="173" lst="29-1">Timecode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeIODMX.html?itm=174" tab-index="2" item-index="174" lst="29-1">DMX</a></li></ul><div class="list-label list-level-1">LAYER</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLayer3D.html?itm=175" tab-index="2" item-index="175" lst="30-1">3D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLayer3DReference.html?itm=176" tab-index="2" item-index="176" lst="30-1">3D Layer Reference</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLayer2D.html?itm=177" tab-index="2" item-index="177" lst="30-1">2D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLayerPsdImport.html?itm=178" tab-index="2" item-index="178" lst="30-1">PSD Import Layer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLayerOther.html?itm=179" tab-index="2" item-index="179" lst="30-1">Others</a></li></ul><div class="list-label list-level-1">LIGHT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLightSources.html?itm=180" tab-index="2" item-index="180" lst="31-1">Light Sources</a></li></ul><div class="list-label list-level-1">LOGIC</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicArrayProcessing.html?itm=181" tab-index="2" item-index="181" lst="32-1">Array Processing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicConvertToText.html?itm=182" tab-index="2" item-index="182" lst="32-1">Convert To Text</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicCluster.html?itm=183" tab-index="2" item-index="183" lst="32-1">Cluster Synchronization</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicCounter.html?itm=184" tab-index="2" item-index="184" lst="32-1">Counter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicDateTime.html?itm=185" tab-index="2" item-index="185" lst="32-1">Date Time</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicDirectory.html?itm=186" tab-index="2" item-index="186" lst="32-1">Directory</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicDispatcher.html?itm=187" tab-index="2" item-index="187" lst="32-1">Dispatcher</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicEnumeration.html?itm=188" tab-index="2" item-index="188" lst="32-1">Enumeration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicExpressions.html?itm=189" tab-index="2" item-index="189" lst="32-1">Expressions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicInvert.html?itm=190" tab-index="2" item-index="190" lst="32-1">Invert</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicLog.html?itm=191" tab-index="2" item-index="191" lst="32-1">Log</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicLoopBreaker.html?itm=192" tab-index="2" item-index="192" lst="32-1">Loop Breaker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicMathEffects.html?itm=193" tab-index="2" item-index="193" lst="32-1">Math Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicMatrixOperations.html?itm=194" tab-index="2" item-index="194" lst="32-1">Matrix Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicSceneEvent.html?itm=195" tab-index="2" item-index="195" lst="32-1">Scene Event</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicScript.html?itm=196" tab-index="2" item-index="196" lst="32-1">Script</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicStringOperations.html?itm=197" tab-index="2" item-index="197" lst="32-1">String Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicSystemID.html?itm=198" tab-index="2" item-index="198" lst="32-1">System ID</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicTextSplitter.html?itm=199" tab-index="2" item-index="199" lst="32-1">Text Splitter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicTimer.html?itm=200" tab-index="2" item-index="200" lst="32-1">Timer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicToggle.html?itm=201" tab-index="2" item-index="201" lst="32-1">Toggle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicURL.html?itm=202" tab-index="2" item-index="202" lst="32-1">URL</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicValueSwitch.html?itm=203" tab-index="2" item-index="203" lst="32-1">Value Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicValueBuffer.html?itm=204" tab-index="2" item-index="204" lst="32-1">Value Buffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicVariables.html?itm=205" tab-index="2" item-index="205" lst="32-1">Variables</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicVisualIndexer.html?itm=206" tab-index="2" item-index="206" lst="32-1">Visual Indexer</a></li></ul><div class="list-label list-level-1">RENDER OPTIONS</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsAlphaBlending.html?itm=207" tab-index="2" item-index="207" lst="33-1">Alpha Blending</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsAlphaBlending_2.html?itm=208" tab-index="2" item-index="208" lst="33-1">Color Write</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsAlphaTesting.html?itm=209" tab-index="2" item-index="209" lst="33-1">Alpha Testing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsClipPlane.html?itm=210" tab-index="2" item-index="210" lst="33-1">Clip Plane</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsFilter.html?itm=211" tab-index="2" item-index="211" lst="33-1">Filter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsMask.html?itm=212" tab-index="2" item-index="212" lst="33-1">Mask</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsMirror.html?itm=213" tab-index="2" item-index="213" lst="33-1">Mirror</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsEffect.html?itm=214" tab-index="2" item-index="214" lst="33-1">Effect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsRenderCubeMap.html?itm=215" tab-index="2" item-index="215" lst="33-1">Render Cube Map</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsDrawMode.html?itm=216" tab-index="2" item-index="216" lst="33-1">Draw Modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsStencil.html?itm=217" tab-index="2" item-index="217" lst="33-1">Stencil</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeRenderoptionsZTesting.html?itm=218" tab-index="2" item-index="218" lst="33-1">ZTesting</a></li></ul><div class="list-label list-level-1">SOUND</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeSoundPlayback.html?itm=219" tab-index="2" item-index="219" lst="34-1">Audio Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeSoundPlayback_2.html?itm=220" tab-index="2" item-index="220" lst="34-1">Sound</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeAudioControl.html?itm=221" tab-index="2" item-index="221" lst="34-1">Volume Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeSoundAnalyzeAudio.html?itm=222" tab-index="2" item-index="222" lst="34-1">Audio Analysis</a></li></ul><div class="list-label list-level-1">SLIDES</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeSlidesSlideManager.html?itm=223" tab-index="2" item-index="223" lst="35-1">Slide Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeSlidesSlideManager_2.html?itm=224" tab-index="2" item-index="224" lst="35-1">Slide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeSlidesSlideManager_3.html?itm=225" tab-index="2" item-index="225" lst="35-1">Slide Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeSlidesSlideManager_4.html?itm=226" tab-index="2" item-index="226" lst="35-1">Pivot</a></li></ul><div class="list-label list-level-1">TEXT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextEffects.html?itm=227" tab-index="2" item-index="227" lst="36-1">Text Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextLayout.html?itm=228" tab-index="2" item-index="228" lst="36-1">Text Layouts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextRendering.html?itm=229" tab-index="2" item-index="229" lst="36-1">Text Rendering</a></li></ul><div class="list-label list-level-1">TEXTURE</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureBackground.html?itm=230" tab-index="2" item-index="230" lst="37-1">Background</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureHatch.html?itm=231" tab-index="2" item-index="231" lst="37-1">Hatch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureImage.html?itm=232" tab-index="2" item-index="232" lst="37-1">Image</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureTexture.html?itm=233" tab-index="2" item-index="233" lst="37-1">Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureSVGLoader.html?itm=234" tab-index="2" item-index="234" lst="37-1">SVG Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureGradientTexture.html?itm=235" tab-index="2" item-index="235" lst="37-1">Gradient Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureVideo.html?itm=236" tab-index="2" item-index="236" lst="37-1">Live Video</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureVideo_2.html?itm=237" tab-index="2" item-index="237" lst="37-1">Movie Stream</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureVideo_3.html?itm=238" tab-index="2" item-index="238" lst="37-1">Movie Frame</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureVideo_4.html?itm=239" tab-index="2" item-index="239" lst="37-1">Movie Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureImageLoaders.html?itm=240" tab-index="2" item-index="240" lst="37-1">Texture Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureSnapshot.html?itm=241" tab-index="2" item-index="241" lst="37-1">Snapshot</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureRenderSnapshot.html?itm=242" tab-index="2" item-index="242" lst="37-1">Snapshot Framebuffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureTextureSaver.html?itm=243" tab-index="2" item-index="243" lst="37-1">Texture Saver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureVideoSourceSelector.html?itm=244" tab-index="2" item-index="244" lst="37-1">Video Source Selector</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureVioInput.html?itm=245" tab-index="2" item-index="245" lst="37-1">VIO Input</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureSpout.html?itm=246" tab-index="2" item-index="246" lst="37-1">Spout Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureNDI.html?itm=247" tab-index="2" item-index="247" lst="37-1">NDI Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeTextureSubstanceLoader.html?itm=248" tab-index="2" item-index="248" lst="37-1">Substance Loader</a></li></ul><div class="list-label list-level-1">VR/AR</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeVrTracked.html?itm=249" tab-index="2" item-index="249" lst="38-1">Tracked Devices</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeVrTracked_2.html?itm=250" tab-index="2" item-index="250" lst="38-1">Draw Tracked Devices</a></li></ul><div class="list-label list-level-1">WORLD</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldAxis.html?itm=251" tab-index="2" item-index="251" lst="39-1">Axis</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldAxis_2.html?itm=252" tab-index="2" item-index="252" lst="39-1">Billboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldAxis_3.html?itm=253" tab-index="2" item-index="253" lst="39-1">GetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldAxis_4.html?itm=254" tab-index="2" item-index="254" lst="39-1">SetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldArrange.html?itm=255" tab-index="2" item-index="255" lst="39-1">Arrange</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldTicker.html?itm=256" tab-index="2" item-index="256" lst="39-1">Ticker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldTicker_2.html?itm=257" tab-index="2" item-index="257" lst="39-1">Layout</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldGroup.html?itm=258" tab-index="2" item-index="258" lst="39-1">Group</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldZSort.html?itm=259" tab-index="2" item-index="259" lst="39-1">World Z Sort</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldSwitch.html?itm=260" tab-index="2" item-index="260" lst="39-1">YesNo</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldSwitch_2.html?itm=261" tab-index="2" item-index="261" lst="39-1">Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldSpread.html?itm=262" tab-index="2" item-index="262" lst="39-1">Spread</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldRenderPass.html?itm=263" tab-index="2" item-index="263" lst="39-1">Filter Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldRenderPass_2.html?itm=264" tab-index="2" item-index="264" lst="39-1">Set Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldContainer.html?itm=265" tab-index="2" item-index="265" lst="39-1">Hierarchy Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldScenePort.html?itm=266" tab-index="2" item-index="266" lst="39-1">Scene Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldContainer_2.html?itm=267" tab-index="2" item-index="267" lst="39-1">Content Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldTemplatePort.html?itm=268" tab-index="2" item-index="268" lst="39-1">Template Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldScenePort_2.html?itm=269" tab-index="2" item-index="269" lst="39-1">Container Info</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldCamera.html?itm=270" tab-index="2" item-index="270" lst="39-1">Camera</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeWorldPath.html?itm=271" tab-index="2" item-index="271" lst="39-1">Paths</a></li></ul></div><h3>Ventuz 6 Configuration Editor</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../MachineConfiguration_2.html?itm=272" tab-index="3" item-index="272" lst="40-1">Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../MachineConfigurationMC_2.html?itm=273" tab-index="3" item-index="273" lst="40-1">Machine Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../MachineConfigurationAV_2.html?itm=274" tab-index="3" item-index="274" lst="40-1">Video/Audio Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../MachineConfigurationWeb.html?itm=275" tab-index="3" item-index="275" lst="40-1">Web Configuration Editor and License Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../MultiDisplaySetupsAndShaping_2.html?itm=276" tab-index="3" item-index="276" lst="40-1">Render Setup Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../WarpingSoftEdgingMasking_2.html?itm=277" tab-index="3" item-index="277" lst="40-1">Warping and Soft-Edging Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../MachineConfigurationVendors_2.html?itm=278" tab-index="3" item-index="278" lst="40-1">Supported Hardware</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToClusterRendering.html?itm=279" tab-index="3" item-index="279" lst="40-1">How to Setup a Cluster Render</a></li></ul></div><h3>Ventuz 6 Director</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/ApplicationSettings.html?itm=280" tab-index="4" item-index="280" lst="41-1">Application Settings</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Assets.html?itm=281" tab-index="4" item-index="281" lst="41-1">Assets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Channels.html?itm=282" tab-index="4" item-index="282" lst="41-1">Channels</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/CommandLineOptions.html?itm=283" tab-index="4" item-index="283" lst="41-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/ContentReferences.html?itm=284" tab-index="4" item-index="284" lst="41-1">Content References</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/DesigningTemplates.html?itm=285" tab-index="4" item-index="285" lst="41-1">Designing Templates</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Environment.html?itm=286" tab-index="4" item-index="286" lst="41-1">Environment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Glossary.html?itm=287" tab-index="4" item-index="287" lst="41-1">Glossary</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Index.html?itm=288" tab-index="4" item-index="288" lst="41-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Introduction.html?itm=289" tab-index="4" item-index="289" lst="41-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Pages.html?itm=290" tab-index="4" item-index="290" lst="41-1">Pages</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Playlist.html?itm=291" tab-index="4" item-index="291" lst="41-1">Playlist</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/PlugIns.html?itm=292" tab-index="4" item-index="292" lst="41-1">Plug-Ins</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/ProjectData.html?itm=293" tab-index="4" item-index="293" lst="41-1">Project Data</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/PropertyEditor.html?itm=294" tab-index="4" item-index="294" lst="41-1">Property Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Shortcuts.html?itm=295" tab-index="4" item-index="295" lst="41-1">Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../GPIConfiguration_2.html?itm=296" tab-index="4" item-index="296" lst="41-1">GPI Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/ShotBox.html?itm=297" tab-index="4" item-index="297" lst="41-1">Shot Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Show.html?itm=298" tab-index="4" item-index="298" lst="41-1">Show</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/TakingAction.html?itm=299" tab-index="4" item-index="299" lst="41-1">Taking Action</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Timeline.html?itm=300" tab-index="4" item-index="300" lst="41-1">Timeline</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Topology.html?itm=301" tab-index="4" item-index="301" lst="41-1">Topology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/UserInterface.html?itm=302" tab-index="4" item-index="302" lst="41-1">User Interface</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../DirectorMode.html?itm=303" tab-index="4" item-index="303" lst="41-1">Director Mode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Macros.html?itm=304" tab-index="4" item-index="304" lst="41-1">Macros</a></li></ul></div><h3>How To</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToGetVentuzRunning.html?itm=305" tab-index="5" item-index="305" lst="42-1">How to Run Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../OverallViewDesigner_3.html?itm=306" tab-index="5" item-index="306" lst="42-1">How to Work with Designer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToDragAndDropTricks.html?itm=307" tab-index="5" item-index="307" lst="42-1">Ventuz Designer Drag&amp;Drop workflow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToVR_2.html?itm=308" tab-index="5" item-index="308" lst="42-1">How to use Head Mounted Displays</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToUseShadows.html?itm=309" tab-index="5" item-index="309" lst="42-1">How to work with Shadows</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToUseEmoijs.html?itm=310" tab-index="5" item-index="310" lst="42-1">How to use Emoijs</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToBuildATemplate.html?itm=311" tab-index="5" item-index="311" lst="42-1">How to Build a Template</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToUseNDI.html?itm=312" tab-index="5" item-index="312" lst="42-1">How to use Newtek NDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToCreateAVisualsLoaderNode.html?itm=313" tab-index="5" item-index="313" lst="42-1">How to Create Visuals Loader Node</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToRemoteControlWithAniPhone.html?itm=314" tab-index="5" item-index="314" lst="42-1">How to Remote Control with a Phone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToClusterRendering_2.html?itm=315" tab-index="5" item-index="315" lst="42-1">How to Setup a Cluster Render</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToMixedFrameRates.html?itm=316" tab-index="5" item-index="316" lst="42-1">How to use a Mixed Frame Rate Cluster</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToUseTracking.html?itm=317" tab-index="5" item-index="317" lst="42-1">How to use Tracking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowTo3DLayerReference.html?itm=318" tab-index="5" item-index="318" lst="42-1">How to work with 3D Reference Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToCreateAFireworkParticleSystem.html?itm=319" tab-index="5" item-index="319" lst="42-1">How to create a Firework Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToDDS.html?itm=320" tab-index="5" item-index="320" lst="42-1">How to use DDS with new Block Compression modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToUseSpout.html?itm=321" tab-index="5" item-index="321" lst="42-1">How to setup Spout with Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../HowTo/HowToUseSubstanceIntegration.html?itm=322" tab-index="5" item-index="322" lst="42-1">How to use the Substance Integration</a></li></ul></div><h3>Keyboard Shortcuts</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../SummaryShortcuts_2.html?itm=323" tab-index="6" item-index="323" lst="43-1">Summary Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../ShortcutsLayerEditor_2.html?itm=324" tab-index="6" item-index="324" lst="43-1">Layer Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../ShortcutsHierarchyEditor_2.html?itm=325" tab-index="6" item-index="325" lst="43-1">Hierarchy Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../ShortcutsContentEditor_2.html?itm=326" tab-index="6" item-index="326" lst="43-1">Content Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../ShortcutsAnimationEditor_2.html?itm=327" tab-index="6" item-index="327" lst="43-1">Animation Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Director/Shortcuts_2.html?itm=328" tab-index="6" item-index="328" lst="43-1">Director Shortcuts</a></li></ul></div><h3>Advanced and Development</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../CommandLineOptions.html?itm=329" tab-index="7" item-index="329" lst="44-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Remoting.html?itm=330" tab-index="7" item-index="330" lst="44-1">Remoting Overview</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Remoting4Protocol.html?itm=331" tab-index="7" item-index="331" lst="44-1">Remoting 4</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../RemotingWebsocket.html?itm=332" tab-index="7" item-index="332" lst="44-1">Remoting 4 via Websockets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../RemotingDeprecated.html?itm=333" tab-index="7" item-index="333" lst="44-1">Deprecated Remoting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../VentuzIpPorts.html?itm=334" tab-index="7" item-index="334" lst="44-1">Ventuz IP Ports</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../VentuzMachineService.html?itm=335" tab-index="7" item-index="335" lst="44-1">Ventuz Machine Service</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../RemotingMachineSignature.html?itm=336" tab-index="7" item-index="336" lst="44-1">Remoting Machine Signature</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../TUIO_2.html?itm=337" tab-index="7" item-index="337" lst="44-1">TUIO</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeLogicScript_2.html?itm=338" tab-index="7" item-index="338" lst="44-1">.NET Scripting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../NodeShaderHLSLShader_2.html?itm=339" tab-index="7" item-index="339" lst="44-1">HLSL Shader Programming</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../DevelopmentSDK.html?itm=340" tab-index="7" item-index="340" lst="44-1">Ventuz API and SDK</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../DevelopmentVIO.html?itm=341" tab-index="7" item-index="341" lst="44-1">Ventuz VIO API</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../DevelopmentVFF.html?itm=342" tab-index="7" item-index="342" lst="44-1">Ventuz File Format (VFF)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../DevelopmentStreamOut.html?itm=343" tab-index="7" item-index="343" lst="44-1">Ventuz Stream Out API</a></li></ul></div><h3>General Reference</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Terminology.html?itm=344" tab-index="8" item-index="344" lst="45-1">Terminology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Pages.html?itm=345" tab-index="8" item-index="345" lst="45-1">Manual Index</a></li></ul></div><h3>Miscellaneous</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="../Presets.html?itm=346" tab-index="9" item-index="346" lst="46-1">Presets</a></li></ul></div></div></div><!--sidebar end-->
+        <div id="user-manual-content" class="sidebar">
+            
+            <div class="control"><div class="control-prev"><a href="../Director/Playlist.html?itm=291">&laquo; Previous Article</a></div><div><a href="../Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="../Director/ProjectData.html?itm=293">Next Article &raquo;</a></div></div>
+            <div id="user-manual-main">
+                <h1 id="DirectorPlugIns" data-line="1" >Director Plug Ins</h1>
+<p data-line="4" >
+<div class="wiki-toc"><h4>Table of Contents</h4><ol><li><a href="#ManagingPlug-Ins">Managing Plug-Ins</a></li><li><a href="#DevelopmentEnvironment">Development Environment</a><ol><li><a href="#CreatingaProject">Creating a Project</a></li><li><a href="#Debugging">Debugging</a></li></ol></li><li><a href="#InterfacesandLibraries">Interfaces and Libraries</a><ol><li><a href="#ConfigurablePlug-Ins">Configurable Plug-Ins</a></li><li><a href="#ChannelRuleProvider">Channel Rule Provider</a></li><li><a href="#ShotBoxExtender">Shot Box Extender</a></li><li><a href="#WindowProvider">Window Provider</a></li><li><a href="#MacroProvider">Macro Provider</a></li></ol></li><li><a href="#AccessingDirectorFunctionality">Accessing Director Functionality</a></li><li><a href="#Example:CueingaTemplate">Example: Cueing a Template</a><ol><li><a href="#UserInterface">User Interface</a></li><li><a href="#RetrievingaTemplate">Retrieving a Template</a></li><li><a href="#CreatinganInstance">Creating an Instance</a></li><li><a href="#CueTake">Cue &amp; Take</a></li><li><a href="#AssetURIs">Asset URIs</a></li></ol></li><li><a href="#Example:Shortcuts">Example: Shortcuts</a><ol><li><a href="#Setup">Setup</a></li><li><a href="#Cleanup">Cleanup</a></li><li><a href="#Result">Result</a></li><li><a href="#ReusingCommands">Reusing Commands</a></li></ol></li><li><a href="#Example:Playlist">Example: Playlist</a><ol><li><a href="#AddAssetsfromFile">Add Assets from File</a></li><li><a href="#Sort">Sort</a></li><li><a href="#Remove">Remove</a></li><li><a href="#Duration">Duration</a></li></ol></li><li><a href="#AsynchronousProgramming">Asynchronous Programming</a></li><li><a href="#ModifyingProjectData">Modifying Project Data</a><ol><li><a href="#UserInterface1">User Interface</a></li><li><a href="#ValueBinding">Value Binding</a></li><li><a href="#Converters">Converters</a></li></ol></li><li><a href="#Deployment">Deployment</a></li></ol></div>
+</p>
+<p data-line="6" >
+<div class="noteboxwarn"><p>
+Please note that the PLE Edition of Director does not support plugins!
+</p>
+</div>
+</p>
+<p data-line="8" >
+Plug-Ins are small portions of custom code that can be loaded into and used by Ventuz Director to extend existing functionality. Instead of using some arcane scripting language, the Ventuz development team decided to use the standard Visual Studio tool chain. As a result:
+</p>
+<ul class="" start="1"><li data-line="10" >basically everyone who can use Visual Studio (the vast majority of software developers out there) can develop a Director plug-in
+</li><li data-line="11" >there is a mature development pipeline including debuggers, profilers and more
+</li><li data-line="12" >integration of 3rd party libraries (for example for database integration) is easy
+</li></ul><p data-line="14" >
+Developing a plug-in requires knowledge of C# or Visual Basic, WPF (Windows Presentation Foundation) as well as the Director Plug-In API. However, for an end user, installing a plug-in is as easy as copying a DLL into the right folder.
+</p>
+<h2 id="ManagingPlug-Ins" data-line="17" >Managing Plug-Ins</h2>
+<p data-line="19" >
+To enable a plug-in's functionality, open the <a class="wiki" href="../Director/Show.html">show</a> it should be used in and go to the <strong>Plug-ins Manager</strong> which can be found in the main menu under <strong>Show / Plug-Ins ...</strong>. Set the check mark next to all plug-ins that should automatically be loaded whenever this show is opened.
+</p>
+<p data-line="21" >
+In the image below, there have been two plug-ins installed but only the first is activated for the show. The button to the right of the name shows that this plug-in can be configured. By pressing it, the plug-in's configuration dialog opens.
+</p>
+<p data-line="23" >
+<img src="../images/Director/PlugIns/DirectorPluginManager.png" style="max-width:340px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="25" >
+<div class="noteboxnote"><p>
+The information which plug-ins should be enabled and their respective configuration settings are stored in the Director show file. To use a common set of settings for all shows based on a project, an operator can <strong>embed default settings</strong> into the Ventuz Project file via <strong>Show / Project / Show Defaults...</strong> in the main menu. Those will be used as defaults for each show that is newly created for this project.
+</p>
+</div>
+</p>
+<h2 id="DevelopmentEnvironment" data-line="28" >Development Environment</h2>
+<p data-line="30" >
+The main requirements for developing a Director plug-in are:
+</p>
+<ul class="" start="1"><li data-line="32" >An installation of Microsoft Visual Studio 2012 Express Edition (free) or higher (the Director SDK is built against .NET 4.5). 
+</li><li data-line="33" >At least some basic knowledge of the C# (or Visual Basic) programming language as well as WPF (a recommended book for learning WPF is "WPF Unleashed" by Adam Nathan).
+</li><li data-line="34" >A working Ventuz Director installation, most importantly the <tt>VentuzVS.vsix</tt> Visual Studio Extension file.
+</li></ul><p data-line="36" >
+The Visual Studio Extension file provides a project template for creating Director plug-ins that will automatically setup everything required to build and deploy a plug-in. Inside the Windows Explorer, double-click the <tt>vsix</tt> file to install the extension. Since most users will not be developing plug-ins, this is not automatically done by the Ventuz installer but has to be done manually. Open Visual Studio and under <strong>Tools/Extensions and Updates</strong> verify that the extension has correctly been installed.
+</p>
+<p data-line="38" >
+<div class="noteboxwarn"><p>
+Visual Studio Extensions are only supported by Visual Studio Professional or higher licenses, not Visual Studio Express! It is possible to develop Director plug-ins without the extension, only the task of setting up the project is then left to be done manually by the user.
+</p>
+</div>
+</p>
+<p data-line="40" >
+<div class="noteboxnote"><p>
+A new version of the Ventuz Visual Studio Extension is shipped as part of the Ventuz installation whenever plug-in interfaces are added or changed. Make sure to remove any old versions and re-install the latest version when upgrading your Ventuz installation.
+</p>
+</div>
+</p>
+<h3 id="CreatingaProject" data-line="43" >Creating a Project</h3>
+<p data-line="45" >
+To start a new plug-in, select <strong>File/New/Project...</strong> from the Visual Studio main menu. If the extension is correctly installed, a new entry <strong>Director Plug-In</strong> will be available in the Visual C# section and in the Visual Basic section. (This text will choose C# as programming language.) Select this entry, choose a name and location for your plug-in project and press OK. Next, the Ventuz Director Plugin Settings dialog will appear.
+</p>
+<p data-line="47" >
+<img src="../images/Director/PlugIns/VentuzDirectorPluginSettings.png" style="max-width:465px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="49" >
+<strong>Display name</strong> and <strong>description</strong> of a plug-in are end-user information that will be used inside Director, for example in the plug-in manager. They have no relevance for the functionality of the plug-in but make it easier for an end-user to identify and use a plug-in. The set of controls below is for specifying what capabilities the plug-in will support. For this example, create a plug-in that provides one new window type. Finally, to test a plug-in, a Director instance is required. The extension will auto-detect the latest Ventuz installation and use that application path. If for some reason the auto-detection fails or the plug-in should be developed against a specific Director version, the appropriate Director Path can be entered in the first text box.
+</p>
+<p data-line="51" >
+When pressing OK, Visual Studio will create a skeleton implementation of the plug-in. In our case, it contains the following files:
+</p>
+<ul class="" start="1"><li data-line="53" >The <tt>Plugin.cs</tt> main plug-in class file. Think of this as the main application class in a standalone program. Director will call methods in this class as the plug-in is used by the user.
+</li><li data-line="54" >A WPF UserControl in <tt>WindowType1.xaml</tt>: This will host the content our new window type shows.
+</li></ul><p data-line="56" >
+This is already a fully functional Director plug-in although it does not do anything besides showing an empty control. Before filling it with functionality, we will take a look at debugging a plug-in.
+</p>
+<h3 id="Debugging" data-line="59" >Debugging</h3>
+<p data-line="61" >
+Due to the Visual Studio Extension, debugging a Director plug-in is exactly the same as debugging any other c# program. Just hit <span class="usermanual-keyboard">F5</span> to launch the debugger. Behind the scenes, Visual Studio will launch the Director installation specified in the plug in settings dialog and inject the plug-in such that it can be used without copying it into your installation.
+</p>
+<p data-line="63" >
+Set a breakpoint into the first line of
+</p>
+<pre class="wiki">Initialize(IDirectorApplication application)
+</pre><p data-line="67" >
+in the file <tt>Plugin.cs</tt> by setting the cursor on that line and pressing <span class="usermanual-keyboard">F9</span>. Inside Director, either create a new or open an existing show. To activate the plug-in, go to the plug-in manager via <strong>Show / Plug-Ins...</strong> in the main menu and click on the check box next to the plug-ins name. Visual Studio will come to the front as the breakpoint will be hit. To actually create an instance of the new window type, go to the <a class="wiki" href="../Director/UserInterface.html">window manager</a> in the main menu and add a new window. The list of available window types should now contain the plug-in window type.
+</p>
+<h2 id="InterfacesandLibraries" data-line="70" >Interfaces and Libraries</h2>
+<p data-line="72" >
+A Director plug-in is a DLL that contains a class which conforms to the <tt>IPlugin</tt> interface defined in <tt>Director.Shared.dll</tt>. When Director tries to allocate a plug-in instance, it calls the <tt>Initialize</tt> method on that interface. The <tt>application</tt> parameter of this method contains an instance of the <tt>IDirectorApplication</tt> interface which is the plug-ins entry point to access Director functionality. Any operation the plug-in wants to perform inside Director is done via this interface.
+</p>
+<pre class="wiki">[Export(typeof(IPlugin))]
+[ExportMetadata(&#34;Name&#34;, &#34;DirectorWindowExample&#34;)]
+[ExportMetadata(&#34;DisplayName&#34;, &#34;DirectorWindowExample&#34;)]
+[ExportMetadata(&#34;Description&#34;, &#34;Ventuz Director Plugin for a new example window type.&#34;)]
+public class Plugin : IPlugin
+{
+    private IDirectorApplication _application;
+        
+    public IDirectorApplication Application
+    {
+        get
+        {
+            return this._application;
+        }
+    }
+ 
+    public IReadOnlyList&lt;PluginWindowDescriptor&gt; SupportedWindowTypes
+    {
+        get
+        {
+            List&lt;PluginWindowDescriptor&gt; result = new List&lt;PluginWindowDescriptor&gt;();
+            result.Add(new PluginWindowDescriptor(&#34;windowType1&#34;, &#34;Type 1&#34;, &#34;Type 1 of DirectorWindowExample&#34;, typeof(WindowType1)));
+            return result;
+        }
+    }
+
+    public void Initialize(IDirectorApplication application)
+    {
+        this._application = application;
+    }
+
+    public void Dispose()
+    {
+    }
+}
+</pre><p data-line="113" >
+<div class="noteboxwarn"><p>
+For Director to find the plug-in, the class can implement IPlugin or any derived interface. However, it always has to <strong>export the <tt>IPlugin</tt> interface</strong>, exporting just a derived interface will not work!
+</p>
+</div>
+</p>
+<p data-line="115" >
+The project template stores a reference to that interface for later usage. Via this interface, various part of Director can be accessed such as the channels in the currently active show.
+</p>
+<h3 id="ConfigurablePlug-Ins" data-line="118" >Configurable Plug-Ins</h3>
+<p data-line="120" >
+A plug-in that is configurable can implement <tt>IConfigurablePlugin</tt>. Director will call the plug-in's <tt>SaveConfiguration()</tt> method whenever the show is saved and call <tt>LoadConfiguration(...)</tt> when the show is re-opened. If the plug-in returns a non-null value for <tt>ConfigurationDialogContent</tt>, a configure button will be shown next to the plug-in entry in the plug-in manager as seen earlier. When it is pressed, a modal dialog will be presented with the content provided by <tt>IPluginConfigurationDialog</tt>. This allows the plug-in to show a customized configuration dialog and let Director take care of the reset.
+</p>
+<pre class="wiki">public interface IConfigurablePlugin : IPlugin
+{
+    void LoadConfiguration(Dictionary&lt;string, string&gt; configuration);
+    Dictionary&lt;string, string&gt; SaveConfiguration();
+    IPluginConfigurationDialog ConfigurationDialogContent { get; }
+}
+</pre><h3 id="ChannelRuleProvider" data-line="132" >Channel Rule Provider</h3>
+<p data-line="134" >
+The <tt>IChannelRuleProvider</tt> interface can be used to add new <a class="wiki" href="../Director/Channels.html">channel rule conditions and actions</a> to Director. Channel rules are applied when the operator cues new content and used to block certain content or modify its data. A custom written action can for example be used to apply a data base lookup and fill in values whenever a page is cued.
+</p>
+<h3 id="ShotBoxExtender" data-line="137" >Shot Box Extender</h3>
+<p data-line="139" >
+The <tt>IShotboxExtender</tt> interface is used to add new entries to the <a class="wiki" href="../Director/ShotBox.html">Shot Box</a>. When such an item is selected by the operator, the plug-in can either return a URI and have Director use its own resolve mechanisms or return null and perform some custom actions by itself using the <tt>IDirectorApplication</tt> interface.
+</p>
+<h3 id="WindowProvider" data-line="142" >Window Provider</h3>
+<p data-line="144" >
+The <tt>IWindowProvider</tt> interface is probably the most commonly used interface. By implementing it, a plug-in can add one or more new window types to the list of available windows in Director.
+</p>
+<p data-line="146" >
+<div class="noteboxwarn"><p>
+The older <tt>IWindowPlugin</tt> interface is now obsolete and will be removed in a future version. It should no longer be used because it can only provide a single type of window and plug-ins of this type are loaded/unloaded every time the window layout changes (which makes managing resources like network ports, files or similar difficult at best).
+</p>
+</div>
+</p>
+<h3 id="MacroProvider" data-line="148" >Macro Provider</h3>
+<p data-line="150" >
+The <tt>IMacro</tt> interface is used to declare a custom <a class="wiki" href="../Director/Macros.html">Director Macro</a>. The Plugin does not need to implement the interface as each macro is represented by another <tt>IMacro</tt> object. Macros can be instantiated and registered using the <tt>IMacroManager</tt> available in the <tt>IDirectorApplication</tt> reference of the plugin.
+</p>
+<p data-line="152" >
+Thus the Macro API can be used to dynamically declare and register macros based on e.g. incoming data. Another application is to execute macros based on execution of other code in the plugin. Also it is designed to enable additional code execution once a Macro has been executed. A callback routine can be defined with the <tt>IMacroManager.Register</tt> method. The <tt>IMacro</tt> parameter that is passed to that function provides additional information about the executed macro.
+</p>
+<h2 id="AccessingDirectorFunctionality" data-line="154" >Accessing Director Functionality</h2>
+<p data-line="156" >
+A major portion of a plug-in is of course the interaction of the plug-in with build-in Director functionality like cueing a template or performing a take. As shown in the previous code example, this is achieved via the <tt>IDirectorApplication</tt> interface that a plug-in is passed as part of the <tt>initialize</tt> method signature. <tt>IDirectorApplication</tt> represents the application as a whole and most importantly gives access to the active show in the form of <tt>IDirectorShow</tt>. The show in turn gives access to the channels in a show, a collection of <tt>IChannel</tt> instances. Each of those channels has an <tt>IPlaylist</tt> member, which contains an arbitrary amount of <tt>IPlaylistItem</tt>.
+</p>
+<p data-line="158" >
+Furthermore the <tt>IDirectorApplication</tt> offers access to an instance of the <tt>IShortcutManager</tt> interface, which itself allows adding and removing of custom key combinations using the <tt>IShortcut</tt> interface.
+</p>
+<p data-line="160" >
+The way the interface hierarchy is build directly reflects Director's internal software architecture and should be familiar to anyone who has used Director, although currently only a subset of functionality is exposed.
+</p>
+<p data-line="162" >
+<img src="../images/Director/PlugIns/DirectorPlugInInterfaces.png" style="max-width:615px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" />
+</p>
+<h2 id="Example:CueingaTemplate" data-line="165" >Example: Cueing a Template</h2>
+<p data-line="167" >
+As an example for a simple, functional plug-in, let's extend the Director Window Plug-In created above and add two buttons to the window, one for cueing a specific template and one for taking the template.
+</p>
+<h3 id="UserInterface" data-line="170" >User Interface</h3>
+<p data-line="172" >
+Director uses Microsoft's Windows Presentation Foundation (WPF) framework to build its user interface. The advantage of using such a standard framework as opposed to a customized scripting language is that there is a great abundance of tutorials, books and other learning material readily available on the net and the resulting large number of developers that are capable of writing WPF applications. For someone only interested in developing Director Plug-Ins though, the shear amount of possibilities can be a bit daunting. However, it's quite easy to achieve first results:
+</p>
+<p data-line="174" >
+To create the user interface for our plug-in, open <tt>WindowType1.xaml</tt> and replace the <tt>Grid</tt>-tags with
+</p>
+<pre class="wiki">&lt;StackPanel&gt;
+    &lt;Button Content=&#34;Cue&#34; Click=&#34;Cue&#34;/&gt;
+    &lt;Button Content=&#34;Take&#34; Click=&#34;Take&#34;/&gt;
+&lt;/StackPanel&gt;
+</pre><p data-line="182" >
+Those are two WPF-buttons inside a stackpanel that will align the buttons vertically inside the plug-in window. The <tt>Content</tt> property specifies what is shown inside the button (i.e. the label) and the Click property associates each button with a method in the UserControl's code behind.
+</p>
+<p data-line="184" >
+<div class="noteboxnote"><p>
+The typical WPF approach to add functionality to a button is by using <strong>commands</strong>. This is a slightly more complex approach and omitted here in order to keep this example as simple as possible. Commands also manage disabling a button if the command cannot be executed, for example disabling the take button when nothing is cued.
+</p>
+</div>
+</p>
+<p data-line="186" >
+Inside <tt>WindowType1.cs</tt>, we'll find various method stubs. Since this plug-in does not need to store any window layout settings or perform initialization code, the generated method stubs can be left as is. We'll just add the two methods for our button functionality:
+</p>
+<pre class="wiki">public void Cue(object sender, EventArgs args )
+{
+
+}
+
+public void Take(object sender, EventArgs args )
+{
+
+}
+</pre><p data-line="199" >
+We will also need access to Director functionality. Add a property to store the value that was passed to the window in the initialization:
+</p>
+<pre class="wiki">Plugin Plugin { get; set; }
+        
+public void Initialize(IPlugin plugin)
+{
+    this.Plugin = plugin as Plugin; 
+}
+</pre><h3 id="RetrievingaTemplate" data-line="211" >Retrieving a Template</h3>
+<p data-line="213" >
+In order to cue a template, we have to retrieve it from the set of available templates and then tell Director where to cue it. In this example, we'll use the <strong>Hockey demo project</strong> that ships with Director. It contains a template called <tt>NS1L</tt> that we want to cue whenever the operator clicks our cue button. As shown in the diagram above, the templates can be accessed by using the active show to get the <tt>ITemplates</tt> interface.
+</p>
+<p data-line="215" >
+<div class="noteboxnote"><p>
+The quickest way find out what's accessible via the plug-in API is to double-click on the <tt>Ventuz.Director.Shared</tt> entry under References in the Solution Explorer. This opens the Object Browser window where one can navigate the various interfaces and their methods.
+</p>
+</div>
+</p>
+<p data-line="217" >
+<tt>ITemplates</tt> implements a method that retrieves a template by its name (the internal name the author of the template gave the template state which may or may not differ from the end-user name shown in Director). To retrieve the template called "NS1L", we go through the plugin interface as follows:
+</p>
+<pre class="wiki">Ventuz.Remoting4.Templates.Template template = this.Plugin.Application.Show.Templates.GetTemplate(&#34;NS1L&#34;);
+</pre><h3 id="CreatinganInstance" data-line="225" >Creating an Instance</h3>
+<p data-line="227" >
+Once we have the <tt>Template</tt>, we have to create an instance of that template and the corresponding data. This is done with the <tt>DirectorTemplateData</tt> class. Besides the template itself, it also contains a Data object. This is a special kind of object called a <a class="ext-link" href="http://msdn.microsoft.com/en-us/library/system.dynamic.dynamicobject.aspx"><span class="icon">​</span>Dynamic Object</a> as its Properties are generated only the fly during program execution. For example, to set the template parameter <tt>FirstLine</tt>, one simply writes:
+</p>
+<pre class="wiki">DirectorTemplateData templateData = new DirectorTemplateData(template);
+templateData.Data.FirstLine = &#34;Test&#34;;
+</pre><p data-line="233" >
+<div class="noteboxwarn"><p>
+Visual Studio will not know at compile time whether or not the dynamic object actually has such a member as for that it would have to analyze the template. When accessing a member which is not part of the Template's DataModel, an exception will occur which might even crash the whole application! Make sure to use try/catch-blocks and watch out for unexpected exceptions.
+</p>
+</div>
+</p>
+<h3 id="CueTake" data-line="236" >Cue &amp; Take</h3>
+<p data-line="238" >
+Now that the template instance is ready, we have to cue it to a channel. Again, we access the channel via the active show. In this example, we'll hard code to always use the first channel. The respective call is
+</p>
+<pre class="wiki">this.Plugin.Application.Show.Channels[0].CueAsync(templateData);
+</pre><p data-line="243" >
+<div class="noteboxnote"><p>
+One could also implement the window using <tt>IPluginWindow&lt;IChannel&gt;</tt> to make this window a channel-based window. In that case, Director would allow the end-user to configure the channel the window should use via its window configuration manager. The window implementation could then use <tt>DirectorDataContext</tt> to access the configured channel.
+</p>
+</div>
+</p>
+<p data-line="246" >
+Implementing the take button is even simpler. Again we go via the <tt>IPlugin</tt> interface from the application level down to the channel and then tell it to do a take.
+</p>
+<pre class="wiki">this.Plugin.Application.Show.Channels[0].TakeAsync();
+</pre><p data-line="252" >
+Similar to <tt>CueAsync</tt>, the <tt>IChannel</tt> interface also contains the method <tt>UncueAsync</tt> which can be used to remove parts or the whole <tt>TemplateData</tt> from the currently cued item.
+</p>
+<h3 id="AssetURIs" data-line="254" >Asset URIs</h3>
+<p data-line="256" >
+If a template can use an image, movie or similar asset, the asset itself is not stored inside <tt>DirectorTemplateData</tt>. Instead, the template instance will only store a URI to reduce overhead when sending the template instance to remote machines during cueing. This becomes obvious when cueing a movie which happens almost instantaneously as the movie file itself is already present on the remote machine.
+</p>
+<p data-line="258" >
+Director uses a set of pre-defined URI schemes that the Ventuz runtime will also understand. The most important ones in the context of plug-in development are:
+</p>
+<table class="wiki" data-line="260" >
+<tr><th data-line="260" > <strong>Schema</strong> </th><th data-line="260" > <strong>Description</strong> 
+</th></tr><tr><td data-line="261" > <tt>ventuz://</tt> </td><td data-line="261" > A relative path that starts at the root of the Ventuz project folder structure. 
+</td></tr><tr><td data-line="262" > <tt>assets://</tt> </td><td data-line="262" > A relative path that starts at the asset folder within the Ventuz project folder structure. 
+</td></tr></table>
+<p data-line="264" >
+As an example, the <tt>A.Hilton.png</tt> headshot image from the Hockey demo project can be accessed by either <tt>ventuz://assets/headshots/A.Hilton.png</tt> or <tt>assets://headshots/A.Hilton.png</tt>. So if a template contains the template parameter <tt>Image</tt>, it would be set by the following code:
+</p>
+<pre class="wiki">DirectorTemplateData templateData = new DirectorTemplateData(template);
+templateData.Data.Image= new Uri(&#34;assets://headshots/A.Hilton.png&#34;);
+</pre><h2 id="Example:Shortcuts" data-line="271" >Example: Shortcuts</h2>
+<p data-line="273" >
+The plug-in API offers access to the <tt>IShortcutManager</tt> and <tt>IShortcut</tt> interfaces which allow creating, adding and removing of custom shortcuts. These shortcuts provide a convenient way to execute often needed plugin functionality in a fast way.
+</p>
+<h3 id="Setup" data-line="275" >Setup</h3>
+<p data-line="277" >
+A new shortcut is added within a few steps. First we add some members to the plug-in class to store needed data. This will be the instance of the IShortcut itself which has to be removed at the end to "free" the used key combination. We also declare a RoutedUICommand to be able to associate a shortcut with an event to execute each time the shortcut gets triggered.
+</p>
+<pre class="wiki">// internal reference to the shortcut which has to get unregistered at end
+private IShortcut _shortcut;
+
+// read only access to the shortcut command.
+public static RoutedUICommand ShortcutCommand { get { return _shortcutCommand; } }
+
+// internal reference to the shortcut command
+private static RoutedUICommand _shortcutCommand = new RoutedUICommand(&#34;The command to execute for the registered shortcut&#34;, &#34;shortcutCommandName&#34;, typeof(Plugin));
+</pre><p data-line="290" >
+Then we add the Execute event handler for the command. For this example we only display a popup message about successful execution of the shortcut.
+</p>
+<p data-line="292" >
+<div class="noteboxtip"><p>
+When the plugin instance has been passed as parameter, every plugin functionality will be available from inside the handler.
+</p>
+</div>
+</p>
+<pre class="wiki">private static void ShortcutExecuted(object sender, ExecutedRoutedEventArgs e)
+{
+    e.Handled = true;
+
+    // cast parameter back to an object of the type we have passed (Plugin)
+    Plugin self = e.Parameter as Plugin;
+    if ( self != null )
+    {
+        // log a message and display it as a popup
+        self.Application.LogInfo(&#34;Shortcut has been executed.&#34;, true);
+    }
+}
+</pre><p data-line="309" >
+As we now have everything prepared we can add a new method that contains the initialization itself. First the command gets registered, together with its associated Executed event handler, wrapped in a Commandbinding. Then we create a shortcut using the <tt>ShortcutManager</tt> and pass the desired keys combination the shortcut should react on and an unique string, best prefixed with the plugin name. Afterwards the <tt>ShortcutManager</tt> is used again to make sure the key combination is not already in use. If this is not the case the shortcut is added to the shortcut system, together with the previously registered command, a command parameter (preferable <tt>this</tt>) and some strings which are used for the shortcut window, where each shortcut is listed.
+</p>
+<pre class="wiki">private void InitShortcuts()
+{
+    this.Application.ShortcutManager.RegisterCommand(new CommandBinding(ShortcutCommand, ShortcutExecuted));
+
+    this._shortcut = this.Application.ShortcutManager.CreateShortcut(ModifierKeys.Control | ModifierKeys.Shift, Key.L, &#34;myPlugin.logdemo&#34;);
+    if ( !this.Application.ShortcutManager.ShortcutExists(this._shortcut) )
+    {
+        this.Application.ShortcutManager.AddShortcut(this._shortcut, ShortcutCommand, this, &#34;My Plugin&#34;, &#34;log example text&#34;, &#34;Add an entry to the log message.&#34;);
+    }
+}
+</pre><p data-line="324" >
+Finally we put a call to the above method into the plug-in <tt>Initialize</tt> method to make sure everything is ready right from the start.
+</p>
+<pre class="wiki">public void Initialize(IDirectorApplication application)
+{
+    // [...]
+
+    // setup shortcuts
+    InitShortcuts();
+}
+</pre><h3 id="Cleanup" data-line="336" >Cleanup</h3>
+<p data-line="338" >
+As shortcuts will be added for the whole lifetime of the Director application we have to ensure that the shortcuts gets removed properly. Otherwise closing the active show and re-opening it would cause the shortcut to be still in use associated with a former instance of the shortcut command. Therefore we define a new method for cleanup and call it during <tt>Dispose</tt>.
+</p>
+<pre class="wiki">private void DeinitShortcuts()
+{
+    if ( this._shortcut != null )
+    {
+        this.Application.ShortcutManager.RemoveShortcut(this._shortcut);
+        this._shortcut = null;
+    }
+}
+
+public void Dispose()
+{
+    // unregister all shortcuts
+    this.DeinitShortcuts();
+}
+</pre><h3 id="Result" data-line="357" >Result</h3>
+<p data-line="359" >
+Now the shortcut is ready to use. Once the plug-in has been enabled the Director reacts on the specified key combination and the associated command gets executed. The shortcut overview window will contain also all custom shortcuts for reference.
+</p>
+<p data-line="361" >
+<img src="../images/Director/PlugIns/VentuzDirectorPluginShortcutsExecuted.png" style="max-width:540px;width:50%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="363" >
+<img src="../images/Director/PlugIns/VentuzDirectorPluginShortcuts.png" style="max-width:536px;width:50%" class="usermanual-image" title="" alt="" />
+</p>
+<h3 id="ReusingCommands" data-line="365" >Reusing Commands</h3>
+<p data-line="367" >
+A single command and its event handler can be used for an arbitrary amount of shortcuts. The logic for each shortcut can be controlled via the <tt>Parameter</tt> property of the <tt>ExecutedRoutedEventArgs</tt>. Instead of only passing the plug-in instance to the <tt>AddShortcut</tt> call, we provide a more advanced object. This could be for example a tuple consisting of the plug-in instance and a string.
+</p>
+<pre class="wiki">// register the command, only 1 is needed
+this.Application.ShortcutManager.RegisterCommand(new CommandBinding(ShortcutCommand, ShortcutExecuted));
+
+// add two different shortcuts using the same command, but different string values inside the tuple parameter
+this.Application.ShortcutManager.AddShortcut(this._shortcutLog, ShortcutCommand, new Tuple&lt;Plugin, string&gt;(this, &#34;log&#34;), &#34;My Plugin&#34;, &#34;log example text&#34;, &#34;Add an entry to the log message.&#34;);
+this.Application.ShortcutManager.AddShortcut(this._shortcutTake, ShortcutCommand, new Tuple&lt;Plugin, string&gt;(this, &#34;take&#34;), &#34;My Plugin&#34;, &#34;perform a take&#34;, &#34;Performs a take on the first channel.&#34;);
+</pre><p data-line="378" >
+In the Executed event handler we only need to recreate the tuple from the parameter and perform a switch/case on the string part.
+</p>
+<pre class="wiki">static private void ShortcutExecuted(object sender, ExecutedRoutedEventArgs e)
+{
+    e.Handled = true;
+
+    var tuple = e.Parameter as Tuple&lt;Plugin, string&gt;;
+    if ( tuple == null )
+        return;
+
+    var self = tuple.Item1;
+    var param = tuple.Item2;
+
+    switch (param)
+    {
+        case &#34;log&#34;:
+            // log a message and dispay it as a popup
+            self.Application.LogInfo(&#34;Shortcut has been executed.&#34;, true);
+        break;
+
+        case &#34;take&#34;:
+            // perform take on first channel, if available
+            if ( self.Application.Show.Channels.Count &gt; 0 )
+                self.Application.Show.Channels[0].TakeAsync();
+            break;
+    }
+}
+</pre><h2 id="Example:Playlist" data-line="408" >Example: Playlist</h2>
+<p data-line="410" >
+The <tt>IPlaylist</tt> and the <tt>IPlaylistItem</tt> interfaces provide the possibility to interact with a playlist of a channel. The following code snippets demonstrate how items can be added, removed or changed. Usually each example assumes that at least 1 channel exists.
+</p>
+<h3 id="AddAssetsfromFile" data-line="412" >Add Assets from File</h3>
+<p data-line="414" >
+This example shows how to add an arbitrary amount of images to the playlist. The <tt>Assets</tt> folder of the project gets filtered by a predefined list of file extension. Each matching file gets added directly to the playlist, leaving the content handling up to the Director.
+</p>
+<pre class="wiki">/// &lt;summary&gt;
+/// Adds images from the Assets project folder to the playlist of the specified channel.
+/// &lt;/summary&gt;
+/// &lt;param name=&#34;channelIndex&#34;&gt;the index of the channel&lt;/param&gt;
+public void AddImages(int channelIndex = 0)
+{
+    // check index
+    if ( channelIndex &lt; 0 || channelIndex &gt;= this.Application.Show.Channels.Count )
+        return;
+                
+    // path to this project
+    var path = this.Application.Show.ProjectPath;
+    FileInfo project = new FileInfo(path);
+
+    // path to the Assets directory of the project
+    var assetsDir = new DirectoryInfo(Path.Combine(project.DirectoryName, &#34;Assets&#34;));
+    if ( !assetsDir.Exists )
+        return;
+
+    // list of some image file extensions we are interested in
+    string[] extensions = new string[] { &#34;.jpg&#34;, &#34;.jpeg&#34;, &#34;.bmp&#34;, &#34;.png&#34;, &#34;.dds&#34; };
+
+    // use 5 seconds like for a small slideshow
+    var duration = this.Application.Show.TimeBase.DurationFromSeconds(5);
+    
+    // filter files in Assets folder for desired file type
+    var imageInfos = assetsDir.EnumerateFiles().Where(file =&gt; extensions.Any(ext =&gt; ext == file.Extension)).ToArray();
+    
+    // add each image of the resulting list to the playlist
+    foreach ( var imageInfo in imageInfos )
+    {
+        // create new item with uri of image file, default name (i.e. filename) and the duration
+        var item = this.Application.Show.Channels[channelIndex].Playlist.CreateItem(new Uri(&#34;assets://&#34; + imageInfo.Name), null, duration);
+        this.Application.Show.Channels[channelIndex].Playlist.Add(item);
+    }
+}
+</pre><p data-line="455" >
+It is also possible to create new items based on existing templates. Simply retrieve a list of available templates from the show and add a new playlist item based on the URI of the template. We also change the default name of the new playlist item by prefixing it. This way we can see which items have been added using this method.
+</p>
+<pre class="wiki">/// &lt;summary&gt;
+/// Adds all available templates to the playlist of the first channel.
+/// &lt;/summary&gt;
+public void AddTemplates()
+{
+    var playlist = this.Application.Show.Channels[0].Playlist;
+    
+    foreach ( var template in this.Application.Show.Templates.GetTemplates() )
+    {
+        playlist.Add(
+            playlist.CreateItem(
+                template.AbsoluteUri, &#34;Template: &#34; + template.DisplayName));
+    }
+}
+</pre><h3 id="Sort" data-line="474" >Sort</h3>
+<p data-line="476" >
+Sorting is also quite easy. The following snippet shows how a playlist can be sorted by duration. Playlist items with the same duration get sorted by their name.
+</p>
+<pre class="wiki">/// &lt;summary&gt;
+/// Sorts the playlist of the first channel by duration and name.
+/// &lt;/summary&gt;
+public void SortByDurationAndName()
+{
+    var playlist = this.Application.Show.Channels[0].Playlist;
+    var list = playlist.ToList();
+
+    // sort by duration, then by name
+    list.Sort((a, b) =&gt;
+    {
+        if ( a == b )
+            return 0;
+        if ( a == null || b == null )
+            return -1;
+
+        int result = (int)(a.Duration - b.Duration);
+        if ( result == 0 )
+            result = string.Compare(a.DisplayName, b.DisplayName);
+
+        return result;
+    });
+
+    // remove all items and re-add in sorted order
+    playlist.Clear();
+    foreach ( var item in list )
+        playlist.Add(item);
+}
+</pre><p data-line="509" >
+The next example is similiar to the previous one, but uses a custom <tt>IComparer</tt> for sorting two instances of <tt>IPlaylistItem</tt> and the <tt>Keywords</tt> property of the underlying template instead of the duration. The keywords of both items are tested first. If they match or are both missing, the name of the items is used for comparison.
+</p>
+<pre class="wiki">/// &lt;summary&gt;
+/// Sorts the playlist by Keywords and DisplayName.
+/// &lt;/summary&gt;
+public void SortByKeywordAndName()
+{
+    var playlist = this.Application.Show.Channels[0].Playlist;
+    var list = playlist.ToList();
+    
+    list.Sort(new PlaylistItemKeywordComparer());
+
+    // remove all items and re-add in sorted order
+    playlist.Clear();
+    foreach ( var item in list )
+        playlist.Add(item);
+}
+
+/// &lt;summary&gt;
+/// Compares two instances of IPlaylistItem by their Keywords and DisplayName property.
+/// &lt;/summary&gt;
+class PlaylistItemKeywordComparer : IComparer&lt;IPlaylistItem&gt;
+{
+    public int Compare(IPlaylistItem x, IPlaylistItem y)
+    {
+        if ( x == y )
+            return 0;
+        if ( x == null || y == null )
+            return -1;
+
+        bool useName = false;
+
+        // determine whether these playlist items have keywords
+        var xHasKeywords = x.ContentData?.Template?.Keywords != null;
+        var yHasKeywords = y.ContentData?.Template?.Keywords != null;
+
+        // no keywords, use name
+        if ( !xHasKeywords &amp;&amp; !yHasKeywords )
+        {
+            useName = true;
+        }
+        else
+        {
+            if ( !xHasKeywords )
+                return -1;
+            if ( !yHasKeywords )
+                return 1;
+        }
+
+        int result = 0;
+        if ( !useName )
+        {
+            // both items have keywords, compare them as string
+            string a = string.Join(&#34;, &#34;, x.ContentData.Template.Keywords);
+            string b = string.Join(&#34;, &#34;, y.ContentData.Template.Keywords);
+            result = string.Compare(a, b);
+
+            // fallback to name if equal
+            useName = result == 0;
+        }
+        
+        if ( useName )
+            result = string.Compare(x.DisplayName, y.DisplayName);
+
+        return result;
+    }
+}
+</pre><h3 id="Remove" data-line="579" >Remove</h3>
+<p data-line="581" >
+Removing items from the playlist is very simple. The following few lines of code show how you can remove all items, only a single item or a custom collection of items.
+</p>
+<pre class="wiki">// playlist of first channel for convenience (assuming channel is available)
+var playlist = this.Application.Show.Channels[0].Playlist;
+
+// remove all items from the playlist
+playlist.Clear();
+
+// remove only 3rd item
+playlist.Remove(playlist[2]);
+
+// remove all selected items
+var selected = playlist.Where(x =&gt; x.IsSelected).ToArray();
+foreach ( var item in selected )
+    playlist.Remove(item);
+</pre><h3 id="Duration" data-line="599" >Duration</h3>
+<p data-line="601" >
+It is possible to retrieve the duration of a playlist item as well as to change it. For this it provides a property called <tt>Duration</tt> containing the amount of ticks which determines how long a particular item will be on air. The default is 60 ticks per second, which cannot be changed. The <tt>ITimeBase</tt> interface, accessible from the Show, provides some helper functions to convert ticks to seconds and vice-versa.
+</p>
+<p data-line="603" >
+The fist example iterates over the playlist and adds the ticks together. Then the <tt>TimeBase</tt> object of the show is used to convert these into seconds.
+</p>
+<pre class="wiki">public double GetTotalDurationInSeconds()
+{
+    long duration = 0;
+    for ( int i = 0; i &lt; this.Application.Show.Channels[0].Playlist.Count; ++i )
+        duration += this.Application.Show.Channels[0].Playlist[i].Duration;
+
+    return this.Application.Show.TimeBase.SecondsFromDuration(duration);
+}
+</pre><p data-line="616" >
+The second example uses the <tt>TimeBase</tt> object the other way round and creates a duration value in ticks from a specified seconds value. Then this value gets applied to all playlist items.
+</p>
+<pre class="wiki">public void SetDurationFromSeconds(double seconds)
+{
+    long duration = this.Application.Show.TimeBase.DurationFromSeconds(seconds);
+    
+    for ( int i = 0; i &lt; this.Application.Show.Channels[0].Playlist.Count; ++i )
+    {
+        this.Application.Show.Channels[0].Playlist[i].Duration = duration;
+    }
+}
+</pre><h2 id="AsynchronousProgramming" data-line="630" >Asynchronous Programming</h2>
+<p data-line="632" >
+Director is a multi-threaded application that places great emphasis on the fact that the application and its user interface should always be responsive, no matter what functionality is executed. But what happens when the user clicks one of the buttons in the plug-in? The main WPF UI thread processes the click and calls the plug-in method, preventing any UI updates until that method is done. This can easily freeze the user interface for a couple of seconds depending on how much work is done inside the method.
+</p>
+<p data-line="634" >
+To prevent this, Director internally makes heavy use of C# <tt>Task</tt> objects and the <a class="ext-link" href="https://msdn.microsoft.com/library/hh191443(vs.110).aspx"><span class="icon">​</span>Async framework</a>. The latter allows the compiler to split a method into multiple parts and at certain points of the execution return to the caller (i.e. let the UI do other work) and resume at the same position later on.
+</p>
+<p data-line="636" >
+Any method that wants to use that mechanism has to have the <tt>async</tt> keyword in its declaration. As a convention, one usually adds the suffix <tt>Async</tt> to the method name to visualize to the caller that this method may return prematurely. To prevent the user from clicking the button again once its operation has started, it is also a good idea to disable it.
+</p>
+<pre class="wiki">public async void CueAsync(object sender, EventArgs args )
+{
+    this.IsEnabled = false;
+
+    ...
+
+    this.IsEnabled = true;
+}
+
+public async void TakeAsync(object sender, EventArgs args )
+{
+    this.IsEnabled = false;
+
+    ...
+
+    this.IsEnabled = true;
+}
+</pre><p data-line="658" >
+Just adding the <tt>async</tt> does not change the methods' behavior yet. The compiler needs to be told at what point it can safely jump out of the method with the <tt>await</tt> keyword. An await can be done on any Task object and the majority of potentially long running methods exposed in the Director SDK return a Task object. We want to await on the cueing and the taking as those will be the most time-consuming operations.
+</p>
+<p data-line="660" >
+So the final implementation looks like this:
+</p>
+<pre class="wiki">public async void CueAsync(object sender, EventArgs args )
+{
+    this.IsEnabled = false;
+    
+    Template template = plugin.Application.Show.Templates.GetTemplate(&#34;NS1L&#34;);
+    DirectorTemplateData templateData = new DirectorTemplateData(template);
+    templateData.Data.FirstLine = &#34;Test&#34;;
+
+    ITimelineItem timelineItem;
+    try
+    {
+        timelineItem = await plugin.Application.Show.Channels[0].CueAsync(templateData);
+    }
+    finally
+    {
+        this.IsEnabled = true;
+    }
+}
+
+public async void TakeAsync(object sender, EventArgs args)
+{
+    this.IsEnabled = false;
+
+    try
+    {
+        await plugin.Application.Show.Channels[0].TakeAsync();
+    }
+    finally
+    {
+        this.IsEnabled = true;
+    }
+}
+</pre><p data-line="697" >
+For the cue, retrieving the template and creating the template data should be reasonably fast so we do that before awaiting. Once the cueing is done and we have been returned the <tt>ITimelineItem</tt> instance, we might use it to present some further information to the user but that has been omitted for brevity. Finally, we re-enable the button. For the take, the plug-in control is disabled, the task is performed asynchronously and once it has finished, the control is re-enabled.
+</p>
+<h2 id="ModifyingProjectData" data-line="700" >Modifying Project Data</h2>
+<p data-line="702" >
+Another common use case is developing a custom control panel that should modify project data (e.g. goals scored in a match). We'll use this to give an example on how to create WPF binding between a UI element and its respective data object. Let's assume we have a color each for the home and guests team that is part of the project data. How do we achieve something like shown in the following screenshot?
+</p>
+<p data-line="704" >
+<img src="../images/Director/PlugIns/VentuzDirectorPluginTeamColors.png" style="max-width:385px;margin-right:auto; display:block; margin-left:auto;width:50%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="706" >
+<div class="noteboxwarn"><p>
+This example contains a number of standard WPF mechanisms like bindings, resources, converters, and using components from other DLLs. It is beyond the scope of this document to give the reader even a concise overview over WPF functionality and therefore this is only intended as something to follow through while using some other form to learn WPF!
+</p>
+</div>
+</p>
+<p data-line="708" >
+Lets add a second window type to our plug-in. In the Visual Studio Solution Explorer, right-click and add a new WPF UserControl called <tt>ProjectDataWindow</tt>. In <tt>Plugin.cs</tt>, add another line in <tt>SupportedWindowTypes</tt> for the new window type:
+</p>
+<pre class="wiki">public IReadOnlyList&lt;PluginWindowDescriptor&gt; SupportedWindowTypes
+{
+    get
+    {
+        List&lt;PluginWindowDescriptor&gt; result = new List&lt;PluginWindowDescriptor&gt;();
+        result.Add(new PluginWindowDescriptor(&#34;windowType1&#34;, &#34;Type 1&#34;, &#34;Type 1 of DirectorWindowExample&#34;, typeof(WindowType1)));
+        result.Add(new PluginWindowDescriptor(&#34;projectData&#34;, &#34;Project data Window&#34;, &#34;Access team colors&#34;, typeof(ProjectDataWindow)));
+        return result;
+    }
+}
+</pre><p data-line="723" >
+In <tt>ProjectDataWindow.xaml.cs</tt>, have the class implement the interface <tt>IPluginWindow</tt>:
+</p>
+<pre class="wiki">using System.Collections.Generic;
+using System.Windows.Controls;
+using Ventuz.Director.Shared;
+
+namespace DirectorWindowExample
+{
+    /// &lt;summary&gt;
+    /// Interaction logic for ProjectData.xaml
+    /// &lt;/summary&gt;
+    public partial class ProjectDataWindow : UserControl, IPluginWindow
+    {
+        public ProjectDataWindow()
+        {
+            InitializeComponent();
+        }
+
+        public System.Windows.FrameworkElement PopupContent
+        {
+            get
+            {
+                return null;
+            }
+        }
+        
+        public System.Windows.FrameworkElement WindowContent
+        {
+            get
+            {
+                return this;
+            }
+        }
+        
+        public void Dispose()
+        {
+        }
+        
+        public void Initialize(IPlugin plugin)
+        {
+            // Setup our plug-in as data source for WPF bindings.
+            this.DataContext = plugin;
+        }
+        
+        public void LoadLayoutSettings(Dictionary&lt;string, string&gt; settings)
+        {
+        }
+        
+        public Dictionary&lt;string, string&gt; SaveLayoutSettings()
+        {
+            return null;
+        }
+    }
+}
+</pre><p data-line="781" >
+The plug-in now provides two window types, the window containing the cue/take buttons and another that we will implement in the following. No code behind functionality will be needed as an alternative mechanism will be used to connect the user interface to the actual values: WPF bindings. For the following to work, we have to set the WPF control's <tt>DataContext</tt> to our plug-in which is done during initialization.
+</p>
+<h3 id="UserInterface1" data-line="784" >User Interface</h3>
+<p data-line="786" >
+Inside <tt>ProjectDataWindow.xaml</tt>, add:
+</p>
+<ul class="" start="1"><li data-line="788" >a <tt>Grid</tt> for layouting purposes
+</li><li data-line="789" >two <tt>TextBlock</tt>s (as labels)
+</li><li data-line="790" >two <tt>ColorPicker</tt>s
+</li></ul><p data-line="792" >
+The row and column definitions of the grid either specify a fixed height/wide (i.e. 75), auto (take exactly as much space as the content in that cell needs) or * (take as much space as possible). Each of the controls inside the Grid use the <tt>Grid.Row</tt> and <tt>Grid.Column</tt> <strong>Attached Properties</strong> to specify what goes into which cell of the Grid.
+</p>
+<p data-line="794" >
+However, WPF does not come with a pre-build color picker, so we are going to use the exact same one as used in Director!
+</p>
+<pre class="wiki">&lt;UserControl x:Class=&#34;DirectorWindowExample.ProjectDataWindow&#34;
+             xmlns=&#34;http://schemas.microsoft.com/winfx/2006/xaml/presentation&#34;
+             xmlns:x=&#34;http://schemas.microsoft.com/winfx/2006/xaml&#34;
+             xmlns:mc=&#34;http://schemas.openxmlformats.org/markup-compatibility/2006&#34; 
+             xmlns:d=&#34;http://schemas.microsoft.com/expression/blend/2008&#34; 
+             xmlns:ventuzControls=&#34;clr-namespace:Ventuz.WPF.Controls;assembly=Ventuz.WPF&#34;
+             mc:Ignorable=&#34;d&#34; 
+             d:DesignHeight=&#34;300&#34; d:DesignWidth=&#34;300&#34;&gt;
+    &lt;Grid&gt;
+        &lt;Grid.RowDefinitions&gt;
+            &lt;RowDefinition Height=&#34;Auto&#34;/&gt;
+            &lt;RowDefinition Height=&#34;Auto&#34;/&gt;
+        &lt;/Grid.RowDefinitions&gt;
+        &lt;Grid.ColumnDefinitions&gt;
+            &lt;ColumnDefinition Width=&#34;75&#34;/&gt;
+            &lt;ColumnDefinition Width=&#34;*&#34;/&gt;
+        &lt;/Grid.ColumnDefinitions&gt;
+        &lt;TextBlock Grid.Row=&#34;0&#34; Grid.Column=&#34;0&#34; Text=&#34;Home&#34; VerticalAlignment=&#34;Center&#34;/&gt;
+        &lt;ventuzControls:ColorPicker Grid.Row=&#34;0&#34; Grid.Column=&#34;1&#34; Height=&#34;30&#34;/&gt;
+        &lt;TextBlock Grid.Row=&#34;1&#34; Grid.Column=&#34;0&#34; Text=&#34;Guests&#34; VerticalAlignment=&#34;Center&#34;/&gt;
+        &lt;ventuzControls:ColorPicker Grid.Row=&#34;1&#34; Grid.Column=&#34;1&#34; Height=&#34;30&#34;/&gt;
+    &lt;/Grid&gt;
+&lt;/UserControl&gt;
+</pre><p data-line="821" >
+For this to work, we added a reference to the <tt>Ventuz.WPF.dll</tt> to the project by right-clicking on the <strong>References</strong> entry in the project's Solution Explorer (the DLL is part of your Director installation, just browse for it). Then we added an XML namespace so we can access the controls in the XAML.
+</p>
+<pre class="wiki">xmlns:ventuzControls=&#34;clr-namespace:Ventuz.WPF.Controls;assembly=Ventuz.WPF&#34;
+</pre><h3 id="ValueBinding" data-line="827" >Value Binding</h3>
+<p data-line="829" >
+Now we have two color pickers, but they do not do anything yet. We need to connect the value of the <tt>ColorPicker</tt> with the project data. First, we open Ventuz Designer and right-click on the icon for our project and choose <strong>Properties / Data / Project Data Edit / Project Data</strong> and look for where the colors are. In this case, their path is <tt>Home/HomeTeamColor</tt> and <tt>Visitor/VisitorTeamColor</tt> respectively. 
+</p>
+<p data-line="831" >
+<img src="../images/Director/PlugIns/VentuzDirectorPluginProjectData.png" style="max-width:760px;margin-right:auto; display:block; margin-left:auto;width:30%" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="833" >
+We close the Ventuz Designer and continue inside Visual Studio. By double-clicking on the Ventuz.WPF reference in the Solution Explorer, the Object Browser opens up and we can see that the <tt>ColorPicker</tt> has a property named <tt>DisplayColor</tt>. To connect those two ends, we add a <strong>WPF Binding</strong>:
+</p>
+<pre class="wiki">&lt;ventuzControls:ColorPicker Grid.Row=&#34;0&#34; Grid.Column=&#34;1&#34; Height=&#34;30&#34; DisplayColor=&#34;{Binding Application.Show.ProjectData.Data.Home.HomeTeamColor}&#34;/&gt;
+&lt;ventuzControls:ColorPicker Grid.Row=&#34;1&#34; Grid.Column=&#34;1&#34; Height=&#34;30&#34; DisplayColor=&#34;{Binding Application.Show.ProjectData.Data.Visitor.VisitorTeamColor}&#34;/&gt;
+</pre><p data-line="839" >
+For a binding to work, the <tt>DataContext</tt> of the control needs to be set properly and from there the path specified in the binding should lead to the desired property. By checking the code behind, we see that the <tt>DataContext</tt> is set to our plugin interface and from there we can again drill down to the property we want.
+</p>
+<h3 id="Converters" data-line="842" >Converters</h3>
+<p data-line="844" >
+Unfortunately, this still does not work. When launching the debugger and opening our plug-in, the Output window will print the following lines:
+</p>
+<pre class="wiki">System.Windows.Data Error: 1 : Cannot create default converter to perform 'two-way' conversions between types 'System.Drawing.Color' and 'System.Nullable`1[System.Windows.Media.Color]'. Consider using Converter property of Binding. BindingExpression:Path=Application.Show.ProjectData.Data.Home.HomeTeamColor; DataItem='Plugin' (HashCode=50714607); target element is 'ColorPicker' (Name=''); target property is 'DisplayColor' (type 'Nullable`1')
+System.Windows.Data Error: 5 : Value produced by BindingExpression is not valid for target property.; Value='Color [A=255, R=25, G=25, B=254]' BindingExpression:Path=Application.Show.ProjectData.Data.Home.HomeTeamColor; DataItem='Plugin' (HashCode=50714607); target element is 'ColorPicker' (Name=''); target property is 'DisplayColor' (type 'Nullable`1')
+</pre><p data-line="850" >
+In plain English, both ends don't match! We need a converter for this which luckily is also part of <tt>Ventuz.WPF.dll</tt>. We add another namespace:
+</p>
+<pre class="wiki">xmlns:ventuzConverters=&#34;clr-namespace:Ventuz.WPF.Converters;assembly=Ventuz.WPF&#34;
+</pre><p data-line="854" >
+Then we add an instance of the <tt>RGBAToColorConverter</tt> as part of our <tt>UserControl</tt>'s resources (usually added as the first thing right after the end of the opening <tt>UserControl</tt> tag).
+</p>
+<pre class="wiki">&lt;UserControl.Resources&gt;
+    &lt;ventuzConverters:RGBAToColorConverter x:Key=&#34;colorConverter&#34;/&gt;
+&lt;/UserControl.Resources&gt;
+</pre><p data-line="861" >
+And finally, we use the converter in our bindings:
+</p>
+<pre class="wiki">&lt;ventuzControls:ColorPicker Grid.Row=&#34;0&#34; Grid.Column=&#34;1&#34; Height=&#34;30&#34; DisplayColor=&#34;{Binding Application.Show.ProjectData.Data.Home.HomeTeamColor, Converter={StaticResource colorConverter}}&#34;/&gt;
+&lt;ventuzControls:ColorPicker Grid.Row=&#34;1&#34; Grid.Column=&#34;1&#34; Height=&#34;30&#34; DisplayColor=&#34;{Binding Application.Show.ProjectData.Data.Visitor.VisitorTeamColor, Converter={StaticResource colorConverter}}&#34;/&gt;
+</pre><p data-line="868" >
+Now everything works as expected. When the plug-in window is opened, the color pickers will contain the current color set in the project data and when making any changes, they are reflected inside the presenter runtime.
+</p>
+<h2 id="Deployment" data-line="871" >Deployment</h2>
+<p data-line="873" >
+Installing a plug-in on a end-user machine is fairly straight forward. In the Ventuz installation directory, create a folder called <tt>Plugins</tt>. Copy the DLL output of the Visual Studio Director Plug-In project into that folder and restart Director. That's it!
+</p>
+
+            </div>
+            <div class="control"><div class="control-prev"><a href="../Director/Playlist.html?itm=291">&laquo; Previous Article</a></div><div><a href="../Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="../Director/ProjectData.html?itm=293">Next Article &raquo;</a></div></div>
+            <div id="footer">
+    Copyright 2020 Ventuz Technology
+</div>
+        </div>
+    </body>
+</html>

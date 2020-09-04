@@ -1,0 +1,723 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>UserManual/MachineConfigurationAV</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript" src="js/usermanual.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script><script src="js/jquery-ui.min.js"></script><script type="text/javascript">
+    function getParam(name, defaultValue) {
+        var url = window.location.search.substring(1);
+        var vars = url.split('&');
+        for (var i = 0; i < vars.length; ++i) {
+            var param = vars[i].split('=');
+            if (param[0] == name) {
+                return param[1];
+            }
+        }
+        return defaultValue;
+    }
+
+    jQuery(document).ready(function($) {
+        var link;
+        var itemIndex = getParam('itm', -1)
+        if (itemIndex != -1) {
+            var link = $('a[item-index="' + itemIndex + '"]:first');
+        } else {
+            var page = window.location.pathname;
+            var parts = page.split("/");
+            if (parts.length >= 2) {
+                page = parts[parts.length-2] + "/" + parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+            if ( link.length === 0 && parts.length >= 1 ) {
+                page = parts[parts.length-1];
+                link = $('a[href*="' + page + '"]:first');
+            }
+        }
+
+        var tabIndex = 0;
+        if (link.length > 0) {
+            tabIndex = parseInt(link.attr("tab-index"), 10);
+            link.addClass('current');
+            link.parent().addClass('current');
+        }
+
+        $("#navigation").accordion({
+            heightStyle: "content",
+            collapsible: true,
+            active: tabIndex
+        });
+
+        $('#sidebar').scrollTop(link.offset().top - 20);
+    });
+    </script>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <!--sidebar begin--> <div id="sidebar"><h1>Navigation</h1><div id="navigation"><h3>Ventuz 6 Quick Guide</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="QuickGuideIntro.html?itm=0" tab-index="0" item-index="0" lst="1-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GettingStarted.html?itm=1" tab-index="0" item-index="1" lst="1-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzEditions.html?itm=2" tab-index="0" item-index="2" lst="1-1">Ventuz Editions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner.html?itm=3" tab-index="0" item-index="3" lst="1-1">Designer Overview</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SystemRequirements.html?itm=4" tab-index="0" item-index="4" lst="1-2">Ventuz System Requirements</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfiguration.html?itm=5" tab-index="0" item-index="5" lst="1-2">Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationAV.html?itm=6" tab-index="0" item-index="6" lst="1-2">Video/Audio Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationMC.html?itm=7" tab-index="0" item-index="7" lst="1-2">Machine Configuration</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GPIConfiguration.html?itm=8" tab-index="0" item-index="8" lst="1-2">GPI Configuration for Runtime or Director</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Performance.html?itm=9" tab-index="0" item-index="9" lst="1-2">Optimize Rendering Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SupportedFormats.html?itm=10" tab-index="0" item-index="10" lst="1-2">Supported Formats</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MachineConfigurationVendors.html?itm=11" tab-index="0" item-index="11" lst="1-2">Supported Hardware</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AntiAliasing.html?itm=12" tab-index="0" item-index="12" lst="1-2">Multisampling / Anti-Aliasing</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InputSubsystem.html?itm=13" tab-index="0" item-index="13" lst="1-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="VentuzFileTypes.html?itm=14" tab-index="0" item-index="14" lst="1-2">Ventuz Proprietary Files</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="WhatsNew.html?itm=15" tab-index="0" item-index="15" lst="1-1">What&apos;s new</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="FAQ.html?itm=16" tab-index="0" item-index="16" lst="1-1">FAQ</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="CommonMistakes.html?itm=17" tab-index="0" item-index="17" lst="1-1">Common Mistakes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Deployment.html?itm=18" tab-index="0" item-index="18" lst="1-1">Deployment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MigrationGuide.html?itm=19" tab-index="0" item-index="19" lst="1-1">Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MigrationGuideV4V5.html?itm=20" tab-index="0" item-index="20" lst="1-1">Ventuz 5 Migration Guide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="SummaryShortcuts.html?itm=21" tab-index="0" item-index="21" lst="1-1">Summary Shortcuts</a></li></ul></div><h3>Ventuz 6 Designer</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Index.html?itm=22" tab-index="1" item-index="22" lst="3-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GettingStarted_2.html?itm=23" tab-index="1" item-index="23" lst="3-1">Getting Started</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DesignerOptions.html?itm=24" tab-index="1" item-index="24" lst="3-1">Designer Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner_2.html?itm=25" tab-index="1" item-index="25" lst="3-1">Designer Overview</a></li></ul><div class="list-label list-level-1">Projects &amp; Scenes</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="ProjectsAndScenes.html?itm=26" tab-index="1" item-index="26" lst="4-1">Projects and Scenes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WindowProjectBrowser.html?itm=27" tab-index="1" item-index="27" lst="4-2">Project Browser</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectProperties.html?itm=28" tab-index="1" item-index="28" lst="4-2">Project Properties</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectMaintenance.html?itm=29" tab-index="1" item-index="29" lst="4-2">Project Maintenance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectAndSceneData.html?itm=30" tab-index="1" item-index="30" lst="4-2">Project and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneTree.html?itm=31" tab-index="1" item-index="31" lst="4-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneManagement.html?itm=32" tab-index="1" item-index="32" lst="4-2">Scene Management</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneStatistics.html?itm=33" tab-index="1" item-index="33" lst="4-2">Scene Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Deployment_2.html?itm=34" tab-index="1" item-index="34" lst="4-2">Deployment</a></li></ul></li></ul><div class="list-label list-level-1">Interface</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="UserInterface.html?itm=35" tab-index="1" item-index="35" lst="7-1">Designer Interface</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RendererWindow.html?itm=36" tab-index="1" item-index="36" lst="7-2">Renderer Window</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RealtimeRendering.html?itm=37" tab-index="1" item-index="37" lst="7-2">Realtime Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Performance_2.html?itm=38" tab-index="1" item-index="38" lst="7-2">Optimize Scene Performance</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PerformanceStatistics.html?itm=39" tab-index="1" item-index="39" lst="7-2">Performance Statistics</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TransformationGizmo.html?itm=40" tab-index="1" item-index="40" lst="7-2">Transformation Gizmo</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RenderToDisk.html?itm=41" tab-index="1" item-index="41" lst="7-2">Render to Disk</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="CameraNavigation.html?itm=42" tab-index="1" item-index="42" lst="7-2">Camera Navigation</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="IsolateMode.html?itm=43" tab-index="1" item-index="43" lst="7-2">Isolated Objects</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TransformationGizmo_2.html?itm=44" tab-index="1" item-index="44" lst="7-2">Manipulate Objects with Gizmos</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LayerEditor.html?itm=45" tab-index="1" item-index="45" lst="7-2">Layer Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LayerCommonProperties.html?itm=46" tab-index="1" item-index="46" lst="7-2">Common Layer Properties</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP.html?itm=47" tab-index="1" item-index="47" lst="7-3">IPP Effects</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_ColorCorrections.html?itm=48" tab-index="1" item-index="48" lst="7-3">Color Correction FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_Distortion.html?itm=49" tab-index="1" item-index="49" lst="7-3">Distortion FX</a></li><li class="list-item list-level-3"><a class="list-link list-level-3" href="LayersIPP_Filters.html?itm=50" tab-index="1" item-index="50" lst="7-3">Filter FX</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsLayerEditor.html?itm=51" tab-index="1" item-index="51" lst="7-2">Layer Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="HierarchyEditor.html?itm=52" tab-index="1" item-index="52" lst="7-2">Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="NodesAndBindings.html?itm=53" tab-index="1" item-index="53" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainersAndInterfaces.html?itm=54" tab-index="1" item-index="54" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="FindAndReplace.html?itm=55" tab-index="1" item-index="55" lst="7-2">Find and Replace</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsHierarchyEditor.html?itm=56" tab-index="1" item-index="56" lst="7-2">Shortcuts Hierarchy Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContentEditor.html?itm=57" tab-index="1" item-index="57" lst="7-2">Content Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="NodesAndBindings_2.html?itm=58" tab-index="1" item-index="58" lst="7-2">Working with Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainersAndInterfaces_2.html?itm=59" tab-index="1" item-index="59" lst="7-2">Containers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsContentEditor.html?itm=60" tab-index="1" item-index="60" lst="7-2">Content Editor Shortcuts</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ToolboxAndRepository.html?itm=61" tab-index="1" item-index="61" lst="7-2">Toolbox</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PropertiesEditor.html?itm=62" tab-index="1" item-index="62" lst="7-2">Property Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ProjectAndSceneData_2.html?itm=63" tab-index="1" item-index="63" lst="7-2">Project Data and Scene Data</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="PropertyGroups.html?itm=64" tab-index="1" item-index="64" lst="7-2">Property Groups</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShaderEditor.html?itm=65" tab-index="1" item-index="65" lst="7-2">Shader Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextEditor.html?itm=66" tab-index="1" item-index="66" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SceneTree_2.html?itm=67" tab-index="1" item-index="67" lst="7-2">Scene Tree</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MessageView.html?itm=68" tab-index="1" item-index="68" lst="7-2">Message View</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="StageEditor.html?itm=69" tab-index="1" item-index="69" lst="7-2">Stage Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ContainerOutline.html?itm=70" tab-index="1" item-index="70" lst="7-2">Container Outline</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WatchesEditor.html?itm=71" tab-index="1" item-index="71" lst="7-2">Watches Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationEditor.html?itm=72" tab-index="1" item-index="72" lst="7-2">Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationAndStateEngine.html?itm=73" tab-index="1" item-index="73" lst="7-2">Animation and State Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Templates.html?itm=74" tab-index="1" item-index="74" lst="7-2">Templates</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TemplateEngine.html?itm=75" tab-index="1" item-index="75" lst="7-2">Template Engine</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="ShortcutsAnimationEditor.html?itm=76" tab-index="1" item-index="76" lst="7-2">Shortcuts Animation Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextRendering.html?itm=77" tab-index="1" item-index="77" lst="7-2">Text Rendering</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextEditor_2.html?itm=78" tab-index="1" item-index="78" lst="7-2">Text Editor</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="CharacterSets.html?itm=79" tab-index="1" item-index="79" lst="7-2">Character Sets</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GeometryImport.html?itm=80" tab-index="1" item-index="80" lst="7-2">Geometry Import</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InputSubsystem_2.html?itm=81" tab-index="1" item-index="81" lst="7-2">Input Subsystem</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MultiTouch.html?itm=82" tab-index="1" item-index="82" lst="7-2">Multitouch</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TUIO.html?itm=83" tab-index="1" item-index="83" lst="7-2">TUIO Protocol</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="OpenSoundControl.html?itm=84" tab-index="1" item-index="84" lst="7-2">Open Sound Control</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="HowTo/HowToVR.html?itm=85" tab-index="1" item-index="85" lst="7-2">How to work with Head Mounted Displays</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Cluster.html?itm=86" tab-index="1" item-index="86" lst="7-2">Cluster</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MultiDisplaySetupsAndShaping.html?itm=87" tab-index="1" item-index="87" lst="7-2">Multi Display Setups and Shaping</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WarpingSoftEdgingMasking.html?itm=88" tab-index="1" item-index="88" lst="7-2">Warping, Soft Edging and Masking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Nodes.html?itm=89" tab-index="1" item-index="89" lst="7-1">Available Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="AnimationNodes.html?itm=90" tab-index="1" item-index="90" lst="7-2">Animation Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="MaterialNodes.html?itm=91" tab-index="1" item-index="91" lst="7-2">Material&amp;Color Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="DataNodes.html?itm=92" tab-index="1" item-index="92" lst="7-2">Data Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="GeometryNodes.html?itm=93" tab-index="1" item-index="93" lst="7-2">Geometry Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="InteractionNodes.html?itm=94" tab-index="1" item-index="94" lst="7-2">Interaction Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="IONodes.html?itm=95" tab-index="1" item-index="95" lst="7-2">IO Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="Layers.html?itm=96" tab-index="1" item-index="96" lst="7-2">Layers</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LightNodes.html?itm=97" tab-index="1" item-index="97" lst="7-2">Light Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="LogicNodes.html?itm=98" tab-index="1" item-index="98" lst="7-2">Logic Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="RenderNodes.html?itm=99" tab-index="1" item-index="99" lst="7-2">Render Option Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SlidesNodes.html?itm=100" tab-index="1" item-index="100" lst="7-2">Slides Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="SoundNodes.html?itm=101" tab-index="1" item-index="101" lst="7-2">Sound Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextNodes.html?itm=102" tab-index="1" item-index="102" lst="7-2">Text Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="TextureNodes.html?itm=103" tab-index="1" item-index="103" lst="7-2">Texture Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="VrNodes.html?itm=104" tab-index="1" item-index="104" lst="7-2">VR Nodes</a></li><li class="list-item list-level-2"><a class="list-link list-level-2" href="WorldNodes.html?itm=105" tab-index="1" item-index="105" lst="7-2">World Nodes</a></li></ul></li></ul></div><h3>Ventuz 6 Node Reference</h3><div><div class="list-label list-level-1">ANIMATION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationMover.html?itm=106" tab-index="2" item-index="106" lst="24-1">Mover</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationMover_2.html?itm=107" tab-index="2" item-index="107" lst="24-1">Alternator</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationControls.html?itm=108" tab-index="2" item-index="108" lst="24-1">Simple Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationControls_2.html?itm=109" tab-index="2" item-index="109" lst="24-1">Timeline Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationAnimationRig.html?itm=110" tab-index="2" item-index="110" lst="24-1">Anmation Rig</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationKeyframeAnimation.html?itm=111" tab-index="2" item-index="111" lst="24-1">Keyframe Animation</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAnimationKeyframeAnimation_2.html?itm=112" tab-index="2" item-index="112" lst="24-1">Animation Group</a></li></ul><div class="list-label list-level-1">COLOR/MATERIAL</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorAlpha.html?itm=113" tab-index="2" item-index="113" lst="25-1">Alpha</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorFog.html?itm=114" tab-index="2" item-index="114" lst="25-1">Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorFog_2.html?itm=115" tab-index="2" item-index="115" lst="25-1">Ground Fog</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorSkyBox.html?itm=116" tab-index="2" item-index="116" lst="25-1">Sky Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters.html?itm=117" tab-index="2" item-index="117" lst="25-1">Color to RGBA</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_2.html?itm=118" tab-index="2" item-index="118" lst="25-1">HSLA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_3.html?itm=119" tab-index="2" item-index="119" lst="25-1">RGBA to Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorConverters_4.html?itm=120" tab-index="2" item-index="120" lst="25-1">Color Transformer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeShaderHLSLShader.html?itm=121" tab-index="2" item-index="121" lst="25-1">HLSL Shader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorColor.html?itm=122" tab-index="2" item-index="122" lst="25-1">Color</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorMaterial.html?itm=123" tab-index="2" item-index="123" lst="25-1">Material</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorColorPicker.html?itm=124" tab-index="2" item-index="124" lst="25-1">Color Picker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeColorSubstanceMaterial.html?itm=125" tab-index="2" item-index="125" lst="25-1">Substance Material</a></li></ul><div class="list-label list-level-1">DATA</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataDatabase.html?itm=126" tab-index="2" item-index="126" lst="26-1">Database</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataExcel.html?itm=127" tab-index="2" item-index="127" lst="26-1">Excel</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataJSON.html?itm=128" tab-index="2" item-index="128" lst="26-1">JSON</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataRSSFeed.html?itm=129" tab-index="2" item-index="129" lst="26-1">RSS Feed</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataResourceLinker.html?itm=130" tab-index="2" item-index="130" lst="26-1">Resource Linker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataTextFile.html?itm=131" tab-index="2" item-index="131" lst="26-1">Text File</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeDataXML.html?itm=132" tab-index="2" item-index="132" lst="26-1">XML</a></li></ul><div class="list-label list-level-1">GEOMETRY</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles.html?itm=133" tab-index="2" item-index="133" lst="27-1">Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_2.html?itm=134" tab-index="2" item-index="134" lst="27-1">Rounded Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_3.html?itm=135" tab-index="2" item-index="135" lst="27-1">Gradient Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRectangles_4.html?itm=136" tab-index="2" item-index="136" lst="27-1">Overlay Rectangle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCube.html?itm=137" tab-index="2" item-index="137" lst="27-1">Cube</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCircle.html?itm=138" tab-index="2" item-index="138" lst="27-1">Circle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometrySphere.html?itm=139" tab-index="2" item-index="139" lst="27-1">Sphere</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCylinder.html?itm=140" tab-index="2" item-index="140" lst="27-1">Cylinder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryCone.html?itm=141" tab-index="2" item-index="141" lst="27-1">Cone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryTorus.html?itm=142" tab-index="2" item-index="142" lst="27-1">Torus</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryChart.html?itm=143" tab-index="2" item-index="143" lst="27-1">Chart</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryRandomPoints.html?itm=144" tab-index="2" item-index="144" lst="27-1">Random Points</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryMeshLoader.html?itm=145" tab-index="2" item-index="145" lst="27-1">Mesh Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryImport.html?itm=146" tab-index="2" item-index="146" lst="27-1">Geometry Import (Live)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryVolume.html?itm=147" tab-index="2" item-index="147" lst="27-1">Volume</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryGetBoundingBox.html?itm=148" tab-index="2" item-index="148" lst="27-1">Get Bounding Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryArrow.html?itm=149" tab-index="2" item-index="149" lst="27-1">Arrow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryParticleSystem.html?itm=150" tab-index="2" item-index="150" lst="27-1">Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryPath.html?itm=151" tab-index="2" item-index="151" lst="27-1">Path Renderer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeGeometryGeometryRenderer.html?itm=152" tab-index="2" item-index="152" lst="27-1">Geometry Renderer</a></li></ul><div class="list-label list-level-1">INTERACTION</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionInteractionRect.html?itm=153" tab-index="2" item-index="153" lst="28-1">Interaction Rect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchButton.html?itm=154" tab-index="2" item-index="154" lst="28-1">Touch Button</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchExcluder.html?itm=155" tab-index="2" item-index="155" lst="28-1">Touch Excluder</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchMarker.html?itm=156" tab-index="2" item-index="156" lst="28-1">Touch Marker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchPaint.html?itm=157" tab-index="2" item-index="157" lst="28-1">Touch Paint</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchPattern.html?itm=158" tab-index="2" item-index="158" lst="28-1">Touch Pattern</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchProxy.html?itm=159" tab-index="2" item-index="159" lst="28-1">Touch Proxy</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchRipples.html?itm=160" tab-index="2" item-index="160" lst="28-1">Touch Ripples</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchTransformations.html?itm=161" tab-index="2" item-index="161" lst="28-1">Touch Transformations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchWebBrowser.html?itm=162" tab-index="2" item-index="162" lst="28-1">Web Browser</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchTeleport.html?itm=163" tab-index="2" item-index="163" lst="28-1">Touch Teleport</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeInteractionTouchSimulator.html?itm=164" tab-index="2" item-index="164" lst="28-1">Touch Simulator</a></li></ul><div class="list-label list-level-1">INPUT/OUTPUT (I/O)</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOGPI.html?itm=165" tab-index="2" item-index="165" lst="29-1">GPI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOJoystick.html?itm=166" tab-index="2" item-index="166" lst="29-1">Joystick</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOKeyboard.html?itm=167" tab-index="2" item-index="167" lst="29-1">Keyboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOMIDI.html?itm=168" tab-index="2" item-index="168" lst="29-1">MIDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOMouse.html?itm=169" tab-index="2" item-index="169" lst="29-1">Mouse</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIONetwork.html?itm=170" tab-index="2" item-index="170" lst="29-1">Network</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOOSC.html?itm=171" tab-index="2" item-index="171" lst="29-1">Open Sound Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOSerial.html?itm=172" tab-index="2" item-index="172" lst="29-1">Serial</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIOTimecode.html?itm=173" tab-index="2" item-index="173" lst="29-1">Timecode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeIODMX.html?itm=174" tab-index="2" item-index="174" lst="29-1">DMX</a></li></ul><div class="list-label list-level-1">LAYER</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer3D.html?itm=175" tab-index="2" item-index="175" lst="30-1">3D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer3DReference.html?itm=176" tab-index="2" item-index="176" lst="30-1">3D Layer Reference</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayer2D.html?itm=177" tab-index="2" item-index="177" lst="30-1">2D Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayerPsdImport.html?itm=178" tab-index="2" item-index="178" lst="30-1">PSD Import Layer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLayerOther.html?itm=179" tab-index="2" item-index="179" lst="30-1">Others</a></li></ul><div class="list-label list-level-1">LIGHT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLightSources.html?itm=180" tab-index="2" item-index="180" lst="31-1">Light Sources</a></li></ul><div class="list-label list-level-1">LOGIC</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicArrayProcessing.html?itm=181" tab-index="2" item-index="181" lst="32-1">Array Processing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicConvertToText.html?itm=182" tab-index="2" item-index="182" lst="32-1">Convert To Text</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicCluster.html?itm=183" tab-index="2" item-index="183" lst="32-1">Cluster Synchronization</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicCounter.html?itm=184" tab-index="2" item-index="184" lst="32-1">Counter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDateTime.html?itm=185" tab-index="2" item-index="185" lst="32-1">Date Time</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDirectory.html?itm=186" tab-index="2" item-index="186" lst="32-1">Directory</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicDispatcher.html?itm=187" tab-index="2" item-index="187" lst="32-1">Dispatcher</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicEnumeration.html?itm=188" tab-index="2" item-index="188" lst="32-1">Enumeration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicExpressions.html?itm=189" tab-index="2" item-index="189" lst="32-1">Expressions</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicInvert.html?itm=190" tab-index="2" item-index="190" lst="32-1">Invert</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicLog.html?itm=191" tab-index="2" item-index="191" lst="32-1">Log</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicLoopBreaker.html?itm=192" tab-index="2" item-index="192" lst="32-1">Loop Breaker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicMathEffects.html?itm=193" tab-index="2" item-index="193" lst="32-1">Math Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicMatrixOperations.html?itm=194" tab-index="2" item-index="194" lst="32-1">Matrix Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicSceneEvent.html?itm=195" tab-index="2" item-index="195" lst="32-1">Scene Event</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicScript.html?itm=196" tab-index="2" item-index="196" lst="32-1">Script</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicStringOperations.html?itm=197" tab-index="2" item-index="197" lst="32-1">String Operations</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicSystemID.html?itm=198" tab-index="2" item-index="198" lst="32-1">System ID</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicTextSplitter.html?itm=199" tab-index="2" item-index="199" lst="32-1">Text Splitter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicTimer.html?itm=200" tab-index="2" item-index="200" lst="32-1">Timer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicToggle.html?itm=201" tab-index="2" item-index="201" lst="32-1">Toggle</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicURL.html?itm=202" tab-index="2" item-index="202" lst="32-1">URL</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicValueSwitch.html?itm=203" tab-index="2" item-index="203" lst="32-1">Value Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicValueBuffer.html?itm=204" tab-index="2" item-index="204" lst="32-1">Value Buffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicVariables.html?itm=205" tab-index="2" item-index="205" lst="32-1">Variables</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicVisualIndexer.html?itm=206" tab-index="2" item-index="206" lst="32-1">Visual Indexer</a></li></ul><div class="list-label list-level-1">RENDER OPTIONS</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaBlending.html?itm=207" tab-index="2" item-index="207" lst="33-1">Alpha Blending</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaBlending_2.html?itm=208" tab-index="2" item-index="208" lst="33-1">Color Write</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsAlphaTesting.html?itm=209" tab-index="2" item-index="209" lst="33-1">Alpha Testing</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsClipPlane.html?itm=210" tab-index="2" item-index="210" lst="33-1">Clip Plane</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsFilter.html?itm=211" tab-index="2" item-index="211" lst="33-1">Filter</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsMask.html?itm=212" tab-index="2" item-index="212" lst="33-1">Mask</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsMirror.html?itm=213" tab-index="2" item-index="213" lst="33-1">Mirror</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsEffect.html?itm=214" tab-index="2" item-index="214" lst="33-1">Effect</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsRenderCubeMap.html?itm=215" tab-index="2" item-index="215" lst="33-1">Render Cube Map</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsDrawMode.html?itm=216" tab-index="2" item-index="216" lst="33-1">Draw Modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsStencil.html?itm=217" tab-index="2" item-index="217" lst="33-1">Stencil</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeRenderoptionsZTesting.html?itm=218" tab-index="2" item-index="218" lst="33-1">ZTesting</a></li></ul><div class="list-label list-level-1">SOUND</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundPlayback.html?itm=219" tab-index="2" item-index="219" lst="34-1">Audio Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundPlayback_2.html?itm=220" tab-index="2" item-index="220" lst="34-1">Sound</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeAudioControl.html?itm=221" tab-index="2" item-index="221" lst="34-1">Volume Control</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSoundAnalyzeAudio.html?itm=222" tab-index="2" item-index="222" lst="34-1">Audio Analysis</a></li></ul><div class="list-label list-level-1">SLIDES</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager.html?itm=223" tab-index="2" item-index="223" lst="35-1">Slide Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_2.html?itm=224" tab-index="2" item-index="224" lst="35-1">Slide</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_3.html?itm=225" tab-index="2" item-index="225" lst="35-1">Slide Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeSlidesSlideManager_4.html?itm=226" tab-index="2" item-index="226" lst="35-1">Pivot</a></li></ul><div class="list-label list-level-1">TEXT</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextEffects.html?itm=227" tab-index="2" item-index="227" lst="36-1">Text Effects</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextLayout.html?itm=228" tab-index="2" item-index="228" lst="36-1">Text Layouts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextRendering.html?itm=229" tab-index="2" item-index="229" lst="36-1">Text Rendering</a></li></ul><div class="list-label list-level-1">TEXTURE</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureBackground.html?itm=230" tab-index="2" item-index="230" lst="37-1">Background</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureHatch.html?itm=231" tab-index="2" item-index="231" lst="37-1">Hatch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureImage.html?itm=232" tab-index="2" item-index="232" lst="37-1">Image</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureTexture.html?itm=233" tab-index="2" item-index="233" lst="37-1">Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSVGLoader.html?itm=234" tab-index="2" item-index="234" lst="37-1">SVG Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureGradientTexture.html?itm=235" tab-index="2" item-index="235" lst="37-1">Gradient Texture</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo.html?itm=236" tab-index="2" item-index="236" lst="37-1">Live Video</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_2.html?itm=237" tab-index="2" item-index="237" lst="37-1">Movie Stream</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_3.html?itm=238" tab-index="2" item-index="238" lst="37-1">Movie Frame</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideo_4.html?itm=239" tab-index="2" item-index="239" lst="37-1">Movie Clip</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureImageLoaders.html?itm=240" tab-index="2" item-index="240" lst="37-1">Texture Loader</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSnapshot.html?itm=241" tab-index="2" item-index="241" lst="37-1">Snapshot</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureRenderSnapshot.html?itm=242" tab-index="2" item-index="242" lst="37-1">Snapshot Framebuffer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureTextureSaver.html?itm=243" tab-index="2" item-index="243" lst="37-1">Texture Saver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVideoSourceSelector.html?itm=244" tab-index="2" item-index="244" lst="37-1">Video Source Selector</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureVioInput.html?itm=245" tab-index="2" item-index="245" lst="37-1">VIO Input</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSpout.html?itm=246" tab-index="2" item-index="246" lst="37-1">Spout Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureNDI.html?itm=247" tab-index="2" item-index="247" lst="37-1">NDI Receiver</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeTextureSubstanceLoader.html?itm=248" tab-index="2" item-index="248" lst="37-1">Substance Loader</a></li></ul><div class="list-label list-level-1">VR/AR</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeVrTracked.html?itm=249" tab-index="2" item-index="249" lst="38-1">Tracked Devices</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeVrTracked_2.html?itm=250" tab-index="2" item-index="250" lst="38-1">Draw Tracked Devices</a></li></ul><div class="list-label list-level-1">WORLD</div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis.html?itm=251" tab-index="2" item-index="251" lst="39-1">Axis</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_2.html?itm=252" tab-index="2" item-index="252" lst="39-1">Billboard</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_3.html?itm=253" tab-index="2" item-index="253" lst="39-1">GetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldAxis_4.html?itm=254" tab-index="2" item-index="254" lst="39-1">SetWorld</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldArrange.html?itm=255" tab-index="2" item-index="255" lst="39-1">Arrange</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTicker.html?itm=256" tab-index="2" item-index="256" lst="39-1">Ticker</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTicker_2.html?itm=257" tab-index="2" item-index="257" lst="39-1">Layout</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldGroup.html?itm=258" tab-index="2" item-index="258" lst="39-1">Group</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldZSort.html?itm=259" tab-index="2" item-index="259" lst="39-1">World Z Sort</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSwitch.html?itm=260" tab-index="2" item-index="260" lst="39-1">YesNo</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSwitch_2.html?itm=261" tab-index="2" item-index="261" lst="39-1">Switch</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldSpread.html?itm=262" tab-index="2" item-index="262" lst="39-1">Spread</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldRenderPass.html?itm=263" tab-index="2" item-index="263" lst="39-1">Filter Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldRenderPass_2.html?itm=264" tab-index="2" item-index="264" lst="39-1">Set Pass</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldContainer.html?itm=265" tab-index="2" item-index="265" lst="39-1">Hierarchy Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldScenePort.html?itm=266" tab-index="2" item-index="266" lst="39-1">Scene Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldContainer_2.html?itm=267" tab-index="2" item-index="267" lst="39-1">Content Container</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldTemplatePort.html?itm=268" tab-index="2" item-index="268" lst="39-1">Template Port</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldScenePort_2.html?itm=269" tab-index="2" item-index="269" lst="39-1">Container Info</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldCamera.html?itm=270" tab-index="2" item-index="270" lst="39-1">Camera</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeWorldPath.html?itm=271" tab-index="2" item-index="271" lst="39-1">Paths</a></li></ul></div><h3>Ventuz 6 Configuration Editor</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfiguration_2.html?itm=272" tab-index="3" item-index="272" lst="40-1">Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationMC_2.html?itm=273" tab-index="3" item-index="273" lst="40-1">Machine Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationAV_2.html?itm=274" tab-index="3" item-index="274" lst="40-1">Video/Audio Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationWeb.html?itm=275" tab-index="3" item-index="275" lst="40-1">Web Configuration Editor and License Manager</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MultiDisplaySetupsAndShaping_2.html?itm=276" tab-index="3" item-index="276" lst="40-1">Render Setup Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="WarpingSoftEdgingMasking_2.html?itm=277" tab-index="3" item-index="277" lst="40-1">Warping and Soft-Edging Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="MachineConfigurationVendors_2.html?itm=278" tab-index="3" item-index="278" lst="40-1">Supported Hardware</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToClusterRendering.html?itm=279" tab-index="3" item-index="279" lst="40-1">How to Setup a Cluster Render</a></li></ul></div><h3>Ventuz 6 Director</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ApplicationSettings.html?itm=280" tab-index="4" item-index="280" lst="41-1">Application Settings</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Assets.html?itm=281" tab-index="4" item-index="281" lst="41-1">Assets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Channels.html?itm=282" tab-index="4" item-index="282" lst="41-1">Channels</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/CommandLineOptions.html?itm=283" tab-index="4" item-index="283" lst="41-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ContentReferences.html?itm=284" tab-index="4" item-index="284" lst="41-1">Content References</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/DesigningTemplates.html?itm=285" tab-index="4" item-index="285" lst="41-1">Designing Templates</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Environment.html?itm=286" tab-index="4" item-index="286" lst="41-1">Environment</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Glossary.html?itm=287" tab-index="4" item-index="287" lst="41-1">Glossary</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Index.html?itm=288" tab-index="4" item-index="288" lst="41-1">Index</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Introduction.html?itm=289" tab-index="4" item-index="289" lst="41-1">Introduction</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Pages.html?itm=290" tab-index="4" item-index="290" lst="41-1">Pages</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Playlist.html?itm=291" tab-index="4" item-index="291" lst="41-1">Playlist</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/PlugIns.html?itm=292" tab-index="4" item-index="292" lst="41-1">Plug-Ins</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ProjectData.html?itm=293" tab-index="4" item-index="293" lst="41-1">Project Data</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/PropertyEditor.html?itm=294" tab-index="4" item-index="294" lst="41-1">Property Editor</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Shortcuts.html?itm=295" tab-index="4" item-index="295" lst="41-1">Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="GPIConfiguration_2.html?itm=296" tab-index="4" item-index="296" lst="41-1">GPI Configuration</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/ShotBox.html?itm=297" tab-index="4" item-index="297" lst="41-1">Shot Box</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Show.html?itm=298" tab-index="4" item-index="298" lst="41-1">Show</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/TakingAction.html?itm=299" tab-index="4" item-index="299" lst="41-1">Taking Action</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Timeline.html?itm=300" tab-index="4" item-index="300" lst="41-1">Timeline</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Topology.html?itm=301" tab-index="4" item-index="301" lst="41-1">Topology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/UserInterface.html?itm=302" tab-index="4" item-index="302" lst="41-1">User Interface</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DirectorMode.html?itm=303" tab-index="4" item-index="303" lst="41-1">Director Mode</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Macros.html?itm=304" tab-index="4" item-index="304" lst="41-1">Macros</a></li></ul></div><h3>How To</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToGetVentuzRunning.html?itm=305" tab-index="5" item-index="305" lst="42-1">How to Run Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="OverallViewDesigner_3.html?itm=306" tab-index="5" item-index="306" lst="42-1">How to Work with Designer</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToDragAndDropTricks.html?itm=307" tab-index="5" item-index="307" lst="42-1">Ventuz Designer Drag&amp;Drop workflow</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToVR_2.html?itm=308" tab-index="5" item-index="308" lst="42-1">How to use Head Mounted Displays</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseShadows.html?itm=309" tab-index="5" item-index="309" lst="42-1">How to work with Shadows</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseEmoijs.html?itm=310" tab-index="5" item-index="310" lst="42-1">How to use Emoijs</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToBuildATemplate.html?itm=311" tab-index="5" item-index="311" lst="42-1">How to Build a Template</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseNDI.html?itm=312" tab-index="5" item-index="312" lst="42-1">How to use Newtek NDI</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToCreateAVisualsLoaderNode.html?itm=313" tab-index="5" item-index="313" lst="42-1">How to Create Visuals Loader Node</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToRemoteControlWithAniPhone.html?itm=314" tab-index="5" item-index="314" lst="42-1">How to Remote Control with a Phone</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToClusterRendering_2.html?itm=315" tab-index="5" item-index="315" lst="42-1">How to Setup a Cluster Render</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToMixedFrameRates.html?itm=316" tab-index="5" item-index="316" lst="42-1">How to use a Mixed Frame Rate Cluster</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseTracking.html?itm=317" tab-index="5" item-index="317" lst="42-1">How to use Tracking</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowTo3DLayerReference.html?itm=318" tab-index="5" item-index="318" lst="42-1">How to work with 3D Reference Layers</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToCreateAFireworkParticleSystem.html?itm=319" tab-index="5" item-index="319" lst="42-1">How to create a Firework Particle System</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToDDS.html?itm=320" tab-index="5" item-index="320" lst="42-1">How to use DDS with new Block Compression modes</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseSpout.html?itm=321" tab-index="5" item-index="321" lst="42-1">How to setup Spout with Ventuz</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="HowTo/HowToUseSubstanceIntegration.html?itm=322" tab-index="5" item-index="322" lst="42-1">How to use the Substance Integration</a></li></ul></div><h3>Keyboard Shortcuts</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="SummaryShortcuts_2.html?itm=323" tab-index="6" item-index="323" lst="43-1">Summary Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsLayerEditor_2.html?itm=324" tab-index="6" item-index="324" lst="43-1">Layer Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsHierarchyEditor_2.html?itm=325" tab-index="6" item-index="325" lst="43-1">Hierarchy Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsContentEditor_2.html?itm=326" tab-index="6" item-index="326" lst="43-1">Content Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="ShortcutsAnimationEditor_2.html?itm=327" tab-index="6" item-index="327" lst="43-1">Animation Editor Shortcuts</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Director/Shortcuts_2.html?itm=328" tab-index="6" item-index="328" lst="43-1">Director Shortcuts</a></li></ul></div><h3>Advanced and Development</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="CommandLineOptions.html?itm=329" tab-index="7" item-index="329" lst="44-1">Command Line Options</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Remoting.html?itm=330" tab-index="7" item-index="330" lst="44-1">Remoting Overview</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Remoting4Protocol.html?itm=331" tab-index="7" item-index="331" lst="44-1">Remoting 4</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingWebsocket.html?itm=332" tab-index="7" item-index="332" lst="44-1">Remoting 4 via Websockets</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingDeprecated.html?itm=333" tab-index="7" item-index="333" lst="44-1">Deprecated Remoting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzIpPorts.html?itm=334" tab-index="7" item-index="334" lst="44-1">Ventuz IP Ports</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="VentuzMachineService.html?itm=335" tab-index="7" item-index="335" lst="44-1">Ventuz Machine Service</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="RemotingMachineSignature.html?itm=336" tab-index="7" item-index="336" lst="44-1">Remoting Machine Signature</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="TUIO_2.html?itm=337" tab-index="7" item-index="337" lst="44-1">TUIO</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeLogicScript_2.html?itm=338" tab-index="7" item-index="338" lst="44-1">.NET Scripting</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="NodeShaderHLSLShader_2.html?itm=339" tab-index="7" item-index="339" lst="44-1">HLSL Shader Programming</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentSDK.html?itm=340" tab-index="7" item-index="340" lst="44-1">Ventuz API and SDK</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentVIO.html?itm=341" tab-index="7" item-index="341" lst="44-1">Ventuz VIO API</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentVFF.html?itm=342" tab-index="7" item-index="342" lst="44-1">Ventuz File Format (VFF)</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="DevelopmentStreamOut.html?itm=343" tab-index="7" item-index="343" lst="44-1">Ventuz Stream Out API</a></li></ul></div><h3>General Reference</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Terminology.html?itm=344" tab-index="8" item-index="344" lst="45-1">Terminology</a></li><li class="list-item list-level-1"><a class="list-link list-level-1" href="Pages.html?itm=345" tab-index="8" item-index="345" lst="45-1">Manual Index</a></li></ul></div><h3>Miscellaneous</h3><div><ul class="list-content list-level-1"><li class="list-item list-level-1"><a class="list-link list-level-1" href="Presets.html?itm=346" tab-index="9" item-index="346" lst="46-1">Presets</a></li></ul></div></div></div><!--sidebar end-->
+        <div id="user-manual-content" class="sidebar">
+            
+            <div class="control"><div class="control-prev"><a href="MachineConfigurationMC_2.html?itm=273">&laquo; Previous Article</a></div><div><a href="Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="MachineConfigurationWeb.html?itm=275">Next Article &raquo;</a></div></div>
+            <div id="user-manual-main">
+                <p data-line="1" >
+<div class="wiki-toc"><h4>Table of Contents</h4><ol><li><a href="MachineConfiguration.html#VentuzConfiguration">Ventuz Configuration</a><ol><li><a href="MachineConfiguration.html#MSEL">Machine Selection</a></li><li><a href="MachineConfiguration.html#LIVEOPT">Live Options</a><ol><li><a href="MachineConfiguration.html#VentuzOptions">Ventuz Options</a></li></ol></li><li><a href="MachineConfiguration.html#RenderingOptions">Rendering Options</a></li><li><a href="MachineConfiguration.html#AVOptions">AV Options</a></li><li><a href="MachineConfiguration.html#VC">Ventuz Config</a></li><li><a href="MachineConfiguration.html#PRJ">Project Management</a></li></ol></li><li><a href="MachineConfigurationMC.html#MachineConfiguration">Machine Configuration</a><ol><li><a href="MachineConfigurationMC.html#Interaction">Interaction</a><ol><li><a href="MachineConfigurationMC.html#General">General</a></li><li><a href="MachineConfigurationMC.html#WindowsTouch">Windows Touch</a></li><li><a href="MachineConfigurationMC.html#TUIO">TUIO</a></li><li><a href="MachineConfigurationMC.html#ClusterNetworking">Cluster Networking</a></li><li><a href="MachineConfigurationMC.html#OutputScaling">Output Scaling</a></li></ol></li><li><a href="MachineConfigurationMC.html#Remoting">Remoting</a><ol><li><a href="MachineConfigurationMC.html#Remoting2.Net">Remoting 2 (.Net)</a></li><li><a href="MachineConfigurationMC.html#Remoting4">Remoting 4</a></li><li><a href="MachineConfigurationMC.html#Miranda">Miranda</a></li><li><a href="MachineConfigurationMC.html#CLIRemoting">CLI Remoting</a></li><li><a href="MachineConfigurationMC.html#OSCRemoting">OSC Remoting</a></li></ol></li><li><a href="MachineConfigurationMC.html#DMX">DMX</a><ol><li><a href="MachineConfigurationMC.html#GeneralDMXsettings">General DMX settings</a></li><li><a href="MachineConfigurationMC.html#Art-Net">Art-Net</a></li><li><a href="MachineConfigurationMC.html#sACN">sACN</a></li></ol></li><li><a href="MachineConfigurationMC.html#Extended">Extended</a><ol><li><a href="MachineConfigurationMC.html#CultureSettings">Culture Settings</a></li><li><a href="MachineConfigurationMC.html#WebBrowserSettingsAdBlockerAudioetc.">WebBrowser Settings(Ad Blocker, Audio etc.)</a></li><li><a href="MachineConfigurationMC.html#ProcessSettings">Process Settings</a></li><li><a href="MachineConfigurationMC.html#TrackingSystem">Tracking System</a></li><li><a href="MachineConfigurationMC.html#TimecodeSettings">Timecode Settings</a></li><li><a href="MachineConfigurationMC.html#ProgressVisualizationSettings">Progress Visualization Settings</a></li><li><a href="MachineConfigurationMC.html#LoggingSettings">Logging Settings</a></li><li><a href="MachineConfigurationMC.html#SystemMonitoringSettings">System Monitoring Settings</a></li></ol></li></ol></li><li class="active"><a href="#IntroductiontotheVideoEngine">Introduction to the Video Engine</a><ol><li class="active"><a href="#RenderPipes">Render Pipes</a><ol><li class="active"><a href="#StreamModes">Stream Modes</a></li><li class="active"><a href="#Preview">Preview</a></li></ol></li><li class="active"><a href="#VideoInputs">Video Inputs</a></li><li class="active"><a href="#Bit-depthandcontrollablequalityperformancebalance">Bit-depth and controllable quality/performance balance</a></li><li class="active"><a href="#SoftwareWatchdog">Software Watchdog</a></li><li class="active"><a href="#SoftwareKeying">Software Keying</a></li><li class="active"><a href="#MultipleSourcesfromMultipleVendors">Multiple Sources from Multiple Vendors</a><ol><li class="active"><a href="#SDI3G">SDI 3G</a></li><li class="active"><a href="#a4k">4k</a></li></ol></li><li class="active"><a href="#ChromaKeying">Chroma Keying</a></li><li class="active"><a href="#ComprehensiveAudioMixing">Comprehensive Audio Mixing</a></li><li class="active"><a href="#VideoSetupindependentfromVentuzScene">Video Setup independent from Ventuz Scene</a></li></ol></li><li class="active"><a href="#AVConfiguration">AV Configuration</a><ol><li class="active"><a href="#VideoOutputs">Video Outputs</a><ol><li class="active"><a href="#Enable10bitDirectX-Mode">Enable 10bit (DirectX-Mode)</a></li></ol></li><li class="active"><a href="#VideoInputs1">Video Inputs</a></li><li class="active"><a href="#VideoOptions">Video Options</a><ol><li class="active"><a href="#StandardOptions">Standard Options</a></li><li class="active"><a href="#AdvancedOptions">Advanced Options</a></li></ol></li><li class="active"><a href="#VideoDeviceInformationandOptions">Video Device Information and Options</a></li><li class="active"><a href="#GlobalOptions">Global Options</a></li><li class="active"><a href="#LiveStatus">Live Status</a></li><li class="active"><a href="#AudioDevices">Audio Devices</a></li><li class="active"><a href="#CrossPoints">Cross Points</a><ol><li class="active"><a href="#CrosspointsExample:AddingVentuztoSDI">Crosspoints Example: Adding Ventuz to SDI</a></li></ol></li><li class="active"><a href="#DeviceMapping">Device Mapping</a></li></ol></li><li><a href="MultiDisplaySetupsAndShaping.html#RenderSetupEditor">Render Setup Editor</a><ol><li><a href="MultiDisplaySetupsAndShaping.html#UserInterface">User Interface</a></li><li><a href="MultiDisplaySetupsAndShaping.html#AutomaticRenderSetupfromVMS">Automatic Render Setup from VMS</a></li><li><a href="MultiDisplaySetupsAndShaping.html#CoordinateSpace">Coordinate Space</a></li><li><a href="MultiDisplaySetupsAndShaping.html#Logicalvs.VisualResolution">Logical vs. Visual Resolution</a></li><li><a href="MultiDisplaySetupsAndShaping.html#ManipulatingaRenderSetup">Manipulating a Render Setup</a><ol><li><a href="MultiDisplaySetupsAndShaping.html#Selection">Selection</a></li><li><a href="MultiDisplaySetupsAndShaping.html#MoveElements">Move Elements</a></li><li><a href="MultiDisplaySetupsAndShaping.html#BezelandOverlap">Bezel and Overlap</a></li><li><a href="MultiDisplaySetupsAndShaping.html#SplitandCombine">Split and Combine</a><ol><li><a href="MultiDisplaySetupsAndShaping.html#CombineMachinesTransfertonewMachine">Combine Machines &amp; Transfer to new Machine</a></li></ol></li><li><a href="MultiDisplaySetupsAndShaping.html#MachineID">Machine ID</a></li></ol></li><li><a href="MultiDisplaySetupsAndShaping.html#DesignViewandProductionView">Design View and Production View</a></li><li><a href="MultiDisplaySetupsAndShaping.html#TouchArea">Touch Area</a><ol><li><a href="MultiDisplaySetupsAndShaping.html#ExamplesandScenarios">Examples and Scenarios</a></li></ol></li><li><a href="MultiDisplaySetupsAndShaping.html#KeyboardShortcuts">Keyboard Shortcuts</a></li></ol></li><li><a href="WarpingSoftEdgingMasking.html#WarpingandSoft-Edging">Warping and Soft-Edging</a><ol><li><a href="WarpingSoftEdgingMasking.html#TheVentuzShapingEngine">The Ventuz Shaping Engine</a><ol><li><a href="WarpingSoftEdgingMasking.html#PerformanceConsiderations">Performance Considerations</a></li><li><a href="WarpingSoftEdgingMasking.html#ShapingwiththeVentuzDesigner">Shaping with the Ventuz Designer</a></li></ol></li><li><a href="WarpingSoftEdgingMasking.html#TheUserInterface">The User Interface</a><ol><li><a href="WarpingSoftEdgingMasking.html#Navigation">Navigation</a></li><li><a href="WarpingSoftEdgingMasking.html#GlobalToolbar">Global Toolbar</a><ol><li><a href="WarpingSoftEdgingMasking.html#TestPatterns">Test Patterns</a></li></ol></li></ol></li><li><a href="WarpingSoftEdgingMasking.html#EditingtheGrid">Editing the Grid</a><ol><li><a href="WarpingSoftEdgingMasking.html#Selection">Selection</a><ol><li><a href="WarpingSoftEdgingMasking.html#MirrorModes">Mirror Modes</a></li></ol></li><li><a href="WarpingSoftEdgingMasking.html#Editing">Editing</a><ol><li><a href="WarpingSoftEdgingMasking.html#SmartMode">Smart Mode</a></li><li><a href="WarpingSoftEdgingMasking.html#UVEditor">UV Editor</a></li></ol></li><li><a href="WarpingSoftEdgingMasking.html#Summary">Summary</a><ol><li><a href="WarpingSoftEdgingMasking.html#Keyboard">Keyboard</a></li><li><a href="WarpingSoftEdgingMasking.html#TheSide-Toolbar">The Side-Toolbar</a></li><li><a href="WarpingSoftEdgingMasking.html#CursorShape">Cursor Shape</a></li></ol></li><li><a href="WarpingSoftEdgingMasking.html#ZoomingandPanning">Zooming and Panning</a></li><li><a href="WarpingSoftEdgingMasking.html#HandleModes">Handle Modes</a></li><li><a href="WarpingSoftEdgingMasking.html#InsertRowsandColumns">Insert Rows and Columns</a></li></ol></li><li><a href="WarpingSoftEdgingMasking.html#ManipulatingLayersandGroups">Manipulating Layers and Groups</a><ol><li><a href="WarpingSoftEdgingMasking.html#Subdivision">Subdivision</a></li><li><a href="WarpingSoftEdgingMasking.html#MultipleWarpGroups">Multiple Warp Groups</a></li></ol></li><li><a href="WarpingSoftEdgingMasking.html#Soft-Edges">Soft-Edges</a><ol><li><a href="WarpingSoftEdgingMasking.html#Thegammavalues">The gamma values</a></li><li><a href="WarpingSoftEdgingMasking.html#AutomaticMode">Automatic Mode</a></li><li><a href="WarpingSoftEdgingMasking.html#ManualMode">Manual Mode</a></li></ol></li><li><a href="WarpingSoftEdgingMasking.html#PerOutputSettings">Per Output Settings</a><ol><li><a href="WarpingSoftEdgingMasking.html#ColorCorrection">Color Correction</a></li><li><a href="WarpingSoftEdgingMasking.html#QualitySettings">Quality Settings</a></li><li><a href="WarpingSoftEdgingMasking.html#EnableDisableProjectorUserInterface">Enable / Disable Projector User Interface</a></li></ol></li><li><a href="WarpingSoftEdgingMasking.html#PerGroupSettings">Per Group Settings</a><ol><li><a href="WarpingSoftEdgingMasking.html#EnableWarpGroupAlphaBlending">Enable Warp Group / Alpha Blending</a></li><li><a href="WarpingSoftEdgingMasking.html#UVBoundaries">UV Boundaries</a></li><li><a href="WarpingSoftEdgingMasking.html#a3Dprojection">3D projection</a></li></ol></li></ol></li></ol></div>
+</p>
+<h1 id="IntroductiontotheVideoEngine" data-line="3" >Introduction to the Video Engine</h1>
+<p data-line="5" >
+It is important to note that the video engine actually includes a number of elements, including audio, live video coming from external sources, streaming video, video clip playback and the entire video output system. All audio processing inside of Ventuz is also handled by the video engine. 
+</p>
+<p data-line="7" >
+The configuration for all of the video and audio subsystems and routing is done in the <strong>Audio, Video and Hardware Device Mapping</strong> section of the <a class="wiki" href="MachineConfiguration.html">Ventuz Configuration</a>
+</p>
+<h2 id="RenderPipes" data-line="10" >Render Pipes</h2>
+<p data-line="12" >
+Ventuz theoretically supports an unlimited number of concurrent render pipes, but in the current structure, four simultaneous video pipes, or output streams, are enabled. These streams can best be described as render outputs. So, a GPU which supports 4 DVI outputs spanned to a single desktop will be one stream. An SDI channel with fill &amp; key will also be one stream. 
+</p>
+<p data-line="14" >
+Importantly, Ventuz allows for complete flexibility to configure, mix and match different pipes, and these are handled independently from the Ventuz scene and scene options. Thus the same scene can run on dual channel preview/program SDI on one machine with a given set of hardware but on an iVGA program/GPU preview setup on a different machine with no alterations to the scene. 
+</p>
+<p data-line="16" >
+It is important to know that all configured output pipe <span class="underline">must</span> render and output on the same frequency (frame rate). Mixed frame rates, unsynced genlocks are <span class="underline">not</span> supported! The <strong>FPS</strong> setting of the <em>AV Configuration</em> defines that rate. All configured output streams uses that rate for their output formats.
+</p>
+<h3 id="StreamModes" data-line="18" >Stream Modes</h3>
+<p data-line="20" >
+Every stream, depending on its hardware or software capabilities, can be configured to run in the following modes: 
+</p>
+<table class="wiki" data-line="22" >
+<tr><td style="text-align: left" data-line="22" >Name        </td><td style="text-align: left" data-line="22" >Ports        </td><td data-line="22" >Description
+</td></tr><tr><td style="text-align: left" data-line="23" >Input        </td><td style="text-align: left" data-line="23" >Input        </td><td data-line="23" >Input
+</td></tr><tr><td style="text-align: left" data-line="24" >Output        </td><td style="text-align: left" data-line="24" >Output        </td><td data-line="24" >Output
+</td></tr><tr><td style="text-align: left" data-line="25" >External Keying        </td><td style="text-align: left" data-line="25" >Output Key + Fill        </td><td data-line="25" >Output two separate SDI Streams, one containing the alpha channel (key) and one containing color information (fill)
+</td></tr><tr><td style="text-align: left" data-line="26" >External Chroma Keying Simple        </td><td style="text-align: left" data-line="26" >Output Key + Fill        </td><td style="text-align: left" data-line="26" >As above, but combines foreground, background and garbage matte from separate layers and 3d scenes into a key+fill stream. 
+</td></tr><tr><td style="text-align: left" data-line="27" >External Chroma Keying </td><td data-line="27" > Output 2xKey + 2xFill </td><td style="text-align: left" data-line="27" >Outputs 4 signals: foreground fill, foreground key, background fill and garbage matte as key 
+</td></tr><tr><td style="text-align: left" data-line="28" >Internal Hardware Keying        </td><td style="text-align: left" data-line="28" >Input + Output        </td><td style="text-align: left" data-line="28" >Let the video hardware take the Ventuz rendering and key it onto an input signal using the linear hardware keyer of the board. 
+</td></tr><tr><td style="text-align: left" data-line="29" >Internal Hardware Keying with Input        </td><td style="text-align: left" data-line="29" >Input + Output        </td><td style="text-align: left" data-line="29" >Let the video hardware take the Ventuz rendering and key it onto an input signal using the linear hardware keyer of the board. In addition, the input signal can be used as a texture in the Ventuz scene. 
+</td></tr><tr><td style="text-align: left" data-line="30" >Internal Hardware Keying with Delayed Input        </td><td style="text-align: left" data-line="30" >Input + Output        </td><td data-line="30" >Let the video hardware take the Ventuz rendering and key it onto an input signal using the linear hardware keyer of the board. In addition, the input signal can be used as a texture in the Ventuz scene. The texture will be synchronized with the input keyed input, allowing seamless transition from the keyers input to 3d rendering.
+</td></tr><tr><td style="text-align: left" data-line="31" >Internal Software Keying        </td><td style="text-align: left" data-line="31" >Input + Output        </td><td data-line="31" >Do the keying with the Ventuz 3d engine instead of the hardware. This allows to paint directly over the input signal, not having to care about generating correct alpha/key information. The input can also be used as a texture.
+</td></tr><tr><td style="text-align: left" data-line="32" >Internal Software Chroma Keying </td><td style="text-align: left" data-line="32" >Input + Output </td><td data-line="32" > As above, but the input is run through a chroma key. Also combines foreground, background, garbage matte and chroma keyed input into a single output stream. 
+</td></tr></table>
+<h3 id="Preview" data-line="34" >Preview</h3>
+<p data-line="36" >
+When rendering to SDI devices, a preview is shown in the Ventuz window. The Preview here refers to quality,  <span class="underline">not</span> a preview in the sense of previewing the next graphical element that is going to appear <em>on-air</em>. It is only an additional output of the signal sent to the SDI board.
+</p>
+<p data-line="38" >
+<div class="noteboxnote"><p>
+The rendering will be scaled to fit into the window, introducing additional artifacts and defeating multi-sampling. <br />The Preview window is <span class="underline">not</span> synchronized to the actual SDI board. The SDI board has its own timing hardware. Animation or videos may stutter, because they are synchronized to the SDI output - not to the graphics board (and thus the preview window). Also <a class="ext-link" href="http://en.wikipedia.org/wiki/Screen_tearing"><span class="icon">​</span>tearing effects</a> may appear. <br />Interlaced video formats are displayed progressive: a 1080@25i format will be display as it would be a 1080@50p format, because Ventuz always renders progressive frames internally.<br />Naturally, the rendering will look perfect on the actual SDI output.
+</p>
+</div>
+</p>
+<h2 id="VideoInputs" data-line="41" >Video Inputs</h2>
+<p data-line="43" >
+Ventuz will support as many concurrent input devices and streams as the hardware and operating system allows. So while in theory it would certainly be possible to trigger hundreds of video clips and live video streams simultaneously within Ventuz, no hardware currently would be able to handle that. The performance of the engine scales with the hardware it is running on. Regardless of the source of the inputs, whether that be an SDI board, a video clip or a webcam – they all are routed and processed, together with audio, through the video engine. 
+</p>
+<h2 id="Bit-depthandcontrollablequalityperformancebalance" data-line="45" >Bit-depth and controllable quality/performance balance</h2>
+<p data-line="47" >
+Ventuz, by default, renders at 8bit per RGBA channel. However, it supports up to 32bit per channel natively. This includes highly accurate and performant algorithms for color space conversion and bit depth conversion. This means that Ventuz is capable of loss-less video processing including handling out-of-gamut colors.
+</p>
+<p data-line="49" >
+A 10 bit YUV signal gets converted to 16 or 32 bit RGB, processed by Ventuz, and back-converted to 10 bit YUV. With 32 bit RGBA, all pixels will be reconstructed perfectly. At 16 bit, out of gamut colors are clamped to the RGB color space.
+</p>
+<h2 id="SoftwareWatchdog" data-line="86" >Software Watchdog</h2>
+<p data-line="88" >
+Input and output queues compensate short processing spikes. The more delay can be afforded, the longer the spikes can be without dropping any frame. (see Extra Buffers)
+</p>
+<p data-line="90" >
+Ventuz can be configured to disable video processing automatically when the queues threaten to over- or under-run. In disabled mode, the video signal is passed without video processing, but still with the same delay, so seamless switching from full processing to disabled mode is possible. (<em>internal keying modes</em>)
+</p>
+<p data-line="92" >
+Similarly, when switching scenes or projects, Ventuz might drop a few frames as new resources are loaded. A smooth transition can be guaranteed by manually disabling video processing before such operation and re-enabling afterwards.
+</p>
+<p data-line="94" >
+This is useful for the various keying modes with <strong>Disabled Content</strong> set to <strong>Transparent</strong>. When the software watchdog detects that frames are about to be dropped, it provides transparent frames to the keyer, or in case of <strong>internal software keying</strong> the input frames are sent to the output unmodified. The fill will disappear but the background will not drop.
+</p>
+<p data-line="96" >
+When using the <strong>Internal hardware keying with input and delay</strong>, the <strong>software watchdog must be enabled.
+</strong></p>
+<p data-line="98" >
+Hardware watchdogs control physical bypass relays which serve as last line of defense against power failure and forced reboots. In such cases, the video is simply passed through on the board.
+</p>
+<h2 id="SoftwareKeying" data-line="100" >Software Keying</h2>
+<p data-line="102" >
+Traditional keying requires a key and fill signal, which is then keyed either externally or on the video board to a video stream.
+</p>
+<p data-line="104" >
+With software keying, Ventuz can render directly on to the input video, relieving the often tedious and arduous requirement of generating the correct alpha channel or key.
+</p>
+<p data-line="106" >
+A seamless transition from zooming, stretching and 3-dimensional transformation, to just passing through the unmodified signal is easy. Thus Ventuz can be used as an extremely capable and flexible DVE video processor. 
+</p>
+<h2 id="MultipleSourcesfromMultipleVendors" data-line="108" >Multiple Sources from Multiple Vendors</h2>
+<p data-line="110" >
+The <em>Ventuz Video Engine</em> can mix different boards from different vendors, including Deltacast, Blackmagic and DVS (see <a class="wiki" href="MachineConfigurationVendors.html">Vendors</a>). Video signals can be synchronized to the rendering or asynchronous. For instance, one can use a high quality broadcast board for in- and output of the main video stream and add additional input signals with cheaper hardware. 
+</p>
+<p data-line="112" >
+Similarly, other sources, such as streaming video or iVGA, clips or DVI capture boards can be added, mixed and matched. 
+</p>
+<h3 id="SDI3G" data-line="114" >SDI 3G</h3>
+<p data-line="116" >
+To transmit a 1080p60 signal with SDI you need more than the 1.5 GBit/s a SDI-HD cable can handle. To do so, you can use two SDI-HD cables (dual link) or a single SDI-3G cable.
+</p>
+<p data-line="118" >
+The SMPTE ST 425-1 standard about SDI-3G specifies Level A and Level B, which are incompatible to each other. Level A is a "proper" SDI stream while Level B emulates dual link by using two multiplexed streams over the same cable. When creating a stream, you must specify the level.
+</p>
+<h3 id="a4k" data-line="120" >4k</h3>
+<p data-line="122" >
+We use the term <strong>4k</strong> to describe SDI signals with a resolution of 3840x2160 or 4096x2160 and a refresh rate of ~23.98 to 60.00 fps. 4k is always progressive.
+</p>
+<p data-line="124" >
+There is no standard for 4k yet. As of Ventuz 4.4.0 we support 4k for some devices by Deltacast and BlackMagic.
+</p>
+<p data-line="126" >
+<strong>Deltacast</strong> adopts the common technique of bundling 4 HD or SG links at 1920x1080 or 2048x1028 to one 4k stream. HD is used for refresh rates up to 30 fps, 3G is used for refresh rates above 30 and up to 60 fps.
+</p>
+<p data-line="128" >
+Each link carries a quadrant of the image. There is nothing special about the individual links, if you swap two links the quadrants are swapped, as there is no marker to put things together correctly. The individual links are compatible to normal SDI equipment, for instance one can use 4 HD/3G hardware keyers to key a 4k stream.
+</p>
+<p data-line="130" >
+Since a quad-link 4k signal is indistinguishable from 4 separate HS/3G signals, see <strong>Auto-Detect 4k Modes</strong> in the <a href="#VideoDeviceInformationandOptions">Device Options</a> section about telling Ventuz how to decide when such signals are detected.
+</p>
+<p data-line="132" >
+<strong>BlackMagic</strong> transports 4k signals up to 30 fps either as a proprietary 6GB/sec signal or as two 3G links. As of today these signals can only he used with other BlackMagic devices and the individual links of the dual 3G signal can not be processed independently, like one can with the 4k quadrants.
+</p>
+<h2 id="ChromaKeying" data-line="134" >Chroma Keying</h2>
+<p data-line="136" >
+There are the following chroma keying modes:
+</p>
+<ul class="" start="1"><li data-line="138" >External Chroma Keying
+</li><li data-line="139" >External Chroma Keying Simple
+</li><li data-line="140" >Internal Software Chroma Keying
+</li></ul><p data-line="142" >
+When one of these modes is active, The Ventuz scene is rendered in 3 ranks:
+</p>
+<ul class="" start="1"><li data-line="144" >Default (Background)
+</li><li data-line="145" >Foreground
+</li><li data-line="146" >Garbage Matte
+</li></ul><p data-line="148" >
+Each layer can be assigned to one of the 3 ranks. Also inside a 3d layer, parts of the hierarchy can be filtered to be in one of the 3 ranks. The ranks are rendered independently. 
+</p>
+<table class="wiki" data-line="150" >
+<tr><td style="text-align: center" data-line="150" >  <img src="images/MachineConfigurationAV/ranklayer.png" style="max-width:467px" class="usermanual-image" title="" alt="" />   </td><td style="text-align: center" data-line="150" >  <img src="images/MachineConfigurationAV/rankhiera.png" style="max-width:314px" class="usermanual-image" title="" alt="" />  
+</td></tr><tr><td style="text-align: left" data-line="151" >Setting rank in a layer  </td><td style="text-align: left" data-line="151" >Setting rank with filters in a 3d hierarchy  
+</td></tr></table>
+<p data-line="153" >
+In <strong>Internal Software Chroma Keying</strong>, Ventuz adds a chroma keyer to the video input. Then the garbage matte is used to cut away parts of the input that might not be covered by greenscreen. In a trackless environment a masking image will suffice, in a tracked studio a 3d scene containing simple virtual boxes around where the physical greenscreen is can be used to mask out the borders of the greenscreen while the camera moves.<br />
+The four signals, input, garbage matte background and foreground are composited properly to form the final image.
+</p>
+<p data-line="156" >
+The <strong>External Chroma Keying Simple</strong> mode is intended to provide one fill and one key signal to a simple external chroma keyer. Again the three ranks (background (fill), foreground (key+fill), garbage matte(key)) are rendered. These images are composited to a key+fill stream, the key containing the foreground key and garbage matte key, the fill containing foreground fill and background fill. This can use used in an external chroma keyer. It will create some problems with transparencies in the foreground, but usually it suffices.
+</p>
+<p data-line="158" >
+The <strong>External Chroma Keying</strong> outputs the three ranks as four individual signals. The foreground fill, foreground key, background fill and garbage matte as key. These four signals can then be composited in an external chroma keyer.
+</p>
+<h2 id="ComprehensiveAudioMixing" data-line="160" >Comprehensive Audio Mixing</h2>
+<p data-line="162" >
+Virtual audio cables can be routed from any video input or Windows audio input device to any other video output or audio output device. Each cable comes with delay, volume and balance control.
+</p>
+<p data-line="164" >
+Each stereo pair is handled individually, so routing from input 1 channel 5/6 to output 2 channel 1/2, or routing a 5.1 signal by using 3 stereo pairs is simple.
+</p>
+<p data-line="166" >
+Ventuz can add sound clips or sound from video clips to the mix, or analyze sound from input sources. Similarly, audio can be delayed or compensated in order to match video or other delays. 
+</p>
+<p data-line="168" >
+The delay is for more than just adjusting for video input processing times. For some video formats, the number of samples changes from frame to frame, and input and outputs may be in a different position in the cycle of changing sample counts. For asynchronous streams, additional buffering is required. The delay will calculate a small but safe amount of buffering dependent on various attributes of the streams.
+</p>
+<p data-line="170" >
+The virtual audio cables operate in stereo pairs. Each input or output has its certain number of stereo pairs (e.g. SDI has 8 pairs), and via the routing in the <em>AV Configuration</em> editor, the delays can be mixed and matched from input to output extremely flexibly. 
+</p>
+<p data-line="172" >
+An audio routing can handle multiple cables per input and output, with smoothing to prevent clicks or popping when changing volume or panning. 
+</p>
+<p data-line="174" >
+All audio processing in Ventuz is done at a sample level at 48kHz, and conversion to other sample rates is handled within the ffmpeg engine. Because Ventuz works with stereo pairs, 5.1 or devices with more outputs are simply divided into stereo pairs.  Similarly, mono devices are converted into a stereo pair. 
+</p>
+<h2 id="VideoSetupindependentfromVentuzScene" data-line="177" >Video Setup independent from Ventuz Scene</h2>
+<p data-line="179" >
+The Ventuz Machine Configuration allows a Ventuz Scene to be independent from the hardware used. If the designer has a different hardware setup than a runtime engine, or multiple runtime machines are different, each machine can be configured so that the same Ventuz Scene will access the right video ports and other resources. 
+</p>
+<h1 id="AVConfiguration" data-line="181" >AV Configuration</h1>
+<p data-line="183" >
+<img src="images/MachineConfigurationAV/avc_video.png"  />
+</p>
+<p data-line="185" >
+The AV configuration has four sections:
+</p>
+<ul class="" start="1"><li data-line="187" ><strong>Video</strong> : Create video streams. Some video streams also carry audio.
+</li><li data-line="188" ><strong>Audio</strong> : Create audio streams
+</li><li data-line="189" ><strong>Cross Points</strong> : Connect audio inputs and Ventuz audio sources to audio outputs or Ventuz audio analysis.
+</li><li data-line="190" ><strong>Mapping</strong> : Map the created streams to the two render pipes in Ventuz.
+</li></ul><p data-line="192" >
+<div class="noteboxnote"><p>
+A list of the supported video devices with product specific information can be found <a class="wiki" href="MachineConfigurationVendors.html">here</a>
+</p>
+</div>
+</p>
+<h2 id="VideoOutputs" data-line="194" >Video Outputs</h2>
+<p data-line="196" >
+It is best to specify the frame-rate before creating any output streams. This is done with a drop-down box just above the <strong>Outputs</strong> window.
+</p>
+<p data-line="198" >
+<div class="noteboxwarn"><p>
+The AV Configuration editor displays all supported devices if they are found on your system. The current <a class="wiki" href="VentuzEditions.html">Licensed Output Options</a> may deny the creation of certain streams! The Ventuz PLE version has no restrictions - all devices can be tested without a purchased license but the output will be branded with a Ventuz logo.
+</p>
+</div>
+</p>
+<p data-line="200" >
+Video output streams are added by dragging a device from into the <strong>Outputs</strong> window. When doing so, a dialog pops up that allows users to specify some options:
+</p>
+<ul class="" start="1"><li data-line="202" ><strong>Device</strong> lets you change the device.
+</li><li data-line="203" ><strong>Mode</strong> specifies the mode. See <a href="#StreamModes">Stream Modes</a>.
+</li><li data-line="204" ><strong>Ports</strong>: Select the physical connector use.
+</li></ul><p data-line="206" >
+<div class="noteboxtip"><p>
+In <em>DirectX Output Mode</em> only one output is supported since Ventuz always runs on a single GPU/Adapter. Combinations between DirectX-Fullscreen and SDI, for example, is <span class="underline">not</span> possible!
+</p>
+</div>
+</p>
+<p data-line="208" >
+When configuring multiple inputs and outputs on the same card, arbitrary hardware limitations might reduce your choices.
+</p>
+<p data-line="210" >
+<img src="images/MachineConfigurationAV/NewStream.png"  />
+</p>
+<p data-line="212" >
+<div class="noteboxwarn"><p>
+If the configured output streams are only of type <strong>Shared Surface</strong> the outputs will be branded with a Ventuz logo if no appropriate <a class="wiki" href="VentuzEditions.html">License</a> is available.
+</p>
+</div>
+</p>
+<h3 id="Enable10bitDirectX-Mode" data-line="214" >Enable 10bit (DirectX-Mode)</h3>
+<p data-line="215" >
+Ventuz, by default, renders at 8bit per RGBA channel but based on the connected Display and GPU you can also output in 10bit color depth in <em>DirectX Mode</em>. This is automatically distinguished based on the Desktop configuration and therefore there  is no need to change the Ventuz configuration.
+Therefore to enable 10 bit output simply configure it inside your Graphics Driver Settings.
+</p>
+<table style="text-align:center;margin:auto" class="wiki"><tr><th><p>
+<em><strong>Nvidia Control Panel</strong></em>
+</p>
+</th><th><p>
+<em><strong>AMD Catalyst Control</strong></em>
+</p>
+</th></tr><tr><td><p>
+<img src="images/MachineConfigurationAV/NV_10bit.PNG" width="100%" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</td><td><p>
+<img src="images/MachineConfigurationAV/AMD_10bit.png" width="80%" style="margin-right:auto; margin-left:auto; display:block" />
+</p>
+</td></tr></table><p data-line="238" >
+<div class="noteboxwarn"><p>
+Changing the color depth to 10bit is not for free and can cause performance issues.
+</p>
+</div>
+</p>
+<p data-line="240" >
+ 
+</p>
+<h2 id="VideoInputs1" data-line="242" >Video Inputs</h2>
+<p data-line="244" >
+Inputs are dragged into the <strong>Inputs</strong> window just like outputs are dragged into the <strong>Outputs</strong> window. There is only one mode: <strong>input</strong>. 
+</p>
+<p data-line="246" >
+Some output modes come with inputs, in this case these inputs automatically appear in the <strong>Inputs</strong> window. The option for these dual input/output streams are mirrored.
+</p>
+<p data-line="248" >
+These inputs can be used in Ventuz with the <a class="wiki" href="NodeTextureVideo.html">Live Video node</a>.
+</p>
+<p data-line="250" >
+The video format of inputs can be configured independent from the video format of the outputs. For best results, the frame rate should be the same as the output and all signals should be genlocked together. 
+</p>
+<p data-line="252" >
+Most video boards support <strong>Autodetect</strong> mode. Should the video mode of an autodetect input switch, the video engine will synchronize on the new signal. If the video board is not in autodetect mode, it will report signal lost until the stream switches back to the configured video format.
+</p>
+<p data-line="254" >
+A list of available formats can be found <a class="wiki" href="SupportedFormats.html#SDI">here</a>, but not all boards support all formats.
+</p>
+<h2 id="VideoOptions" data-line="256" >Video Options</h2>
+<p data-line="258" >
+Once the stream is added, some options can be changed. The available options depend on the <strong>Mode</strong> and the capabilities of the device.
+</p>
+<p data-line="260" >
+Many of these options can be manipulated with the <strong>Live Options</strong> window without restarting Ventuz.
+</p>
+<h3 id="StandardOptions" data-line="262" >Standard Options</h3>
+<p data-line="264" >
+<strong>Format</strong>: The video format. Output devices can only choose formats with the frame-rate configured in the <strong>FPS</strong> setting of the <em>AVConfiguration</em>. Inputs can use any frame-rate, but for best results all streams should use the same frame-rate. Input streams may offer <strong>Auto Detect</strong> as video mode. Some devices allow <strong>PC</strong> as format, then resolution, frame-rate and interlace must be specified manually.
+</p>
+<p data-line="266" >
+<strong>Border Color</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) The color used for letter-boxing / pillar-boxing and bezels in video-wall setups.
+</p>
+<p data-line="268" >
+<strong>Effect Bleed</strong>: The Effect Bleed adds an extra margin around the rendered content. The value is the amount of pixels added to all four sides. It will not extend the visible/physical output, but will allow layer effects to create better results close to the output border or across machine borders in <a class="wiki" href="HowTo/HowToClusterRendering.html#LayerEffects">Cluster Setups</a>.
+</p>
+<p data-line="270" >
+<strong>Frame Format</strong>: PC-Streams need manual specification of resolution, frame-rate and interlacing.
+</p>
+<p data-line="272" >
+<strong>Pipe Usage</strong>: Defines if the output (Pipe) should behave as <em>Preview</em> or <em>Program</em>. Use <em>Automatic</em> if you do not want to overwrite the default behaviour. 
+</p>
+<p data-line="274" >
+<strong>Alpha Out</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) defines how the key signal is generated.
+</p>
+<table class="wiki" data-line="276" >
+<tr><td data-line="276" > <strong>Option</strong> </td><td data-line="276" > <strong>Description</strong> 
+</td></tr><tr><td data-line="277" > Straight  </td><td data-line="277" > Non-Premultipled, as most common image formats that allow for alpha (png, bmp) 
+</td></tr><tr><td data-line="278" > Premulitiplied with lifted Alpha  </td><td data-line="278" > where the alpha value is larger than any color value, the alpha value is lifted. 
+</td></tr><tr><td data-line="279" > Premulitiplied with additive Headroom </td><td data-line="279" > The alpha value is allowed to exceed the red, green and blue values. Ventuz uses this to create glare and bloom effects that brighten the image without darkening the background, unfortunately most other software can not deal with this. 
+</td></tr></table>
+<p data-line="281" >
+<strong>Mipmaps</strong>: Input streams can automatically create mipmaps. Mipmaps are only useful if the incoming video is displayed either in 3D or smaller than 50% of its native resolution.
+</p>
+<p data-line="283" >
+<strong>VShift</strong> and <strong>HShift</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) Some video capture boards allow shifting the captured image horizontally or vertically.
+</p>
+<p data-line="285" >
+<strong>Multisampling</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) Output streams allow for specifying <a class="ext-link" href="http://en.wikipedia.org/wiki/Multisampling"><span class="icon">​</span>multisampling</a> quality.
+</p>
+<p data-line="287" >
+<div class="noteboxnote"><p>
+Multisampling only affects the edges of geometries. It does <span class="underline">not</span> affect the quality of <a class="wiki" href="NodeTextureTexture.html">textures</a>, <a class="wiki" href="NodeTextRendering.html">texture based text</a> or <a class="wiki" href="NodeTextureVideo.html">live video textures</a>!
+</p>
+</div>
+</p>
+<ul class="" start="1"><li data-line="289" ><strong>None</strong> : No multisampling applies.
+</li><li data-line="290" ><strong>Medium</strong> : Selects the mid range (Best/2) of available multisampling quality levels. 
+</li><li data-line="291" ><strong>Best</strong> (default) : Selects the highest available level of multisampling quality. 
+</li></ul><p data-line="293" >
+<div class="noteboxtip"><p>
+Select <strong>None</strong> multisampling for scenes consisting of texture and <a class="wiki" href="NodeTextRendering.html#Text2D">Text 2D</a> based fonts only or if the displayed graphics is a 2D design. Multisampling would not improve the quality but it will lower the rendering performance. Except when using the plain layer and <strong>High Quality 2D Text Rendering</strong> is <strong>disabled</strong>. Non-high-quality relies on multisampling.
+</p>
+</div>
+</p>
+<p data-line="295" >
+<strong>Virtual Fullscreen</strong>: (DirectX output only) The fullscreen mode is the common rendering mode for Ventuz. The entire screen is used to display the rendering output. The advantage of this mode is that no other windows can overlap the rendering and the system only displays the presentation instead of other Windows related elements.
+There are two different types of the fullscreen mode:
+</p>
+<ul class="" start="1"><li data-line="298" ><span class="underline">Exclusive Fullscreen</span><br />This type is the most common mode used. The graphics card is locked exclusively to the Ventuz application and offers the best performance results. The exclusive mode is exited and the application gets minimized if another application receives the input focus. Therefore it is highly recommended to disable all background processes (e.g. anti-virus software or auto update services) which could steal the focus during the presentation.
+</li><li data-line="299" ><span class="underline">Virtual Fullscreen</span><br />A virtual fullscreen looks like an exclusive fullscreen but is actually a windowed mode where the entire screen gets occupied by a single borderless window. This type is often used during the design phase of a project, because it allows the user to activate another application (e.g. content creation software) and steal the input focus without having to re-initialize the renderer. A virtual fullscreen remains on screen and is not minimized as the exclusive type does. The disadvantage of this mode is a lower performance compared to the exclusive fullscreen. 
+</li></ul><p data-line="301" >
+<strong>Show Mouse Pointer</strong>: (DirectX output only) This option defines whether the mouse pointer is visible over the rendering area in Fullscreen mode or not. <a class="wiki" href="MultiTouch.html">MultiTouch</a> or keyboard controlled presentations usually hide the pointer because it is not needed. 
+</p>
+<p data-line="303" >
+<strong>Swap Sync</strong>: (DirectX output only) If additional synchronization hardware for framelock/genlock is installed, this option enables the Swap Sync in Ventuz. See <a class="wiki" href="MachineConfigurationVendors.html#GPUs">GPU Vendors</a>
+</p>
+<p data-line="305" >
+<strong>Prevent D3D Queuing </strong>: (DirectX output only) This option is a little trick from the gaming industry to force the driver to only render one single frame in advance. This keeps interaction delays low and allows the cluster clock interchange algorithm to work properly. Enabling this option will lower the entire render performance by approx. 3-5%!
+</p>
+<p data-line="307" >
+<strong>Frame Rate Multiplier</strong>: Multiplies the globally set frame rate for internal calculations. Used in cluster setups with <a class="wiki" href="HowTo/HowToMixedFrameRates.html">mixed frame rates.</a>
+</p>
+<p data-line="309" >
+<div class="noteboxtip"><p>
+In DirectX output mode, the rendering always occupies the entire selected adapter by using the size and refresh rate of the desktop. Ventuz does not change any settings on the graphics regarding size, rate or multi-monitor setups (<em>Span Modes</em>, <em>Mosaic</em>, <em>Eyefinity</em>, etc).<br />The global <strong>FPS</strong> value is used to override the refresh reported by <em>Windows</em> against another custom value. This affects only the timing inside Ventuz, not the actual refresh rate of the graphics board. Setting <strong>FPS</strong> to <em>None</em> will use the refresh rate reported by <em>Windows</em> - this may differ from the actual rate!
+</p>
+</div>
+</p>
+<h3 id="AdvancedOptions" data-line="311" >Advanced Options</h3>
+<p data-line="313" >
+<strong>RGB Format</strong>: The quality of the Ventuz rendering. This is especially important when using the <strong>internal software keying</strong> mode and the original YUV signal must be reconstructed perfectly.
+</p>
+<table class="wiki" data-line="314" >
+<tr><th data-line="314" > Setting </th><th data-line="314" > Speed </th><th data-line="314" > Quality 
+</th></tr><tr><td data-line="315" > 8 bit integer </td><td data-line="315" > high </td><td data-line="315" > minor quality loss for 8 bit YUV, big quality loss for 10 bit YUV. 
+</td></tr><tr><td data-line="316" > 16 bit integer </td><td data-line="316" > medium </td><td data-line="316" > 10 bit YUV can be reconstructed perfectly, but out of gamut colors can not be reconstructed. 
+</td></tr><tr><td data-line="317" > 32 bit float </td><td data-line="317" > slow </td><td data-line="317" > 10 bit YUV can be reconstructed perfectly, including out of gamut colors. 
+</td></tr></table>
+<p data-line="319" >
+<strong>Software Watchdog Enable</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) Enables the <a href="#SoftwareWatchdog">software watchdog</a> for this stream.
+</p>
+<p data-line="321" >
+<strong>Disabled Content</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) Select what should happen when the <a href="#SoftwareWatchdog">software watchdog</a> kicks in or an input stream has no signal.
+</p>
+<table class="wiki" data-line="322" >
+<tr><th data-line="322" > Setting </th><th data-line="322" > Fill </th><th data-line="322" > Key 
+</th></tr><tr><td data-line="323" > White </td><td data-line="323" > white </td><td data-line="323" > solid (100%) 
+</td></tr><tr><td data-line="324" > Black </td><td data-line="324" > black </td><td data-line="324" > solid (100%) 
+</td></tr><tr><td data-line="325" > Transparent </td><td data-line="325" > black </td><td style="text-align: right" data-line="325" > opaque (0%)
+</td></tr><tr><td data-line="326" > Last Frame </td><td data-line="326" > last frame </td><td data-line="326" > last frame 
+</td></tr><tr><td data-line="327" > Color Bars 100% </td><td data-line="327" > color bars 100% </td><td data-line="327" > solid (100%) 
+</td></tr><tr><td data-line="328" > Color Bars 75% </td><td data-line="328" > color bars 75% </td><td data-line="328" > solid (100%) 
+</td></tr></table>
+<p data-line="330" >
+<strong>Enable Ancillary Input</strong> switches on ancillary processing for input streams. This allows to read time-codes and active format descriptor information from the live video node. See  <a class="wiki" href="NodeTextureVideo.html#LiveVideo">Video / Live Video node</a>.
+</p>
+<p data-line="332" >
+<strong>Audio Input Gain</strong>, <strong>Audio Output Gain</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) Gain for audio associated to this stream. The same gain is applied to all channels.
+</p>
+<p data-line="334" >
+<strong>Clamp...</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) Video signals using YUV can be clamped to a certain range. Values are always specified in the 0 to 1023 range of 10 bit. if the stream uses an 8 bit YUV buffer, values are internally converted to 8 bit. If the stream uses an RGB buffer, this option is not available.
+</p>
+<p data-line="336" >
+<strong>Synchronized</strong>: If it is known that input our output streams are genlocked together, these streams should have this box checked. This will ensure that Ventuz waits on all streams before committing to render. By default, output streams are synchronized and input streams are not.
+</p>
+<p data-line="338" >
+<strong>No Genlock</strong>: Configure the board to ignore genlock signal for this output stream.
+</p>
+<p data-line="340" >
+<strong>Low Latency</strong> and <strong>Extra Buffers</strong>: In low latency mode, Ventuz reduces the number of frames that are buffered to a minimum. This is not recommended for complex scenes. In both low latency and normal mode, extra buffers can be added to increase tolerance against frame drops. For example: If Ventuz has no problem rendering fast enough, but for some reason one rendering takes 4 frames, with enough buffers, the output will continue smoothly, and after the "hiccup" Ventuz has time to slowly fill up the queue again. See also <a href="#SoftwareWatchdog">software watchdog</a>.
+</p>
+<p data-line="342" >
+<strong>Input Frame Delay</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) For Deltacast boards, input streams can be delayed. This is useful when working with tracking systems to match the tracking delay. You have to add extra buffers to be able to use this feature, if you have 3 extra buffers you can delay by 3 frames. With the default of zero extra buffers, no input delay can be set. The extra buffers must be set before starting Ventuz to allocate the "headroom" needed for the delay. Then the input delay can be changed on the fly.
+</p>
+<p data-line="344" >
+<strong>Board Format</strong>: Most boards can operate in different buffer formats, like 8 or 10 bit YUV. This option configures Ventuz to prefer quality or speed when choosing a buffer format. Speed should only be an issue when operating many streams on the same device.
+</p>
+<p data-line="346" >
+<strong>Flip Vertically</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) Some Webcams might have the image flipped vertically, use this option to correct.
+</p>
+<h2 id="VideoDeviceInformationandOptions" data-line="348" >Video Device Information and Options</h2>
+<p data-line="350" >
+Each video device has two little buttons when hovering over the device icon.
+</p>
+<p data-line="352" >
+The little 'i' will open a box with information about the hardware. 
+</p>
+<p data-line="354" >
+The little gear-icon will open a device configuration dialog. The selection of available options depends on the kind of the device and it's capabilities.
+</p>
+<p data-line="356" >
+Available options are:
+</p>
+<p data-line="358" >
+<strong>Genlock Source</strong>: Select the source for the <a class="ext-link" href="http://en.wikipedia.org/wiki/Genlock"><span class="icon">​</span>genlock</a>. Most SDI-boards support SDI-inputs and a special reference signal inputs. To disable genlock choose <strong>internal</strong>.
+</p>
+<p data-line="360" >
+<strong>Genlock Format</strong>: Select the format of the genlock signal. Usually the genlock will lock on a signal much faster if it is not in <strong>Auto Detect</strong> mode.
+</p>
+<p data-line="362" >
+<strong>Genlock H Offset</strong> and <strong>Genlock V Offset</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) This allows to offset output streams from the genlock signal. When the <strong>Genlock Format</strong> is not known, some boards only allow vertical (pixel) offset and no negative offsets. If the format is known, Ventuz can automatically convert (possibly negative) H &amp; V offsets into a positive vertical offset independent from the boards capabilities.
+</p>
+<p data-line="364" >
+<strong>Watchdog Timeout</strong>: (<a class="wiki" href="MachineConfiguration.html#LIVEOPT">Live Option</a>) Set the hardware watchdog of the device. The value is in milli-seconds. 0 disables the hardware watchdog. Do not confuse this device feature with the <a href="#SoftwareWatchdog">software watchdog</a>.
+</p>
+<p data-line="366" >
+<strong>Multi Channel</strong>: DVS boards can be switched between single and multi-channel modes. This usually happens automatically, but if there is some confusion, set it manually.
+</p>
+<p data-line="368" >
+<strong>Video Norm Input X</strong>: Deltacast DVI capture boards require manual specification of the kind of signal to expect.
+</p>
+<p data-line="370" >
+<strong>Preserve EDID</strong>: This tells Deltacast DVI capture boards to preserve a pre-programmed EDID (monitor id). This allows to use the Deltacast E-EDID tool to program an EDID into the board, and it will not be overwritten with a default EDID. 
+</p>
+<p data-line="372" >
+<strong>Verify Frame Rate</strong>: This is for Video for Windows inputs (like Webcams). When auto-detecting a signal, this verifies the frame rate. This is recommended, but disabling this may sometimes help locking on to input signals that are otherwise refused.
+</p>
+<p data-line="374" >
+<strong>Auto-Detect 4k Modes</strong>: Some SDI boards receive 4k streams as quad-link HD or quad-link 3G streams. Unfortunately there is no standardized marker to distinguish a quad-link 4k streams from 4 normal streams. Normally, Ventuz will interpret a quad-link 4k stream as four independent streams. With this options Ventuz will assume that 4 identical streams will form a quad-link 4k stream if possible. Some streams can not form quad-link 4k, like interlaced or SD streams, these will still be handled as individual streams.
+</p>
+<p data-line="376" >
+<strong>Color Sampling</strong>: for BlackMagic HDMI capture, specify if the input is YUV 4:2:2 or RGB 4:4:4. This is not required when using Autodetect. 
+</p>
+<h2 id="GlobalOptions" data-line="378" >Global Options</h2>
+<p data-line="380" >
+Currently, there is only one global option, the <strong>Software Watchdog Timeout</strong>. A value of 0 means that the <a href="#SoftwareWatchdog">software watchdog</a> will disable the stream and show disabled content when an input queue overflows or an output queue runs dry. Larger values will delay the watchdog by the specified number of milliseconds. Sometimes it is better to drop a frame than to disable the stream totally.
+</p>
+<p data-line="382" >
+The timeout for the software watchdog is a global option. Do not confuse this with the timeout for the hardware watchdog, which is a board option.
+</p>
+<h2 id="LiveStatus" data-line="384" >Live Status</h2>
+<p data-line="386" >
+By pressing the <strong>Log</strong> button in the live options the current status of all streams (audio &amp; video) is logged in the message window.
+</p>
+<p data-line="388" >
+This information is only visible if the message level is set to info or debug. The message level can be set using the right mouse button popup menu.
+</p>
+<p data-line="390" >
+<img src="images/MachineConfigurationAV/avlog.png" style="max-width:633px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="392" >
+For each stream, the name and some information is printed:
+</p>
+<p data-line="394" >
+<strong>Status</strong> : the state of the stream. The following states are possible
+</p>
+<table class="wiki" data-line="396" >
+<tr><td data-line="396" > Ready </td><td data-line="396" > waiting for input signal, ready to go 
+</td></tr><tr><td data-line="397" > Presync, Syncing </td><td data-line="397" > stabilizing stream, synchronizing multiple streams together 
+</td></tr><tr><td data-line="398" > Running </td><td data-line="398" > stream is running normally 
+</td></tr><tr><td data-line="399" > Disabled </td><td data-line="399" > disabled either by the <a class="wiki" href="NodeTextureVideo.html">Live Video Node</a> or by the <a href="#SoftwareWatchdog">software watchdog</a>. 
+</td></tr><tr><td data-line="400" > Bypass </td><td data-line="400" > bypass relays activated 
+</td></tr><tr><td data-line="401" > Error </td><td data-line="401" > some error condition, see log for details. 
+</td></tr></table>
+<p data-line="411" >
+<strong>Queue</strong> : The number of frames queued and the length of the queue. This should be a low number for input streams and a high number for output streams. If Ventuz is temporarily to slow, the input queue fills up and the output queue dries out. If Ventuz recovers in time and renders fast enough, input queues will slowly be emptied and output queues get filled, no frame will get duplicated on the output and no frame will get dropped from the input.
+</p>
+<p data-line="413" >
+<strong>Board Format</strong> : When creating the stream, the video engine can be configured to prefer either <strong>speed</strong> or <strong>quality</strong>. This effects the selection of a buffer format to be used for sending and receiving data to the video board. What format is actually chosen depends also on the hardware capabilities and if an alpha (key) channel is required.
+</p>
+<table class="wiki" data-line="415" >
+<tr><td data-line="415" > Name </td><td data-line="415" > Bits Per Pixel </td><td data-line="415" > Comment 
+</td></tr><tr><td data-line="416" > YUV422 10 bit   </td><td data-line="416" > 21.3 </td><td data-line="416" > best quality 
+</td></tr><tr><td data-line="417" > YUV422 8 bit    </td><td data-line="417" > 16   </td><td data-line="417" > best speed 
+</td></tr><tr><td data-line="418" > YUVK4224 10 bit </td><td data-line="418" > 32   </td><td data-line="418" > best quality with alpha 
+</td></tr><tr><td data-line="419" > YUVK4224 8 bit  </td><td data-line="419" > 24   </td><td data-line="419" > best speed with alpha 
+</td></tr><tr><td data-line="420" > RGBA 8 bit      </td><td data-line="420" > 32   </td><td data-line="420" > used as quality option when YUVK4224 10 bit is not available 
+</td></tr><tr><td data-line="421" > RGB 8 bit       </td><td data-line="421" > 24   </td><td data-line="421" > used for some webcams (windows media foundation devices) 
+</td></tr><tr><td data-line="422" > YUV422 8 bit with separate alpha </td><td data-line="422" > 24 </td><td data-line="422" > used for iVGA, same quality and speed as YUVK4224 8 bit 
+</td></tr></table>
+<p data-line="424" >
+Generally, RGB(A) is slightly better then 8 bit YUV(K) but worse and as slow as 10 bit YUV(K).
+</p>
+<p data-line="426" >
+<strong>Buffers</strong> : The number of buffers allocated
+</p>
+<p data-line="428" >
+<strong>Delay</strong> : The nominal delay of the stream. There are up to 3 kinds of delay:
+</p>
+<table class="wiki" data-line="430" >
+<tr><td data-line="430" > Input -&gt; Ventuz </td><td data-line="430" > The delay from input to the Ventuz renderer 
+</td></tr><tr><td data-line="431" > Ventuz -&gt; Output </td><td data-line="431" > The delay from the Ventuz renderer to output 
+</td></tr><tr><td data-line="432" > Input -&gt; Output </td><td data-line="432" > The delay from the input and the output 
+</td></tr></table>
+<p data-line="434" >
+For instance, in the <strong>internal hardware keying without input</strong> mode, the delay from input to output is typically zero or one frame, while the delay from Ventuz to output is typically 3 to 4 frames. A zero delay is of course impossible, the deltacast keyer for example will shift the signal by around a hundred pixels. This counts as <em>zero frames</em>.
+</p>
+<h2 id="AudioDevices" data-line="436" >Audio Devices</h2>
+<p data-line="438" >
+The <strong>Audio</strong> section displays all pure audio devices available in the system along with their supported streams (input and/or output). Simply select the streams you want to use. The default Windows input and output streams are marked with the text <em>(Default)</em>.
+</p>
+<p data-line="440" >
+<img src="images/MachineConfigurationAV/ASIOlogo.jpg" style="max-width:474px;width:200px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="442" >
+If portable devices such as USB headsets or USB speakers are used Ventuz will reports errors if the device is turned off or has been disconnected prior start-up of Ventuz. Some devices may change their stream configuration depending on the connected physical cabling. In such a case Ventuz will also report a missed stream on start-up.
+</p>
+<p data-line="444" >
+<img src="images/MachineConfigurationAV/audio.png" style="max-width:849px" class="usermanual-image" title="" alt="" />
+</p>
+<h2 id="CrossPoints" data-line="446" >Cross Points</h2>
+<p data-line="448" >
+In the <strong>Cross Points</strong> section, audio inputs and outputs can be connected. Such a connection always works on a stereo pair. A typical SDI device has 16 channels, and therefore 8 pairs. A sound-card configured for stereo has one stereo pair, one configured for 5.1 surround has 3 stereo pairs. In this manual the term <strong>Cross Point</strong> is also referred as <strong>Cable</strong>. These two terms are identical!
+</p>
+<p data-line="450" >
+<div class="noteboxwarn"><p>
+The <a class="wiki" href="NodeInteractionTouchWebBrowser.html">Web Browser</a> always outputs on the default Windows Audio device. Sound played by the Web Browser is <span class="underline">not</span> passed through the Ventuz Video Engine and is unable to be routed to SDI or other supported devices.
+</p>
+</div>
+</p>
+<p data-line="452" >
+<div class="noteboxwarn"><p>
+Note that <a class="ext-link" href="https://en.wikipedia.org/wiki/Audio_Stream_Input/Output"><span class="icon">​</span>ASIO</a> devices are always listed with 8 stereo pairs regardless of the actual physical number of pairs. When trying to access a non-existent pair Ventuz will log an error message. This is necessary since many ASIO drivers need exclusive access to read device information.
+</p>
+</div>
+</p>
+<p data-line="454" >
+Stereo pairs are named <strong>A</strong>, <strong>B</strong>, <strong>C</strong> and so forth. Where <strong>A</strong> maps to the channels <strong>1</strong> and <strong>2</strong> (also referred as <strong>1/2</strong>), <strong>B</strong> to <strong>3/4</strong>, etc.
+</p>
+<p data-line="456" >
+<span class="wikianchor" id="VENTUZAUDIO"></span> To enable Ventuz to interact with the audio a virtual <em>Ventuz</em> device exists. It provides 8 <em>Record</em> and 8 <em>Playback</em> stereo pairs. If Ventuz needs to receive audio from a stream (e.g. for the <a class="wiki" href="NodeSoundAnalyzeAudio.html">FFT Audio Analysis</a> a cable from that stream has to be connected to a <em>Record</em> pair of Ventuz. If Ventuz outputs audio a <em>Playback</em> pair must be connected to the desired output stream or output streams. Any audio related node in Ventuz selects the <em>Record</em> or <em>Playback</em> pair to delegate the audio. The wiring defines how the audio is routed.
+</p>
+<p data-line="458" >
+By default the <strong>Use custom crosspoints</strong> check box is unchecked. In that case Ventuz automatically subsequently connects the first stereo pair of all configured audio and video stream to the <em>Ventuz Record Pairs</em>. And all available audio outputs on all audio and video streams to the <em>Ventuz Playback Pairs</em>. All automatic cables are grouped is a single cable-group called <em>Default</em>. If the <strong>Use custom crosspoints</strong> is checked that cables have to created manually.
+</p>
+<p data-line="461" >
+<img src="images/MachineConfigurationAV/avc_cross.png" style="max-width:850px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="463" >
+Ventuz works like a giant matrix mixer. Any input stereo pair can be mixed to any output stereo pair. In practice usually only a few such cross points are needed. Each line in the configuration represents one cross points. Each cross points consists of an input device with stereo pair and an output device with stereo pair. 
+</p>
+<p data-line="465" >
+Cross Points (or cables) are combined named groups. Inside Ventuz, the volume and stereo panning for each group can be automated by using the <a class="wiki" href="NodeAudioControl.html">Volume Control Node</a>. If many stereo pairs have to be automated in parallel, grouping them and giving the group a descriptive name can avoid confusion.
+</p>
+<p data-line="467" >
+<div class="noteboxwarn"><p>
+Please make sure that only one <a class="wiki" href="NodeAudioControl.html">Volume Control Node</a> controls a group at a time. Concurrent controlling would cause unexpected behavior. The rules here are last-in-last-out; the last access to the group in the current frame will set the parameters. If concurrent access happened within one render cycle a silent warning message will be logged.
+</p>
+</div>
+</p>
+<p data-line="469" >
+Each cross point has its own <strong>Delay</strong> value. Although the default value is <strong>0</strong> it doesn't mean that there's no delay on the audio. The Ventuz Video Engine takes care about the minimum audio delay required to be in-sync with the video output. The user can adjust the delay value in milliseconds, but as long the actual minimum delay is not exceeded no additional delay will apply. The minimum delay depends on the entire structure of configured streams and is currently not displayed to the user.
+</p>
+<h3 id="CrosspointsExample:AddingVentuztoSDI" data-line="471" >Crosspoints Example: Adding Ventuz to SDI</h3>
+<p data-line="473" >
+Let's assume we don't have a hardware keyer (internal or external) that supports audio mixing. In this case, we must use the software keyer. This example shows how to pass through a 5.1 audio signal (not Dolby) from SDI in to SDI out and add stereo sound effects from Ventuz.
+</p>
+<p data-line="475" >
+The AV config for such an situation looks like this:
+</p>
+<p data-line="477" >
+<img src="images/MachineConfigurationAV/audiomixer.png" style="max-width:850px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="479" >
+We have two groups: the first group (LoopThrough) loops the SDI audio input to the SDI audio output. The second one (SoundEffects) adds Ventuz audio in stereo to the SDI output. The volume of each group can be controlled with the <a class="wiki" href="NodeAudioControl.html">Volume Control Node</a>. For instance, one could duck the SDI loop-through before playing sound from Ventuz.
+</p>
+<p data-line="481" >
+A common mistake is trying to loop SDI output through Ventuz. This will not work. Imagine working with normal audio equipment. Ventuz audio output is like a synthesizer. To add a synthesizer to the mix, one does not loop the signal through the synthesizer, the synthesizer is just connected to the mixer.
+</p>
+<p data-line="483" >
+The SDI input is like a microphone input, and the Ventuz output is like the output of a synthesizer. 
+This is confusing. Instead of thinking in terms of inputs and outputs, think in terms of audio sources (left side of the cross-points window) and audio destinations (right side), from the perspective of a matrix mixer. So the Ventuz output is an input (source) to the mixer.
+</p>
+<h2 id="DeviceMapping" data-line="486" >Device Mapping</h2>
+<p data-line="488" >
+The previous areas of the AV Configuration defined audio and video, input and output streams. These streams as well other physical devices and logical devices (<em>Ventuz virtual audio device</em>) have to be mapped to the Nodes used inside a Ventuz scene.
+</p>
+<p data-line="490" >
+The AV Configuration defines the physical order of all configured audio and video streams as well crosspoint groups, where <em>Windows</em> defines the physical order by the system's hardware enumeration API's. 
+</p>
+<p data-line="492" >
+The <em>Mapping</em> maps this physical order to a logical order used by Ventuz nodes. A Ventuz node that accesses a stream or device uses a so called <em>Device Ordinal</em> - a zero-based index that is passed through the <em>Mapping</em> for being resolved to the physical index of available devices. By default a one-to-one mapping is configured, so a logical device ordinal 0 maps to the physical device index 0, 1 to 1, 2 to 2, ..., 900 to 900. The mapping list is endless: every index is mapped to another one. If the physical device list has no device at its index - no device is returned and the node won't receive any input or won't output its data.
+</p>
+<p data-line="494" >
+<div class="noteboxtip"><p>
+The endless mapping defines that even if for example no entry is visible at the 21<sup>st</sup> rows the 21<sup>st</sup> logical device ordinal will be mapped to the 21<sup>st</sup> physical device!
+</p>
+</div>
+</p>
+<p data-line="496" >
+<img src="images/MachineConfigurationAV/mapping.png" style="max-width:849px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="498" >
+<em>Logical Device Ordinals</em> can be mapped to the following device and stream types:
+</p>
+<blockquote>
+<table class="wiki" data-line="500" >
+<tr><th style="text-align: left" data-line="500" >Type                            </th><th style="text-align: left" data-line="500" >Description </th><th style="text-align: left" data-line="500" >Ventuz Nodes 
+</th></tr><tr><td data-line="501" > <strong>Video Input</strong>                </td><td data-line="501" > <a href="#VideoInputs">Video Input</a> streams </td><td data-line="501" > <a class="wiki" href="NodeTextureVideo.html">Live Video</a> 
+</td></tr><tr><td data-line="502" > <strong>Audio Record</strong>               </td><td data-line="502" > <a href="#VENTUZAUDIO">Ventuz Record</a> stereo pairs </td><td data-line="502" > <a class="wiki" href="NodeSoundAnalyzeAudio.html">FFT Analysis</a> 
+</td></tr><tr><td data-line="503" > <strong>Audio Playback</strong>             </td><td data-line="503" > <a href="#VENTUZAUDIO">Ventuz Playback</a> stereo pairs </td><td data-line="503" > <a class="wiki" href="NodeSoundPlayback.html">Sound and Audio</a>, <a class="wiki" href="NodeTextureVideo.html">Movie</a> 
+</td></tr><tr><td data-line="504" > <strong>Audio Crosspoints</strong>          </td><td data-line="504" > <a href="#CrossPoints">Audio Cross Point</a> groups </td><td data-line="504" > <a class="wiki" href="NodeAudioControl.html">Volume Control</a> 
+</td></tr><tr><td data-line="505" > <strong>MIDI Input</strong>                 </td><td data-line="505" > MIDI input devices    </td><td data-line="505" > <a class="wiki" href="NodeIOMIDI.html">MIDI Input</a> 
+</td></tr><tr><td data-line="506" > <strong>MIDI Output</strong>                </td><td data-line="506" > MIDI output devices   </td><td data-line="506" > <a class="wiki" href="NodeIOMIDI.html">MIDI Input</a> 
+</td></tr><tr><td data-line="507" > <strong>Serial COM</strong>                 </td><td data-line="507" > Serial COM interfaces </td><td data-line="507" > <a class="wiki" href="NodeIOSerial.html">Serial Text</a> 
+</td></tr><tr><td data-line="508" > <strong>Gamepads</strong>                   </td><td data-line="508" > Gamepads or Joysticks </td><td data-line="508" > <a class="wiki" href="NodeIOJoystick.html">Joystick</a> 
+</td></tr></table>
+</blockquote>
+<p data-line="511" >
+Depending on the number of configured output pipes (video output streams), the device mapping shows one or two colums of mapping entries - one for each pipe. As said, the default mapping maps all indices one-to-one - the editor only displays the same number of rows as physical devices exist for the selected device type.
+You can add more rows but as long as these rows do not change the default one-to-one mapping they won't be saved! If the configuration is loaded in the editor later these rows will be gone.
+</p>
+<p data-line="514" >
+<span class="underline">Example</span>
+</p>
+<p data-line="516" >
+To configure the two output pipes so that each of them has its own live video input as its first device (ordinal 0) use the following mapping. Please note that the second row (ordinal 1) contains a <em>NONE</em> entry for both pipes, because the endless mapping would map ordinal 1 to device 1 if no explicit entry exists for ordinal 1. In this case both pipes would resolve to device 1 (Deltacast HD key input In rx1) on ordinal 1.
+</p>
+<p data-line="518" >
+<img src="images/MachineConfigurationAV/mappingV.png" style="max-width:848px" class="usermanual-image" title="" alt="" />
+</p>
+<p data-line="520" >
+Multiple <em>Logical Device Ordinals</em> are allowed to map to the same <em>Physical Device</em>. Simple add a new row and select the physical device again.
+</p>
+<p data-line="522" >
+<em>Logical Device Ordinal</em> can also map to a <strong>NONE</strong> device. No device will be address and the node will operate without device (no physical input or output)
+</p>
+<p data-line="524" >
+The <em>Reset</em> button next to the device type selector resets all mapping entries. A list of all existent devices will be shown in the same order as they appear by the enumeration. A one-to-one mapping for all output pipes is the default mapping.
+</p>
+<p data-line="527" >
+<div class="usermanual-see-also">
+  See also:<ul class="usermanual-see-also">
+<li><a class="wiki" href="MachineConfiguration.html">Machine Configuration</a></li>
+<li><a class="wiki" href="MachineConfigurationVendors.html">Supported Hardware</a></li>
+<li><a class="wiki" href="NodeTextureVideo.html">Live Video Node</a></li>
+<li><a class="wiki" href="SupportedFormats.html#SDI">Supported SDI Video Formats</a></li>
+</ul></div>
+</p>
+
+            </div>
+            <div class="control"><div class="control-prev"><a href="MachineConfigurationMC_2.html?itm=273">&laquo; Previous Article</a></div><div><a href="Index.html">&raquo; Index &laquo;</a></div><div class="control-next"><a href="MachineConfigurationWeb.html?itm=275">Next Article &raquo;</a></div></div>
+            <div id="footer">
+    Copyright 2020 Ventuz Technology
+</div>
+        </div>
+    </body>
+</html>
