@@ -1,0 +1,2512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://corylulu.github.io/VDocs/index.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/QuickGuideIntro.html?itm=0</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/GettingStarted.html?itm=1</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/VentuzEditions.html?itm=2</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/OverallViewDesigner.html?itm=3</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SystemRequirements.html?itm=4</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfiguration.html?itm=5</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfigurationAV.html?itm=6</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfigurationMC.html?itm=7</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/GPIConfiguration.html?itm=8</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Performance.html?itm=9</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SupportedFormats.html?itm=10</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfigurationVendors.html?itm=11</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/AntiAliasing.html?itm=12</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/InputSubsystem.html?itm=13</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/VentuzFileTypes.html?itm=14</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/WhatsNew.html?itm=15</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/FAQ.html?itm=16</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/CommonMistakes.html?itm=17</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Deployment.html?itm=18</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MigrationGuide.html?itm=19</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MigrationGuideV4V5.html?itm=20</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SummaryShortcuts.html?itm=21</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/GettingStarted_2.html?itm=23</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/DesignerOptions.html?itm=24</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/OverallViewDesigner_2.html?itm=25</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ProjectsAndScenes.html?itm=26</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/WindowProjectBrowser.html?itm=27</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ProjectProperties.html?itm=28</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ProjectMaintenance.html?itm=29</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ProjectAndSceneData.html?itm=30</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SceneTree.html?itm=31</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SceneManagement.html?itm=32</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SceneStatistics.html?itm=33</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Deployment_2.html?itm=34</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/UserInterface.html?itm=35</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/RendererWindow.html?itm=36</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/RealtimeRendering.html?itm=37</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Performance_2.html?itm=38</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/PerformanceStatistics.html?itm=39</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TransformationGizmo.html?itm=40</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/RenderToDisk.html?itm=41</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/CameraNavigation.html?itm=42</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/IsolateMode.html?itm=43</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TransformationGizmo_2.html?itm=44</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayerEditor.html?itm=45</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayerCommonProperties.html?itm=46</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayersIPP.html?itm=47</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayersIPP_ColorCorrections.html?itm=48</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayersIPP_Distortion.html?itm=49</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayersIPP_Filters.html?itm=50</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ShortcutsLayerEditor.html?itm=51</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HierarchyEditor.html?itm=52</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodesAndBindings.html?itm=53</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ContainersAndInterfaces.html?itm=54</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/FindAndReplace.html?itm=55</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ShortcutsHierarchyEditor.html?itm=56</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ContentEditor.html?itm=57</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodesAndBindings_2.html?itm=58</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ContainersAndInterfaces_2.html?itm=59</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ShortcutsContentEditor.html?itm=60</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ToolboxAndRepository.html?itm=61</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/PropertiesEditor.html?itm=62</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ProjectAndSceneData_2.html?itm=63</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/PropertyGroups.html?itm=64</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ShaderEditor.html?itm=65</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TextEditor.html?itm=66</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SceneTree_2.html?itm=67</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MessageView.html?itm=68</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/StageEditor.html?itm=69</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ContainerOutline.html?itm=70</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/WatchesEditor.html?itm=71</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/AnimationEditor.html?itm=72</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/AnimationAndStateEngine.html?itm=73</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Templates.html?itm=74</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TemplateEngine.html?itm=75</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ShortcutsAnimationEditor.html?itm=76</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TextRendering.html?itm=77</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TextEditor_2.html?itm=78</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/CharacterSets.html?itm=79</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/GeometryImport.html?itm=80</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/InputSubsystem_2.html?itm=81</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MultiTouch.html?itm=82</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TUIO.html?itm=83</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/OpenSoundControl.html?itm=84</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToVR.html?itm=85</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Cluster.html?itm=86</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MultiDisplaySetupsAndShaping.html?itm=87</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/WarpingSoftEdgingMasking.html?itm=88</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Nodes.html?itm=89</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/AnimationNodes.html?itm=90</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MaterialNodes.html?itm=91</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/DataNodes.html?itm=92</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/GeometryNodes.html?itm=93</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/InteractionNodes.html?itm=94</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/IONodes.html?itm=95</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Layers.html?itm=96</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LightNodes.html?itm=97</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LogicNodes.html?itm=98</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/RenderNodes.html?itm=99</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SlidesNodes.html?itm=100</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SoundNodes.html?itm=101</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TextNodes.html?itm=102</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TextureNodes.html?itm=103</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/VrNodes.html?itm=104</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/WorldNodes.html?itm=105</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAnimationMover.html?itm=106</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAnimationMover_2.html?itm=107</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAnimationControls.html?itm=108</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAnimationControls_2.html?itm=109</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAnimationAnimationRig.html?itm=110</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAnimationKeyframeAnimation.html?itm=111</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAnimationKeyframeAnimation_2.html?itm=112</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorAlpha.html?itm=113</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorFog.html?itm=114</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorFog_2.html?itm=115</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorSkyBox.html?itm=116</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorConverters.html?itm=117</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorConverters_2.html?itm=118</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorConverters_3.html?itm=119</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorConverters_4.html?itm=120</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeShaderHLSLShader.html?itm=121</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorColor.html?itm=122</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorMaterial.html?itm=123</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorColorPicker.html?itm=124</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorSubstanceMaterial.html?itm=125</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeDataDatabase.html?itm=126</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeDataExcel.html?itm=127</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeDataJSON.html?itm=128</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeDataRSSFeed.html?itm=129</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeDataResourceLinker.html?itm=130</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeDataTextFile.html?itm=131</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeDataXML.html?itm=132</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryRectangles.html?itm=133</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryRectangles_2.html?itm=134</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryRectangles_3.html?itm=135</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryRectangles_4.html?itm=136</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryCube.html?itm=137</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryCircle.html?itm=138</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometrySphere.html?itm=139</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryCylinder.html?itm=140</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryCone.html?itm=141</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryTorus.html?itm=142</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryChart.html?itm=143</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryRandomPoints.html?itm=144</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryMeshLoader.html?itm=145</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryImport.html?itm=146</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryVolume.html?itm=147</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryGetBoundingBox.html?itm=148</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryArrow.html?itm=149</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryParticleSystem.html?itm=150</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryPath.html?itm=151</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryGeometryRenderer.html?itm=152</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionInteractionRect.html?itm=153</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchButton.html?itm=154</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchExcluder.html?itm=155</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchMarker.html?itm=156</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchPaint.html?itm=157</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchPattern.html?itm=158</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchProxy.html?itm=159</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchRipples.html?itm=160</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchTransformations.html?itm=161</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchWebBrowser.html?itm=162</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchTeleport.html?itm=163</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchSimulator.html?itm=164</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOGPI.html?itm=165</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOJoystick.html?itm=166</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOKeyboard.html?itm=167</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOMIDI.html?itm=168</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOMouse.html?itm=169</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIONetwork.html?itm=170</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOOSC.html?itm=171</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOSerial.html?itm=172</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOTimecode.html?itm=173</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIODMX.html?itm=174</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLayer3D.html?itm=175</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLayer3DReference.html?itm=176</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLayer2D.html?itm=177</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLayerPsdImport.html?itm=178</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLayerOther.html?itm=179</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLightSources.html?itm=180</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicArrayProcessing.html?itm=181</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicConvertToText.html?itm=182</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicCluster.html?itm=183</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicCounter.html?itm=184</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicDateTime.html?itm=185</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicDirectory.html?itm=186</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicDispatcher.html?itm=187</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicEnumeration.html?itm=188</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicExpressions.html?itm=189</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicInvert.html?itm=190</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicLog.html?itm=191</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicLoopBreaker.html?itm=192</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicMathEffects.html?itm=193</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicMatrixOperations.html?itm=194</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicSceneEvent.html?itm=195</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicScript.html?itm=196</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicStringOperations.html?itm=197</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicSystemID.html?itm=198</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicTextSplitter.html?itm=199</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicTimer.html?itm=200</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicToggle.html?itm=201</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicURL.html?itm=202</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicValueSwitch.html?itm=203</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicValueBuffer.html?itm=204</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicVariables.html?itm=205</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicVisualIndexer.html?itm=206</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsAlphaBlending.html?itm=207</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsAlphaBlending_2.html?itm=208</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsAlphaTesting.html?itm=209</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsClipPlane.html?itm=210</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsFilter.html?itm=211</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsMask.html?itm=212</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsMirror.html?itm=213</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsEffect.html?itm=214</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsRenderCubeMap.html?itm=215</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsDrawMode.html?itm=216</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsStencil.html?itm=217</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsZTesting.html?itm=218</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeSoundPlayback.html?itm=219</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeSoundPlayback_2.html?itm=220</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAudioControl.html?itm=221</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeSoundAnalyzeAudio.html?itm=222</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeSlidesSlideManager.html?itm=223</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeSlidesSlideManager_2.html?itm=224</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeSlidesSlideManager_3.html?itm=225</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeSlidesSlideManager_4.html?itm=226</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextEffects.html?itm=227</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextLayout.html?itm=228</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextRendering.html?itm=229</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureBackground.html?itm=230</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureHatch.html?itm=231</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureImage.html?itm=232</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureTexture.html?itm=233</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureSVGLoader.html?itm=234</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureGradientTexture.html?itm=235</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureVideo.html?itm=236</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureVideo_2.html?itm=237</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureVideo_3.html?itm=238</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureVideo_4.html?itm=239</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureImageLoaders.html?itm=240</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureSnapshot.html?itm=241</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureRenderSnapshot.html?itm=242</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureTextureSaver.html?itm=243</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureVideoSourceSelector.html?itm=244</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureVioInput.html?itm=245</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureSpout.html?itm=246</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureNDI.html?itm=247</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureSubstanceLoader.html?itm=248</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeVrTracked.html?itm=249</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeVrTracked_2.html?itm=250</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldAxis.html?itm=251</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldAxis_2.html?itm=252</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldAxis_3.html?itm=253</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldAxis_4.html?itm=254</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldArrange.html?itm=255</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldTicker.html?itm=256</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldTicker_2.html?itm=257</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldGroup.html?itm=258</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldZSort.html?itm=259</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldSwitch.html?itm=260</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldSwitch_2.html?itm=261</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldSpread.html?itm=262</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldRenderPass.html?itm=263</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldRenderPass_2.html?itm=264</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldContainer.html?itm=265</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldScenePort.html?itm=266</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldContainer_2.html?itm=267</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldTemplatePort.html?itm=268</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldScenePort_2.html?itm=269</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldCamera.html?itm=270</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldPath.html?itm=271</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfiguration_2.html?itm=272</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfigurationMC_2.html?itm=273</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfigurationAV_2.html?itm=274</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfigurationWeb.html?itm=275</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MultiDisplaySetupsAndShaping_2.html?itm=276</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/WarpingSoftEdgingMasking_2.html?itm=277</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfigurationVendors_2.html?itm=278</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToClusterRendering.html?itm=279</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/ApplicationSettings.html?itm=280</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Assets.html?itm=281</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Channels.html?itm=282</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/CommandLineOptions.html?itm=283</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/ContentReferences.html?itm=284</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/DesigningTemplates.html?itm=285</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Environment.html?itm=286</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Glossary.html?itm=287</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Index.html?itm=288</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Introduction.html?itm=289</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Pages.html?itm=290</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Playlist.html?itm=291</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/PlugIns.html?itm=292</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/ProjectData.html?itm=293</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/PropertyEditor.html?itm=294</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Shortcuts.html?itm=295</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/GPIConfiguration_2.html?itm=296</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/ShotBox.html?itm=297</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Show.html?itm=298</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/TakingAction.html?itm=299</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Timeline.html?itm=300</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Topology.html?itm=301</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/UserInterface.html?itm=302</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/DirectorMode.html?itm=303</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Macros.html?itm=304</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToGetVentuzRunning.html?itm=305</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/OverallViewDesigner_3.html?itm=306</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToDragAndDropTricks.html?itm=307</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToVR_2.html?itm=308</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToUseShadows.html?itm=309</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToUseEmoijs.html?itm=310</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToBuildATemplate.html?itm=311</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToUseNDI.html?itm=312</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToCreateAVisualsLoaderNode.html?itm=313</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToRemoteControlWithAniPhone.html?itm=314</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToClusterRendering_2.html?itm=315</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToMixedFrameRates.html?itm=316</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToUseTracking.html?itm=317</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowTo3DLayerReference.html?itm=318</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToCreateAFireworkParticleSystem.html?itm=319</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToDDS.html?itm=320</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToUseSpout.html?itm=321</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToUseSubstanceIntegration.html?itm=322</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SummaryShortcuts_2.html?itm=323</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ShortcutsLayerEditor_2.html?itm=324</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ShortcutsHierarchyEditor_2.html?itm=325</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ShortcutsContentEditor_2.html?itm=326</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ShortcutsAnimationEditor_2.html?itm=327</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Shortcuts_2.html?itm=328</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/CommandLineOptions.html?itm=329</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Remoting.html?itm=330</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Remoting4Protocol.html?itm=331</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/RemotingWebsocket.html?itm=332</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/RemotingDeprecated.html?itm=333</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/VentuzIpPorts.html?itm=334</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/VentuzMachineService.html?itm=335</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/RemotingMachineSignature.html?itm=336</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TUIO_2.html?itm=337</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicScript_2.html?itm=338</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeShaderHLSLShader_2.html?itm=339</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/DevelopmentSDK.html?itm=340</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/DevelopmentVIO.html?itm=341</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/DevelopmentVFF.html?itm=342</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/DevelopmentStreamOut.html?itm=343</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Terminology.html?itm=344</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Pages.html?itm=345</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Presets.html?itm=346</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/WhatsNew.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/RealtimeRendering.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/GettingStarted.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ProjectsAndScenes.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/UserInterface.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/RendererWindow.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayerEditor.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodesAndBindings.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Nodes.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorMaterial.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Deployment.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Index.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/CommonMistakes.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsRenderCubeMap.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsMirror.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/GeometryImport.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLayerPsdImport.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/AnimationAndStateEngine.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/AnimationEditor.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TextRendering.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorSkyBox.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayersIPP.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayerCommonProperties.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ContainersAndInterfaces.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ProjectAndSceneData.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Templates.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SceneManagement.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/InputSubsystem.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MultiTouch.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Remoting.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Cluster.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MultiDisplaySetupsAndShaping.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfiguration.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/FAQ.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Terminology.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SummaryShortcuts.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Pages.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SystemRequirements.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/OverallViewDesigner.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Introduction.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SupportedFormats.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfigurationVendors.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/VentuzEditions.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/VentuzFileTypes.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfigurationWeb.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToGetVentuzRunning.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfigurationAV.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/CommandLineOptions.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SceneStatistics.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/PropertiesEditor.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ContentEditor.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HierarchyEditor.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureVideo.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextLayout.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/VentuzIpPorts.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MachineConfigurationMC.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/WarpingSoftEdgingMasking.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/VentuzMachineService.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/SceneTree.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToUseTracking.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/WatchesEditor.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToClusterRendering.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureTexture.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextRendering.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToMixedFrameRates.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchWebBrowser.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeSoundAnalyzeAudio.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAudioControl.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeSoundPlayback.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOMIDI.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOSerial.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOJoystick.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchButton.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOMouse.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TemplateEngine.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/RemotingDeprecated.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicConvertToText.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/CharacterSets.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/PerformanceStatistics.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/AntiAliasing.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorColor.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldSpread.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldArrange.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldAxis.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldGroup.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLightSources.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsFilter.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayersIPP_Filters.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToUseShadows.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLayer3D.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureImageLoaders.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureSVGLoader.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeDataExcel.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeDataTextFile.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeDataJSON.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeDataXML.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryImport.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldPath.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryMeshLoader.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToUseNDI.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToVR.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Performance.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOKeyboard.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/TUIO.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchTransformations.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/OpenSoundControl.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ProjectProperties.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/DesignerOptions.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ToolboxAndRepository.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/RenderToDisk.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAnimationAnimationRig.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Show.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/ShotBox.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Pages.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Playlist.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Topology.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/ApplicationSettings.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/MigrationGuide.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureNDI.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureRenderSnapshot.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionInteractionRect.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/DevelopmentVIO.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/Director/Macros.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryGetBoundingBox.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureSubstanceLoader.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorSubstanceMaterial.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeVrTracked.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicScript.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryParticleSystem.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeTextureSpout.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToUseSpout.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToDDS.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsDrawMode.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayersIPP_ColorCorrections.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/LayersIPP_Distortion.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeWorldCamera.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeLogicMathEffects.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeShaderHLSLShader.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/HowTo/HowToCreateAFireworkParticleSystem.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryPath.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryArrow.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIODMX.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/ContainerOutline.html</loc>
+  <lastmod>2020-09-04T23:06:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryGeometryRenderer.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAnimationKeyframeAnimation.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeColorColorPicker.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeRenderoptionsAlphaBlending.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchPaint.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeGeometryRectangles.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchPattern.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeInteractionTouchMarker.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeAnimationMover.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://corylulu.github.io/VDocs/NodeIOOSC.html</loc>
+  <lastmod>2020-09-04T23:06:39+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
